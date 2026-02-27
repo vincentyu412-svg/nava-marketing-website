@@ -1,1 +1,1 @@
-// Blog generation script for Nava Marketing website
+// Blog generation script for Gym Grow website

@@ -1,3 +1,3 @@
-# Nava Marketing Website
+# Gym Grow Website
 
-Marketing website for **Nava Marketing** — we help gyms grow with expert marketing.
+Marketing website for **Gym Grow** — we help gyms grow with expert marketing.

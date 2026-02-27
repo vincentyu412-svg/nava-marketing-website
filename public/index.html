@@ -1,10 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nava Marketing | Gym Marketing Experts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Grow | Marketing for Gyms That Want to Grow</title>
+    <meta name="description" content="Gym Grow helps gyms attract more members, boost retention, and scale revenue with proven marketing strategies.">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
+
 <body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav__logo">Gym<span>Grow</span></a>
+        <button class="nav__hamburger" aria-label="Toggle menu" onclick="document.querySelector('.nav__links').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav__links">
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/case-studies.html">Case Studies</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/book.html" class="nav__cta">Book a Call</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <span class="hero__tag">Trusted by 50+ Gyms Nationwide</span>
+        <h1>Get More Members. Keep Them Longer. Grow Your Gym.</h1>
+        <p>Gym Grow is the marketing partner built exclusively for gyms. We bring the leads — you change the lives.</p>
+        <div class="hero__buttons">
+            <a href="/book.html" class="btn btn--primary">Book a Free Strategy Call</a>
+            <a href="/case-studies.html" class="btn btn--outline">See Our Results</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section section--gray" id="services">
+        <div class="section__header">
+            <h2>What We Do</h2>
+            <p>Full-stack marketing services designed to pack your gym floor.</p>
+        </div>
+        <div class="services__grid">
+            <div class="service-card">
+                <div class="service-card__icon">📣</div>
+                <h3>Paid Ads</h3>
+                <p>High-converting Facebook & Google ad campaigns that deliver qualified leads straight to your inbox.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__icon">🌐</div>
+                <h3>Website Design</h3>
+                <p>Fast, mobile-first websites built to turn visitors into trial sign-ups and paying members.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__icon">📈</div>
+                <h3>SEO & Content</h3>
+                <p>Local SEO and blog content that puts your gym at the top of search results in your area.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__icon">🤝</div>
+                <h3>Retention Systems</h3>
+                <p>Email & SMS automations that keep members engaged, reduce churn, and increase lifetime value.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__icon">📸</div>
+                <h3>Social Media</h3>
+                <p>Scroll-stopping content and management that builds community and drives organic growth.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__icon">📊</div>
+                <h3>Analytics & Reporting</h3>
+                <p>Transparent dashboards so you always know your cost per lead, ROI, and what's working.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section">
+        <div class="section__header">
+            <h2>Results That Speak</h2>
+        </div>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat__number">50+</div>
+                <div class="stat__label">Gyms Served</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number">12K+</div>
+                <div class="stat__label">Leads Generated</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number">3.2x</div>
+                <div class="stat__label">Avg. ROI</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number">94%</div>
+                <div class="stat__label">Client Retention</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section--gray">
+        <div class="section__header">
+            <h2>What Gym Owners Say</h2>
+        </div>
+        <div class="testimonials__grid">
+            <div class="testimonial-card">
+                <p class="testimonial-card__quote">"We went from 180 to 320 members in 6 months. Gym Grow's ad system is on another level."</p>
+                <p class="testimonial-card__author">Jake T.</p>
+                <p class="testimonial-card__role">Owner, IronWorks Fitness</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-card__quote">"They actually understand the gym industry. It's not generic marketing — it's built for us."</p>
+                <p class="testimonial-card__author">Sarah M.</p>
+                <p class="testimonial-card__role">Owner, FitHub Studio</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-card__quote">"Our churn dropped 40% after they set up our retention email flows. Best investment we've made."</p>
+                <p class="testimonial-card__author">Marcus D.</p>
+                <p class="testimonial-card__role">Owner, Peak Performance Gym</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <h2>Ready to Fill Your Gym?</h2>
+        <p>Book a free 30-minute strategy call and we'll map out a growth plan tailored to your gym.</p>
+        <a href="/book.html" class="btn btn--primary">Book My Free Call</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <h3>Gym<span>Grow</span></h3>
+                <p>The marketing agency built for gyms. More members, less guesswork.</p>
+            </div>
+            <div class="footer__links">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/case-studies.html">Case Studies</a></li>
+                    <li><a href="/process.html">Our Process</a></li>
+                    <li><a href="/careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/free-stuff.html">Free Stuff</a></li>
+                    <li><a href="/testimonials.html">Testimonials</a></li>
+                    <li><a href="/client-wins.html">Client Wins</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 Gym Grow. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
+
 </html>

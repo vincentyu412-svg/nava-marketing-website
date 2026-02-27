@@ -1,1 +1,1 @@
-// Build script for Nava Marketing website
+// Build script for Gym Grow website
