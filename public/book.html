@@ -5,9 +5,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book a Call | Gym Grow</title>
+    <meta name="description" content="Book a free 30-minute strategy call with Gym Grow. We'll map out a growth plan tailored to your gym.">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
 <body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav__logo">Gym<span>Grow</span></a>
+        <button class="nav__hamburger" aria-label="Toggle menu"
+            onclick="document.querySelector('.nav__links').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav__links">
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/case-studies.html">Case Studies</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/book.html" class="nav__cta">Book a Call</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1>Book a Free Strategy Call</h1>
+        <p>Let's talk about your gym, your goals, and how we can help you grow. No pressure, no obligations — just a real conversation.</p>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="section">
+        <div class="book-layout">
+            <div class="book-info">
+                <h2>What to Expect</h2>
+                <ul class="book-info__list">
+                    <li>
+                        <span class="book-info__icon">📞</span>
+                        <div>
+                            <strong>30-Minute Call</strong>
+                            <p>A focused conversation about your gym's current situation and growth goals.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="book-info__icon">📋</span>
+                        <div>
+                            <strong>Custom Growth Plan</strong>
+                            <p>We'll outline a marketing roadmap tailored specifically to your gym and market.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="book-info__icon">💰</span>
+                        <div>
+                            <strong>No Strings Attached</strong>
+                            <p>Whether you work with us or not, you'll walk away with actionable insights.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="book-form">
+                <h2>Get in Touch</h2>
+                <form class="form" action="#" method="POST">
+                    <div class="form__group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Smith" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="john@yourgym.com" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="gym">Gym Name</label>
+                        <input type="text" id="gym" name="gym" placeholder="IronWorks Fitness" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="members">Current Members</label>
+                        <select id="members" name="members">
+                            <option value="">Select range</option>
+                            <option value="0-100">0 – 100</option>
+                            <option value="100-300">100 – 300</option>
+                            <option value="300-500">300 – 500</option>
+                            <option value="500+">500+</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label for="message">Anything else?</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your biggest marketing challenge..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary" style="width: 100%;">Book My Free Call</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <h3>Gym<span>Grow</span></h3>
+                <p>The marketing agency built for gyms. More members, less guesswork.</p>
+            </div>
+            <div class="footer__links">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/case-studies.html">Case Studies</a></li>
+                    <li><a href="/process.html">Our Process</a></li>
+                    <li><a href="/careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/free-stuff.html">Free Stuff</a></li>
+                    <li><a href="/testimonials.html">Testimonials</a></li>
+                    <li><a href="/client-wins.html">Client Wins</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 Gym Grow. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>

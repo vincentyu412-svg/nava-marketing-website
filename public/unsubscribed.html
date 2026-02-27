@@ -5,9 +5,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unsubscribed | Gym Grow</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
 <body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav__logo">Gym<span>Grow</span></a>
+        <button class="nav__hamburger" aria-label="Toggle menu"
+            onclick="document.querySelector('.nav__links').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav__links">
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/case-studies.html">Case Studies</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/book.html" class="nav__cta">Book a Call</a></li>
+        </ul>
+    </nav>
+
+    <!-- Unsubscribed Content -->
+    <section class="error-page">
+        <h1>👋</h1>
+        <h2>You've Been Unsubscribed</h2>
+        <p>We're sorry to see you go. You won't receive any more emails from us.</p>
+        <p style="margin-top: 1rem; color: var(--color-text-light);">Changed your mind? You can always <a href="/book.html" style="color: var(--color-accent); font-weight: 600;">get in touch</a> or re-subscribe anytime.</p>
+        <div class="hero__buttons" style="margin-top: 2rem;">
+            <a href="/" class="btn btn--primary">Back to Home</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <h3>Gym<span>Grow</span></h3>
+                <p>The marketing agency built for gyms. More members, less guesswork.</p>
+            </div>
+            <div class="footer__links">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/case-studies.html">Case Studies</a></li>
+                    <li><a href="/process.html">Our Process</a></li>
+                    <li><a href="/careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/free-stuff.html">Free Stuff</a></li>
+                    <li><a href="/testimonials.html">Testimonials</a></li>
+                    <li><a href="/client-wins.html">Client Wins</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 Gym Grow. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
