@@ -183,6 +183,240 @@ img {
     color: var(--color-primary);
 }
 
+.btn--large {
+    padding: 1.1rem 2.8rem;
+    font-size: 1.15rem;
+}
+
+/* ── Hero Extras ── */
+.hero__micro {
+    font-size: 0.85rem;
+    opacity: 0.55;
+    margin-top: 1.5rem;
+}
+
+/* ── Pain Section ── */
+.pain__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pain-card {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid var(--color-accent);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pain-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pain-card__icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.pain-card h3 {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    font-style: italic;
+}
+
+.pain-card p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ── Bridge Section ── */
+.bridge__content {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bridge__content h2 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.bridge__lead {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+}
+
+.bridge__content p {
+    color: var(--color-text-light);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+
+.bridge__content strong {
+    color: var(--color-primary);
+    font-size: 1.15rem;
+}
+
+.bridge__content .btn {
+    margin-top: 1rem;
+}
+
+/* ── Transform Cards ── */
+.transform__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.transform-card {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.transform-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.transform-card__before {
+    display: inline-block;
+    background: #fde8ec;
+    color: #c0392b;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.3px;
+}
+
+.transform-card__icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.transform-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+}
+
+.transform-card p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.transform-card__after {
+    display: inline-block;
+    background: #e8f8f0;
+    color: #27ae60;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* ── Featured Testimonial ── */
+.testimonial-card--featured {
+    border: 2px solid var(--color-accent);
+    position: relative;
+}
+
+.testimonial-card--featured::before {
+    content: "Featured Story";
+    position: absolute;
+    top: -12px;
+    left: 2rem;
+    background: var(--color-accent);
+    color: var(--color-white);
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ── Who This Is For ── */
+.for__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.for__list h3 {
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-primary);
+}
+
+.for__list ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.for__list li {
+    padding-left: 1.75rem;
+    position: relative;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.for__list--yes li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+    font-weight: 700;
+}
+
+.for__list--no li::before {
+    content: "✗";
+    position: absolute;
+    left: 0;
+    color: #c0392b;
+    font-weight: 700;
+}
+
+/* ── Emotional CTA ── */
+.cta-banner--emotional .cta-banner__sub {
+    font-size: 0.95rem;
+    opacity: 0.75;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.cta-banner--emotional .cta-banner__micro {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-top: 1.25rem;
+}
+
 /* ── Section Shared ── */
 .section {
     padding: 5rem 5%;
@@ -429,6 +663,20 @@ img {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
+    }
+
+    .for__grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .pain__grid,
+    .transform__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bridge__lead {
+        font-size: 1.1rem;
     }
 }
 
