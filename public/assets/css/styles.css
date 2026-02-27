@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 *,
 *::before,
 *::after {
@@ -14,7 +16,7 @@
     --color-white: #ffffff;
     --color-text: #333333;
     --color-text-light: #666666;
-    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-main: 'Poppins', sans-serif;
 }
 
 html {
