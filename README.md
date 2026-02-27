@@ -1,3 +1,3 @@
-# nava-marketing-website
+# Nava Marketing Website
 
-Nava marketing website.
+Marketing website for **Nava Marketing** — we help gyms grow with expert marketing.
