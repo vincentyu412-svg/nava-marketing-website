@@ -7,7 +7,7 @@
     <title>Gym Grow | Marketing for Gyms That Want to Grow</title>
     <meta name="description"
         content="Gym Grow helps gyms attract more members, boost retention, and scale revenue with proven marketing strategies.">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=3">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=4">
 </head>
 
 <body>
@@ -209,49 +209,27 @@
             <a href="/book.html" class="btn btn--glow">Apply Now — Limited Spots →</a>
         </div>
     </section>
-    <section class="section section--dark pain-section">
-        <div class="section__header">
-            <h2>If This Sounds Like You, You're Not Alone.</h2>
-        </div>
-        <div class="pain__grid">
-            <div class="pain-card">
-                <div class="pain-card__icon">💸</div>
-                <h3>"I spent thousands on ads and got almost nothing back."</h3>
-                <p>You hired an agency that used the same playbook they use for dentists and restaurants. Three months
-                    later, you're out thousands with nothing to show but a prettier Instagram grid.</p>
-            </div>
-            <div class="pain-card">
-                <div class="pain-card__icon">😔</div>
-                <h3>"I'm doing everything right but the gym is still half empty."</h3>
-                <p>The posts, the flyers, the referral discounts — you're putting in 14-hour days and still watching
-                    members cancel through an app notification at midnight. It's not your gym. Nobody knows it exists
-                    yet.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- How It Works -->
-    <section class="section" id="how-it-works">
-        <div class="section__header">
-            <h2>How It Works</h2>
-            <p>Simple. No guesswork. No long contracts.</p>
-        </div>
-        <div class="how-it-works">
-            <div class="how-it-works__step">
-                <span class="how-it-works__number">1</span>
+    <section class="hiw" id="how-it-works">
+        <canvas id="hiw-canvas" class="hiw__canvas"></canvas>
+        <h2 class="hiw__heading">How It Works</h2>
+        <p class="hiw__sub">Simple. No guesswork. No long contracts.</p>
+        <div class="hiw__track">
+            <div class="hiw__line"></div>
+            <div class="hiw__step">
+                <span class="hiw__num">1</span>
                 <h3>Apply & Get Accepted</h3>
-                <p>Book a short call. We'll see if your gym is a good fit and if we can actually help you grow.</p>
+                <p>Book a short call. We'll see if your gym is a fit.</p>
             </div>
-            <div class="how-it-works__step">
-                <span class="how-it-works__number">2</span>
+            <div class="hiw__step">
+                <span class="hiw__num">2</span>
                 <h3>We Build & Launch</h3>
-                <p>We set up your ads, landing pages, and follow-up sequences. You'll have leads coming in within days.
-                </p>
+                <p>Ads, landing pages, follow-up — live in days.</p>
             </div>
-            <div class="how-it-works__step">
-                <span class="how-it-works__number">3</span>
+            <div class="hiw__step">
+                <span class="hiw__num">3</span>
                 <h3>You Sign New Members</h3>
-                <p>People show up, tour your gym, and sign up. We handle the marketing — you do what you do best.</p>
+                <p>People show up, tour your gym, and sign up.</p>
             </div>
         </div>
     </section>
@@ -542,6 +520,66 @@
                 }
             });
         });
+
+        // HIW sequential pulse 1→2→3 loop
+        (function () {
+            var steps = document.querySelectorAll('.hiw__step');
+            if (!steps.length) return;
+            var current = 0;
+            function pulse() {
+                steps.forEach(function (s) { s.classList.remove('hiw__step--active'); });
+                steps[current].classList.add('hiw__step--active');
+                current = (current + 1) % steps.length;
+            }
+            pulse();
+            setInterval(pulse, 1200);
+        })();
+
+        // Subtle floating dots for How It Works section
+        (function () {
+            var c = document.getElementById('hiw-canvas');
+            if (!c) return;
+            var ctx = c.getContext('2d');
+            var sec = c.parentElement;
+            var dots = [];
+            var N = 40;
+
+            function sz() { c.width = sec.offsetWidth; c.height = sec.offsetHeight; }
+            sz(); window.addEventListener('resize', sz);
+
+            for (var i = 0; i < N; i++) {
+                dots.push({
+                    x: Math.random() * 2000,
+                    y: Math.random() * 800,
+                    r: Math.random() * 1.8 + 0.5,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.2,
+                    o: Math.random() * 0.3 + 0.08,
+                    phase: Math.random() * Math.PI * 2
+                });
+            }
+
+            (function loop(t) {
+                ctx.clearRect(0, 0, c.width, c.height);
+                for (var i = 0; i < dots.length; i++) {
+                    var d = dots[i];
+                    d.x += d.vx; d.y += d.vy;
+                    if (d.x < -5) d.x = c.width + 5;
+                    if (d.x > c.width + 5) d.x = -5;
+                    if (d.y < -5) d.y = c.height + 5;
+                    if (d.y > c.height + 5) d.y = -5;
+                    var pulse = 0.7 + 0.3 * Math.sin(t * 0.002 + d.phase);
+                    ctx.beginPath();
+                    ctx.arc(d.x, d.y, d.r * pulse, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(233,69,96,' + (d.o * pulse) + ')';
+                    ctx.shadowBlur = d.r * 4;
+                    ctx.shadowColor = 'rgba(233,69,96,0.3)';
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+                requestAnimationFrame(loop);
+            })(0);
+        })();
     </script>
 </body>
 

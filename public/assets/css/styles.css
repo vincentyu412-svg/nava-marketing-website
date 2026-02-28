@@ -1009,21 +1009,71 @@ img {
     margin-bottom: 1.5rem;
 }
 
-/* ── How It Works ── */
-.how-it-works {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* ── How It Works (compact dark) ── */
+.hiw {
+    position: relative;
+    background: #0d0d1a;
+    padding: 3.5rem 5% 3rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hiw__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hiw__heading {
+    position: relative;
+    z-index: 1;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 0.3rem;
+}
+
+.hiw__sub {
+    position: relative;
+    z-index: 1;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+}
+
+.hiw__track {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
     gap: 2rem;
     max-width: 900px;
     margin: 0 auto;
 }
 
-.how-it-works__step {
-    text-align: center;
-    padding: 2rem 1.5rem;
+.hiw__line {
+    display: none;
 }
 
-.how-it-works__number {
+/* connecting line (desktop) */
+@media (min-width: 701px) {
+    .hiw__line {
+        display: block;
+        position: absolute;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+        opacity: 0.3;
+        z-index: 0;
+    }
+}
+
+.hiw__num {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1031,54 +1081,93 @@ img {
     height: 48px;
     border-radius: 50%;
     background: var(--color-accent);
-    color: var(--color-white);
+    color: #fff;
     font-size: 1.2rem;
     font-weight: 800;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 14px rgba(233,69,96,0.3);
+    transition: transform 0.4s, box-shadow 0.4s;
+    position: relative;
 }
 
-.how-it-works__step h3 {
-    font-size: 1.1rem;
-    color: var(--color-primary);
-    margin-bottom: 0.6rem;
+.hiw__num::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    opacity: 0;
 }
 
-.how-it-works__step p {
-    font-size: 0.9rem;
-    color: var(--color-text-light);
-    line-height: 1.6;
+.hiw__step {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    padding: 0 0.5rem;
+    opacity: 0.45;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hiw__step--active {
+    opacity: 1;
+}
+
+.hiw__step--active .hiw__num {
+    transform: scale(1.15);
+    box-shadow: 0 0 24px rgba(233,69,96,0.7), 0 0 48px rgba(233,69,96,0.3);
+}
+
+.hiw__step--active .hiw__num::after {
+    animation: ringPulse 1.5s ease-out infinite;
+}
+
+@keyframes ringPulse {
+    0%   { opacity: 0.6; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.7); }
+}
+
+.hiw__step h3 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.35rem;
+    transition: color 0.4s;
+}
+
+.hiw__step--active h3 {
+    color: var(--color-accent);
+}
+
+.hiw__step p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
 }
 
 @media (max-width: 700px) {
-    .how-it-works {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .hiw { padding: 2.5rem 5% 2rem; }
+    .hiw__heading { font-size: 1.5rem; }
+    .hiw__track {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
     }
-
-    .how-it-works__step {
+    .hiw__step {
         display: flex;
         align-items: flex-start;
         text-align: left;
         gap: 1rem;
-        padding: 1.25rem 0;
+        max-width: 360px;
+        width: 100%;
     }
-
-    .how-it-works__number {
+    .hiw__num {
         flex-shrink: 0;
         width: 40px;
         height: 40px;
         font-size: 1rem;
         margin-bottom: 0;
     }
-
-    .how-it-works__step h3 {
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
-    }
-
-    .how-it-works__step p {
-        font-size: 0.85rem;
-    }
+    .hiw__step h3 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .hiw__step p { font-size: 0.82rem; }
 }
 
 @media (max-width: 600px) {
