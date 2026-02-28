@@ -21,10 +21,8 @@
             <span></span>
         </button>
         <ul class="nav__links">
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/case-studies.html">Case Studies</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="/book.html" class="nav__cta">Book a Call</a></li>
+            <li><a href="/#services">What We Do</a></li>
+            <li><a href="/book.html" class="nav__cta">Apply Now</a></li>
         </ul>
     </nav>
 
@@ -68,17 +66,18 @@
         <div class="hero__content">
             <span class="hero__tag">Trusted by Gyms Across North America</span>
             <h1>Grow Your <span class="hero__highlight">Gym.</span></h1>
-            <p>Get leads. Get people in the door. Sign them up. We have the processes to help you do all 3.</p>
-            <p class="hero__subtext">Try us out for free — that's how confident we are.</p>
+            <p>We fill gyms. Ads, follow-up, sign-ups — done for you. We only work with a handful of gyms at a time.</p>
+            <p class="hero__subtext">Not everyone qualifies. Apply to see if your gym is a fit.</p>
             <div class="hero__buttons">
-                <a href="/book.html" class="btn btn--primary btn--large">Claim My Free 14 Days</a>
+                <a href="/book.html" class="btn btn--primary btn--large">See If You Qualify →</a>
             </div>
-            <p class="hero__micro">*2 spots left this month.</p>
+            <p class="hero__micro">*We accept 3 new gyms per month.</p>
         </div>
     </section>
 
     <!-- Logo Scroller -->
     <section class="logo-scroller">
+        <canvas id="logo-constellation-canvas" class="logo-scroller__canvas"></canvas>
         <p class="logo-scroller__title">TRUSTED BY THE BEST</p>
         <div class="logo-scroller__track">
             <div class="logo-scroller__slide">
@@ -113,256 +112,201 @@
 
     <!-- Results / Testimonials -->
     <section class="results-section">
-        <h2 class="results-section__heading">What Our Clients Say</h2>
+        <canvas id="particles-canvas" class="results-section__canvas"></canvas>
+        <h2 class="results-section__heading">Results</h2>
         <div class="results-section__videos">
             <div class="results-video">
+                <span class="results-video__result">6 PT clients + 5 members in 1 week. 81 → 132 members.</span>
                 <div class="results-video__embed">
-                    <!-- Replace src with your YouTube/Vimeo embed URL -->
-                    <iframe src="" title="Client testimonial" frameborder="0" allowfullscreen></iframe>
+                    <video src="/assets/images/vid1.mp4" autoplay playsinline muted loop></video>
+                    <button class="results-video__sound" aria-label="Toggle sound"><svg viewBox="0 0 24 24">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7z" />
+                            <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" />
+                            <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" />
+                        </svg></button>
                 </div>
-                <span class="results-video__name">Client Name — Gym Name</span>
+                <span class="results-video__name">Josh — CrossFit Prior Lake</span>
             </div>
             <div class="results-video">
+                <span class="results-video__result">Collected $1.1K+ in his first week of launch.</span>
                 <div class="results-video__embed">
-                    <iframe src="" title="Client testimonial" frameborder="0" allowfullscreen></iframe>
+                    <video src="/assets/images/vid2.mp4" autoplay playsinline muted loop></video>
+                    <button class="results-video__sound" aria-label="Toggle sound"><svg viewBox="0 0 24 24">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7z" />
+                            <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" />
+                            <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" />
+                        </svg></button>
                 </div>
-                <span class="results-video__name">Client Name — Gym Name</span>
+                <span class="results-video__name">Carlos — Hiitcore Fitness</span>
             </div>
             <div class="results-video">
+                <span class="results-video__result">$4.2K in new memberships in his first 40 days.</span>
                 <div class="results-video__embed">
-                    <iframe src="" title="Client testimonial" frameborder="0" allowfullscreen></iframe>
+                    <video src="/assets/images/vid3.mp4" autoplay playsinline muted loop></video>
+                    <button class="results-video__sound" aria-label="Toggle sound"><svg viewBox="0 0 24 24">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7z" />
+                            <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" />
+                            <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" />
+                        </svg></button>
                 </div>
-                <span class="results-video__name">Client Name — Gym Name</span>
+                <span class="results-video__name">Jose — MuvTheGym</span>
+            </div>
+            <div class="results-video">
+                <span class="results-video__result">5 new memberships + 20 appointments in 10 days.</span>
+                <div class="results-video__embed">
+                    <video src="/assets/images/vid4.MP4" autoplay playsinline muted loop></video>
+                    <button class="results-video__sound" aria-label="Toggle sound"><svg viewBox="0 0 24 24">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7z" />
+                            <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" />
+                            <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" />
+                        </svg></button>
+                </div>
+                <span class="results-video__name">Jeremy — Ion S&C</span>
             </div>
         </div>
         <div class="results-section__cards">
             <div class="results-card">
-                <p class="results-card__quote">"Your testimonial here."</p>
+                <p class="results-card__quote">"I was referred to Vincent he actually filled my CrossFit gym. One of the
+                    great things I like about Vincent is that he listens to your feedback and makes adjustments. I would
+                    recommend working with him."</p>
                 <div class="results-card__author">
-                    <span class="results-card__name">Client Name</span>
-                    <span class="results-card__gym">Gym Name</span>
+                    <img src="/assets/images/Eric.png" alt="Erik Peacock" class="results-card__photo" loading="lazy">
+                    <div class="results-card__meta">
+                        <span class="results-card__name">Erik P.</span>
+                        <span class="results-card__gym">Puravida Fitness</span>
+                    </div>
                 </div>
             </div>
             <div class="results-card">
-                <p class="results-card__quote">"Your testimonial here."</p>
+                <p class="results-card__quote">"Vincent's lead nurturing system changed our business. We went from
+                    struggling to fill classes to having new members walk in every week. He actually understands what
+                    gyms need and delivers on it."</p>
                 <div class="results-card__author">
-                    <span class="results-card__name">Client Name</span>
-                    <span class="results-card__gym">Gym Name</span>
+                    <img src="/assets/images/Constantin.png" alt="Constantin" class="results-card__photo"
+                        loading="lazy">
+                    <div class="results-card__meta">
+                        <span class="results-card__name">Constantin M.</span>
+                        <span class="results-card__gym">The Martial Club</span>
+                    </div>
                 </div>
             </div>
             <div class="results-card">
-                <p class="results-card__quote">"Your testimonial here."</p>
+                <p class="results-card__quote">"We went from 61 to 72 members in 1 month. It's been great just to have
+                    the constant flow of consultations coming in and actually signing new members. Would recommend
+                    working with Vincent."
+                </p>
                 <div class="results-card__author">
-                    <span class="results-card__name">Client Name</span>
-                    <span class="results-card__gym">Gym Name</span>
+                    <img src="/assets/images/Will.png" alt="Will Berkowitz" class="results-card__photo" loading="lazy">
+                    <div class="results-card__meta">
+                        <span class="results-card__name">Will B.</span>
+                        <span class="results-card__gym">CrossFit Shelby</span>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="results-section__cta">
+            <a href="/book.html" class="btn btn--glow">Apply Now — Limited Spots →</a>
+        </div>
     </section>
-
-    <!-- Pain Section -->
     <section class="section section--dark pain-section">
         <div class="section__header">
             <h2>If This Sounds Like You, You're Not Alone.</h2>
-            <p>Every gym owner we work with came to us feeling one of these things.</p>
         </div>
         <div class="pain__grid">
             <div class="pain-card">
-                <div class="pain-card__icon">😔</div>
-                <h3>"I'm doing everything right, but the floor is still half empty at 6 PM."</h3>
-                <p>You've tried the Instagram posts. The flyers. The buddy referral discounts. You're putting in 14-hour
-                    days and still watching members quietly cancel through an app notification at midnight. It's not
-                    your
-                    gym — it's that nobody knows it exists yet.</p>
-            </div>
-            <div class="pain-card">
                 <div class="pain-card__icon">💸</div>
-                <h3>"I spent $3,000 on ads last month and got 2 sign-ups."</h3>
-                <p>You hired a marketing agency that promised the world. They used the same cookie-cutter playbook they
-                    use for dentists and restaurants. Three months later, you're out thousands of dollars with nothing
-                    to
-                    show but a prettier Instagram grid and a sick feeling in your stomach.</p>
+                <h3>"I spent thousands on ads and got almost nothing back."</h3>
+                <p>You hired an agency that used the same playbook they use for dentists and restaurants. Three months
+                    later, you're out thousands with nothing to show but a prettier Instagram grid.</p>
             </div>
             <div class="pain-card">
-                <div class="pain-card__icon">😰</div>
-                <h3>"I lie awake at 2 AM doing the math on whether I can make rent this month."</h3>
-                <p>Your equipment lease is due. Your trainers need to be paid. And that new gym down the street just
-                    launched a $9.99/month promo. You didn't get into this to be a spreadsheet warrior — but here you
-                    are, running out of runway and running out of ideas.</p>
-            </div>
-            <div class="pain-card">
-                <div class="pain-card__icon">😤</div>
-                <h3>"Members keep leaving and I don't even know why."</h3>
-                <p>You put your soul into programming. You remember their names. You high-five them at the door. Then
-                    one
-                    day they just stop showing up. No goodbye, no feedback — just a cancellation email. And it stings
-                    every single time because this isn't just a business to you. It's personal.</p>
+                <div class="pain-card__icon">😔</div>
+                <h3>"I'm doing everything right but the gym is still half empty."</h3>
+                <p>The posts, the flyers, the referral discounts — you're putting in 14-hour days and still watching
+                    members cancel through an app notification at midnight. It's not your gym. Nobody knows it exists
+                    yet.</p>
             </div>
         </div>
     </section>
 
-    <!-- Bridge Section -->
-    <section class="section section--gray bridge-section">
-        <div class="bridge__content">
-            <h2>Here's the Truth No One Tells You:</h2>
-            <p class="bridge__lead">Your gym doesn't have a quality problem. It has a visibility problem.</p>
-            <p>The best gym in your city could be yours — with the best coaches, the cleanest facility, the most
-                life-changing programs — and it won't matter if the people who need you most don't know you're there.
-            </p>
-            <p>Meanwhile, the mediocre gym two miles away is packed because they have a marketing system that works
-                while they sleep.</p>
-            <p><strong>That's not fair. But it's fixable.</strong></p>
-            <p>We built Gym Grow for one reason: because gym owners like you deserve a marketing partner who actually
-                understands what it feels like to pour your heart into something and wonder if anyone notices.</p>
-            <a href="/book.html" class="btn btn--primary">Let's Fix This Together</a>
-        </div>
-    </section>
-
-    <!-- What Changes Section -->
-    <section class="section" id="services">
+    <!-- How It Works -->
+    <section class="section" id="how-it-works">
         <div class="section__header">
-            <h2>Here's What Changes When You Work with Us</h2>
-            <p>We don't just run ads. We build the entire system that turns strangers into members who stay for years.
-            </p>
+            <h2>How It Works</h2>
+            <p>Simple. No guesswork. No long contracts.</p>
         </div>
-        <div class="transform__grid">
-            <div class="transform-card">
-                <div class="transform-card__before">Before: Empty 6 PM classes</div>
-                <div class="transform-card__icon">📣</div>
-                <h3>Leads That Actually Show Up</h3>
-                <p>We run hyper-targeted Facebook & Google ads that don't just get clicks — they get real people in your
-                    area who are actively looking for a gym like yours. No tire-kickers. No coupon-chasers. Real humans
-                    who are ready to commit.</p>
-                <div class="transform-card__after">After: Waitlists for your peak classes</div>
+        <div class="how-it-works">
+            <div class="how-it-works__step">
+                <span class="how-it-works__number">1</span>
+                <h3>Apply & Get Accepted</h3>
+                <p>Book a short call. We'll see if your gym is a good fit and if we can actually help you grow.</p>
             </div>
-            <div class="transform-card">
-                <div class="transform-card__before">Before: "Nice website" but zero conversions</div>
-                <div class="transform-card__icon">🌐</div>
-                <h3>A Website That Works as Hard as You Do</h3>
-                <p>Your current site probably looks fine. But looking fine and converting visitors into trial bookings
-                    are two completely different things. We build fast, mobile-first pages designed around one job:
-                    getting that first visit booked.</p>
-                <div class="transform-card__after">After: 3-5 new trial bookings per week from your site alone</div>
-            </div>
-            <div class="transform-card">
-                <div class="transform-card__before">Before: "Why did they cancel?"</div>
-                <div class="transform-card__icon">🤝</div>
-                <h3>Members Who Stay (and Bring Friends)</h3>
-                <p>Most gyms lose members silently. We build automated email and SMS sequences that check in on
-                    at-risk members before they ghost, celebrate their milestones, and make them feel like they belong
-                    to
-                    something bigger than a gym — a community they can't imagine leaving.</p>
-                <div class="transform-card__after">After: 40% drop in cancellations within 90 days</div>
-            </div>
-            <div class="transform-card">
-                <div class="transform-card__before">Before: Posting into the void</div>
-                <div class="transform-card__icon">📈</div>
-                <h3>Organic Growth That Compounds</h3>
-                <p>SEO, content marketing, and social media strategy that doesn't just look good — it puts your gym at
-                    the top of Google when someone searches "best gym near me." Month after month, the leads get cheaper
-                    and the momentum builds.</p>
-                <div class="transform-card__after">After: #1 local ranking and a feed that builds itself</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="section section--gray">
-        <div class="section__header">
-            <h2>The Numbers Behind the Transformations</h2>
-            <p>These aren't vanity metrics. These are gym owners who can now pay themselves a salary again.</p>
-        </div>
-        <div class="stats">
-            <div class="stat">
-                <div class="stat__number">50+</div>
-                <div class="stat__label">Gym Owners We've Helped</div>
-            </div>
-            <div class="stat">
-                <div class="stat__number">12K+</div>
-                <div class="stat__label">Real Leads Generated</div>
-            </div>
-            <div class="stat">
-                <div class="stat__number">3.2x</div>
-                <div class="stat__label">Average Return on Investment</div>
-            </div>
-            <div class="stat">
-                <div class="stat__number">94%</div>
-                <div class="stat__label">Clients Who Stay Year After Year</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Emotional Testimonials -->
-    <section class="section">
-        <div class="section__header">
-            <h2>They Were Where You Are. Then Everything Changed.</h2>
-        </div>
-        <div class="testimonials__grid">
-            <div class="testimonial-card testimonial-card--featured">
-                <p class="testimonial-card__quote">"I was three months away from closing. My wife and I had the
-                    conversation — the one where you talk about 'what's next' because this dream isn't working. Gym Grow
-                    stepped in and within 60 days we had a full 6 PM class for the first time ever. I cried in my
-                    office that night. I'm not ashamed to say it."</p>
-                <p class="testimonial-card__author">Jake T.</p>
-                <p class="testimonial-card__role">Owner, IronWorks Fitness — went from 180 to 320 members in 6 months
+            <div class="how-it-works__step">
+                <span class="how-it-works__number">2</span>
+                <h3>We Build & Launch</h3>
+                <p>We set up your ads, landing pages, and follow-up sequences. You'll have leads coming in within days.
                 </p>
             </div>
-            <div class="testimonial-card">
-                <p class="testimonial-card__quote">"I'd been burned by two agencies before Gym Grow. I almost didn't
-                    take the call. But they were the first people who asked me what my gym was actually about — not just
-                    how many leads I wanted. They got it. They got <em>me</em>. And the results followed."</p>
-                <p class="testimonial-card__author">Sarah M.</p>
-                <p class="testimonial-card__role">Owner, FitHub Studio</p>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-card__quote">"Every month I'd watch 15-20 members just disappear. I took it
-                    personally every time. After Gym Grow set up our retention system, cancellations dropped 40% in the
-                    first quarter. But more than that — members started saying they felt like family. That's what I
-                    always
-                    wanted this place to be."</p>
-                <p class="testimonial-card__author">Marcus D.</p>
-                <p class="testimonial-card__role">Owner, Peak Performance Gym</p>
+            <div class="how-it-works__step">
+                <span class="how-it-works__number">3</span>
+                <h3>You Sign New Members</h3>
+                <p>People show up, tour your gym, and sign up. We handle the marketing — you do what you do best.</p>
             </div>
         </div>
     </section>
 
-    <!-- Who This Is For -->
-    <section class="section section--gray for-section">
+    <!-- What We Do -->
+    <section class="section section--gray" id="services">
         <div class="section__header">
-            <h2>This Is For You If...</h2>
+            <h2>What You Get When You're Accepted</h2>
+            <p>Everything your gym needs to grow — done for you.</p>
         </div>
-        <div class="for__grid">
-            <div class="for__list for__list--yes">
-                <h3>You're the right fit if:</h3>
-                <ul>
-                    <li>You genuinely care about your members' lives, not just their payments</li>
-                    <li>You're tired of guessing what works and ready for a proven system</li>
-                    <li>You've been burned before and you need a partner who actually delivers</li>
-                    <li>You want to stop trading time for leads and start building a machine</li>
-                    <li>You're ready to invest in growth — not just hope for it</li>
-                </ul>
+        <div class="value-stack">
+            <div class="value-stack__item">
+                <span class="value-stack__icon">📣</span>
+                <div>
+                    <h3>Lead Generation Ads</h3>
+                    <p>Hyper-targeted Facebook & Google ads that bring real people in your area who are actively looking
+                        for a gym — not tire-kickers.</p>
+                </div>
             </div>
-            <div class="for__list for__list--no">
-                <h3>We're probably not the fit if:</h3>
-                <ul>
-                    <li>You're looking for the cheapest option (we're not that — and cheap doesn't work)</li>
-                    <li>You just want "more followers" with no strategy behind it</li>
-                    <li>You're not willing to try new approaches or trust the process</li>
-                    <li>You see members as dollar signs, not people</li>
-                </ul>
+            <div class="value-stack__item">
+                <span class="value-stack__icon">🌐</span>
+                <div>
+                    <h3>High-Converting Website</h3>
+                    <p>A fast, mobile-first site built to do one job: turn visitors into trial bookings. Not just "look
+                        nice."</p>
+                </div>
             </div>
+            <div class="value-stack__item">
+                <span class="value-stack__icon">🤝</span>
+                <div>
+                    <h3>Lead Nurturing & Follow-Up</h3>
+                    <p>Automated email and SMS sequences that follow up with every lead, book appointments, and get them
+                        through the door.</p>
+                </div>
+            </div>
+            <div class="value-stack__item">
+                <span class="value-stack__icon">📈</span>
+                <div>
+                    <h3>Monthly Reporting</h3>
+                    <p>Clear numbers every month. How many leads, how many booked, how many signed up. No vanity
+                        metrics.</p>
+                </div>
+            </div>
+        </div>
+        <div class="value-stack__cta">
+            <p class="value-stack__trial">We only take on a few gyms per month to ensure quality results.</p>
+            <a href="/book.html" class="btn btn--glow">See If You Qualify →</a>
         </div>
     </section>
 
     <!-- Final CTA -->
     <section class="cta-banner cta-banner--emotional">
-        <h2>You've Read This Far Because Something Needs to Change.</h2>
-        <p>You didn't open your gym to struggle. You opened it to change lives — starting with your own. Let's build
-            something that fills your floor, pays your bills, and lets you get back to doing what you love.</p>
-        <p class="cta-banner__sub">Book a free 30-minute strategy call. No pitch deck. No pressure. Just an honest
-            conversation about where your gym is and where it could be.</p>
-        <a href="/book.html" class="btn btn--primary btn--large">Book My Free Strategy Call</a>
-        <p class="cta-banner__micro">Over 50 gym owners have taken this call. Zero regretted it.</p>
+        <h2>Your Gym Deserves to Be Full.</h2>
+        <p>We only work with gym owners who are serious about growing. If that's you, let's talk.</p>
+        <a href="/book.html" class="btn btn--primary btn--large">Apply Now →</a>
+        <p class="cta-banner__micro">Limited spots available. No commitment to apply.</p>
     </section>
 
     <!-- Footer -->
@@ -370,24 +314,13 @@
         <div class="footer__inner">
             <div class="footer__brand">
                 <h3>Gym<span>Grow</span></h3>
-                <p>The marketing agency built for gyms. More members, less guesswork.</p>
+                <p>Marketing for gyms that want to grow. More members, less guesswork.</p>
             </div>
             <div class="footer__links">
                 <h4>Pages</h4>
                 <ul>
-                    <li><a href="/about.html">About</a></li>
-                    <li><a href="/case-studies.html">Case Studies</a></li>
-                    <li><a href="/process.html">Our Process</a></li>
-                    <li><a href="/careers.html">Careers</a></li>
-                </ul>
-            </div>
-            <div class="footer__links">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="/blog/">Blog</a></li>
-                    <li><a href="/free-stuff.html">Free Stuff</a></li>
-                    <li><a href="/testimonials.html">Testimonials</a></li>
-                    <li><a href="/client-wins.html">Client Wins</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/book.html">Apply Now</a></li>
                 </ul>
             </div>
             <div class="footer__links">
@@ -402,6 +335,213 @@
             <p>&copy; 2026 Gym Grow. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Constellation canvas for logo scroller
+        (function () {
+            var c = document.getElementById('logo-constellation-canvas');
+            if (!c) return;
+            var cx = c.getContext('2d');
+            var sec = c.parentElement;
+            var dots = [];
+            var N = 80;
+            var LINE_DIST = 130;
+
+            function sz() { c.width = sec.offsetWidth; c.height = sec.offsetHeight; }
+            sz(); window.addEventListener('resize', sz);
+
+            function Dot() { this.init(); }
+            Dot.prototype.init = function () {
+                this.x = Math.random() * c.width;
+                this.y = Math.random() * c.height;
+                this.r = Math.random() * 2 + 0.8;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.25;
+                this.o = Math.random() * 0.5 + 0.15;
+                var r = Math.random();
+                if (r < 0.5) this.color = '233,69,96';
+                else if (r < 0.75) this.color = '255,120,140';
+                else this.color = '160,100,220';
+                this.phase = Math.random() * Math.PI * 2;
+            };
+            Dot.prototype.update = function (t) {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < -5) this.x = c.width + 5;
+                if (this.x > c.width + 5) this.x = -5;
+                if (this.y < -5) this.y = c.height + 5;
+                if (this.y > c.height + 5) this.y = -5;
+                this.pulse = 0.7 + 0.3 * Math.sin(t * 0.0015 + this.phase);
+            };
+            Dot.prototype.draw = function () {
+                cx.beginPath();
+                cx.arc(this.x, this.y, this.r * this.pulse, 0, Math.PI * 2);
+                cx.fillStyle = 'rgba(' + this.color + ',' + (this.o * this.pulse) + ')';
+                cx.shadowBlur = this.r * 5;
+                cx.shadowColor = 'rgba(' + this.color + ',0.4)';
+                cx.fill();
+                cx.shadowBlur = 0;
+            };
+
+            for (var i = 0; i < N; i++) dots.push(new Dot());
+
+            function lines() {
+                for (var i = 0; i < dots.length; i++) {
+                    for (var j = i + 1; j < dots.length; j++) {
+                        var dx = dots[i].x - dots[j].x;
+                        var dy = dots[i].y - dots[j].y;
+                        var d = Math.sqrt(dx * dx + dy * dy);
+                        if (d < LINE_DIST) {
+                            var a = 0.12 * (1 - d / LINE_DIST);
+                            cx.beginPath();
+                            cx.strokeStyle = 'rgba(233,69,96,' + a + ')';
+                            cx.lineWidth = 0.6;
+                            cx.moveTo(dots[i].x, dots[i].y);
+                            cx.lineTo(dots[j].x, dots[j].y);
+                            cx.stroke();
+                        }
+                    }
+                }
+            }
+
+            (function loop(t) {
+                cx.clearRect(0, 0, c.width, c.height);
+                lines();
+                for (var i = 0; i < dots.length; i++) { dots[i].update(t); dots[i].draw(); }
+                requestAnimationFrame(loop);
+            })(0);
+        })();
+
+        // Particle canvas effect for testimonials section
+        (function () {
+            var canvas = document.getElementById('particles-canvas');
+            var ctx = canvas.getContext('2d');
+            var section = canvas.parentElement;
+            var particles = [];
+            var count = 200;
+            var wind = 1.5;
+            var turbulence = 0.8;
+
+            function resize() {
+                canvas.width = section.offsetWidth;
+                canvas.height = section.offsetHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            function Particle() { this.reset(); }
+            Particle.prototype.reset = function () {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 4 + 0.5;
+                this.speedX = (Math.random() - 0.5) * wind;
+                this.speedY = (Math.random() - 0.5) * 0.6;
+                this.opacity = Math.random() * 0.4 + 0.05;
+                var roll = Math.random();
+                if (roll < 0.4) this.hue = '233,69,96';
+                else if (roll < 0.7) this.hue = '255,107,129';
+                else if (roll < 0.85) this.hue = '180,140,255';
+                else this.hue = '255,180,200';
+                this.angle = Math.random() * Math.PI * 2;
+                this.spin = (Math.random() - 0.5) * 0.03;
+                this.turbOffset = Math.random() * 1000;
+                this.pulseSpeed = Math.random() * 0.002 + 0.001;
+                this.pulseOffset = Math.random() * Math.PI * 2;
+            };
+            Particle.prototype.update = function (t) {
+                this.angle += this.spin;
+                var tx = Math.sin(t * 0.001 + this.turbOffset) * turbulence;
+                var ty = Math.cos(t * 0.0012 + this.turbOffset) * turbulence * 0.5;
+                this.x += this.speedX + tx;
+                this.y += this.speedY + ty;
+                if (this.x < -10) this.x = canvas.width + 10;
+                if (this.x > canvas.width + 10) this.x = -10;
+                if (this.y < -10) this.y = canvas.height + 10;
+                if (this.y > canvas.height + 10) this.y = -10;
+                this.pulse = 0.7 + 0.3 * Math.sin(t * this.pulseSpeed + this.pulseOffset);
+            };
+            Particle.prototype.draw = function () {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.globalAlpha = this.opacity * this.pulse;
+                var s = this.size * (0.8 + this.pulse * 0.4);
+                ctx.fillStyle = 'rgba(' + this.hue + ',1)';
+                ctx.shadowBlur = s * 6;
+                ctx.shadowColor = 'rgba(' + this.hue + ',0.5)';
+                ctx.beginPath();
+                ctx.arc(0, 0, s, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            };
+
+            // Draw faint connecting lines between nearby particles
+            function drawConnections() {
+                for (var i = 0; i < particles.length; i++) {
+                    for (var j = i + 1; j < particles.length; j++) {
+                        var dx = particles[i].x - particles[j].x;
+                        var dy = particles[i].y - particles[j].y;
+                        var dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 100) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = 'rgba(233,69,96,' + (0.06 * (1 - dist / 100)) + ')';
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            for (var i = 0; i < count; i++) particles.push(new Particle());
+
+            function animate(t) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                drawConnections();
+                for (var i = 0; i < particles.length; i++) {
+                    particles[i].update(t);
+                    particles[i].draw();
+                }
+                requestAnimationFrame(animate);
+            }
+            requestAnimationFrame(animate);
+        })();
+
+        // Sound toggle buttons
+        var mutedIcon = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7z"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/></svg>';
+        var unmutedIcon = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1A9 9 0 0 0 14 3.2z"/></svg>';
+
+        document.querySelectorAll('.results-video__sound').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var vid = btn.parentElement.querySelector('video');
+                var wasMuted = vid.muted;
+                // Mute all videos first
+                document.querySelectorAll('.results-video__embed video').forEach(function (v) {
+                    v.muted = true;
+                    var b = v.parentElement.querySelector('.results-video__sound');
+                    b.innerHTML = mutedIcon;
+                    b.classList.remove('results-video__sound--active');
+                });
+                // Reset all card states
+                document.querySelectorAll('.results-video').forEach(function (card) {
+                    card.classList.remove('results-video--active', 'results-video--dimmed');
+                });
+                // Only unmute if it was muted before
+                if (wasMuted) {
+                    vid.muted = false;
+                    btn.innerHTML = unmutedIcon;
+                    btn.classList.add('results-video__sound--active');
+                    // Highlight active, dim others
+                    var activeCard = btn.closest('.results-video');
+                    activeCard.classList.add('results-video--active');
+                    document.querySelectorAll('.results-video').forEach(function (card) {
+                        if (card !== activeCard) card.classList.add('results-video--dimmed');
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
