@@ -531,14 +531,14 @@ img {
 
 .results-video__sound {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    background: rgba(26, 26, 46, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.7);
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(233, 69, 96, 0.75);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
     cursor: pointer;
     z-index: 2;
     display: flex;
@@ -548,18 +548,20 @@ img {
     -webkit-backdrop-filter: blur(8px);
     transition: all 0.2s ease;
     padding: 0;
+    box-shadow: 0 2px 12px rgba(233, 69, 96, 0.35);
 }
 
 .results-video__sound svg {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     fill: currentColor;
 }
 
 .results-video__sound:hover {
-    background: rgba(233, 69, 96, 0.6);
-    border-color: rgba(233, 69, 96, 0.4);
+    background: rgba(233, 69, 96, 0.9);
+    border-color: rgba(255, 255, 255, 0.4);
     color: #fff;
+    transform: scale(1.1);
 }
 
 .results-video__sound--active {
@@ -953,60 +955,383 @@ img {
     line-height: 1.7;
 }
 
-/* ── Value Stack ── */
-.value-stack {
-    max-width: 700px;
-    margin: 0 auto;
+/* ── What You Get (tile background) ── */
+.wyg {
+    position: relative;
+    background: var(--color-primary);
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wyg__tiles {
+    position: absolute;
+    top: -15%;
+    left: -10%;
+    width: 130%;
+    height: 130%;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 5px;
+    opacity: 0.5;
+    transform: rotate(6deg);
+    animation: wygFloat 22s ease-in-out infinite alternate;
 }
 
-.value-stack__item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    background: var(--color-white);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+@keyframes wygFloat {
+    0%   { transform: rotate(6deg) translate(0, 0); opacity: 0.5; }
+    50%  { transform: rotate(5deg) translate(-12px, 8px); opacity: 0.55; }
+    100% { transform: rotate(7deg) translate(8px, -6px); opacity: 0.48; }
 }
 
-.value-stack__item:hover {
-    border-color: rgba(233, 69, 96, 0.25);
-    box-shadow: 0 4px 20px rgba(233, 69, 96, 0.08);
+.wyg__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at center, rgba(26,26,46,0.2) 0%, rgba(26,26,46,0.8) 65%),
+        linear-gradient(to bottom, rgba(26,26,46,0.3) 0%, rgba(26,26,46,0.93) 100%);
+    z-index: 1;
 }
 
-.value-stack__icon {
-    font-size: 1.8rem;
-    flex-shrink: 0;
-    line-height: 1;
+.wyg__content {
+    position: relative;
+    z-index: 2;
+    padding: 3.5rem 5% 3rem;
+    width: 100%;
 }
 
-.value-stack__item h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--color-primary);
+.wyg__heading {
+    font-size: 2rem;
+    color: #fff;
     margin-bottom: 0.3rem;
 }
 
-.value-stack__item p {
-    font-size: 0.9rem;
-    color: var(--color-text-light);
-    line-height: 1.6;
-    margin: 0;
-}
-
-.value-stack__cta {
-    text-align: center;
-    margin-top: 2.5rem;
-}
-
-.value-stack__trial {
+.wyg__sub {
+    color: rgba(255,255,255,0.5);
     font-size: 0.95rem;
-    color: var(--color-text-light);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+/* ── Conveyor Belt ── */
+.belt {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1.5rem 0 1rem;
+}
+
+/* Stages */
+.belt__stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.belt__label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 0.1rem;
+}
+
+/* Lead gen pills */
+.belt__pills {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.belt__pill {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(233,69,96,0.18);
+    border-radius: 8px;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    backdrop-filter: blur(8px);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.belt__pill:hover {
+    border-color: rgba(233,69,96,0.4);
+    box-shadow: 0 0 14px rgba(233,69,96,0.1);
+}
+
+/* Stick figures */
+.belt__figs--enter { width: 80px; height: 42px; margin-top: 0.25rem; }
+.belt__figs--exit  { width: 40px; height: 48px; margin-top: 0.25rem; }
+
+.belt__fig-bounce {
+    animation: figBob 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes figBob {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(3px); }
+}
+
+/* ── Conveyor Track ── */
+.belt__conveyor {
+    flex: 1;
+    min-width: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0 -2px;
+    padding-top: 1.2rem;
+}
+
+/* Dual rails */
+.belt__rail {
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(233,69,96,0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Mid section: chevrons + riders */
+.belt__mid {
+    position: relative;
+    height: 16px;
+}
+
+.belt__chevrons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 16px;
+    color: rgba(233,69,96,0.45);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    animation: chevPulse 1.5s ease-in-out infinite;
+}
+
+/* Riders container */
+.belt__riders {
+    position: absolute;
+    top: -28px;
+    left: 0;
+    right: 0;
+    height: 36px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.belt__rider {
+    position: absolute;
+    width: 20px;
+    height: 32px;
+    top: 2px;
+    animation: rideAcross 4s linear infinite;
+}
+
+.belt__rider--1 { animation-delay: 0s; }
+.belt__rider--2 { animation-delay: 1s; }
+.belt__rider--3 { animation-delay: 2s; }
+.belt__rider--4 { animation-delay: 3s; }
+.belt__rider--5 { animation-delay: 3.8s; }
+
+@keyframes rideAcross {
+    0%   { left: -20px; opacity: 0; }
+    5%   { opacity: 0.9; }
+    90%  { opacity: 0.9; }
+    100% { left: calc(100% + 10px); opacity: 0; }
+}
+
+.belt__rail-inner {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(233,69,96,0.6) 0px,
+        rgba(233,69,96,0.6) 10px,
+        rgba(233,69,96,0.15) 10px,
+        rgba(233,69,96,0.15) 20px
+    );
+    animation: beltScroll 0.8s linear infinite;
+}
+
+@keyframes beltScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(20px); }
+}
+
+@keyframes chevPulse {
+    0%, 100% { opacity: 0.4; }
+    50%      { opacity: 0.9; }
+}
+
+/* Roller circles at ends of track */
+.belt__roller {
+    position: absolute;
+    left: -5px;
+    top: calc(1.2rem + 0px);
+    width: 10px;
+    height: 24px;
+    border-radius: 5px;
+    background: rgba(233,69,96,0.2);
+    border: 1px solid rgba(233,69,96,0.35);
+    animation: rollerSpin 1s linear infinite;
+}
+
+.belt__roller--end {
+    left: auto;
+    right: -5px;
+}
+
+@keyframes rollerSpin {
+    0%   { box-shadow: inset 0 -4px 0 rgba(233,69,96,0.3); }
+    50%  { box-shadow: inset 0 4px 0 rgba(233,69,96,0.3); }
+    100% { box-shadow: inset 0 -4px 0 rgba(233,69,96,0.3); }
+}
+
+/* Nurture machine */
+.belt__machine {
+    position: relative;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(233,69,96,0.3);
+    border-radius: 14px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.belt__machine:hover {
+    border-color: rgba(233,69,96,0.55);
+    box-shadow: 0 0 30px rgba(233,69,96,0.15);
+}
+
+.belt__machine-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(233,69,96,0.15), transparent 60%);
+    pointer-events: none;
+    animation: machineGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes machineGlow {
+    0%   { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+.belt__machine-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.25rem;
+    position: relative;
+}
+
+.belt__machine h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.15rem;
+    position: relative;
+}
+
+.belt__machine p {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.45);
+    position: relative;
+}
+
+/* Conversions result */
+.belt__result {
+    background: rgba(233,69,96,0.1);
+    border: 1px solid rgba(233,69,96,0.4);
+    border-radius: 12px;
+    padding: 0.75rem 1.2rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(233,69,96,0.1);
+}
+
+.belt__result-icon {
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+.belt__result h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #ff6b81;
+}
+
+.wyg__support {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.85rem;
+    margin-top: 1.2rem;
+}
+
+.wyg__cta {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 700px) {
+    .wyg__content { padding: 2rem 5% 1.5rem; }
+    .wyg__heading { font-size: 1.5rem; }
+    .belt {
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+    }
+    .belt__conveyor {
+        width: 4px;
+        min-width: unset;
+        flex: none;
+        height: 36px;
+        flex-direction: row;
+        padding-top: 0;
+        margin: 0;
+    }
+    .belt__rail { width: 4px; height: 100%; }
+    .belt__rail-inner {
+        background: repeating-linear-gradient(
+            180deg,
+            rgba(233,69,96,0.6) 0px,
+            rgba(233,69,96,0.6) 10px,
+            rgba(233,69,96,0.15) 10px,
+            rgba(233,69,96,0.15) 20px
+        );
+        animation: beltScrollV 0.8s linear infinite;
+    }
+    @keyframes beltScrollV {
+        0%   { transform: translateY(0); }
+        100% { transform: translateY(20px); }
+    }
+    .belt__chevrons {
+        flex-direction: column;
+        width: 16px; height: auto;
+        transform: rotate(90deg);
+    }
+    .belt__roller { display: none; }
+    .belt__riders { display: none; }
+    .belt__mid { height: auto; }
+    .belt__pills { flex-direction: row; }
+    .belt__figs--enter, .belt__figs--exit { display: none; }
+    .wyg__support { font-size: 0.8rem; }
 }
 
 /* ── How It Works (compact dark) ── */
@@ -1106,6 +1431,10 @@ img {
     padding: 0 0.5rem;
     opacity: 0.45;
     transition: opacity 0.5s ease, transform 0.5s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hiw__step--active {
@@ -1131,6 +1460,13 @@ img {
     color: #fff;
     margin-bottom: 0.35rem;
     transition: color 0.4s;
+    text-align: center;
+    width: 100%;
+}
+
+.hiw__step p {
+    text-align: center;
+    width: 100%;
 }
 
 .hiw__step--active h3 {
@@ -1148,16 +1484,17 @@ img {
     .hiw__heading { font-size: 1.5rem; }
     .hiw__track {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.25rem;
         align-items: center;
     }
     .hiw__step {
-        display: flex;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
         text-align: left;
         gap: 1rem;
-        max-width: 360px;
+        max-width: 340px;
         width: 100%;
+        padding: 0;
     }
     .hiw__num {
         flex-shrink: 0;
@@ -1166,26 +1503,14 @@ img {
         font-size: 1rem;
         margin-bottom: 0;
     }
-    .hiw__step h3 { font-size: 0.95rem; margin-bottom: 0.2rem; }
-    .hiw__step p { font-size: 0.82rem; }
-}
-
-@media (max-width: 600px) {
-    .value-stack__item {
-        padding: 1.1rem;
-        gap: 1rem;
-    }
-
-    .value-stack__icon {
-        font-size: 1.5rem;
-    }
-
-    .value-stack__item h3 {
+    .hiw__step h3 {
         font-size: 0.95rem;
+        margin-bottom: 0.15rem;
+        text-align: left;
     }
-
-    .value-stack__item p {
+    .hiw__step p {
         font-size: 0.82rem;
+        text-align: left;
     }
 }
 
