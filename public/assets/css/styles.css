@@ -192,7 +192,7 @@ img {
     transform: rotate(-8deg);
     transform-style: preserve-3d;
     will-change: transform;
-    transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+    transition: transform 0.35s cubic-bezier(.25,.46,.45,.94), opacity 0.35s ease-out;
 }
 
 .hero__brick-row {

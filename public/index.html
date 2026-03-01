@@ -7,7 +7,7 @@
     <title>Gym Grow | Marketing for Gyms That Want to Grow</title>
     <meta name="description"
         content="Gym Grow helps gyms attract more members, boost retention, and scale revenue with proven marketing strategies.">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=14">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=15">
 </head>
 
 <body>
@@ -417,7 +417,7 @@
                 var rect = hero.getBoundingClientRect();
                 var heroH = rect.height || 1;
                 // Scroll: shift tiles up slightly as user scrolls down
-                var scrollOffset = window.pageYOffset * 0.15;
+                var scrollOffset = window.pageYOffset * 0.08;
                 // Mouse: tilt based on cursor position relative to hero center
                 var cx = rect.left + rect.width / 2;
                 var cy = rect.top + rect.height / 2;
@@ -425,10 +425,10 @@
                 var dy = (mouseY - cy) / (rect.height / 2); // -1 to 1
                 dx = Math.max(-1, Math.min(1, dx));
                 dy = Math.max(-1, Math.min(1, dy));
-                var rotX = dy * -4;  // tilt up/down (max 4deg)
-                var rotY = dx * 6;   // tilt left/right (max 6deg)
-                var shiftX = dx * 10; // translate X
-                var shiftY = dy * 8 - scrollOffset; // translate Y
+                var rotX = dy * -2;  // tilt up/down (max 2deg)
+                var rotY = dx * 3;   // tilt left/right (max 3deg)
+                var shiftX = dx * 5; // translate X
+                var shiftY = dy * 4 - scrollOffset; // translate Y
                 tiles.style.transform = 'rotate(-8deg) translate3d(' + shiftX + 'px, ' + shiftY + 'px, 0) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
                 ticking = false;
             }
