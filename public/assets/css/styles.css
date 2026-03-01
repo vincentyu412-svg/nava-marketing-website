@@ -1016,164 +1016,132 @@ img {
     margin-bottom: 2.5rem;
 }
 
-/* ── Conveyor Belt ── */
-.belt {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    max-width: 420px;
-    margin: 0 auto;
-    padding: 1.5rem 0 1rem;
-}
-
-/* Stages */
-.belt__stage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-    flex-shrink: 0;
+/* ── Funnel ── */
+.funnel {
     position: relative;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.belt__label {
-    font-size: 0.62rem;
+/* SVG funnel outline behind everything */
+.funnel__shape {
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: calc(100% - 100px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Stick figures */
+.funnel__people--enter {
+    width: 140px;
+    height: 52px;
+    margin-bottom: 0.25rem;
+    animation: figBob 2.5s ease-in-out infinite alternate;
+}
+
+.funnel__people--exit {
+    width: 50px;
+    height: 58px;
+    margin-top: 0.25rem;
+    animation: figBob 2.5s ease-in-out infinite alternate;
+    animation-delay: 1s;
+}
+
+@keyframes figBob {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+}
+
+/* Each tier row */
+.funnel__tier {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 0;
+}
+
+.funnel__tier--1 { width: 100%; }
+.funnel__tier--2 { width: 72%; }
+.funnel__tier--3 { width: 50%; }
+
+/* Stage label to the left */
+.funnel__label {
+    font-size: 0.6rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     color: rgba(255,255,255,0.3);
-    margin-bottom: 0.1rem;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-/* Lead gen pills */
-.belt__pills {
+/* Cards container */
+.funnel__cards {
     display: flex;
-    flex-direction: row;
-    gap: 0.3rem;
+    gap: 0.6rem;
+    flex: 1;
+    justify-content: center;
 }
 
-.belt__pill {
+/* Individual card */
+.funnel__card {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(233,69,96,0.18);
-    border-radius: 8px;
-    padding: 0.4rem 0.75rem;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: rgba(255,255,255,0.7);
-    text-align: center;
-    backdrop-filter: blur(8px);
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.belt__pill:hover {
-    border-color: rgba(233,69,96,0.4);
-    box-shadow: 0 0 14px rgba(233,69,96,0.1);
-}
-
-/* Vertical connector between stages */
-.belt__connector {
-    width: 4px;
-    height: 36px;
-    border-radius: 2px;
-    background: rgba(233,69,96,0.12);
-    position: relative;
-    overflow: hidden;
-}
-
-.belt__connector::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-        180deg,
-        rgba(233,69,96,0.6) 0px,
-        rgba(233,69,96,0.6) 10px,
-        rgba(233,69,96,0.15) 10px,
-        rgba(233,69,96,0.15) 20px
-    );
-    animation: beltScrollV 0.8s linear infinite;
-}
-
-@keyframes beltScrollV {
-    0%   { transform: translateY(0); }
-    100% { transform: translateY(20px); }
-}
-
-/* Nurture machine */
-.belt__machine {
-    position: relative;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(233,69,96,0.3);
-    border-radius: 14px;
-    padding: 1rem 1.5rem;
-    text-align: center;
-    backdrop-filter: blur(12px);
-    overflow: hidden;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.belt__machine:hover {
-    border-color: rgba(233,69,96,0.55);
-    box-shadow: 0 0 30px rgba(233,69,96,0.15);
-}
-
-.belt__machine-glow {
-    position: absolute;
-    inset: -1px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, rgba(233,69,96,0.15), transparent 60%);
-    pointer-events: none;
-    animation: machineGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes machineGlow {
-    0%   { opacity: 0.4; }
-    100% { opacity: 1; }
-}
-
-.belt__machine-icon {
-    font-size: 1.5rem;
-    display: block;
-    margin-bottom: 0.25rem;
-    position: relative;
-}
-
-.belt__machine h4 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.15rem;
-    position: relative;
-}
-
-.belt__machine p {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.45);
-    position: relative;
-}
-
-/* Conversions result */
-.belt__result {
-    background: rgba(233,69,96,0.1);
-    border: 1px solid rgba(233,69,96,0.4);
     border-radius: 12px;
-    padding: 0.75rem 1.2rem;
+    padding: 0.8rem 1rem;
     text-align: center;
     backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(233,69,96,0.1);
+    flex: 1;
+    max-width: 180px;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-.belt__result-icon {
+.funnel__card:hover {
+    border-color: rgba(233,69,96,0.45);
+    box-shadow: 0 0 20px rgba(233,69,96,0.12);
+    transform: translateY(-2px);
+}
+
+.funnel__card--wide {
+    max-width: 320px;
+}
+
+.funnel__card--accent {
+    background: rgba(233,69,96,0.08);
+    border-color: rgba(233,69,96,0.35);
+    box-shadow: 0 0 20px rgba(233,69,96,0.08);
+    max-width: 260px;
+}
+
+.funnel__card-icon {
     font-size: 1.3rem;
     display: block;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.3rem;
 }
 
-.belt__result h4 {
-    font-size: 0.88rem;
+.funnel__card h4 {
+    font-size: 0.82rem;
     font-weight: 700;
-    color: #ff6b81;
+    color: #fff;
+    margin-bottom: 0.25rem;
+}
+
+.funnel__card p {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
 }
 
 .wyg__support {
@@ -1191,6 +1159,16 @@ img {
     .wyg__content { padding: 2rem 5% 1.5rem; }
     .wyg__heading { font-size: 1.5rem; }
     .wyg__support { font-size: 0.8rem; }
+    .funnel { max-width: 100%; }
+    .funnel__tier--1 { width: 100%; }
+    .funnel__tier--2 { width: 80%; }
+    .funnel__tier--3 { width: 60%; }
+    .funnel__cards { flex-direction: column; align-items: center; }
+    .funnel__card { max-width: 260px; width: 100%; }
+    .funnel__card--wide { max-width: 260px; }
+    .funnel__label { writing-mode: horizontal-tb; transform: none; font-size: 0.55rem; margin-bottom: 0.15rem; }
+    .funnel__tier { flex-direction: column; gap: 0.4rem; }
+    .funnel__people--enter { width: 120px; }
 }
 
 /* ── How It Works (compact dark) ── */

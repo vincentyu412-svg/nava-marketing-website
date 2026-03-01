@@ -7,7 +7,7 @@
     <title>Gym Grow | Marketing for Gyms That Want to Grow</title>
     <meta name="description"
         content="Gym Grow helps gyms attract more members, boost retention, and scale revenue with proven marketing strategies.">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=6">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=7">
 </head>
 
 <body>
@@ -266,41 +266,76 @@
         <div class="wyg__content">
             <h2 class="wyg__heading">What You Get</h2>
             <p class="wyg__sub">A full-stack growth system — from first click to signed member.</p>
-            <div class="belt">
-                <!-- Stage 1: Lead Gen -->
-                <div class="belt__stage">
-                    <span class="belt__label">Lead Gen</span>
-                    <div class="belt__pills">
-                        <span class="belt__pill">📣 Ads</span>
-                        <span class="belt__pill">📱 Organic</span>
-                        <span class="belt__pill">🌐 Website</span>
+            <div class="funnel">
+                <!-- Stick figures entering -->
+                <div class="funnel__people funnel__people--enter">
+                    <svg viewBox="0 0 140 52" fill="none">
+                        <g opacity="0.7"><circle cx="24" cy="8" r="5.5" fill="#ff6b81"/><line x1="24" y1="13" x2="24" y2="28" stroke="#ff6b81" stroke-width="1.6"/><line x1="16" y1="19" x2="32" y2="19" stroke="#ff6b81" stroke-width="1.6"/><line x1="24" y1="28" x2="17" y2="40" stroke="#ff6b81" stroke-width="1.6"/><line x1="24" y1="28" x2="31" y2="40" stroke="#ff6b81" stroke-width="1.6"/></g>
+                        <g opacity="0.55"><circle cx="56" cy="10" r="5" fill="#e94560"/><line x1="56" y1="15" x2="56" y2="29" stroke="#e94560" stroke-width="1.4"/><line x1="49" y1="21" x2="63" y2="21" stroke="#e94560" stroke-width="1.4"/><line x1="56" y1="29" x2="49" y2="40" stroke="#e94560" stroke-width="1.4"/><line x1="56" y1="29" x2="63" y2="40" stroke="#e94560" stroke-width="1.4"/></g>
+                        <g opacity="0.4"><circle cx="86" cy="7" r="4.5" fill="#ff6b81"/><line x1="86" y1="11" x2="86" y2="25" stroke="#ff6b81" stroke-width="1.3"/><line x1="79" y1="17" x2="93" y2="17" stroke="#ff6b81" stroke-width="1.3"/><line x1="86" y1="25" x2="79" y2="36" stroke="#ff6b81" stroke-width="1.3"/><line x1="86" y1="25" x2="93" y2="36" stroke="#ff6b81" stroke-width="1.3"/></g>
+                        <g opacity="0.3"><circle cx="116" cy="12" r="4" fill="#e94560"/><line x1="116" y1="16" x2="116" y2="28" stroke="#e94560" stroke-width="1.2"/><line x1="110" y1="21" x2="122" y2="21" stroke="#e94560" stroke-width="1.2"/><line x1="116" y1="28" x2="110" y2="38" stroke="#e94560" stroke-width="1.2"/><line x1="116" y1="28" x2="122" y2="38" stroke="#e94560" stroke-width="1.2"/></g>
+                    </svg>
+                </div>
+
+                <!-- SVG funnel outline -->
+                <svg class="funnel__shape" viewBox="0 0 600 520" fill="none" preserveAspectRatio="none">
+                    <path d="M0 0 L600 0 L440 200 L440 360 L360 520 L240 520 L160 360 L160 200 Z"
+                          fill="rgba(233,69,96,0.04)" stroke="rgba(233,69,96,0.25)" stroke-width="2"/>
+                    <line x1="160" y1="200" x2="440" y2="200" stroke="rgba(233,69,96,0.15)" stroke-width="1" stroke-dasharray="6 4"/>
+                    <line x1="160" y1="360" x2="440" y2="360" stroke="rgba(233,69,96,0.15)" stroke-width="1" stroke-dasharray="6 4"/>
+                </svg>
+
+                <!-- Tier 1: Lead Gen (widest) -->
+                <div class="funnel__tier funnel__tier--1">
+                    <span class="funnel__label">Lead Gen</span>
+                    <div class="funnel__cards">
+                        <div class="funnel__card">
+                            <span class="funnel__card-icon">📣</span>
+                            <h4>High-Converting Ads</h4>
+                            <p>Hyper-targeted Facebook & Google ads that reach real people actively looking for a gym near you.</p>
+                        </div>
+                        <div class="funnel__card">
+                            <span class="funnel__card-icon">📱</span>
+                            <h4>Organic Campaigns</h4>
+                            <p>Content and social strategies that build trust and bring in leads without ad spend.</p>
+                        </div>
+                        <div class="funnel__card">
+                            <span class="funnel__card-icon">🌐</span>
+                            <h4>Optimize Website</h4>
+                            <p>A fast, mobile-first site built to turn visitors into trial bookings — not just look nice.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Connector -->
-                <div class="belt__connector"></div>
-
-                <!-- Stage 2: Nurture Machine -->
-                <div class="belt__stage">
-                    <span class="belt__label">Nurture</span>
-                    <div class="belt__machine">
-                        <div class="belt__machine-glow"></div>
-                        <span class="belt__machine-icon">🤖</span>
-                        <h4>AI Follow-Up System</h4>
-                        <p>SMS · Email · Voicemail · Auto-Booking</p>
+                <!-- Tier 2: Lead Nurture (medium) -->
+                <div class="funnel__tier funnel__tier--2">
+                    <span class="funnel__label">Lead Nurture</span>
+                    <div class="funnel__cards">
+                        <div class="funnel__card funnel__card--wide">
+                            <span class="funnel__card-icon">🤖</span>
+                            <h4>AI Follow-Up System</h4>
+                            <p>Automated SMS, email, voicemail drops & auto-booking that follows up with every single lead 24/7 — so none slip through the cracks.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Connector -->
-                <div class="belt__connector"></div>
-
-                <!-- Stage 3: Conversions -->
-                <div class="belt__stage">
-                    <span class="belt__label">Conversions</span>
-                    <div class="belt__result">
-                        <span class="belt__result-icon">✅</span>
-                        <h4>New Members</h4>
+                <!-- Tier 3: Conversions (narrowest) -->
+                <div class="funnel__tier funnel__tier--3">
+                    <span class="funnel__label">Conversions</span>
+                    <div class="funnel__cards">
+                        <div class="funnel__card funnel__card--accent">
+                            <span class="funnel__card-icon">✅</span>
+                            <h4>Convert to Member</h4>
+                            <p>Leads walk in pre-sold and ready to sign up. More trials, more members, more revenue.</p>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Stick figure exiting -->
+                <div class="funnel__people funnel__people--exit">
+                    <svg viewBox="0 0 50 58" fill="none">
+                        <g opacity="0.85"><circle cx="25" cy="10" r="6.5" fill="#e94560"/><line x1="25" y1="16" x2="25" y2="34" stroke="#e94560" stroke-width="2.2"/><line x1="15" y1="24" x2="35" y2="24" stroke="#e94560" stroke-width="2.2"/><line x1="25" y1="34" x2="15" y2="48" stroke="#e94560" stroke-width="2.2"/><line x1="25" y1="34" x2="35" y2="48" stroke="#e94560" stroke-width="2.2"/></g>
+                    </svg>
                 </div>
             </div>
             <p class="wyg__support">💬 Plus: 1-on-1 support with your dedicated strategist, 24/7.</p>
