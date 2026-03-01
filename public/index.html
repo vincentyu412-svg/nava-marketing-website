@@ -7,7 +7,7 @@
     <title>Gym Grow | Marketing for Gyms That Want to Grow</title>
     <meta name="description"
         content="Gym Grow helps gyms attract more members, boost retention, and scale revenue with proven marketing strategies.">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=9">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=10">
 </head>
 
 <body>
@@ -279,10 +279,16 @@
 
                 <!-- SVG funnel outline -->
                 <svg class="funnel__shape" viewBox="0 0 600 520" fill="none" preserveAspectRatio="none">
+                    <defs>
+                        <filter id="funnelGlow">
+                            <feGaussianBlur stdDeviation="6" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
                     <path d="M0 0 L600 0 L440 200 L440 360 L360 520 L240 520 L160 360 L160 200 Z"
-                          fill="rgba(233,69,96,0.04)" stroke="rgba(233,69,96,0.25)" stroke-width="2"/>
-                    <line x1="160" y1="200" x2="440" y2="200" stroke="rgba(233,69,96,0.15)" stroke-width="1" stroke-dasharray="6 4"/>
-                    <line x1="160" y1="360" x2="440" y2="360" stroke="rgba(233,69,96,0.15)" stroke-width="1" stroke-dasharray="6 4"/>
+                          fill="rgba(233,69,96,0.06)" stroke="rgba(233,69,96,0.5)" stroke-width="2.5" filter="url(#funnelGlow)"/>
+                    <line x1="160" y1="200" x2="440" y2="200" stroke="rgba(233,69,96,0.3)" stroke-width="1.5" stroke-dasharray="8 5"/>
+                    <line x1="160" y1="360" x2="440" y2="360" stroke="rgba(233,69,96,0.3)" stroke-width="1.5" stroke-dasharray="8 5"/>
                 </svg>
 
                 <!-- Tier 1: Lead Gen (widest) -->

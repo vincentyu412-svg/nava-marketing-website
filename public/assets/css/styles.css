@@ -1037,6 +1037,7 @@ img {
     height: calc(100% - 100px);
     z-index: 0;
     pointer-events: none;
+    filter: drop-shadow(0 0 12px rgba(233,69,96,0.15));
 }
 
 /* Stick figures */
