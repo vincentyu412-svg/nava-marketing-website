@@ -624,7 +624,7 @@ img {
 }
 
 .btn--glow:hover {
-    transform: translateY(-2px) scale(1.03);
+    transform: translateY(-2px);
     box-shadow:
         0 0 25px rgba(233, 69, 96, 0.45),
         0 0 50px rgba(233, 69, 96, 0.2),
@@ -822,9 +822,9 @@ img {
 
 .logo-scroller__title {
     text-align: center;
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 0.8rem;
-    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    font-weight: 700;
     letter-spacing: 5px;
     text-transform: uppercase;
     margin-bottom: 1.25rem;
@@ -1319,6 +1319,7 @@ img {
     box-shadow: 0 0 14px rgba(233,69,96,0.3);
     transition: transform 0.4s, box-shadow 0.4s;
     position: relative;
+    z-index: 2;
 }
 
 .hiw__num::after {
