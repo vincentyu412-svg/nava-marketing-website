@@ -1019,9 +1019,10 @@ img {
 /* ── Conveyor Belt ── */
 .belt {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 0;
-    max-width: 860px;
+    max-width: 420px;
     margin: 0 auto;
     padding: 1.5rem 0 1rem;
 }
@@ -1048,7 +1049,7 @@ img {
 /* Lead gen pills */
 .belt__pills {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.3rem;
 }
 
@@ -1070,136 +1071,33 @@ img {
     box-shadow: 0 0 14px rgba(233,69,96,0.1);
 }
 
-/* Stick figures */
-.belt__figs--enter { width: 80px; height: 42px; margin-top: 0.25rem; }
-.belt__figs--exit  { width: 40px; height: 48px; margin-top: 0.25rem; }
-
-.belt__fig-bounce {
-    animation: figBob 2.5s ease-in-out infinite alternate;
-}
-
-@keyframes figBob {
-    0%   { transform: translateY(0); }
-    100% { transform: translateY(3px); }
-}
-
-/* ── Conveyor Track ── */
-.belt__conveyor {
-    flex: 1;
-    min-width: 60px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    margin: 0 -2px;
-    padding-top: 1.2rem;
-}
-
-/* Dual rails */
-.belt__rail {
-    height: 4px;
+/* Vertical connector between stages */
+.belt__connector {
+    width: 4px;
+    height: 36px;
     border-radius: 2px;
     background: rgba(233,69,96,0.12);
     position: relative;
     overflow: hidden;
 }
 
-/* Mid section: chevrons + riders */
-.belt__mid {
-    position: relative;
-    height: 16px;
-}
-
-.belt__chevrons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 16px;
-    color: rgba(233,69,96,0.45);
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1;
-    animation: chevPulse 1.5s ease-in-out infinite;
-}
-
-/* Riders container */
-.belt__riders {
-    position: absolute;
-    top: -28px;
-    left: 0;
-    right: 0;
-    height: 36px;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.belt__rider {
-    position: absolute;
-    width: 20px;
-    height: 32px;
-    top: 2px;
-    animation: rideAcross 4s linear infinite;
-}
-
-.belt__rider--1 { animation-delay: 0s; }
-.belt__rider--2 { animation-delay: 1s; }
-.belt__rider--3 { animation-delay: 2s; }
-.belt__rider--4 { animation-delay: 3s; }
-.belt__rider--5 { animation-delay: 3.8s; }
-
-@keyframes rideAcross {
-    0%   { left: -20px; opacity: 0; }
-    5%   { opacity: 0.9; }
-    90%  { opacity: 0.9; }
-    100% { left: calc(100% + 10px); opacity: 0; }
-}
-
-.belt__rail-inner {
+.belt__connector::after {
+    content: '';
     position: absolute;
     inset: 0;
     background: repeating-linear-gradient(
-        90deg,
+        180deg,
         rgba(233,69,96,0.6) 0px,
         rgba(233,69,96,0.6) 10px,
         rgba(233,69,96,0.15) 10px,
         rgba(233,69,96,0.15) 20px
     );
-    animation: beltScroll 0.8s linear infinite;
+    animation: beltScrollV 0.8s linear infinite;
 }
 
-@keyframes beltScroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(20px); }
-}
-
-@keyframes chevPulse {
-    0%, 100% { opacity: 0.4; }
-    50%      { opacity: 0.9; }
-}
-
-/* Roller circles at ends of track */
-.belt__roller {
-    position: absolute;
-    left: -5px;
-    top: calc(1.2rem + 0px);
-    width: 10px;
-    height: 24px;
-    border-radius: 5px;
-    background: rgba(233,69,96,0.2);
-    border: 1px solid rgba(233,69,96,0.35);
-    animation: rollerSpin 1s linear infinite;
-}
-
-.belt__roller--end {
-    left: auto;
-    right: -5px;
-}
-
-@keyframes rollerSpin {
-    0%   { box-shadow: inset 0 -4px 0 rgba(233,69,96,0.3); }
-    50%  { box-shadow: inset 0 4px 0 rgba(233,69,96,0.3); }
-    100% { box-shadow: inset 0 -4px 0 rgba(233,69,96,0.3); }
+@keyframes beltScrollV {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(20px); }
 }
 
 /* Nurture machine */
@@ -1292,45 +1190,6 @@ img {
 @media (max-width: 700px) {
     .wyg__content { padding: 2rem 5% 1.5rem; }
     .wyg__heading { font-size: 1.5rem; }
-    .belt {
-        flex-direction: column;
-        gap: 0;
-        align-items: center;
-    }
-    .belt__conveyor {
-        width: 4px;
-        min-width: unset;
-        flex: none;
-        height: 36px;
-        flex-direction: row;
-        padding-top: 0;
-        margin: 0;
-    }
-    .belt__rail { width: 4px; height: 100%; }
-    .belt__rail-inner {
-        background: repeating-linear-gradient(
-            180deg,
-            rgba(233,69,96,0.6) 0px,
-            rgba(233,69,96,0.6) 10px,
-            rgba(233,69,96,0.15) 10px,
-            rgba(233,69,96,0.15) 20px
-        );
-        animation: beltScrollV 0.8s linear infinite;
-    }
-    @keyframes beltScrollV {
-        0%   { transform: translateY(0); }
-        100% { transform: translateY(20px); }
-    }
-    .belt__chevrons {
-        flex-direction: column;
-        width: 16px; height: auto;
-        transform: rotate(90deg);
-    }
-    .belt__roller { display: none; }
-    .belt__riders { display: none; }
-    .belt__mid { height: auto; }
-    .belt__pills { flex-direction: row; }
-    .belt__figs--enter, .belt__figs--exit { display: none; }
     .wyg__support { font-size: 0.8rem; }
 }
 
