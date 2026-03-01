@@ -7,7 +7,7 @@
     <title>Gym Grow | Marketing for Gyms That Want to Grow</title>
     <meta name="description"
         content="Gym Grow helps gyms attract more members, boost retention, and scale revenue with proven marketing strategies.">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=10">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=11">
 </head>
 
 <body>
@@ -267,28 +267,20 @@
             <h2 class="wyg__heading">What You Get</h2>
             <p class="wyg__sub">A full-stack growth system — from first click to signed member.</p>
             <div class="funnel">
-                <!-- Stick figures entering -->
-                <div class="funnel__people funnel__people--enter">
-                    <svg viewBox="0 0 140 52" fill="none">
-                        <g opacity="0.7"><circle cx="24" cy="8" r="5.5" fill="#ff6b81"/><line x1="24" y1="13" x2="24" y2="28" stroke="#ff6b81" stroke-width="1.6"/><line x1="16" y1="19" x2="32" y2="19" stroke="#ff6b81" stroke-width="1.6"/><line x1="24" y1="28" x2="17" y2="40" stroke="#ff6b81" stroke-width="1.6"/><line x1="24" y1="28" x2="31" y2="40" stroke="#ff6b81" stroke-width="1.6"/></g>
-                        <g opacity="0.55"><circle cx="56" cy="10" r="5" fill="#e94560"/><line x1="56" y1="15" x2="56" y2="29" stroke="#e94560" stroke-width="1.4"/><line x1="49" y1="21" x2="63" y2="21" stroke="#e94560" stroke-width="1.4"/><line x1="56" y1="29" x2="49" y2="40" stroke="#e94560" stroke-width="1.4"/><line x1="56" y1="29" x2="63" y2="40" stroke="#e94560" stroke-width="1.4"/></g>
-                        <g opacity="0.4"><circle cx="86" cy="7" r="4.5" fill="#ff6b81"/><line x1="86" y1="11" x2="86" y2="25" stroke="#ff6b81" stroke-width="1.3"/><line x1="79" y1="17" x2="93" y2="17" stroke="#ff6b81" stroke-width="1.3"/><line x1="86" y1="25" x2="79" y2="36" stroke="#ff6b81" stroke-width="1.3"/><line x1="86" y1="25" x2="93" y2="36" stroke="#ff6b81" stroke-width="1.3"/></g>
-                        <g opacity="0.3"><circle cx="116" cy="12" r="4" fill="#e94560"/><line x1="116" y1="16" x2="116" y2="28" stroke="#e94560" stroke-width="1.2"/><line x1="110" y1="21" x2="122" y2="21" stroke="#e94560" stroke-width="1.2"/><line x1="116" y1="28" x2="110" y2="38" stroke="#e94560" stroke-width="1.2"/><line x1="116" y1="28" x2="122" y2="38" stroke="#e94560" stroke-width="1.2"/></g>
-                    </svg>
-                </div>
-
                 <!-- SVG funnel outline -->
-                <svg class="funnel__shape" viewBox="0 0 600 520" fill="none" preserveAspectRatio="none">
-                    <defs>
-                        <filter id="funnelGlow">
-                            <feGaussianBlur stdDeviation="6" result="blur"/>
-                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                        </filter>
-                    </defs>
-                    <path d="M0 0 L600 0 L440 200 L440 360 L360 520 L240 520 L160 360 L160 200 Z"
-                          fill="rgba(233,69,96,0.06)" stroke="rgba(233,69,96,0.5)" stroke-width="2.5" filter="url(#funnelGlow)"/>
-                    <line x1="160" y1="200" x2="440" y2="200" stroke="rgba(233,69,96,0.3)" stroke-width="1.5" stroke-dasharray="8 5"/>
-                    <line x1="160" y1="360" x2="440" y2="360" stroke="rgba(233,69,96,0.3)" stroke-width="1.5" stroke-dasharray="8 5"/>
+                <svg class="funnel__shape" viewBox="0 0 600 580" fill="none" preserveAspectRatio="none">
+                    <!-- Outer funnel walls -->
+                    <path d="M10 0 L590 0 L590 10 Q590 20 580 20 L430 20 L370 190 L370 380 L340 530 L340 580 L260 580 L260 530 L230 380 L230 190 L170 20 L20 20 Q10 20 10 10 Z"
+                          fill="rgba(233,69,96,0.03)" stroke="rgba(233,69,96,0.25)" stroke-width="2"/>
+                    <!-- Tier dividers -->
+                    <line x1="230" y1="190" x2="370" y2="190" stroke="rgba(233,69,96,0.12)" stroke-width="1" stroke-dasharray="5 4"/>
+                    <line x1="230" y1="380" x2="370" y2="380" stroke="rgba(233,69,96,0.12)" stroke-width="1" stroke-dasharray="5 4"/>
+                    <!-- Animated falling figures -->
+                    <g class="funnel__drop funnel__drop--1"><circle r="3.5" fill="#ff6b81"/><line x1="0" y1="3.5" x2="0" y2="12" stroke="#ff6b81" stroke-width="1.2"/><line x1="-4" y1="7" x2="4" y2="7" stroke="#ff6b81" stroke-width="1.2"/><line x1="0" y1="12" x2="-3.5" y2="18" stroke="#ff6b81" stroke-width="1.2"/><line x1="0" y1="12" x2="3.5" y2="18" stroke="#ff6b81" stroke-width="1.2"/></g>
+                    <g class="funnel__drop funnel__drop--2"><circle r="3" fill="#e94560"/><line x1="0" y1="3" x2="0" y2="11" stroke="#e94560" stroke-width="1.1"/><line x1="-3.5" y1="6.5" x2="3.5" y2="6.5" stroke="#e94560" stroke-width="1.1"/><line x1="0" y1="11" x2="-3" y2="16" stroke="#e94560" stroke-width="1.1"/><line x1="0" y1="11" x2="3" y2="16" stroke="#e94560" stroke-width="1.1"/></g>
+                    <g class="funnel__drop funnel__drop--3"><circle r="2.8" fill="#ff6b81"/><line x1="0" y1="2.8" x2="0" y2="10" stroke="#ff6b81" stroke-width="1"/><line x1="-3" y1="6" x2="3" y2="6" stroke="#ff6b81" stroke-width="1"/><line x1="0" y1="10" x2="-2.8" y2="15" stroke="#ff6b81" stroke-width="1"/><line x1="0" y1="10" x2="2.8" y2="15" stroke="#ff6b81" stroke-width="1"/></g>
+                    <g class="funnel__drop funnel__drop--4"><circle r="3.2" fill="#e94560"/><line x1="0" y1="3.2" x2="0" y2="11.5" stroke="#e94560" stroke-width="1.1"/><line x1="-3.5" y1="6.8" x2="3.5" y2="6.8" stroke="#e94560" stroke-width="1.1"/><line x1="0" y1="11.5" x2="-3.2" y2="17" stroke="#e94560" stroke-width="1.1"/><line x1="0" y1="11.5" x2="3.2" y2="17" stroke="#e94560" stroke-width="1.1"/></g>
+                    <g class="funnel__drop funnel__drop--5"><circle r="2.5" fill="#ff6b81" opacity="0.7"/><line x1="0" y1="2.5" x2="0" y2="9" stroke="#ff6b81" stroke-width="0.9" opacity="0.7"/><line x1="-2.8" y1="5.5" x2="2.8" y2="5.5" stroke="#ff6b81" stroke-width="0.9" opacity="0.7"/><line x1="0" y1="9" x2="-2.5" y2="14" stroke="#ff6b81" stroke-width="0.9" opacity="0.7"/><line x1="0" y1="9" x2="2.5" y2="14" stroke="#ff6b81" stroke-width="0.9" opacity="0.7"/></g>
                 </svg>
 
                 <!-- Tier 1: Lead Gen (widest) -->
@@ -330,13 +322,6 @@
                             <p>Leads walk in pre-sold and ready to sign up. More trials, more members, more revenue.</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Stick figure exiting -->
-                <div class="funnel__people funnel__people--exit">
-                    <svg viewBox="0 0 50 58" fill="none">
-                        <g opacity="0.85"><circle cx="25" cy="10" r="6.5" fill="#e94560"/><line x1="25" y1="16" x2="25" y2="34" stroke="#e94560" stroke-width="2.2"/><line x1="15" y1="24" x2="35" y2="24" stroke="#e94560" stroke-width="2.2"/><line x1="25" y1="34" x2="15" y2="48" stroke="#e94560" stroke-width="2.2"/><line x1="25" y1="34" x2="35" y2="48" stroke="#e94560" stroke-width="2.2"/></g>
-                    </svg>
                 </div>
             </div>
             <p class="wyg__support">💬 Plus: 1-on-1 support with your dedicated strategist, 24/7.</p>

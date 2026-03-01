@@ -1019,7 +1019,7 @@ img {
 /* ── Funnel ── */
 .funnel {
     position: relative;
-    max-width: 620px;
+    max-width: 640px;
     margin: 0 auto;
     padding: 0 0 1rem;
     display: flex;
@@ -1030,35 +1030,101 @@ img {
 /* SVG funnel outline behind everything */
 .funnel__shape {
     position: absolute;
-    top: 48px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
-    height: calc(100% - 100px);
+    width: 110%;
+    height: 100%;
     z-index: 0;
     pointer-events: none;
-    filter: drop-shadow(0 0 12px rgba(233,69,96,0.15));
 }
 
-/* Stick figures */
-.funnel__people--enter {
-    width: 140px;
-    height: 52px;
-    margin-bottom: 0.25rem;
-    animation: figBob 2.5s ease-in-out infinite alternate;
+/* Falling stick figures inside funnel */
+.funnel__drop {
+    animation: funnelFall 4s ease-in infinite;
+    opacity: 0;
 }
 
-.funnel__people--exit {
-    width: 50px;
-    height: 58px;
-    margin-top: 0.25rem;
-    animation: figBob 2.5s ease-in-out infinite alternate;
-    animation-delay: 1s;
+.funnel__drop--1 { animation-delay: 0s; }
+.funnel__drop--2 { animation-delay: 0.8s; }
+.funnel__drop--3 { animation-delay: 1.6s; }
+.funnel__drop--4 { animation-delay: 2.4s; }
+.funnel__drop--5 { animation-delay: 3.2s; }
+
+@keyframes funnelFall {
+    0%   { transform: translate(280px, -10px); opacity: 0; }
+    5%   { opacity: 0.8; }
+    25%  { transform: translate(310px, 140px); opacity: 0.7; }
+    50%  { transform: translate(295px, 300px); opacity: 0.6; }
+    75%  { transform: translate(300px, 440px); opacity: 0.4; }
+    95%  { opacity: 0.3; }
+    100% { transform: translate(300px, 590px); opacity: 0; }
 }
 
-@keyframes figBob {
-    0%   { transform: translateY(0); }
-    100% { transform: translateY(4px); }
+/* Vary horizontal positions */
+.funnel__drop--1 {
+    animation-name: funnelFall1;
+}
+@keyframes funnelFall1 {
+    0%   { transform: translate(220px, -10px); opacity: 0; }
+    5%   { opacity: 0.8; }
+    25%  { transform: translate(260px, 140px); opacity: 0.7; }
+    50%  { transform: translate(280px, 300px); opacity: 0.6; }
+    75%  { transform: translate(290px, 440px); opacity: 0.4; }
+    95%  { opacity: 0.3; }
+    100% { transform: translate(295px, 590px); opacity: 0; }
+}
+
+.funnel__drop--2 {
+    animation-name: funnelFall2;
+}
+@keyframes funnelFall2 {
+    0%   { transform: translate(370px, -10px); opacity: 0; }
+    5%   { opacity: 0.7; }
+    25%  { transform: translate(340px, 140px); opacity: 0.6; }
+    50%  { transform: translate(315px, 300px); opacity: 0.5; }
+    75%  { transform: translate(305px, 440px); opacity: 0.35; }
+    95%  { opacity: 0.25; }
+    100% { transform: translate(300px, 590px); opacity: 0; }
+}
+
+.funnel__drop--3 {
+    animation-name: funnelFall3;
+}
+@keyframes funnelFall3 {
+    0%   { transform: translate(300px, -10px); opacity: 0; }
+    5%   { opacity: 0.6; }
+    25%  { transform: translate(300px, 140px); opacity: 0.55; }
+    50%  { transform: translate(300px, 300px); opacity: 0.45; }
+    75%  { transform: translate(300px, 440px); opacity: 0.3; }
+    95%  { opacity: 0.2; }
+    100% { transform: translate(300px, 590px); opacity: 0; }
+}
+
+.funnel__drop--4 {
+    animation-name: funnelFall4;
+}
+@keyframes funnelFall4 {
+    0%   { transform: translate(160px, -10px); opacity: 0; }
+    5%   { opacity: 0.7; }
+    25%  { transform: translate(240px, 140px); opacity: 0.6; }
+    50%  { transform: translate(275px, 300px); opacity: 0.5; }
+    75%  { transform: translate(290px, 440px); opacity: 0.35; }
+    95%  { opacity: 0.2; }
+    100% { transform: translate(298px, 590px); opacity: 0; }
+}
+
+.funnel__drop--5 {
+    animation-name: funnelFall5;
+}
+@keyframes funnelFall5 {
+    0%   { transform: translate(420px, -10px); opacity: 0; }
+    5%   { opacity: 0.55; }
+    25%  { transform: translate(355px, 140px); opacity: 0.5; }
+    50%  { transform: translate(320px, 300px); opacity: 0.4; }
+    75%  { transform: translate(308px, 440px); opacity: 0.3; }
+    95%  { opacity: 0.15; }
+    100% { transform: translate(302px, 590px); opacity: 0; }
 }
 
 /* Each tier row */
