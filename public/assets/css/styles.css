@@ -176,6 +176,7 @@ img {
     color: var(--color-white);
     min-height: 85vh;
     overflow: hidden;
+    perspective: 1200px;
 }
 
 .hero__tiles {
@@ -189,7 +190,9 @@ img {
     gap: 5px;
     opacity: 0.72;
     transform: rotate(-8deg);
-    animation: tilesFloat 20s ease-in-out infinite alternate;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.15s ease-out, opacity 0.15s ease-out;
 }
 
 .hero__brick-row {
