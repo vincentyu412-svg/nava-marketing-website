@@ -733,8 +733,8 @@ img {
 }
 
 .results-card__photo {
-    width: 42px;
-    height: 42px;
+    width: 32px;
+    height: 32px;
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 2px 6px rgba(26, 26, 46, 0.10);
@@ -753,14 +753,14 @@ img {
 }
 
 .results-card__name {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--color-primary);
     line-height: 1.1;
 }
 
 .results-card__gym {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 400;
     color: rgba(26, 26, 46, 0.45);
     text-transform: uppercase;
@@ -788,6 +788,19 @@ img {
     .results-card__quote {
         font-size: 1rem;
         line-height: 1.5;
+    }
+
+    .results-card__photo {
+        width: 42px;
+        height: 42px;
+    }
+
+    .results-card__name {
+        font-size: 1rem;
+    }
+
+    .results-card__gym {
+        font-size: 0.8rem;
     }
 }
 
@@ -817,16 +830,16 @@ img {
     }
 
     .results-card__photo {
-        width: 28px;
-        height: 28px;
+        width: 36px;
+        height: 36px;
     }
 
     .results-card__name {
-        font-size: 0.72rem;
+        font-size: 0.85rem;
     }
 
     .results-card__gym {
-        font-size: 0.55rem;
+        font-size: 0.65rem;
     }
 }
 
