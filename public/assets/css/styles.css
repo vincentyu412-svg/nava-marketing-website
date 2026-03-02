@@ -1028,7 +1028,7 @@ img {
     background: var(--color-primary);
     padding: 0;
     text-align: center;
-    overflow: hidden;
+    overflow: visible;
     min-height: 520px;
     display: flex;
     align-items: center;
@@ -1587,19 +1587,18 @@ img {
     width: 50%;
 }
 
-/* Stage label – left of cards, absolutely positioned */
+/* Stage label – vertical, glued to left of cards */
 .funnel__label {
-    position: absolute;
-    left: -10px;
-    top: 50%;
-    transform: translate(-100%, -50%);
-    font-size: 0.65rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 0.6rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     color: rgba(255, 255, 255, 0.5);
     white-space: nowrap;
-    text-align: right;
+    flex-shrink: 0;
+    margin-right: 0.3rem;
 }
 
 /* Cards container */
@@ -1761,12 +1760,10 @@ img {
     }
 
     .funnel__label {
-        position: static;
-        transform: none;
-        font-size: 0.42rem;
-        min-width: 36px;
-        flex-shrink: 0;
-        text-align: right;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 0.38rem;
+        margin-right: 0.15rem;
         letter-spacing: 0.06em;
     }
 
