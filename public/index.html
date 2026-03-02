@@ -7,7 +7,7 @@
     <title>Gym Grow | Marketing for Gyms That Want to Grow</title>
     <meta name="description"
         content="Gym Grow helps gyms attract more members, boost retention, and scale revenue with proven marketing strategies.">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=20">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=21">
 </head>
 
 <body>
@@ -78,7 +78,7 @@
 
     <!-- Logo Scroller -->
     <section class="logo-scroller">
-        <canvas id="logo-constellation-canvas" class="logo-scroller__canvas"></canvas>
+        <div class="logo-scroller__stars" id="logo-stars"></div>
         <p class="logo-scroller__title">TRUSTED BY THE BEST</p>
         <div class="logo-scroller__track">
             <div class="logo-scroller__slide">
@@ -270,12 +270,14 @@
                 <!-- SVG funnel outline -->
                 <svg class="funnel__shape" viewBox="0 0 600 580" fill="none" preserveAspectRatio="none">
                     <defs>
-                        <linearGradient id="funnelGrad" x1="300" y1="0" x2="300" y2="580" gradientUnits="userSpaceOnUse">
+                        <linearGradient id="funnelGrad" x1="300" y1="0" x2="300" y2="580"
+                            gradientUnits="userSpaceOnUse">
                             <stop offset="0%" stop-color="rgba(233,69,96,0.10)" />
                             <stop offset="50%" stop-color="rgba(233,69,96,0.04)" />
                             <stop offset="100%" stop-color="rgba(233,69,96,0.12)" />
                         </linearGradient>
-                        <linearGradient id="funnelStroke" x1="300" y1="0" x2="300" y2="580" gradientUnits="userSpaceOnUse">
+                        <linearGradient id="funnelStroke" x1="300" y1="0" x2="300" y2="580"
+                            gradientUnits="userSpaceOnUse">
                             <stop offset="0%" stop-color="rgba(233,69,96,0.40)" />
                             <stop offset="50%" stop-color="rgba(233,69,96,0.18)" />
                             <stop offset="100%" stop-color="rgba(233,69,96,0.50)" />
@@ -463,79 +465,24 @@
             }, { passive: true });
         })();
 
-        // Constellation canvas for logo scroller
+        // Twinkling stars for logo scroller
         (function () {
-            var c = document.getElementById('logo-constellation-canvas');
-            if (!c) return;
-            var cx = c.getContext('2d');
-            var sec = c.parentElement;
-            var dots = [];
-            var N = 80;
-            var LINE_DIST = 130;
-
-            function sz() { c.width = sec.offsetWidth; c.height = sec.offsetHeight; }
-            sz(); window.addEventListener('resize', sz);
-
-            function Dot() { this.init(); }
-            Dot.prototype.init = function () {
-                this.x = Math.random() * c.width;
-                this.y = Math.random() * c.height;
-                this.r = Math.random() * 2 + 0.8;
-                this.vx = (Math.random() - 0.5) * 0.4;
-                this.vy = (Math.random() - 0.5) * 0.25;
-                this.o = Math.random() * 0.5 + 0.15;
-                var r = Math.random();
-                if (r < 0.5) this.color = '233,69,96';
-                else if (r < 0.75) this.color = '255,120,140';
-                else this.color = '160,100,220';
-                this.phase = Math.random() * Math.PI * 2;
-            };
-            Dot.prototype.update = function (t) {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < -5) this.x = c.width + 5;
-                if (this.x > c.width + 5) this.x = -5;
-                if (this.y < -5) this.y = c.height + 5;
-                if (this.y > c.height + 5) this.y = -5;
-                this.pulse = 0.7 + 0.3 * Math.sin(t * 0.0015 + this.phase);
-            };
-            Dot.prototype.draw = function () {
-                cx.beginPath();
-                cx.arc(this.x, this.y, this.r * this.pulse, 0, Math.PI * 2);
-                cx.fillStyle = 'rgba(' + this.color + ',' + (this.o * this.pulse) + ')';
-                cx.shadowBlur = this.r * 5;
-                cx.shadowColor = 'rgba(' + this.color + ',0.4)';
-                cx.fill();
-                cx.shadowBlur = 0;
-            };
-
-            for (var i = 0; i < N; i++) dots.push(new Dot());
-
-            function lines() {
-                for (var i = 0; i < dots.length; i++) {
-                    for (var j = i + 1; j < dots.length; j++) {
-                        var dx = dots[i].x - dots[j].x;
-                        var dy = dots[i].y - dots[j].y;
-                        var d = Math.sqrt(dx * dx + dy * dy);
-                        if (d < LINE_DIST) {
-                            var a = 0.12 * (1 - d / LINE_DIST);
-                            cx.beginPath();
-                            cx.strokeStyle = 'rgba(233,69,96,' + a + ')';
-                            cx.lineWidth = 0.6;
-                            cx.moveTo(dots[i].x, dots[i].y);
-                            cx.lineTo(dots[j].x, dots[j].y);
-                            cx.stroke();
-                        }
-                    }
-                }
+            var container = document.getElementById('logo-stars');
+            if (!container) return;
+            var COUNT = 60;
+            for (var i = 0; i < COUNT; i++) {
+                var star = document.createElement('span');
+                star.className = 'logo-star';
+                var size = Math.random() * 2.5 + 1;
+                var x = Math.random() * 100;
+                var y = Math.random() * 100;
+                var delay = Math.random() * 4;
+                var dur = Math.random() * 2 + 1.5;
+                var brightness = Math.random();
+                star.style.cssText = 'width:' + size + 'px;height:' + size + 'px;left:' + x + '%;top:' + y + '%;animation-delay:' + delay + 's;animation-duration:' + dur + 's;';
+                if (brightness > 0.7) star.classList.add('logo-star--bright');
+                container.appendChild(star);
             }
-
-            (function loop(t) {
-                cx.clearRect(0, 0, c.width, c.height);
-                lines();
-                for (var i = 0; i < dots.length; i++) { dots[i].update(t); dots[i].draw(); }
-                requestAnimationFrame(loop);
-            })(0);
         })();
 
         // Particle canvas effect for testimonials section
