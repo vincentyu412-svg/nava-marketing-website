@@ -855,10 +855,12 @@ img {
         opacity: 0.1;
         transform: scale(1);
     }
+
     50% {
         opacity: 0.55;
         transform: scale(1.2);
     }
+
     100% {
         opacity: 0.15;
         transform: scale(0.9);
@@ -871,11 +873,13 @@ img {
         transform: scale(1);
         box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
     }
+
     50% {
         opacity: 0.9;
         transform: scale(1.4);
         box-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 18px rgba(255, 255, 255, 0.25);
     }
+
     100% {
         opacity: 0.2;
         transform: scale(0.85);
@@ -1499,14 +1503,37 @@ img {
     text-shadow: 0 0 8px rgba(46, 204, 113, 0.5);
 }
 
-.funnel__cashstack--1 { animation-delay: 0s; }
-.funnel__cashstack--2 { animation-delay: 0.5s; }
-.funnel__cashstack--3 { animation-delay: 1s; }
-.funnel__cashstack--4 { animation-delay: 1.5s; }
-.funnel__cashstack--5 { animation-delay: 2s; }
-.funnel__cashstack--6 { animation-delay: 2.5s; }
-.funnel__cashstack--7 { animation-delay: 0.3s; }
-.funnel__cashstack--8 { animation-delay: 1.8s; }
+.funnel__cashstack--1 {
+    animation-delay: 0s;
+}
+
+.funnel__cashstack--2 {
+    animation-delay: 0.5s;
+}
+
+.funnel__cashstack--3 {
+    animation-delay: 1s;
+}
+
+.funnel__cashstack--4 {
+    animation-delay: 1.5s;
+}
+
+.funnel__cashstack--5 {
+    animation-delay: 2s;
+}
+
+.funnel__cashstack--6 {
+    animation-delay: 2.5s;
+}
+
+.funnel__cashstack--7 {
+    animation-delay: 0.3s;
+}
+
+.funnel__cashstack--8 {
+    animation-delay: 1.8s;
+}
 
 @keyframes dollarPop {
     0% {
@@ -1540,10 +1567,10 @@ img {
     position: relative;
     z-index: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 0.4rem;
+    gap: 0.6rem;
     padding: 1.2rem 0;
 }
 
@@ -1560,15 +1587,17 @@ img {
     width: 50%;
 }
 
-/* Stage label – above cards */
+/* Stage label – left of cards, horizontal */
 .funnel__label {
-    font-size: 0.78rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     color: rgba(255, 255, 255, 0.5);
     white-space: nowrap;
-    text-align: center;
+    text-align: right;
+    flex-shrink: 0;
+    min-width: 70px;
 }
 
 /* Cards container */
@@ -1681,11 +1710,11 @@ img {
         align-items: center;
     }
 
-    /* Keep tier-1 cards horizontal on mobile */
+    /* Tier-1 cards: horizontal row on mobile */
     .funnel__tier--1 .funnel__cards {
         flex-direction: row;
         flex-wrap: nowrap;
-        gap: 0.25rem;
+        gap: 0.2rem;
     }
 
     .funnel__tier--1 .funnel__card {
@@ -1693,34 +1722,36 @@ img {
         min-width: 0;
         width: 0;
         flex: 1 1 0;
-        padding: 0.4rem 0.35rem;
+        padding: 0.35rem 0.3rem;
         border-radius: 8px;
     }
 
     .funnel__tier--1 .funnel__card h4 {
-        font-size: 0.52rem;
+        font-size: 0.48rem;
         white-space: normal;
-        line-height: 1.25;
+        line-height: 1.2;
+    }
+
+    .funnel__tier--1 .funnel__card .funnel__card-icon {
+        display: none;
     }
 
     .funnel__tier--1 .funnel__card p {
-        font-size: 0.44rem;
-        line-height: 1.3;
         display: none;
     }
 
     .funnel__card {
         max-width: 220px;
         width: 100%;
-        padding: 0.7rem 0.85rem;
+        padding: 0.5rem 0.6rem;
     }
 
     .funnel__card h4 {
-        font-size: 0.72rem;
+        font-size: 0.65rem;
     }
 
     .funnel__card p {
-        font-size: 0.6rem;
+        font-size: 0.52rem;
     }
 
     .funnel__card--wide {
@@ -1728,12 +1759,14 @@ img {
     }
 
     .funnel__label {
-        font-size: 0.6rem;
-        letter-spacing: 0.1em;
+        font-size: 0.42rem;
+        min-width: 42px;
+        letter-spacing: 0.06em;
     }
 
     .funnel__tier {
         gap: 0.3rem;
+        padding: 0.7rem 0;
     }
 
     .funnel__people--enter {
