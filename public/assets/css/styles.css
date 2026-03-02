@@ -355,14 +355,15 @@ img {
 
 .hero__tag {
     display: inline-block;
-    background: rgba(233, 69, 96, 0.15);
+    background: rgba(233, 69, 96, 0.18);
     color: var(--color-accent);
-    padding: 0.4rem 1rem;
+    padding: 0.45rem 1.1rem;
     border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.88rem;
+    font-weight: 700;
     margin-bottom: 1.5rem;
     letter-spacing: 0.5px;
+    border: 1px solid rgba(233, 69, 96, 0.25);
 }
 
 .hero h1 {
@@ -1872,7 +1873,7 @@ img {
     }
 
     .hero {
-        padding: 4rem 5% 3rem;
+        padding: 6.5rem 5% 3rem;
         min-height: auto;
     }
 
