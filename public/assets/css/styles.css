@@ -2686,16 +2686,16 @@ img {
 /* ── Responsive ── */
 @media (max-width: 768px) {
     .nav {
-        width: 92%;
-        max-width: calc(100vw - 1.5rem);
-        padding: 0.5rem 0.75rem;
+        width: 94%;
+        max-width: calc(100vw - 1rem);
+        padding: 0.7rem 1rem;
         justify-content: space-between;
-        border-radius: 10px;
+        border-radius: 12px;
     }
 
     .nav__logo {
         display: block;
-        font-size: 1.15rem;
+        font-size: 1.35rem;
     }
 
     .nav__hamburger {
@@ -2715,8 +2715,8 @@ img {
     }
 
     .nav__cta {
-        font-size: 0.8rem;
-        padding: 0.45rem 1rem;
+        font-size: 0.9rem;
+        padding: 0.55rem 1.2rem;
         text-align: center;
         white-space: nowrap;
     }
