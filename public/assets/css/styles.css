@@ -1093,7 +1093,7 @@ img {
 /* ── Funnel ── */
 .funnel {
     position: relative;
-    max-width: 720px;
+    max-width: 850px;
     margin: 0 auto;
     padding: 0 0 1rem;
     display: flex;
@@ -1627,6 +1627,30 @@ img {
     .funnel__cards {
         flex-direction: column;
         align-items: center;
+    }
+
+    /* Keep tier-1 cards horizontal on mobile */
+    .funnel__tier--1 .funnel__cards {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 0.35rem;
+    }
+
+    .funnel__tier--1 .funnel__card {
+        max-width: none;
+        min-width: 0;
+        width: 0;
+        flex: 1 1 0;
+        padding: 0.5rem 0.45rem;
+    }
+
+    .funnel__tier--1 .funnel__card h4 {
+        font-size: 0.58rem;
+        white-space: normal;
+    }
+
+    .funnel__tier--1 .funnel__card p {
+        font-size: 0.5rem;
     }
 
     .funnel__card {
