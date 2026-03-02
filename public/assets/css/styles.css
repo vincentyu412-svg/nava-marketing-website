@@ -650,14 +650,14 @@ img {
 }
 
 .results-video__name {
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: rgba(26, 26, 46, 0.5);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(26, 26, 46, 0.6);
     text-align: center;
 }
 
 .results-video__result {
-    font-size: 0.78rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--color-accent);
     text-align: center;
