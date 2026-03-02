@@ -2726,6 +2726,12 @@ img {
         min-height: auto;
     }
 
+    .btn--large {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+
     .stats {
         gap: 2rem;
     }
