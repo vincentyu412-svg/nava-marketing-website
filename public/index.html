@@ -7,7 +7,7 @@
     <title>Gym Grow | Marketing for Gyms That Want to Grow</title>
     <meta name="description"
         content="Gym Grow helps gyms attract more members, boost retention, and scale revenue with proven marketing strategies.">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=22">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=23">
 </head>
 
 <body>
@@ -272,25 +272,39 @@
                     <defs>
                         <linearGradient id="funnelGrad" x1="300" y1="0" x2="300" y2="580"
                             gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="rgba(233,69,96,0.10)" />
-                            <stop offset="50%" stop-color="rgba(233,69,96,0.04)" />
-                            <stop offset="100%" stop-color="rgba(233,69,96,0.12)" />
+                            <stop offset="0%" stop-color="rgba(233,69,96,0.14)" />
+                            <stop offset="40%" stop-color="rgba(233,69,96,0.03)" />
+                            <stop offset="100%" stop-color="rgba(233,69,96,0.10)" />
                         </linearGradient>
                         <linearGradient id="funnelStroke" x1="300" y1="0" x2="300" y2="580"
                             gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="rgba(233,69,96,0.40)" />
-                            <stop offset="50%" stop-color="rgba(233,69,96,0.18)" />
-                            <stop offset="100%" stop-color="rgba(233,69,96,0.50)" />
+                            <stop offset="0%" stop-color="rgba(233,69,96,0.55)" />
+                            <stop offset="50%" stop-color="rgba(233,69,96,0.15)" />
+                            <stop offset="100%" stop-color="rgba(233,69,96,0.45)" />
+                        </linearGradient>
+                        <!-- Left highlight for 3D lighting -->
+                        <linearGradient id="funnelHighlight" x1="0" y1="0" x2="600" y2="0"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="rgba(255,255,255,0.08)" />
+                            <stop offset="30%" stop-color="rgba(255,255,255,0.02)" />
+                            <stop offset="70%" stop-color="rgba(255,255,255,0)" />
+                            <stop offset="100%" stop-color="rgba(0,0,0,0.05)" />
                         </linearGradient>
                     </defs>
                     <!-- Outer funnel walls -->
                     <path
                         d="M10 0 L590 0 L590 10 Q590 20 580 20 L430 20 L370 190 L370 380 L340 530 L340 580 L260 580 L260 530 L230 380 L230 190 L170 20 L20 20 Q10 20 10 10 Z"
                         fill="url(#funnelGrad)" stroke="url(#funnelStroke)" stroke-width="2" />
-                    <!-- Inner highlight edge for depth -->
+                    <!-- 3D highlight overlay -->
+                    <path
+                        d="M10 0 L590 0 L590 10 Q590 20 580 20 L430 20 L370 190 L370 380 L340 530 L340 580 L260 580 L260 530 L230 380 L230 190 L170 20 L20 20 Q10 20 10 10 Z"
+                        fill="url(#funnelHighlight)" />
+                    <!-- Top rim highlight -->
+                    <line x1="20" y1="2" x2="580" y2="2" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+                    <!-- Inner edge for depth -->
                     <path
                         d="M30 10 L570 10 L570 14 L425 18 L367 188 L367 378 L338 528 L338 575 L262 575 L262 528 L233 378 L233 188 L175 18 L30 18 Z"
-                        fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+                        fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
                     <!-- Tier dividers -->
                     <line x1="230" y1="190" x2="370" y2="190" stroke="rgba(233,69,96,0.12)" stroke-width="1"
                         stroke-dasharray="5 4" />
