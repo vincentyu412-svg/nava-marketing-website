@@ -1040,6 +1040,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    perspective: 900px;
 }
 
 /* SVG funnel outline behind everything */
@@ -1047,11 +1048,13 @@ img {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) rotateX(4deg);
+    transform-origin: center top;
     width: 110%;
     height: 100%;
     z-index: 0;
     pointer-events: none;
+    filter: drop-shadow(0 8px 32px rgba(233, 69, 96, 0.12)) drop-shadow(0 2px 8px rgba(233, 69, 96, 0.08));
 }
 
 /* Falling stick figures inside funnel */
@@ -1317,6 +1320,7 @@ img {
     z-index: 1;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     padding: 1.2rem 0;
 }
@@ -1335,13 +1339,16 @@ img {
 
 /* Stage label to the left */
 .funnel__label {
+    position: absolute;
+    left: -0.5rem;
+    top: 50%;
+    transform: rotate(180deg) translateX(0);
     font-size: 0.6rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: rgba(255, 255, 255, 0.3);
     writing-mode: vertical-lr;
-    transform: rotate(180deg);
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -1366,6 +1373,7 @@ img {
     min-width: 160px;
     max-width: 210px;
     transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .funnel__card:hover {
@@ -1381,7 +1389,7 @@ img {
 .funnel__card--accent {
     background: rgba(233, 69, 96, 0.08);
     border-color: rgba(233, 69, 96, 0.35);
-    box-shadow: 0 0 20px rgba(233, 69, 96, 0.08);
+    box-shadow: 0 4px 24px rgba(233, 69, 96, 0.15), 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     max-width: 260px;
 }
 
@@ -1460,6 +1468,9 @@ img {
     }
 
     .funnel__label {
+        position: relative;
+        left: auto;
+        top: auto;
         writing-mode: horizontal-tb;
         transform: none;
         font-size: 0.55rem;
