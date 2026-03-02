@@ -453,7 +453,7 @@ img {
 /* ── Results / Testimonials Section ── */
 .results-section {
     background: var(--color-light);
-    padding: 3rem 5%;
+    padding: 3rem 5% 6rem;
     position: relative;
     overflow: hidden;
 }
@@ -1027,12 +1027,26 @@ img {
     position: relative;
     background: var(--color-primary);
     padding: 0;
+    padding-top: 70px;
     text-align: center;
     overflow: hidden;
     min-height: 520px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* V-shaped overlap from light into dark */
+.wyg::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -2px;
+    right: -2px;
+    height: 72px;
+    background: var(--color-light);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    z-index: 2;
 }
 
 .wyg__tiles {
@@ -1088,7 +1102,7 @@ img {
     font-size: 2rem;
     color: #fff;
     margin-bottom: 0.3rem;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.7);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9), 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
 .wyg__sub {
@@ -1097,7 +1111,7 @@ img {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.95rem;
     margin-bottom: 2.5rem;
-    text-shadow: 0 1px 10px rgba(0,0,0,0.7);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7);
 }
 
 /* ── Funnel ── */
@@ -1872,17 +1886,21 @@ img {
 /* ── How It Works (compact dark) ── */
 .hiw {
     position: relative;
+    z-index: 1;
     background: linear-gradient(135deg, #1a0a2e 0%, #0d0d1a 30%, #0a1628 60%, #1a0a2e 100%);
     padding: 4.5rem 5% 4rem;
     text-align: center;
     overflow: hidden;
-    max-width: 800px;
-    margin: 0 auto 3rem;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid rgba(233, 69, 96, 0.2);
+    max-width: 96%;
+    width: 100%;
+    margin: 3rem auto 0;
+    border: 1px solid rgba(233, 69, 96, 0.25);
     border-radius: 20px;
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(233, 69, 96, 0.05);
+    box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.35),
+        0 0 80px rgba(0, 0, 0, 0.2),
+        0 0 40px rgba(233, 69, 96, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -1908,12 +1926,12 @@ img {
 
 .hiw::before {
     top: 0;
-    background: linear-gradient(90deg, transparent 5%, rgba(233,69,96,0.5) 30%, rgba(100,60,255,0.4) 70%, transparent 95%);
+    background: linear-gradient(90deg, transparent 5%, rgba(233, 69, 96, 0.5) 30%, rgba(100, 60, 255, 0.4) 70%, transparent 95%);
 }
 
 .hiw::after {
     bottom: 0;
-    background: linear-gradient(90deg, transparent 5%, rgba(60,100,255,0.4) 30%, rgba(233,69,96,0.5) 70%, transparent 95%);
+    background: linear-gradient(90deg, transparent 5%, rgba(60, 100, 255, 0.4) 30%, rgba(233, 69, 96, 0.5) 70%, transparent 95%);
 }
 
 .hiw__canvas {
@@ -1933,7 +1951,7 @@ img {
     height: 550px;
     top: -120px;
     left: -100px;
-    background: radial-gradient(circle, rgba(233,69,96,0.5) 0%, rgba(200,50,120,0.25) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(233, 69, 96, 0.5) 0%, rgba(200, 50, 120, 0.25) 40%, transparent 70%);
     animation: hiwOrb1 10s ease-in-out infinite alternate;
 }
 
@@ -1942,7 +1960,7 @@ img {
     height: 500px;
     bottom: -100px;
     right: -80px;
-    background: radial-gradient(circle, rgba(60,100,255,0.45) 0%, rgba(30,180,220,0.2) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(60, 100, 255, 0.45) 0%, rgba(30, 180, 220, 0.2) 40%, transparent 70%);
     animation: hiwOrb2 12s ease-in-out infinite alternate;
 }
 
@@ -1952,23 +1970,44 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(160,60,220,0.35) 0%, rgba(120,40,200,0.15) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(160, 60, 220, 0.35) 0%, rgba(120, 40, 200, 0.15) 40%, transparent 70%);
     animation: hiwOrb3 14s ease-in-out infinite alternate;
 }
 
 @keyframes hiwOrb1 {
-    0%   { transform: translate(0, 0) scale(1); opacity: 0.8; }
-    100% { transform: translate(80px, 40px) scale(1.2); opacity: 0.6; }
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(80px, 40px) scale(1.2);
+        opacity: 0.6;
+    }
 }
 
 @keyframes hiwOrb2 {
-    0%   { transform: translate(0, 0) scale(1); opacity: 0.7; }
-    100% { transform: translate(-70px, -30px) scale(1.15); opacity: 0.55; }
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate(-70px, -30px) scale(1.15);
+        opacity: 0.55;
+    }
 }
 
 @keyframes hiwOrb3 {
-    0%   { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-    100% { transform: translate(-40%, -55%) scale(1.25); opacity: 0.45; }
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translate(-40%, -55%) scale(1.25);
+        opacity: 0.45;
+    }
 }
 
 .hiw__wave--4 {
@@ -1976,13 +2015,20 @@ img {
     height: 350px;
     top: -40px;
     right: 15%;
-    background: radial-gradient(circle, rgba(255,100,180,0.35) 0%, rgba(255,60,130,0.15) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 100, 180, 0.35) 0%, rgba(255, 60, 130, 0.15) 40%, transparent 70%);
     animation: hiwOrb4 11s ease-in-out infinite alternate;
 }
 
 @keyframes hiwOrb4 {
-    0%   { transform: translate(0, 0) scale(1); opacity: 0.65; }
-    100% { transform: translate(-40px, 50px) scale(1.1); opacity: 0.5; }
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.65;
+    }
+
+    100% {
+        transform: translate(-40px, 50px) scale(1.1);
+        opacity: 0.5;
+    }
 }
 
 .hiw__heading {
@@ -1992,7 +2038,7 @@ img {
     font-weight: 700;
     color: #fff;
     margin-bottom: 0.4rem;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.7), 0 0 40px rgba(0,0,0,0.4);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9), 0 0 6px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 0, 0, 0.4);
     letter-spacing: -0.02em;
 }
 
@@ -2002,7 +2048,7 @@ img {
     color: rgba(255, 255, 255, 0.85);
     font-size: 0.95rem;
     margin-bottom: 2.5rem;
-    text-shadow: 0 1px 12px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.4);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.4);
 }
 
 .hiw__track {
@@ -2029,7 +2075,7 @@ img {
         transform: translateX(-50%);
         width: 60%;
         height: 2px;
-        background: linear-gradient(90deg, transparent, var(--color-accent), rgba(100,60,255,0.6), transparent);
+        background: linear-gradient(90deg, transparent, var(--color-accent), rgba(100, 60, 255, 0.6), transparent);
         opacity: 0.4;
         z-index: 0;
     }
@@ -2137,7 +2183,7 @@ img {
     transition: color 0.4s;
     text-align: center;
     width: 100%;
-    text-shadow: 0 1px 10px rgba(0,0,0,0.7);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7);
 }
 
 .hiw__step p {
@@ -2152,12 +2198,32 @@ img {
 .hiw__step p {
     font-size: 0.88rem;
     color: #ffffff;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 1200px) {
+    .hiw {
+        max-width: 96%;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 901px) {
+    .hiw {
+        max-width: 94%;
+    }
+}
+
+@media (max-width: 900px) and (min-width: 701px) {
+    .hiw {
+        max-width: 92%;
+    }
 }
 
 @media (max-width: 700px) {
     .hiw {
         padding: 2.5rem 5% 2rem;
+        max-width: 100%;
+        border-radius: 14px;
     }
 
     .hiw__heading {
@@ -2359,16 +2425,19 @@ img {
         color: rgba(233, 69, 96, 0.15);
         transform: translateY(-2px);
     }
+
     30% {
         color: rgba(233, 69, 96, 0.9);
         transform: translateY(0);
         filter: drop-shadow(0 0 6px rgba(233, 69, 96, 0.5));
     }
+
     60% {
         color: rgba(160, 60, 220, 0.6);
         transform: translateY(2px);
         filter: drop-shadow(0 0 4px rgba(160, 60, 220, 0.3));
     }
+
     100% {
         color: rgba(233, 69, 96, 0.15);
         transform: translateY(-2px);
@@ -2406,8 +2475,15 @@ img {
 }
 
 @keyframes ctaGlowPulse {
-    0%   { opacity: 0.7; transform: translateX(-50%) scale(1); }
-    100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+    0% {
+        opacity: 0.7;
+        transform: translateX(-50%) scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.1);
+    }
 }
 
 .final-cta__inner {
@@ -2433,8 +2509,15 @@ img {
 }
 
 @keyframes badgePulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.2); }
-    50% { box-shadow: 0 0 20px 4px rgba(233, 69, 96, 0.15); }
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 20px 4px rgba(233, 69, 96, 0.15);
+    }
 }
 
 .final-cta__heading {
