@@ -716,9 +716,9 @@ img {
 }
 
 .results-card__quote {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.45;
     color: var(--color-primary);
     font-style: italic;
     margin: 0;
@@ -784,6 +784,11 @@ img {
     .results-card {
         padding: 0.8rem 1rem;
     }
+
+    .results-card__quote {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
 }
 
 @media (max-width: 480px) {
@@ -803,8 +808,8 @@ img {
     }
 
     .results-card__quote {
-        font-size: 0.7rem;
-        line-height: 1.4;
+        font-size: 0.95rem;
+        line-height: 1.45;
     }
 
     .results-card__author {
