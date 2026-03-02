@@ -1384,8 +1384,6 @@ img {
     justify-content: center;
     gap: 0.4rem;
     padding: 1.2rem 0;
-    transform: translateZ(40px);
-    transform-style: preserve-3d;
 }
 
 .funnel__tier--1 {
@@ -1432,13 +1430,12 @@ img {
     max-width: 210px;
     transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.07);
-    transform: translateZ(15px);
 }
 
 .funnel__card:hover {
     border-color: rgba(233, 69, 96, 0.5);
     box-shadow: 0 8px 28px rgba(233, 69, 96, 0.18), 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transform: translateZ(25px) translateY(-3px);
+    transform: translateY(-3px);
 }
 
 .funnel__card--wide {
@@ -1450,7 +1447,6 @@ img {
     border-color: rgba(233, 69, 96, 0.4);
     box-shadow: 0 8px 30px rgba(233, 69, 96, 0.2), 0 12px 40px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     max-width: 260px;
-    transform: translateZ(20px);
 }
 
 .funnel__card-icon {
