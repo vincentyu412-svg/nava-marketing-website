@@ -1097,7 +1097,7 @@ img {
 /* ── Funnel ── */
 .funnel {
     position: relative;
-    max-width: 1100px;
+    max-width: 1650px;
     margin: 0 auto;
     padding: 0 0 1rem;
     display: flex;
@@ -1111,7 +1111,7 @@ img {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 110%;
+    width: 115%;
     height: 100%;
     z-index: 0;
     pointer-events: none;
@@ -1590,7 +1590,7 @@ img {
 /* Stage label – left of cards, absolutely positioned */
 .funnel__label {
     position: absolute;
-    left: -90px;
+    left: -75px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.65rem;
@@ -1688,11 +1688,11 @@ img {
 
     .funnel {
         max-width: 100%;
-        padding: 0 1%;
+        padding: 0;
     }
 
     .funnel__shape {
-        width: 120%;
+        width: 140%;
     }
 
     .funnel__tier--1 {
