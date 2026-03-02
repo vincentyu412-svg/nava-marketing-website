@@ -694,7 +694,7 @@ img {
 }
 
 .results-card__quote {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 400;
     line-height: 1.45;
     color: var(--color-primary);
@@ -731,14 +731,14 @@ img {
 }
 
 .results-card__name {
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--color-primary);
     line-height: 1.1;
 }
 
 .results-card__gym {
-    font-size: 0.62rem;
+    font-size: 0.7rem;
     font-weight: 400;
     color: rgba(26, 26, 46, 0.45);
     text-transform: uppercase;
@@ -1591,7 +1591,9 @@ img {
 }
 
 .hiw__step:not(.hiw__step--active) .hiw__num {
-    opacity: 0.7;
+    background: #8b2a3a;
+    box-shadow: 0 0 10px rgba(233, 69, 96, 0.15);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .hiw__step--active .hiw__num {
