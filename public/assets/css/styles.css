@@ -716,9 +716,9 @@ img {
 }
 
 .results-card__quote {
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.45;
+    line-height: 1.5;
     color: var(--color-primary);
     font-style: italic;
     margin: 0;
