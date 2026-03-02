@@ -844,7 +844,7 @@ img {
 
 .logo-scroller__slide {
     display: flex;
-    gap: 2rem;
+    gap: clamp(1.25rem, 3vw, 4rem);
     width: max-content;
     animation: scrollLogos 25s linear infinite;
 }
@@ -854,8 +854,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120px;
-    height: 48px;
+    width: clamp(95px, 10vw, 170px);
+    height: clamp(40px, 4.5vw, 60px);
     background: transparent;
     border: none;
     padding: 0;
@@ -901,12 +901,12 @@ img {
     }
 
     .logo-scroller__slide {
-        gap: 1.25rem;
+        gap: 1rem;
     }
 
     .logo-scroller__item {
-        width: 95px;
-        height: 40px;
+        width: 90px;
+        height: 38px;
     }
 }
 
