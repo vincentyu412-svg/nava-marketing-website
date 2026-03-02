@@ -1111,7 +1111,7 @@ img {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 115%;
+    width: 160%;
     height: 100%;
     z-index: 0;
     pointer-events: none;
@@ -1590,9 +1590,9 @@ img {
 /* Stage label – left of cards, absolutely positioned */
 .funnel__label {
     position: absolute;
-    left: -75px;
+    left: -10px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-100%, -50%);
     font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -1692,7 +1692,7 @@ img {
     }
 
     .funnel__shape {
-        width: 140%;
+        width: 200%;
     }
 
     .funnel__tier--1 {
