@@ -2656,14 +2656,15 @@ img {
 .footer {
     background: var(--color-primary);
     color: rgba(255, 255, 255, 0.7);
-    padding: 3rem 5% 1.5rem;
+    padding: 1.5rem 5% 1rem;
 }
 
 .footer__inner {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -2674,12 +2675,17 @@ img {
 
 .footer__brand h3 {
     color: var(--color-white);
-    font-size: 1.3rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
 }
 
 .footer__brand h3 span {
     color: var(--color-accent);
+}
+
+.footer__brand p {
+    font-size: 0.8rem;
+    line-height: 1.4;
 }
 
 .footer__links h4 {
@@ -2689,10 +2695,16 @@ img {
 
 .footer__links ul {
     list-style: none;
+    display: flex;
+    gap: 1.2rem;
 }
 
 .footer__links li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0;
+}
+
+.footer__links a {
+    font-size: 0.8rem;
 }
 
 .footer__links a:hover {
@@ -2701,10 +2713,10 @@ img {
 
 .footer__bottom {
     text-align: center;
-    padding-top: 2rem;
-    margin-top: 2rem;
+    padding-top: 1rem;
+    margin-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
