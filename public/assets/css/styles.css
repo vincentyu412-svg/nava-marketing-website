@@ -2652,6 +2652,159 @@ img {
     }
 }
 
+/* ── Booking Modal ── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: var(--color-white, #fff);
+    border-radius: 16px;
+    padding: 2.5rem 2.5rem 2rem;
+    max-width: 540px;
+    width: 92%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0) scale(1);
+}
+
+.modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: rgba(26, 26, 46, 0.4);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+    padding: 0;
+}
+
+.modal__close:hover {
+    color: var(--color-accent);
+}
+
+.modal__header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal__header h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.3rem;
+}
+
+.modal__header h2 span {
+    color: var(--color-accent);
+}
+
+.modal__header p {
+    font-size: 0.9rem;
+    color: rgba(26, 26, 46, 0.6);
+}
+
+.modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.modal__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+}
+
+.modal__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.modal__field label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal__field input,
+.modal__field select,
+.modal__field textarea {
+    padding: 0.65rem 0.8rem;
+    border: 1.5px solid rgba(26, 26, 46, 0.15);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--color-primary);
+    background: #fafafa;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+.modal__field input:focus,
+.modal__field select:focus,
+.modal__field textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+.modal__field textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.modal__submit {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 0.3rem;
+}
+
+@media (max-width: 540px) {
+    .modal {
+        padding: 1.8rem 1.5rem 1.5rem;
+        border-radius: 12px;
+    }
+
+    .modal__row {
+        grid-template-columns: 1fr;
+    }
+
+    .modal__header h2 {
+        font-size: 1.25rem;
+    }
+}
+
 /* ── Footer ── */
 .footer {
     background: var(--color-primary);

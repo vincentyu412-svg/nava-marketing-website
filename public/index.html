@@ -754,6 +754,90 @@
 
 
     </script>
+
+    <!-- Booking Popup Modal -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal">
+            <button class="modal__close" id="modalClose" aria-label="Close">&times;</button>
+            <div class="modal__header">
+                <h2>Claim Your <span>15 Day</span> Free Trial</h2>
+                <p>Fill this out and we'll reach out within 24 hours.</p>
+            </div>
+            <form class="modal__form" action="#" method="POST">
+                <div class="modal__row">
+                    <div class="modal__field">
+                        <label for="modal-name">Full Name</label>
+                        <input type="text" id="modal-name" name="name" placeholder="John Smith" required>
+                    </div>
+                    <div class="modal__field">
+                        <label for="modal-email">Email</label>
+                        <input type="email" id="modal-email" name="email" placeholder="john@yourgym.com" required>
+                    </div>
+                </div>
+                <div class="modal__row">
+                    <div class="modal__field">
+                        <label for="modal-gym">Gym Name</label>
+                        <input type="text" id="modal-gym" name="gym" placeholder="IronWorks Fitness" required>
+                    </div>
+                    <div class="modal__field">
+                        <label for="modal-members">Current Members</label>
+                        <select id="modal-members" name="members">
+                            <option value="">Select range</option>
+                            <option value="0-100">0 – 100</option>
+                            <option value="100-300">100 – 300</option>
+                            <option value="300-500">300 – 500</option>
+                            <option value="500+">500+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal__field">
+                    <label for="modal-message">Anything else?</label>
+                    <textarea id="modal-message" name="message" rows="3" placeholder="Tell us about your biggest marketing challenge..."></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary modal__submit">Book My Free Call →</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Booking modal
+        (function() {
+            var modal = document.getElementById('bookingModal');
+            var closeBtn = document.getElementById('modalClose');
+
+            // Open modal on any link pointing to /book.html
+            document.addEventListener('click', function(e) {
+                var link = e.target.closest('a[href="/book.html"]');
+                if (link) {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+
+            // Close on X button
+            closeBtn.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            // Close on overlay click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Close on Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
