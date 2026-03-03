@@ -1798,7 +1798,7 @@ img {
     }
 
     .funnel__tier--1 .funnel__card h4 {
-        font-size: 12px;
+        font-size: 14px;
         white-space: nowrap;
         line-height: 1.2;
     }
@@ -1811,7 +1811,7 @@ img {
 
     .funnel__tier--1 .funnel__card p {
         display: block;
-        font-size: 11px;
+        font-size: 12px;
         line-height: 1.3;
         margin-top: 0.1rem;
         white-space: normal;
