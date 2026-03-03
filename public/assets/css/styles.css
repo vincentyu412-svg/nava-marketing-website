@@ -2777,6 +2777,29 @@ img {
     .pain__grid {
         grid-template-columns: 1fr;
     }
+
+    .results-section {
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), 50% 100%, 0 calc(100% - 28px));
+        margin-bottom: -28px;
+        padding-bottom: calc(3rem + 28px);
+    }
+
+    .wyg {
+        padding-top: 30px;
+    }
+
+    .funnel__card {
+        max-width: 220px;
+        padding: 0.5rem 0.6rem;
+    }
+
+    .funnel__card h4 {
+        font-size: 0.85rem;
+    }
+
+    .funnel__card p {
+        font-size: 0.78rem;
+    }
 }
 
 /* ── Page Hero ── */
