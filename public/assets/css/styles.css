@@ -3114,7 +3114,10 @@ img {
     height: 42px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center top;
+    transform: scale(1.4);
     border: 2px solid var(--color-accent);
+    clip-path: circle(50%);
 }
 
 .bc-card__name {
