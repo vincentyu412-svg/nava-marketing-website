@@ -113,21 +113,25 @@
                     <form class="bw-form" id="bw-contact-form">
                         <div class="bw-form__row">
                             <div class="bw-form__field">
-                                <label class="bw-form__label" for="bw-fname">First name *</label>
-                                <input class="bw-form__input" type="text" id="bw-fname" name="first_name" required autocomplete="given-name">
+                                <label class="bw-form__label" for="bw-fname">First Name *</label>
+                                <input class="bw-form__input" type="text" id="bw-fname" name="first_name" placeholder="e.g. John" required autocomplete="given-name">
                             </div>
                             <div class="bw-form__field">
-                                <label class="bw-form__label" for="bw-lname">Last name *</label>
-                                <input class="bw-form__input" type="text" id="bw-lname" name="last_name" required autocomplete="family-name">
+                                <label class="bw-form__label" for="bw-lname">Last Name *</label>
+                                <input class="bw-form__input" type="text" id="bw-lname" name="last_name" placeholder="e.g. Smith" required autocomplete="family-name">
                             </div>
+                        </div>
+                        <div class="bw-form__field">
+                            <label class="bw-form__label" for="bw-company">Company Name *</label>
+                            <input class="bw-form__input" type="text" id="bw-company" name="company_name" placeholder="e.g. Iron Peak Fitness" required autocomplete="organization">
                         </div>
                         <div class="bw-form__field">
                             <label class="bw-form__label" for="bw-email">Email *</label>
-                            <input class="bw-form__input" type="email" id="bw-email" name="email" required autocomplete="email">
+                            <input class="bw-form__input" type="email" id="bw-email" name="email" placeholder="e.g. john@ironpeakfitness.com" required autocomplete="email">
                         </div>
                         <div class="bw-form__field">
                             <label class="bw-form__label" for="bw-phone">Phone *</label>
-                            <input class="bw-form__input" type="tel" id="bw-phone" name="phone" required autocomplete="tel">
+                            <input class="bw-form__input" type="tel" id="bw-phone" name="phone" placeholder="e.g. (555) 123-4567" required autocomplete="tel">
                         </div>
                         <p class="bw-consent">By submitting, you consent to your data being stored per our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
                         <button type="submit" class="btn btn--glow bw-form__submit">Continue &rarr;</button>

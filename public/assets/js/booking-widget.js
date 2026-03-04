@@ -183,11 +183,12 @@
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
         contactData = {
-            first_name:   document.getElementById('bw-fname').value.trim(),
-            last_name:    document.getElementById('bw-lname').value.trim(),
-            email:        document.getElementById('bw-email').value.trim(),
-            phone:        document.getElementById('bw-phone').value.trim(),
-            submitted_at: new Date().toISOString()
+            first_name:    document.getElementById('bw-fname').value.trim(),
+            last_name:     document.getElementById('bw-lname').value.trim(),
+            company_name:  document.getElementById('bw-company').value.trim(),
+            email:         document.getElementById('bw-email').value.trim(),
+            phone:         document.getElementById('bw-phone').value.trim(),
+            submitted_at:  new Date().toISOString()
         };
 
         sendWebhook(WEBHOOK_CONTACT, contactData);
@@ -201,10 +202,11 @@
     confirmBtn.addEventListener('click', function () {
         if (!selectedDate || !selectedTime || !contactData) return;
         var payload = {
-            first_name: contactData.first_name,
-            last_name:  contactData.last_name,
-            email:      contactData.email,
-            phone:      contactData.phone,
+            first_name:    contactData.first_name,
+            last_name:     contactData.last_name,
+            company_name:  contactData.company_name,
+            email:         contactData.email,
+            phone:         contactData.phone,
             date:       selectedDate.getFullYear() + '-' + pad(selectedDate.getMonth() + 1) + '-' + pad(selectedDate.getDate()),
             time:       selectedTime,
             booked_at:  new Date().toISOString()
