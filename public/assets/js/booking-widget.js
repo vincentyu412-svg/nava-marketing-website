@@ -60,6 +60,7 @@
     var selectedDate = null;
     var selectedTime = null;
     var busyTimes = []; /* Array of { start: Date, end: Date } from Google Calendar */
+    var busyLoaded = false; /* Whether we have received Google Calendar data */
 
     /* ── HELPERS ── */
     function pad(n) { return n < 10 ? '0' + n : '' + n; }
@@ -100,24 +101,30 @@
     /* ── GOOGLE CALENDAR BUSY TIMES ── */
     function fetchBusyTimes() {
         if (!GCAL_SCRIPT_URL) return;
-        try {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', GCAL_SCRIPT_URL, true);
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    try {
-                        var data = JSON.parse(xhr.responseText);
-                        busyTimes = (data.busy || []).map(function (b) {
-                            return { start: new Date(b.start), end: new Date(b.end) };
-                        });
-                    } catch (e) { busyTimes = []; }
-                }
-                /* Re-render calendar now that busy data is loaded */
+        busyLoaded = false;
+        /* Use fetch — Google Apps Script returns a 302 redirect that fetch handles reliably */
+        fetch(GCAL_SCRIPT_URL, { redirect: 'follow' })
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+                busyTimes = (data.busy || []).map(function (b) {
+                    return { start: new Date(b.start), end: new Date(b.end) };
+                }).filter(function (b) {
+                    /* Ignore all-day / multi-day events (≥ 24 h) — they would
+                       block entire days and are usually recurring calendar holds,
+                       not real meetings. Actual time-specific events still filter. */
+                    return (b.end.getTime() - b.start.getTime()) < 24 * 60 * 60 * 1000;
+                });
+                busyLoaded = true;
                 renderCalendar();
-            };
-            xhr.onerror = function () { busyTimes = []; };
-            xhr.send();
-        } catch (e) { busyTimes = []; }
+                /* If a day was already selected, refresh its time slots */
+                if (selectedDate) renderTimeSlots();
+            })
+            .catch(function (err) {
+                console.warn('Booking widget: could not load calendar availability', err);
+                busyTimes = [];
+                busyLoaded = true;
+                renderCalendar();
+            });
     }
 
     /* Check if a specific date+time slot overlaps any busy period */
@@ -128,7 +135,6 @@
         var slotEnd = new Date(slotStart.getTime() + 30 * 60 * 1000); /* 30-min slot */
 
         for (var i = 0; i < busyTimes.length; i++) {
-            /* Overlap: slot starts before busy ends AND slot ends after busy starts */
             if (slotStart < busyTimes[i].end && slotEnd > busyTimes[i].start) {
                 return true;
             }
@@ -136,10 +142,24 @@
         return false;
     }
 
+    /* Check if a slot is in the past (for today) */
+    function isSlotInPast(date, timeStr) {
+        var now = new Date();
+        var parts = timeStr.split(':');
+        var slotStart = new Date(date.getFullYear(), date.getMonth(), date.getDate(),
+            parseInt(parts[0], 10), parseInt(parts[1], 10), 0);
+        return slotStart <= now;
+    }
+
+    /* Check if a slot is unavailable (busy OR in the past) */
+    function isSlotUnavailable(date, timeStr) {
+        return isSlotInPast(date, timeStr) || isSlotBusy(date, timeStr);
+    }
+
     /* Check if an entire day has zero available slots */
     function isDayFullyBooked(date) {
         for (var i = 0; i < TIME_SLOTS.length; i++) {
-            if (!isSlotBusy(date, TIME_SLOTS[i])) return false;
+            if (!isSlotUnavailable(date, TIME_SLOTS[i])) return false;
         }
         return true;
     }
@@ -188,8 +208,7 @@
         timesGrid.innerHTML = '';
         var hasAvailable = false;
         TIME_SLOTS.forEach(function (t) {
-            var busy = selectedDate ? isSlotBusy(selectedDate, t) : false;
-            if (busy) return; /* Hide busy slots entirely — only show open ones */
+            if (selectedDate && isSlotUnavailable(selectedDate, t)) return; /* Skip past & busy */
             hasAvailable = true;
             var btn = document.createElement('button');
             btn.type = 'button';
@@ -237,6 +256,8 @@
         timesLabel.textContent = formatDate(selectedDate);
         renderTimeSlots();
         timesWrap.style.display = '';
+        /* Scroll time slots into view on mobile */
+        timesWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
 
     /* ── TIME CLICK ── */
@@ -297,6 +318,8 @@
         contactData = null;
         selectedDate = null;
         selectedTime = null;
+        busyTimes = [];
+        busyLoaded = false;
         contactForm.reset();
         step1.classList.remove('bw-form-side--done');
         step1.style.display = '';
