@@ -3292,10 +3292,10 @@ img {
 
 .bc-card__cal-btn svg,
 .bc-card__cal-btn img {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
-    vertical-align: middle;
+    object-fit: contain;
 }
 
 .bc-card__cal-btn:hover {
