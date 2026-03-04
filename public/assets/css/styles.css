@@ -3077,12 +3077,11 @@ img {
             rgba(255, 255, 255, 0.12) 8px,
             rgba(255, 255, 255, 0.12) 16px
         ),
-        linear-gradient(90deg, var(--color-accent), #ff6b81, #ff8a9e, #ff6b81, var(--color-accent));
-    background-size: 32px 32px, 300% 100%;
+        linear-gradient(90deg, var(--color-accent), #ff6b81);
+    background-size: 32px 32px, 100% 100%;
     border-radius: 20px;
     animation: bc-fill-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards,
-               bc-stripes 2.5s linear 1.4s infinite,
-               bc-shimmer 4s linear 1.4s infinite;
+               bc-stripes 2.5s linear 1.4s infinite;
     position: relative;
     box-shadow: 0 0 18px rgba(233, 69, 96, 0.5), 0 0 6px rgba(233, 69, 96, 0.3);
     overflow: hidden;
@@ -3121,12 +3120,6 @@ img {
     to   { width: 90%; }
 }
 
-@keyframes bc-shimmer {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
 @keyframes bc-flow {
     0%   { left: -60%; opacity: 0; }
     20%  { opacity: 1; }
@@ -3139,8 +3132,8 @@ img {
 }
 
 @keyframes bc-stripes {
-    from { background-position: 0 0, 0% 50%; }
-    to   { background-position: -32px 0, 0% 50%; }
+    from { background-position: 0 0, 0 0; }
+    to   { background-position: 32px 0, 0 0; }
 }
 /* Heading */
 .bc-title {
