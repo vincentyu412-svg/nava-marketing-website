@@ -112,6 +112,8 @@
                         });
                     } catch (e) { busyTimes = []; }
                 }
+                /* Re-render calendar now that busy data is loaded */
+                renderCalendar();
             };
             xhr.onerror = function () { busyTimes = []; };
             xhr.send();
@@ -184,20 +186,26 @@
 
     function renderTimeSlots() {
         timesGrid.innerHTML = '';
+        var hasAvailable = false;
         TIME_SLOTS.forEach(function (t) {
             var busy = selectedDate ? isSlotBusy(selectedDate, t) : false;
+            if (busy) return; /* Hide busy slots entirely — only show open ones */
+            hasAvailable = true;
             var btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'bw-times__slot';
             btn.textContent = formatTime12(t);
             btn.setAttribute('data-time', t);
-            if (busy) {
-                btn.classList.add('bw-times__slot--disabled');
-                btn.disabled = true;
-            }
-            if (selectedTime === t && !busy) btn.classList.add('bw-times__slot--selected');
+            if (selectedTime === t) btn.classList.add('bw-times__slot--selected');
             timesGrid.appendChild(btn);
         });
+        /* If no slots are open, show a message */
+        if (!hasAvailable) {
+            var msg = document.createElement('p');
+            msg.style.cssText = 'text-align:center;color:#888;padding:1rem 0;font-size:0.9rem;';
+            msg.textContent = 'No available times on this day. Please pick another date.';
+            timesGrid.appendChild(msg);
+        }
     }
 
     /* ── MONTH NAVIGATION ── */
