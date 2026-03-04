@@ -8,47 +8,47 @@
 
     /* ── CONFIG ── */
     var WEBHOOK_CONTACT = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/49ff8b4b-049f-43cd-a11f-6a0506448c55'; /* GoHighLevel webhook URL — fires when visitor submits contact details */
-    var WEBHOOK_BOOKING = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/49ff8b4b-049f-43cd-a11f-6a0506448c55'; /* GoHighLevel webhook URL — fires when visitor confirms a booking      */
+    var WEBHOOK_BOOKING = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/bb7ef2bc-1676-4226-b7ff-cf308e985d7b'; /* GoHighLevel webhook URL — fires when visitor confirms a booking      */
 
     /* Available time slots in 24 h format */
     var TIME_SLOTS = [
-        '09:00','09:30','10:00','10:30','11:00','11:30',
-        '12:00','12:30','13:00','13:30','14:00','14:30',
-        '15:00','15:30','16:00','16:30','17:00'
+        '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
+        '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+        '15:00', '15:30', '16:00', '16:30', '17:00'
     ];
 
-    var MAX_DAYS_AHEAD  = 60;                /* How far out visitors can book */
-    var AVAILABLE_DAYS  = [1, 2, 3, 4, 5];   /* Mon – Fri (0 = Sun, 6 = Sat) */
+    var MAX_DAYS_AHEAD = 60;                /* How far out visitors can book */
+    var AVAILABLE_DAYS = [1, 2, 3, 4, 5];   /* Mon – Fri (0 = Sun, 6 = Sat) */
 
     /* ── ELEMENTS ── */
-    var modal          = document.getElementById('popup-modal');
+    var modal = document.getElementById('popup-modal');
     if (!modal) return;
-    var backdrop       = modal.querySelector('.modal__backdrop');
-    var closeBtn       = modal.querySelector('.modal__close');
-    var step1          = document.getElementById('bw-step-1');
-    var calendar       = document.getElementById('bw-calendar');
-    var blurOverlay    = document.getElementById('bw-blur-overlay');
-    var contactForm    = document.getElementById('bw-contact-form');
-    var calGrid        = document.getElementById('bw-cal-grid');
-    var monthLabel     = document.getElementById('bw-month-label');
-    var prevBtn        = document.getElementById('bw-prev-month');
-    var nextBtn        = document.getElementById('bw-next-month');
-    var timesWrap      = document.getElementById('bw-times');
-    var timesGrid      = document.getElementById('bw-times-grid');
-    var timesLabel     = document.getElementById('bw-times-label');
-    var confirmBtn     = document.getElementById('bw-confirm');
+    var backdrop = modal.querySelector('.modal__backdrop');
+    var closeBtn = modal.querySelector('.modal__close');
+    var step1 = document.getElementById('bw-step-1');
+    var calendar = document.getElementById('bw-calendar');
+    var blurOverlay = document.getElementById('bw-blur-overlay');
+    var contactForm = document.getElementById('bw-contact-form');
+    var calGrid = document.getElementById('bw-cal-grid');
+    var monthLabel = document.getElementById('bw-month-label');
+    var prevBtn = document.getElementById('bw-prev-month');
+    var nextBtn = document.getElementById('bw-next-month');
+    var timesWrap = document.getElementById('bw-times');
+    var timesGrid = document.getElementById('bw-times-grid');
+    var timesLabel = document.getElementById('bw-times-label');
+    var confirmBtn = document.getElementById('bw-confirm');
     var confirmedPanel = document.getElementById('bw-confirmed');
     var confirmedDetails = document.getElementById('bw-confirmed-details');
-    var progressSteps  = modal.querySelectorAll('.bw-progress__step');
+    var progressSteps = modal.querySelectorAll('.bw-progress__step');
 
-    var MONTHS = ['January','February','March','April','May','June',
-                  'July','August','September','October','November','December'];
-    var today  = new Date(); today.setHours(0,0,0,0);
+    var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'];
+    var today = new Date(); today.setHours(0, 0, 0, 0);
     var maxDate = new Date(today); maxDate.setDate(maxDate.getDate() + MAX_DAYS_AHEAD);
     var viewMonth = today.getMonth();
-    var viewYear  = today.getFullYear();
+    var viewYear = today.getFullYear();
 
-    var contactData  = null;
+    var contactData = null;
     var selectedDate = null;
     var selectedTime = null;
 
@@ -92,9 +92,9 @@
     function renderCalendar() {
         calGrid.innerHTML = '';
         monthLabel.textContent = MONTHS[viewMonth] + ' ' + viewYear;
-        var first    = new Date(viewYear, viewMonth, 1);
+        var first = new Date(viewYear, viewMonth, 1);
         var startDay = first.getDay();
-        var daysIn   = new Date(viewYear, viewMonth + 1, 0).getDate();
+        var daysIn = new Date(viewYear, viewMonth + 1, 0).getDate();
 
         for (var e = 0; e < startDay; e++) {
             var empty = document.createElement('span');
@@ -110,7 +110,7 @@
             var cellDate = new Date(viewYear, viewMonth, d);
 
             var isAvailable = cellDate >= today && cellDate <= maxDate &&
-                              AVAILABLE_DAYS.indexOf(cellDate.getDay()) !== -1;
+                AVAILABLE_DAYS.indexOf(cellDate.getDay()) !== -1;
             if (!isAvailable) {
                 cell.classList.add('bw-calendar__day--disabled');
                 cell.disabled = true;
@@ -183,12 +183,12 @@
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
         contactData = {
-            first_name:    document.getElementById('bw-fname').value.trim(),
-            last_name:     document.getElementById('bw-lname').value.trim(),
-            company_name:  document.getElementById('bw-company').value.trim(),
-            email:         document.getElementById('bw-email').value.trim(),
-            phone:         document.getElementById('bw-phone').value.trim(),
-            submitted_at:  new Date().toISOString()
+            first_name: document.getElementById('bw-fname').value.trim(),
+            last_name: document.getElementById('bw-lname').value.trim(),
+            company_name: document.getElementById('bw-company').value.trim(),
+            email: document.getElementById('bw-email').value.trim(),
+            phone: document.getElementById('bw-phone').value.trim(),
+            submitted_at: new Date().toISOString()
         };
 
         sendWebhook(WEBHOOK_CONTACT, contactData);
@@ -202,14 +202,14 @@
     confirmBtn.addEventListener('click', function () {
         if (!selectedDate || !selectedTime || !contactData) return;
         var payload = {
-            first_name:    contactData.first_name,
-            last_name:     contactData.last_name,
-            company_name:  contactData.company_name,
-            email:         contactData.email,
-            phone:         contactData.phone,
-            date:       selectedDate.getFullYear() + '-' + pad(selectedDate.getMonth() + 1) + '-' + pad(selectedDate.getDate()),
-            time:       selectedTime,
-            booked_at:  new Date().toISOString()
+            first_name: contactData.first_name,
+            last_name: contactData.last_name,
+            company_name: contactData.company_name,
+            email: contactData.email,
+            phone: contactData.phone,
+            date: selectedDate.getFullYear() + '-' + pad(selectedDate.getMonth() + 1) + '-' + pad(selectedDate.getDate()),
+            time: selectedTime,
+            booked_at: new Date().toISOString()
         };
 
         sendWebhook(WEBHOOK_BOOKING, payload);
@@ -223,7 +223,7 @@
 
     /* ── OPEN / CLOSE ── */
     function resetWidget() {
-        contactData  = null;
+        contactData = null;
         selectedDate = null;
         selectedTime = null;
         contactForm.reset();
@@ -237,7 +237,7 @@
         confirmedPanel.style.display = 'none';
         setProgress(1);
         viewMonth = today.getMonth();
-        viewYear  = today.getFullYear();
+        viewYear = today.getFullYear();
         renderCalendar();
     }
 
