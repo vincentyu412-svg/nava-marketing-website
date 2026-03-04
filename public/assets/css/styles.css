@@ -2368,6 +2368,13 @@ img {
     font-weight: 600;
 }
 
+.bw-times__slot--disabled {
+    opacity: 0.35;
+    text-decoration: line-through;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 .bw-confirm {
     margin-top: 0.75rem;
     width: 100%;

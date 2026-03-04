@@ -10,6 +10,9 @@
     var WEBHOOK_CONTACT = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/49ff8b4b-049f-43cd-a11f-6a0506448c55'; /* GoHighLevel webhook URL — fires when visitor submits contact details */
     var WEBHOOK_BOOKING = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/e168511d-2712-46a9-918f-108867edfe99'; /* GoHighLevel webhook URL — fires when visitor confirms a booking      */
 
+    /* Google Apps Script URL — returns busy times from your Google Calendar */
+    var GCAL_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzl5dD_3WOxEBxjp9naQoxvSxSTSdMZ3jo8Eu2XllRKKzM1xwobGnqd8rEoy9OKZNHj/exec';
+
     /* Available time slots in 24 h format */
     var TIME_SLOTS = [
         '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
@@ -51,6 +54,7 @@
     var contactData = null;
     var selectedDate = null;
     var selectedTime = null;
+    var busyTimes = []; /* Array of { start: Date, end: Date } from Google Calendar */
 
     /* ── HELPERS ── */
     function pad(n) { return n < 10 ? '0' + n : '' + n; }
@@ -88,6 +92,51 @@
         } catch (e) { /* silent fail */ }
     }
 
+    /* ── GOOGLE CALENDAR BUSY TIMES ── */
+    function fetchBusyTimes() {
+        if (!GCAL_SCRIPT_URL) return;
+        try {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', GCAL_SCRIPT_URL, true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+                        busyTimes = (data.busy || []).map(function (b) {
+                            return { start: new Date(b.start), end: new Date(b.end) };
+                        });
+                    } catch (e) { busyTimes = []; }
+                }
+            };
+            xhr.onerror = function () { busyTimes = []; };
+            xhr.send();
+        } catch (e) { busyTimes = []; }
+    }
+
+    /* Check if a specific date+time slot overlaps any busy period */
+    function isSlotBusy(date, timeStr) {
+        var parts = timeStr.split(':');
+        var slotStart = new Date(date.getFullYear(), date.getMonth(), date.getDate(),
+            parseInt(parts[0], 10), parseInt(parts[1], 10), 0);
+        var slotEnd = new Date(slotStart.getTime() + 30 * 60 * 1000); /* 30-min slot */
+
+        for (var i = 0; i < busyTimes.length; i++) {
+            /* Overlap: slot starts before busy ends AND slot ends after busy starts */
+            if (slotStart < busyTimes[i].end && slotEnd > busyTimes[i].start) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /* Check if an entire day has zero available slots */
+    function isDayFullyBooked(date) {
+        for (var i = 0; i < TIME_SLOTS.length; i++) {
+            if (!isSlotBusy(date, TIME_SLOTS[i])) return false;
+        }
+        return true;
+    }
+
     /* ── CALENDAR RENDER ── */
     function renderCalendar() {
         calGrid.innerHTML = '';
@@ -111,6 +160,8 @@
 
             var isAvailable = cellDate >= today && cellDate <= maxDate &&
                 AVAILABLE_DAYS.indexOf(cellDate.getDay()) !== -1;
+            /* Also disable days where every slot is busy */
+            if (isAvailable && isDayFullyBooked(cellDate)) isAvailable = false;
             if (!isAvailable) {
                 cell.classList.add('bw-calendar__day--disabled');
                 cell.disabled = true;
@@ -129,12 +180,17 @@
     function renderTimeSlots() {
         timesGrid.innerHTML = '';
         TIME_SLOTS.forEach(function (t) {
+            var busy = selectedDate ? isSlotBusy(selectedDate, t) : false;
             var btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'bw-times__slot';
             btn.textContent = formatTime12(t);
             btn.setAttribute('data-time', t);
-            if (selectedTime === t) btn.classList.add('bw-times__slot--selected');
+            if (busy) {
+                btn.classList.add('bw-times__slot--disabled');
+                btn.disabled = true;
+            }
+            if (selectedTime === t && !busy) btn.classList.add('bw-times__slot--selected');
             timesGrid.appendChild(btn);
         });
     }
@@ -244,6 +300,7 @@
     function openModal(e) {
         e.preventDefault();
         resetWidget();
+        fetchBusyTimes(); /* Pull latest Google Calendar availability */
         modal.classList.add('modal--active');
         document.body.style.overflow = 'hidden';
     }
