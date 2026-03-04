@@ -3233,6 +3233,7 @@ img {
     flex-shrink: 0;
     color: var(--color-accent);
     margin-top: 0.15rem;
+    object-fit: contain;
 }
 
 .bc-card__detail-label {
