@@ -2688,7 +2688,7 @@ img {
 }
 
 .modal--calendar {
-    max-width: 480px;
+    max-width: 560px;
     padding: 0.5rem 0.5rem 0;
 }
 
@@ -2747,17 +2747,16 @@ img {
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
-    /* Clip visible area to 85% of iframe height (matches scale) */
-    max-height: calc(88vh * 0.85);
+    max-height: calc(88vh * 0.88);
 }
 
 .modal__calendar iframe {
-    width: 117.6%;          /* 1 / 0.85 ≈ 117.6% to fill container after scale */
+    width: 113.6%;          /* 1 / 0.88 ≈ 113.6% to fill container after scale */
     height: 88vh;
     min-height: 580px;
     border: none;
     display: block;
-    transform: scale(0.85);
+    transform: scale(0.88);
     transform-origin: top left;
 }
 
