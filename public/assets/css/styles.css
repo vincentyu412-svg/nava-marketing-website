@@ -2684,6 +2684,7 @@ img {
     transform: translateY(20px) scale(0.97);
     transition: transform 0.3s ease;
     max-height: 94vh;
+    overflow-x: hidden;
     overflow-y: auto;
 }
 
