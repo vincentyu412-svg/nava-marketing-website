@@ -8,7 +8,7 @@
 
     /* ── CONFIG ── */
     var WEBHOOK_CONTACT = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/49ff8b4b-049f-43cd-a11f-6a0506448c55'; /* GoHighLevel webhook URL — fires when visitor submits contact details */
-    var WEBHOOK_BOOKING = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/bb7ef2bc-1676-4226-b7ff-cf308e985d7b'; /* GoHighLevel webhook URL — fires when visitor confirms a booking      */
+    var WEBHOOK_BOOKING = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/e168511d-2712-46a9-918f-108867edfe99'; /* GoHighLevel webhook URL — fires when visitor confirms a booking      */
 
     /* Available time slots in 24 h format */
     var TIME_SLOTS = [
