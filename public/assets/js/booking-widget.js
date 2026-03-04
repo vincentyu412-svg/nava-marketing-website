@@ -13,19 +13,24 @@
     /* Google Apps Script URL — returns busy times from your Google Calendar */
     var GCAL_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzl5dD_3WOxEBxjp9naQoxvSxSTSdMZ3jo8Eu2XllRKKzM1xwobGnqd8rEoy9OKZNHj/exec';
 
-    /* Available time slots in 24 h format — 1:00 AM to 11:00 PM */
+    /* Available time slots in 24 h format — 1:00 AM to 11:00 PM (15-min intervals) */
     var TIME_SLOTS = [
-        '01:00', '01:30', '02:00', '02:30', '03:00', '03:30',
-        '04:00', '04:30', '05:00', '05:30', '06:00', '06:30',
-        '07:00', '07:30', '08:00', '08:30', '09:00', '09:30',
-        '10:00', '10:30', '11:00', '11:30', '12:00', '12:30',
-        '13:00', '13:30', '14:00', '14:30', '15:00', '15:30',
-        '16:00', '16:30', '17:00', '17:30', '18:00', '18:30',
-        '19:00', '19:30', '20:00', '20:30', '21:00', '21:30',
-        '22:00', '22:30', '23:00'
+        '01:00', '01:15', '01:30', '01:45', '02:00', '02:15', '02:30', '02:45',
+        '03:00', '03:15', '03:30', '03:45', '04:00', '04:15', '04:30', '04:45',
+        '05:00', '05:15', '05:30', '05:45', '06:00', '06:15', '06:30', '06:45',
+        '07:00', '07:15', '07:30', '07:45', '08:00', '08:15', '08:30', '08:45',
+        '09:00', '09:15', '09:30', '09:45', '10:00', '10:15', '10:30', '10:45',
+        '11:00', '11:15', '11:30', '11:45', '12:00', '12:15', '12:30', '12:45',
+        '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45',
+        '15:00', '15:15', '15:30', '15:45', '16:00', '16:15', '16:30', '16:45',
+        '17:00', '17:15', '17:30', '17:45', '18:00', '18:15', '18:30', '18:45',
+        '19:00', '19:15', '19:30', '19:45', '20:00', '20:15', '20:30', '20:45',
+        '21:00', '21:15', '21:30', '21:45', '22:00', '22:15', '22:30', '22:45',
+        '23:00'
     ];
 
-    var MAX_DAYS_AHEAD = 60;                /* How far out visitors can book */
+    var MAX_DAYS_AHEAD = 4;                 /* How far out visitors can book */
+    var MIN_NOTICE_MS  = 60 * 60 * 1000;   /* 1-hour minimum booking notice  */
     var AVAILABLE_DAYS = [0, 1, 2, 3, 4, 5, 6]; /* All days — Google Calendar controls actual availability */
 
     /* ── ELEMENTS ── */
@@ -132,7 +137,7 @@
         var parts = timeStr.split(':');
         var slotStart = new Date(date.getFullYear(), date.getMonth(), date.getDate(),
             parseInt(parts[0], 10), parseInt(parts[1], 10), 0);
-        var slotEnd = new Date(slotStart.getTime() + 30 * 60 * 1000); /* 30-min slot */
+        var slotEnd = new Date(slotStart.getTime() + 15 * 60 * 1000); /* 15-min slot */
 
         for (var i = 0; i < busyTimes.length; i++) {
             if (slotStart < busyTimes[i].end && slotEnd > busyTimes[i].start) {
@@ -142,13 +147,13 @@
         return false;
     }
 
-    /* Check if a slot is in the past (for today) */
+    /* Check if a slot is too soon (must be at least 1 hour from now) */
     function isSlotInPast(date, timeStr) {
         var now = new Date();
         var parts = timeStr.split(':');
         var slotStart = new Date(date.getFullYear(), date.getMonth(), date.getDate(),
             parseInt(parts[0], 10), parseInt(parts[1], 10), 0);
-        return slotStart <= now;
+        return slotStart.getTime() <= now.getTime() + MIN_NOTICE_MS;
     }
 
     /* Check if a slot is unavailable (busy OR in the past) */
