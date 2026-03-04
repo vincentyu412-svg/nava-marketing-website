@@ -3071,17 +3071,17 @@ img {
     height: 100%;
     background:
         repeating-linear-gradient(
-            -45deg,
-            transparent,
+            45deg,
+            rgba(255, 255, 255, 0.15) 0px,
+            rgba(255, 255, 255, 0.15) 10px,
             transparent 10px,
-            rgba(255, 255, 255, 0.06) 10px,
-            rgba(255, 255, 255, 0.06) 20px
+            transparent 20px
         ),
         linear-gradient(90deg, #c0243a, var(--color-accent), #ff5272);
-    background-size: 40px 40px, 100% 100%;
+    background-size: 28.28px 28.28px, 100% 100%;
     border-radius: 20px;
     animation: bc-fill-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards,
-               bc-stripes 3s linear 1.4s infinite;
+               bc-stripes 0.8s linear 1.4s infinite;
     position: relative;
     box-shadow: 0 0 14px rgba(233, 69, 96, 0.4);
     overflow: hidden;
@@ -3133,7 +3133,7 @@ img {
 
 @keyframes bc-stripes {
     from { background-position: 0 0, 0 0; }
-    to   { background-position: 40px 0, 0 0; }
+    to   { background-position: 28.28px 0, 0 0; }
 }
 /* Heading */
 .bc-title {
