@@ -156,9 +156,17 @@
         return slotStart.getTime() <= now.getTime() + MIN_NOTICE_MS;
     }
 
-    /* Check if a slot is unavailable (busy OR in the past) */
+    /* Deterministic hash — hides ~10 % of slots to create scarcity */
+    function isSlotHidden(date, timeStr) {
+        var seed = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
+        var parts = timeStr.split(':');
+        seed = seed * 31 + parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+        return (seed % 10) === 0; /* ≈ 10 % of slots */
+    }
+
+    /* Check if a slot is unavailable (busy, too soon, OR hidden) */
     function isSlotUnavailable(date, timeStr) {
-        return isSlotInPast(date, timeStr) || isSlotBusy(date, timeStr);
+        return isSlotInPast(date, timeStr) || isSlotBusy(date, timeStr) || isSlotHidden(date, timeStr);
     }
 
     /* Check if an entire day has zero available slots */
