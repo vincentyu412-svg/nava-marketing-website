@@ -26,6 +26,7 @@
     </div>
 
     <section class="bc-page">
+        <div class="bc-stars" id="bc-stars" aria-hidden="true"></div>
         <div class="bc-container">
 
             <!-- Heading -->
@@ -169,6 +170,20 @@
         ].join('\r\n');
         var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
         document.getElementById('bc-ical').href = URL.createObjectURL(blob);
+    })();
+
+    /* ── Twinkling stars background ── */
+    (function () {
+        var container = document.getElementById('bc-stars');
+        if (!container) return;
+        var frag = document.createDocumentFragment();
+        for (var i = 0; i < 120; i++) {
+            var star = document.createElement('span');
+            star.className = 'logo-star' + (Math.random() > 0.7 ? ' logo-star--bright' : '');
+            star.style.cssText = 'width:' + (Math.random() * 1.2 + 0.5) + 'px;height:' + (Math.random() * 1.2 + 0.5) + 'px;left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;animation-delay:' + (Math.random() * 4) + 's;animation-duration:' + (Math.random() * 2 + 1.5) + 's;';
+            frag.appendChild(star);
+        }
+        container.appendChild(frag);
     })();
     </script>
 </body>
