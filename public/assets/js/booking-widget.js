@@ -7,8 +7,8 @@
     'use strict';
 
     /* ── CONFIG ── */
-    var WEBHOOK_CONTACT = ''; /* GoHighLevel webhook URL — fires when visitor submits contact details */
-    var WEBHOOK_BOOKING = ''; /* GoHighLevel webhook URL — fires when visitor confirms a booking      */
+    var WEBHOOK_CONTACT = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/49ff8b4b-049f-43cd-a11f-6a0506448c55'; /* GoHighLevel webhook URL — fires when visitor submits contact details */
+    var WEBHOOK_BOOKING = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/49ff8b4b-049f-43cd-a11f-6a0506448c55'; /* GoHighLevel webhook URL — fires when visitor confirms a booking      */
 
     /* Available time slots in 24 h format */
     var TIME_SLOTS = [
