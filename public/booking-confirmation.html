@@ -15,29 +15,14 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-        <a href="/" class="nav__logo">Gym<span>Grow</span></a>
-    </nav>
-
     <section class="bc-page">
         <div class="bc-container">
 
-            <!-- Progress bar — "Final Step" -->
-            <div class="bc-progress">
-                <div class="bc-progress__step bc-progress__step--done">
-                    <div class="bc-progress__circle">&#10003;</div>
-                    <span class="bc-progress__label">Details</span>
-                </div>
-                <div class="bc-progress__line bc-progress__line--done"></div>
-                <div class="bc-progress__step bc-progress__step--done">
-                    <div class="bc-progress__circle">&#10003;</div>
-                    <span class="bc-progress__label">Pick a Time</span>
-                </div>
-                <div class="bc-progress__line bc-progress__line--active"></div>
-                <div class="bc-progress__step bc-progress__step--active">
-                    <div class="bc-progress__circle">3</div>
-                    <span class="bc-progress__label">Confirm</span>
+            <!-- 90% progress bar -->
+            <div class="bc-bar">
+                <div class="bc-bar__label">Almost done — <strong>90% complete</strong></div>
+                <div class="bc-bar__track">
+                    <div class="bc-bar__fill"></div>
                 </div>
             </div>
 
@@ -50,8 +35,8 @@
                 <div class="bc-card__badge">Confirmed</div>
                 <p class="bc-card__with">Your call is scheduled with:</p>
                 <div class="bc-card__host">
-                    <div class="bc-card__avatar">B</div>
-                    <span class="bc-card__name">Braeden Bowman</span>
+                    <img class="bc-card__avatar-img" src="/assets/images/Vincent.jpg" alt="Vincent Yu">
+                    <span class="bc-card__name">Vincent Yu</span>
                 </div>
                 <div class="bc-card__detail">
                     <svg class="bc-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -141,7 +126,7 @@
         }
 
         var title = encodeURIComponent('Gym Grow Strategy Call');
-        var details = encodeURIComponent('Strategy call with Braeden Bowman from Gym Grow.\\n\\nPlease be available at the scheduled time.');
+        var details = encodeURIComponent('Strategy call with Vincent Yu from Gym Grow.\n\nPlease be available at the scheduled time.');
         var location = encodeURIComponent('Phone Call');
 
         /* Google Calendar */
@@ -174,7 +159,7 @@
             'DTSTART:' + toICSDate(start),
             'DTEND:' + toICSDate(end),
             'SUMMARY:Gym Grow Strategy Call',
-            'DESCRIPTION:Strategy call with Braeden Bowman from Gym Grow.',
+            'DESCRIPTION:Strategy call with Vincent Yu from Gym Grow.',
             'LOCATION:Phone Call',
             'STATUS:CONFIRMED',
             'END:VEVENT',

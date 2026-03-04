@@ -3001,84 +3001,41 @@ img {
     text-align: center;
 }
 
-/* Progress bar */
-.bc-progress {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
+/* Progress bar (90% fill) */
+.bc-bar {
     margin-bottom: 2.2rem;
 }
 
-.bc-progress__step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.35rem;
-}
-
-.bc-progress__circle {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
+.bc-bar__label {
     font-size: 0.85rem;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.12);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+    text-align: center;
 }
 
-.bc-progress__step--done .bc-progress__circle {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
+.bc-bar__label strong {
     color: #fff;
 }
 
-.bc-progress__step--active .bc-progress__circle {
-    border-color: var(--color-accent);
-    background: rgba(233, 69, 96, 0.15);
-    color: var(--color-accent);
-    box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.2);
-    animation: bc-pulse 2s ease-in-out infinite;
+.bc-bar__track {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
 }
 
-@keyframes bc-pulse {
-    0%, 100% { box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.2); }
-    50% { box-shadow: 0 0 0 8px rgba(233, 69, 96, 0.08); }
+.bc-bar__fill {
+    width: 90%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent), #ff6b81);
+    border-radius: 20px;
+    animation: bc-fill-in 1.2s ease-out;
 }
 
-.bc-progress__label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-}
-
-.bc-progress__step--done .bc-progress__label,
-.bc-progress__step--active .bc-progress__label {
-    color: #fff;
-}
-
-.bc-progress__line {
-    width: 50px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.15);
-    margin: 0 0.5rem;
-    margin-bottom: 1.2rem;
-    border-radius: 2px;
-}
-
-.bc-progress__line--done {
-    background: var(--color-accent);
-}
-
-.bc-progress__line--active {
-    background: linear-gradient(90deg, var(--color-accent), rgba(233, 69, 96, 0.3));
+@keyframes bc-fill-in {
+    from { width: 0%; }
+    to { width: 90%; }
 }
 
 /* Heading */
@@ -3150,6 +3107,14 @@ img {
     justify-content: center;
     font-weight: 700;
     font-size: 1rem;
+}
+
+.bc-card__avatar-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-accent);
 }
 
 .bc-card__name {
