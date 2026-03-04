@@ -257,14 +257,16 @@
     /* ── STEP 2: CONFIRM BOOKING ── */
     confirmBtn.addEventListener('click', function () {
         if (!selectedDate || !selectedTime || !contactData) return;
+        var dateStr = selectedDate.getFullYear() + '-' + pad(selectedDate.getMonth() + 1) + '-' + pad(selectedDate.getDate());
         var payload = {
             first_name: contactData.first_name,
             last_name: contactData.last_name,
             company_name: contactData.company_name,
             email: contactData.email,
             phone: contactData.phone,
-            date: selectedDate.getFullYear() + '-' + pad(selectedDate.getMonth() + 1) + '-' + pad(selectedDate.getDate()),
+            date: dateStr,
             time: selectedTime,
+            appointment_time: dateStr + ' ' + formatTime12(selectedTime),
             booked_at: new Date().toISOString()
         };
 
