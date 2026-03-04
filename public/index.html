@@ -6,59 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym Grow | Marketing for Gyms That Want to Grow</title>
     <meta name="description"
-        content="Gym Grow helps gyms attract more members, boost retention, and scale revenue with proven marketing strategies.">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=63">
+        content="Gym Grow helps gyms attract more members, boost retention, and scale revenue with proven marketing strategies. Try free for 15 days.">
+    <meta name="keywords" content="gym marketing, fitness marketing, gym leads, gym growth, gym advertising, CrossFit marketing, gym member acquisition">
+    <meta name="author" content="Gym Grow">
+    <link rel="canonical" href="https://gymgrow.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gym Grow | Marketing for Gyms That Want to Grow">
+    <meta property="og:description" content="We help gyms get leads, get them in the door, and sign them up. Try free for 15 days.">
+    <meta property="og:url" content="https://gymgrow.com/">
+    <meta property="og:site_name" content="Gym Grow">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gym Grow | Marketing for Gyms That Want to Grow">
+    <meta name="twitter:description" content="We help gyms get leads, get them in the door, and sign them up. Try free for 15 days.">
+
+    <!-- Preload critical font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap">
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Gym Grow",
+        "description": "Marketing agency helping gyms attract more members, boost retention, and scale revenue.",
+        "url": "https://gymgrow.com",
+        "serviceType": "Gym Marketing",
+        "areaServed": "North America"
+    }
+    </script>
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <a href="/" class="nav__logo">Gym<span>Grow</span></a>
-        <button class="nav__hamburger" aria-label="Toggle menu"
-            onclick="document.querySelector('.nav__links').classList.toggle('active')">
+        <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </button>
         <ul class="nav__links">
-            <li><a href="/book.html" class="nav__cta">Claim 15 Day Free Trial</a></li>
+            <li><a href="#" class="nav__cta btn-popup">Claim 15 Day Free Trial</a></li>
         </ul>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero__tiles">
+        <div class="hero__tiles" aria-hidden="true">
             <div class="hero__brick-row">
-                <div class="hero__tile" style="background-image: url('/assets/images/1.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/2.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/3.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/4.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/5.jpeg')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/6.png')"></div>
+                <div class="hero__tile hero__tile--1"></div>
+                <div class="hero__tile hero__tile--2"></div>
+                <div class="hero__tile hero__tile--3"></div>
+                <div class="hero__tile hero__tile--4"></div>
+                <div class="hero__tile hero__tile--5"></div>
+                <div class="hero__tile hero__tile--6"></div>
             </div>
             <div class="hero__brick-row hero__brick-row--offset">
-                <div class="hero__tile" style="background-image: url('/assets/images/7.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/8.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/9.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/10.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/1.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/2.png')"></div>
+                <div class="hero__tile hero__tile--7"></div>
+                <div class="hero__tile hero__tile--8"></div>
+                <div class="hero__tile hero__tile--9"></div>
+                <div class="hero__tile hero__tile--10"></div>
+                <div class="hero__tile hero__tile--1"></div>
+                <div class="hero__tile hero__tile--2"></div>
             </div>
             <div class="hero__brick-row">
-                <div class="hero__tile" style="background-image: url('/assets/images/3.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/5.jpeg')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/6.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/8.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/10.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/4.png')"></div>
+                <div class="hero__tile hero__tile--3"></div>
+                <div class="hero__tile hero__tile--5"></div>
+                <div class="hero__tile hero__tile--6"></div>
+                <div class="hero__tile hero__tile--8"></div>
+                <div class="hero__tile hero__tile--10"></div>
+                <div class="hero__tile hero__tile--4"></div>
             </div>
             <div class="hero__brick-row hero__brick-row--offset">
-                <div class="hero__tile" style="background-image: url('/assets/images/9.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/7.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/1.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/3.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/5.jpeg')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/6.png')"></div>
+                <div class="hero__tile hero__tile--9"></div>
+                <div class="hero__tile hero__tile--7"></div>
+                <div class="hero__tile hero__tile--1"></div>
+                <div class="hero__tile hero__tile--3"></div>
+                <div class="hero__tile hero__tile--5"></div>
+                <div class="hero__tile hero__tile--6"></div>
             </div>
         </div>
         <div class="hero__overlay"></div>
@@ -69,99 +102,93 @@
                 door. And sign them up.</p>
             <p class="hero__subtext">We're so confident in our results, we'll let you try it free for 15 days.</p>
             <div class="hero__buttons">
-                <a href="/book.html" class="btn btn--primary btn--large">Claim 15 Day Free Trial →</a>
+                <a href="#" class="btn btn--primary btn--large btn-popup">Claim 15 Day Free Trial &rarr;</a>
             </div>
             <p class="hero__micro">*No contract. Cancel anytime.</p>
         </div>
     </section>
 
     <!-- Logo Scroller -->
-    <section class="logo-scroller">
-        <div class="logo-scroller__stars" id="logo-stars"></div>
+    <section class="logo-scroller" aria-label="Trusted partners">
+        <div class="logo-scroller__stars" id="logo-stars" aria-hidden="true"></div>
         <p class="logo-scroller__title">TRUSTED BY THE BEST</p>
         <div class="logo-scroller__track">
             <div class="logo-scroller__slide">
-                <div class="logo-scroller__item"><img src="/assets/images/star-gym.png" alt="Star Gym"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/hiitcore.png" alt="HIITCore Programs"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/ion.png" alt="ION"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/muv.png" alt="MUV The Gym"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/puravida.png" alt="Pura Vida Fitness"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/shelby-crossfit.png" alt="Shelby CrossFit">
-                </div>
-                <div class="logo-scroller__item"><img src="/assets/images/rep-room.png" alt="Rep Room"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/health-targeted.png"
-                        alt="Health Targeted Solutions"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/polarize-crossfit.png"
-                        alt="Polarize CrossFit"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/star-gym.png" alt="Star Gym" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/hiitcore.png" alt="HIITCore Programs" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/ion.png" alt="ION" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/muv.png" alt="MUV The Gym" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/puravida.png" alt="Pura Vida Fitness" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/shelby-crossfit.png" alt="Shelby CrossFit" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/rep-room.png" alt="Rep Room" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/health-targeted.png" alt="Health Targeted Solutions" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/polarize-crossfit.png" alt="Polarize CrossFit" loading="lazy" width="170" height="60"></div>
                 <!-- Duplicate for seamless loop -->
-                <div class="logo-scroller__item"><img src="/assets/images/star-gym.png" alt="Star Gym"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/hiitcore.png" alt="HIITCore Programs"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/ion.png" alt="ION"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/muv.png" alt="MUV The Gym"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/puravida.png" alt="Pura Vida Fitness"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/shelby-crossfit.png" alt="Shelby CrossFit">
-                </div>
-                <div class="logo-scroller__item"><img src="/assets/images/rep-room.png" alt="Rep Room"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/health-targeted.png"
-                        alt="Health Targeted Solutions"></div>
-                <div class="logo-scroller__item"><img src="/assets/images/polarize-crossfit.png"
-                        alt="Polarize CrossFit"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/star-gym.png" alt="Star Gym" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/hiitcore.png" alt="HIITCore Programs" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/ion.png" alt="ION" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/muv.png" alt="MUV The Gym" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/puravida.png" alt="Pura Vida Fitness" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/shelby-crossfit.png" alt="Shelby CrossFit" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/rep-room.png" alt="Rep Room" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/health-targeted.png" alt="Health Targeted Solutions" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/polarize-crossfit.png" alt="Polarize CrossFit" loading="lazy" width="170" height="60"></div>
             </div>
         </div>
     </section>
 
     <!-- Results / Testimonials -->
-    <section class="results-section">
-        <canvas id="particles-canvas" class="results-section__canvas"></canvas>
+    <section class="results-section" aria-label="Client results">
+        <canvas id="particles-canvas" class="results-section__canvas" aria-hidden="true"></canvas>
         <h2 class="results-section__heading">Results</h2>
         <div class="results-section__videos">
             <div class="results-video">
-                <span class="results-video__result">6 PT clients + 5 members in 1 week. 81 → 132 members.</span>
+                <span class="results-video__result">6 PT clients + 5 members in 1 week. 81 &rarr; 132 members.</span>
                 <div class="results-video__embed">
-                    <video src="/assets/images/vid1.mp4" autoplay playsinline muted loop></video>
+                    <video src="/assets/images/vid1.mp4" autoplay playsinline muted loop preload="metadata"></video>
                     <button class="results-video__sound" aria-label="Toggle sound"><svg viewBox="0 0 24 24">
                             <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7z" />
                             <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" />
                             <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" />
                         </svg></button>
                 </div>
-                <span class="results-video__name">Josh — CrossFit PL</span>
+                <span class="results-video__name">Josh &mdash; CrossFit PL</span>
             </div>
             <div class="results-video">
                 <span class="results-video__result">Collected $1.1K+ in his first week of launch.</span>
                 <div class="results-video__embed">
-                    <video src="/assets/images/vid2.mp4" autoplay playsinline muted loop></video>
+                    <video src="/assets/images/vid2.mp4" autoplay playsinline muted loop preload="metadata"></video>
                     <button class="results-video__sound" aria-label="Toggle sound"><svg viewBox="0 0 24 24">
                             <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7z" />
                             <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" />
                             <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" />
                         </svg></button>
                 </div>
-                <span class="results-video__name">Carlos — Hiitcore</span>
+                <span class="results-video__name">Carlos &mdash; Hiitcore</span>
             </div>
             <div class="results-video">
                 <span class="results-video__result">$4.2K in new memberships in his first 40 days.</span>
                 <div class="results-video__embed">
-                    <video src="/assets/images/vid3.mp4" autoplay playsinline muted loop></video>
+                    <video src="/assets/images/vid3.mp4" autoplay playsinline muted loop preload="metadata"></video>
                     <button class="results-video__sound" aria-label="Toggle sound"><svg viewBox="0 0 24 24">
                             <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7z" />
                             <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" />
                             <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" />
                         </svg></button>
                 </div>
-                <span class="results-video__name">Jose — MuvTheGym</span>
+                <span class="results-video__name">Jose &mdash; MuvTheGym</span>
             </div>
             <div class="results-video">
                 <span class="results-video__result">5 new memberships + 20 appointments in 15 days.</span>
                 <div class="results-video__embed">
-                    <video src="/assets/images/vid4.MP4" autoplay playsinline muted loop></video>
+                    <video src="/assets/images/vid4.MP4" autoplay playsinline muted loop preload="metadata"></video>
                     <button class="results-video__sound" aria-label="Toggle sound"><svg viewBox="0 0 24 24">
                             <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7z" />
                             <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" />
                             <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" />
                         </svg></button>
                 </div>
-                <span class="results-video__name">Jeremy — Ion S&C</span>
+                <span class="results-video__name">Jeremy &mdash; Ion S&amp;C</span>
             </div>
         </div>
         <div class="results-section__cards">
@@ -170,7 +197,7 @@
                     great things I like about Vincent is that he listens to your feedback and makes adjustments. I would
                     recommend working with him."</p>
                 <div class="results-card__author">
-                    <img src="/assets/images/Eric.png" alt="Erik Peacock" class="results-card__photo" loading="lazy">
+                    <img src="/assets/images/Eric.png" alt="Erik Peacock" class="results-card__photo" loading="lazy" width="42" height="42">
                     <div class="results-card__meta">
                         <span class="results-card__name">Erik P.</span>
                         <span class="results-card__gym">Puravida Fitness</span>
@@ -182,8 +209,7 @@
                     struggling to fill classes to having new members walk in every week. He actually understands what
                     gyms need and delivers on it."</p>
                 <div class="results-card__author">
-                    <img src="/assets/images/Constantin.png" alt="Constantin" class="results-card__photo"
-                        loading="lazy">
+                    <img src="/assets/images/Constantin.png" alt="Constantin" class="results-card__photo" loading="lazy" width="42" height="42">
                     <div class="results-card__meta">
                         <span class="results-card__name">Constantin M.</span>
                         <span class="results-card__gym">The Martial Club</span>
@@ -193,10 +219,9 @@
             <div class="results-card">
                 <p class="results-card__quote">"We went from 61 to 72 members in 1 month. It's been great just to have
                     the constant flow of consultations coming in and actually signing new members. Would recommend
-                    working with Vincent."
-                </p>
+                    working with Vincent."</p>
                 <div class="results-card__author">
-                    <img src="/assets/images/Will.png" alt="Will Berkowitz" class="results-card__photo" loading="lazy">
+                    <img src="/assets/images/Will.png" alt="Will Berkowitz" class="results-card__photo" loading="lazy" width="42" height="42">
                     <div class="results-card__meta">
                         <span class="results-card__name">Will B.</span>
                         <span class="results-card__gym">CrossFit Shelby</span>
@@ -205,27 +230,28 @@
             </div>
         </div>
         <div class="results-section__cta">
-            <a href="/book.html" class="btn btn--glow">Apply Now — Limited Spots →</a>
+            <a href="#" class="btn btn--glow btn-popup">Apply Now &mdash; Limited Spots &rarr;</a>
         </div>
+
         <!-- How It Works -->
         <div class="hiw hiw--hidden" id="how-it-works">
-            <div class="hiw__wave hiw__wave--1"></div>
-            <div class="hiw__wave hiw__wave--2"></div>
-            <div class="hiw__wave hiw__wave--3"></div>
-            <div class="hiw__wave hiw__wave--4"></div>
+            <div class="hiw__wave hiw__wave--1" aria-hidden="true"></div>
+            <div class="hiw__wave hiw__wave--2" aria-hidden="true"></div>
+            <div class="hiw__wave hiw__wave--3" aria-hidden="true"></div>
+            <div class="hiw__wave hiw__wave--4" aria-hidden="true"></div>
             <h2 class="hiw__heading">How It Works</h2>
             <p class="hiw__sub">Simple. No guesswork. No long contracts.</p>
             <div class="hiw__track">
-                <div class="hiw__line"></div>
+                <div class="hiw__line" aria-hidden="true"></div>
                 <div class="hiw__step">
                     <span class="hiw__num">1</span>
-                    <h3>Apply & Get Accepted</h3>
+                    <h3>Apply &amp; Get Accepted</h3>
                     <p>Book a short call. We'll see if your gym is a good fit.</p>
                 </div>
                 <div class="hiw__step">
                     <span class="hiw__num">2</span>
-                    <h3>We Build & Launch</h3>
-                    <p>Ads, landing pages, follow-up — live in days.</p>
+                    <h3>We Build &amp; Launch</h3>
+                    <p>Ads, landing pages, follow-up &mdash; live in days.</p>
                 </div>
                 <div class="hiw__step">
                     <span class="hiw__num">3</span>
@@ -237,174 +263,89 @@
     </section>
 
     <!-- What You Get -->
-    <section class="wyg" id="services">
-        <div class="wyg__tiles">
+    <section class="wyg" id="services" aria-label="What you get">
+        <div class="wyg__tiles" aria-hidden="true">
             <div class="hero__brick-row">
-                <div class="hero__tile" style="background-image: url('/assets/images/6.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/3.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/9.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/1.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/7.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/4.png')"></div>
+                <div class="hero__tile hero__tile--6"></div>
+                <div class="hero__tile hero__tile--3"></div>
+                <div class="hero__tile hero__tile--9"></div>
+                <div class="hero__tile hero__tile--1"></div>
+                <div class="hero__tile hero__tile--7"></div>
+                <div class="hero__tile hero__tile--4"></div>
             </div>
             <div class="hero__brick-row hero__brick-row--offset">
-                <div class="hero__tile" style="background-image: url('/assets/images/10.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/5.jpeg')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/2.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/8.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/6.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/3.png')"></div>
+                <div class="hero__tile hero__tile--10"></div>
+                <div class="hero__tile hero__tile--5"></div>
+                <div class="hero__tile hero__tile--2"></div>
+                <div class="hero__tile hero__tile--8"></div>
+                <div class="hero__tile hero__tile--6"></div>
+                <div class="hero__tile hero__tile--3"></div>
             </div>
             <div class="hero__brick-row">
-                <div class="hero__tile" style="background-image: url('/assets/images/7.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/1.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/10.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/4.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/9.png')"></div>
-                <div class="hero__tile" style="background-image: url('/assets/images/2.png')"></div>
+                <div class="hero__tile hero__tile--7"></div>
+                <div class="hero__tile hero__tile--1"></div>
+                <div class="hero__tile hero__tile--10"></div>
+                <div class="hero__tile hero__tile--4"></div>
+                <div class="hero__tile hero__tile--9"></div>
+                <div class="hero__tile hero__tile--2"></div>
             </div>
         </div>
         <div class="wyg__overlay"></div>
         <div class="wyg__content">
             <h2 class="wyg__heading">What You Get</h2>
-            <p class="wyg__sub">A full-stack growth system — from first click to signed member.</p>
+            <p class="wyg__sub">A full-stack growth system &mdash; from first click to signed member.</p>
             <div class="funnel">
-                <!-- 3D Funnel bowls -->
-                <svg class="funnel__shape" viewBox="0 0 600 640" fill="none" preserveAspectRatio="xMidYMid meet">
+                <svg class="funnel__shape" viewBox="0 0 600 640" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
                     <defs>
-                        <!-- Tier 1 (top/widest) -->
                         <linearGradient id="t1Body" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#6b1025" />
-                            <stop offset="35%" stop-color="#a82a45" />
-                            <stop offset="65%" stop-color="#8b1a30" />
-                            <stop offset="100%" stop-color="#5a0c1e" />
+                            <stop offset="0%" stop-color="#6b1025" /><stop offset="35%" stop-color="#a82a45" /><stop offset="65%" stop-color="#8b1a30" /><stop offset="100%" stop-color="#5a0c1e" />
                         </linearGradient>
                         <linearGradient id="t1Rim" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#c23152" />
-                            <stop offset="50%" stop-color="#e94560" />
-                            <stop offset="100%" stop-color="#a82a45" />
+                            <stop offset="0%" stop-color="#c23152" /><stop offset="50%" stop-color="#e94560" /><stop offset="100%" stop-color="#a82a45" />
                         </linearGradient>
-                        <!-- Tier 2 (middle) -->
                         <linearGradient id="t2Body" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#8b1a30" />
-                            <stop offset="35%" stop-color="#c23152" />
-                            <stop offset="65%" stop-color="#a82a45" />
-                            <stop offset="100%" stop-color="#6b1025" />
+                            <stop offset="0%" stop-color="#8b1a30" /><stop offset="35%" stop-color="#c23152" /><stop offset="65%" stop-color="#a82a45" /><stop offset="100%" stop-color="#6b1025" />
                         </linearGradient>
                         <linearGradient id="t2Rim" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#d43b5c" />
-                            <stop offset="50%" stop-color="#ff6b81" />
-                            <stop offset="100%" stop-color="#c23152" />
+                            <stop offset="0%" stop-color="#d43b5c" /><stop offset="50%" stop-color="#ff6b81" /><stop offset="100%" stop-color="#c23152" />
                         </linearGradient>
-                        <!-- Tier 3 (bottom/narrowest) -->
                         <linearGradient id="t3Body" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#c23152" />
-                            <stop offset="35%" stop-color="#e94560" />
-                            <stop offset="65%" stop-color="#d43b5c" />
-                            <stop offset="100%" stop-color="#8b1a30" />
+                            <stop offset="0%" stop-color="#c23152" /><stop offset="35%" stop-color="#e94560" /><stop offset="65%" stop-color="#d43b5c" /><stop offset="100%" stop-color="#8b1a30" />
                         </linearGradient>
                         <linearGradient id="t3Rim" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#e94560" />
-                            <stop offset="50%" stop-color="#ff8fa0" />
-                            <stop offset="100%" stop-color="#d43b5c" />
+                            <stop offset="0%" stop-color="#e94560" /><stop offset="50%" stop-color="#ff8fa0" /><stop offset="100%" stop-color="#d43b5c" />
                         </linearGradient>
                     </defs>
-
-                    <!-- TIER 1: Lead Gen bowl -->
-                    <!-- Side surface -->
-                    <path d="M30,40 L155,195 A145,28 0 0,0 445,195 L570,40 A270,38 0 0,1 30,40 Z" fill="url(#t1Body)"
-                        opacity="0.35" />
-                    <!-- Inner shadow (back of opening) -->
+                    <!-- Tier 1 -->
+                    <path d="M30,40 L155,195 A145,28 0 0,0 445,195 L570,40 A270,38 0 0,1 30,40 Z" fill="url(#t1Body)" opacity="0.35" />
                     <ellipse cx="300" cy="40" rx="270" ry="38" fill="rgba(0,0,0,0.2)" />
-                    <!-- Bottom rim -->
-                    <ellipse cx="300" cy="195" rx="145" ry="28" fill="rgba(100,15,30,0.25)" stroke="rgba(233,69,96,0.1)"
-                        stroke-width="1" />
-                    <!-- Top rim (front half) -->
+                    <ellipse cx="300" cy="195" rx="145" ry="28" fill="rgba(100,15,30,0.25)" stroke="rgba(233,69,96,0.1)" stroke-width="1" />
                     <path d="M30,40 A270,38 0 0,0 570,40" fill="none" stroke="url(#t1Rim)" stroke-width="2.5" />
-                    <!-- Top rim highlight -->
-                    <path d="M80,38 A250,32 0 0,0 520,38" fill="none" stroke="rgba(255,255,255,0.12)"
-                        stroke-width="1" />
-
-                    <!-- TIER 2: Lead Nurture bowl -->
-                    <path d="M160,220 L225,380 A80,20 0 0,0 375,380 L440,220 A135,26 0 0,1 160,220 Z"
-                        fill="url(#t2Body)" opacity="0.35" />
+                    <path d="M80,38 A250,32 0 0,0 520,38" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+                    <!-- Tier 2 -->
+                    <path d="M160,220 L225,380 A80,20 0 0,0 375,380 L440,220 A135,26 0 0,1 160,220 Z" fill="url(#t2Body)" opacity="0.35" />
                     <ellipse cx="300" cy="220" rx="135" ry="26" fill="rgba(0,0,0,0.18)" />
-                    <ellipse cx="300" cy="380" rx="80" ry="20" fill="rgba(100,15,30,0.2)" stroke="rgba(233,69,96,0.08)"
-                        stroke-width="1" />
+                    <ellipse cx="300" cy="380" rx="80" ry="20" fill="rgba(100,15,30,0.2)" stroke="rgba(233,69,96,0.08)" stroke-width="1" />
                     <path d="M160,220 A135,26 0 0,0 440,220" fill="none" stroke="url(#t2Rim)" stroke-width="2.5" />
-                    <path d="M195,218 A115,20 0 0,0 405,218" fill="none" stroke="rgba(255,255,255,0.1)"
-                        stroke-width="1" />
-
-                    <!-- TIER 3: Conversions bowl -->
-                    <path d="M230,400 L270,520 A35,12 0 0,0 330,520 L370,400 A70,18 0 0,1 230,400 Z" fill="url(#t3Body)"
-                        opacity="0.4" />
+                    <path d="M195,218 A115,20 0 0,0 405,218" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                    <!-- Tier 3 -->
+                    <path d="M230,400 L270,520 A35,12 0 0,0 330,520 L370,400 A70,18 0 0,1 230,400 Z" fill="url(#t3Body)" opacity="0.4" />
                     <ellipse cx="300" cy="400" rx="70" ry="18" fill="rgba(0,0,0,0.15)" />
-                    <ellipse cx="300" cy="520" rx="35" ry="12" fill="rgba(100,15,30,0.18)" stroke="rgba(233,69,96,0.08)"
-                        stroke-width="1" />
+                    <ellipse cx="300" cy="520" rx="35" ry="12" fill="rgba(100,15,30,0.18)" stroke="rgba(233,69,96,0.08)" stroke-width="1" />
                     <path d="M230,400 A70,18 0 0,0 370,400" fill="none" stroke="url(#t3Rim)" stroke-width="2.5" />
-                    <path d="M248,398 A58,14 0 0,0 352,398" fill="none" stroke="rgba(255,255,255,0.1)"
-                        stroke-width="1" />
-
+                    <path d="M248,398 A58,14 0 0,0 352,398" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
                     <!-- Animated falling figures -->
-                    <g class="funnel__drop funnel__drop--1">
-                        <circle r="5" fill="#ff6b81" />
-                        <line x1="0" y1="5" x2="0" y2="18" stroke="#ff6b81" stroke-width="1.8" />
-                        <line x1="-6" y1="10" x2="6" y2="10" stroke="#ff6b81" stroke-width="1.8" />
-                        <line x1="0" y1="18" x2="-5" y2="26" stroke="#ff6b81" stroke-width="1.8" />
-                        <line x1="0" y1="18" x2="5" y2="26" stroke="#ff6b81" stroke-width="1.8" />
-                    </g>
-                    <g class="funnel__drop funnel__drop--2">
-                        <circle r="4.5" fill="#e94560" />
-                        <line x1="0" y1="4.5" x2="0" y2="16" stroke="#e94560" stroke-width="1.6" />
-                        <line x1="-5.5" y1="9" x2="5.5" y2="9" stroke="#e94560" stroke-width="1.6" />
-                        <line x1="0" y1="16" x2="-4.5" y2="24" stroke="#e94560" stroke-width="1.6" />
-                        <line x1="0" y1="16" x2="4.5" y2="24" stroke="#e94560" stroke-width="1.6" />
-                    </g>
-                    <g class="funnel__drop funnel__drop--3">
-                        <circle r="4" fill="#ff6b81" />
-                        <line x1="0" y1="4" x2="0" y2="15" stroke="#ff6b81" stroke-width="1.5" />
-                        <line x1="-5" y1="8.5" x2="5" y2="8.5" stroke="#ff6b81" stroke-width="1.5" />
-                        <line x1="0" y1="15" x2="-4" y2="22" stroke="#ff6b81" stroke-width="1.5" />
-                        <line x1="0" y1="15" x2="4" y2="22" stroke="#ff6b81" stroke-width="1.5" />
-                    </g>
-                    <g class="funnel__drop funnel__drop--4">
-                        <circle r="4.8" fill="#e94560" />
-                        <line x1="0" y1="4.8" x2="0" y2="17" stroke="#e94560" stroke-width="1.7" />
-                        <line x1="-5.5" y1="9.5" x2="5.5" y2="9.5" stroke="#e94560" stroke-width="1.7" />
-                        <line x1="0" y1="17" x2="-4.8" y2="25" stroke="#e94560" stroke-width="1.7" />
-                        <line x1="0" y1="17" x2="4.8" y2="25" stroke="#e94560" stroke-width="1.7" />
-                    </g>
-                    <g class="funnel__drop funnel__drop--5">
-                        <circle r="3.8" fill="#ff6b81" opacity="0.7" />
-                        <line x1="0" y1="3.8" x2="0" y2="14" stroke="#ff6b81" stroke-width="1.4" opacity="0.7" />
-                        <line x1="-4.5" y1="8" x2="4.5" y2="8" stroke="#ff6b81" stroke-width="1.4" opacity="0.7" />
-                        <line x1="0" y1="14" x2="-3.8" y2="21" stroke="#ff6b81" stroke-width="1.4" opacity="0.7" />
-                        <line x1="0" y1="14" x2="3.8" y2="21" stroke="#ff6b81" stroke-width="1.4" opacity="0.7" />
-                    </g>
-                    <g class="funnel__drop funnel__drop--6">
-                        <circle r="4.2" fill="#e94560" />
-                        <line x1="0" y1="4.2" x2="0" y2="16" stroke="#e94560" stroke-width="1.6" />
-                        <line x1="-5" y1="9" x2="5" y2="9" stroke="#e94560" stroke-width="1.6" />
-                        <line x1="0" y1="16" x2="-4.2" y2="23" stroke="#e94560" stroke-width="1.6" />
-                        <line x1="0" y1="16" x2="4.2" y2="23" stroke="#e94560" stroke-width="1.6" />
-                    </g>
-                    <g class="funnel__drop funnel__drop--7">
-                        <circle r="4.5" fill="#ff6b81" />
-                        <line x1="0" y1="4.5" x2="0" y2="17" stroke="#ff6b81" stroke-width="1.7" />
-                        <line x1="-5.5" y1="9.5" x2="5.5" y2="9.5" stroke="#ff6b81" stroke-width="1.7" />
-                        <line x1="0" y1="17" x2="-4.5" y2="24" stroke="#ff6b81" stroke-width="1.7" />
-                        <line x1="0" y1="17" x2="4.5" y2="24" stroke="#ff6b81" stroke-width="1.7" />
-                    </g>
-                    <g class="funnel__drop funnel__drop--8">
-                        <circle r="3.5" fill="#e94560" opacity="0.8" />
-                        <line x1="0" y1="3.5" x2="0" y2="13" stroke="#e94560" stroke-width="1.3" opacity="0.8" />
-                        <line x1="-4" y1="7.5" x2="4" y2="7.5" stroke="#e94560" stroke-width="1.3" opacity="0.8" />
-                        <line x1="0" y1="13" x2="-3.5" y2="20" stroke="#e94560" stroke-width="1.3" opacity="0.8" />
-                        <line x1="0" y1="13" x2="3.5" y2="20" stroke="#e94560" stroke-width="1.3" opacity="0.8" />
-                    </g>
+                    <g class="funnel__drop funnel__drop--1"><circle r="5" fill="#ff6b81" /><line x1="0" y1="5" x2="0" y2="18" stroke="#ff6b81" stroke-width="1.8" /><line x1="-6" y1="10" x2="6" y2="10" stroke="#ff6b81" stroke-width="1.8" /><line x1="0" y1="18" x2="-5" y2="26" stroke="#ff6b81" stroke-width="1.8" /><line x1="0" y1="18" x2="5" y2="26" stroke="#ff6b81" stroke-width="1.8" /></g>
+                    <g class="funnel__drop funnel__drop--2"><circle r="4.5" fill="#e94560" /><line x1="0" y1="4.5" x2="0" y2="16" stroke="#e94560" stroke-width="1.6" /><line x1="-5.5" y1="9" x2="5.5" y2="9" stroke="#e94560" stroke-width="1.6" /><line x1="0" y1="16" x2="-4.5" y2="24" stroke="#e94560" stroke-width="1.6" /><line x1="0" y1="16" x2="4.5" y2="24" stroke="#e94560" stroke-width="1.6" /></g>
+                    <g class="funnel__drop funnel__drop--3"><circle r="4" fill="#ff6b81" /><line x1="0" y1="4" x2="0" y2="15" stroke="#ff6b81" stroke-width="1.5" /><line x1="-5" y1="8.5" x2="5" y2="8.5" stroke="#ff6b81" stroke-width="1.5" /><line x1="0" y1="15" x2="-4" y2="22" stroke="#ff6b81" stroke-width="1.5" /><line x1="0" y1="15" x2="4" y2="22" stroke="#ff6b81" stroke-width="1.5" /></g>
+                    <g class="funnel__drop funnel__drop--4"><circle r="4.8" fill="#e94560" /><line x1="0" y1="4.8" x2="0" y2="17" stroke="#e94560" stroke-width="1.7" /><line x1="-5.5" y1="9.5" x2="5.5" y2="9.5" stroke="#e94560" stroke-width="1.7" /><line x1="0" y1="17" x2="-4.8" y2="25" stroke="#e94560" stroke-width="1.7" /><line x1="0" y1="17" x2="4.8" y2="25" stroke="#e94560" stroke-width="1.7" /></g>
+                    <g class="funnel__drop funnel__drop--5"><circle r="3.8" fill="#ff6b81" opacity="0.7" /><line x1="0" y1="3.8" x2="0" y2="14" stroke="#ff6b81" stroke-width="1.4" opacity="0.7" /><line x1="-4.5" y1="8" x2="4.5" y2="8" stroke="#ff6b81" stroke-width="1.4" opacity="0.7" /><line x1="0" y1="14" x2="-3.8" y2="21" stroke="#ff6b81" stroke-width="1.4" opacity="0.7" /><line x1="0" y1="14" x2="3.8" y2="21" stroke="#ff6b81" stroke-width="1.4" opacity="0.7" /></g>
+                    <g class="funnel__drop funnel__drop--6"><circle r="4.2" fill="#e94560" /><line x1="0" y1="4.2" x2="0" y2="16" stroke="#e94560" stroke-width="1.6" /><line x1="-5" y1="9" x2="5" y2="9" stroke="#e94560" stroke-width="1.6" /><line x1="0" y1="16" x2="-4.2" y2="23" stroke="#e94560" stroke-width="1.6" /><line x1="0" y1="16" x2="4.2" y2="23" stroke="#e94560" stroke-width="1.6" /></g>
+                    <g class="funnel__drop funnel__drop--7"><circle r="4.5" fill="#ff6b81" /><line x1="0" y1="4.5" x2="0" y2="17" stroke="#ff6b81" stroke-width="1.7" /><line x1="-5.5" y1="9.5" x2="5.5" y2="9.5" stroke="#ff6b81" stroke-width="1.7" /><line x1="0" y1="17" x2="-4.5" y2="24" stroke="#ff6b81" stroke-width="1.7" /><line x1="0" y1="17" x2="4.5" y2="24" stroke="#ff6b81" stroke-width="1.7" /></g>
+                    <g class="funnel__drop funnel__drop--8"><circle r="3.5" fill="#e94560" opacity="0.8" /><line x1="0" y1="3.5" x2="0" y2="13" stroke="#e94560" stroke-width="1.3" opacity="0.8" /><line x1="-4" y1="7.5" x2="4" y2="7.5" stroke="#e94560" stroke-width="1.3" opacity="0.8" /><line x1="0" y1="13" x2="-3.5" y2="20" stroke="#e94560" stroke-width="1.3" opacity="0.8" /><line x1="0" y1="13" x2="3.5" y2="20" stroke="#e94560" stroke-width="1.3" opacity="0.8" /></g>
                 </svg>
 
-                <!-- Tier 1: Lead Gen (widest) -->
+                <!-- Tier 1: Lead Gen -->
                 <div class="funnel__tier funnel__tier--1">
                     <span class="funnel__label">Lead Generation</span>
                     <div class="funnel__cards">
@@ -414,7 +355,7 @@
                         </div>
                         <div class="funnel__card funnel__card--organic">
                             <h4><span class="funnel__card-icon">📱</span> Organic Campaign</h4>
-                            <p>Social content that builds trust & leads.</p>
+                            <p>Social content that builds trust &amp; leads.</p>
                         </div>
                         <div class="funnel__card funnel__card--website">
                             <h4><span class="funnel__card-icon">🌐</span> Custom Website</h4>
@@ -422,19 +363,17 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Tier 2: Lead Nurture (medium) -->
+                <!-- Tier 2: Lead Nurture -->
                 <div class="funnel__tier funnel__tier--2">
                     <span class="funnel__label">Lead Nurture</span>
                     <div class="funnel__cards">
                         <div class="funnel__card funnel__card--wide">
                             <h4><span class="funnel__card-icon">🤖</span> AI Follow-Up System</h4>
-                            <p>SMS, email & voicemail automation that follows up with every lead, 24/7.</p>
+                            <p>SMS, email &amp; voicemail automation that follows up with every lead, 24/7.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tier 3: Conversions (narrowest) -->
+                <!-- Tier 3: Conversions -->
                 <div class="funnel__tier funnel__tier--3">
                     <span class="funnel__label">Conversions</span>
                     <div class="funnel__cards">
@@ -443,9 +382,8 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Dollar signs floating out of funnel bottom -->
-                <div class="funnel__cashpile">
+                <!-- Dollar signs -->
+                <div class="funnel__cashpile" aria-hidden="true">
                     <span class="funnel__cashstack funnel__cashstack--1">$</span>
                     <span class="funnel__cashstack funnel__cashstack--2">$</span>
                     <span class="funnel__cashstack funnel__cashstack--3">$</span>
@@ -458,39 +396,27 @@
             </div>
             <p class="wyg__support">💬 Plus: 1-on-1 support with your dedicated strategist, 24/7.</p>
             <div class="wyg__cta">
-                <a href="/book.html" class="btn btn--glow">Claim 15 Day Free Trial →</a>
+                <a href="#" class="btn btn--glow btn-popup">Claim 15 Day Free Trial &rarr;</a>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="final-cta">
-        <!-- Divider line with arrow breaking through -->
-        <div class="section-divider">
+    <section class="final-cta" aria-label="Call to action">
+        <div class="section-divider" aria-hidden="true">
             <span class="section-divider__line section-divider__line--left"></span>
             <div class="section-divider__arrow">
-                <svg class="section-divider__chevron section-divider__chevron--1" viewBox="0 0 40 24" fill="none">
-                    <path d="M2 2L20 18L38 2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-                <svg class="section-divider__chevron section-divider__chevron--2" viewBox="0 0 40 24" fill="none">
-                    <path d="M2 2L20 18L38 2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-                <svg class="section-divider__chevron section-divider__chevron--3" viewBox="0 0 40 24" fill="none">
-                    <path d="M2 2L20 18L38 2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
+                <svg class="section-divider__chevron section-divider__chevron--1" viewBox="0 0 40 24" fill="none"><path d="M2 2L20 18L38 2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <svg class="section-divider__chevron section-divider__chevron--2" viewBox="0 0 40 24" fill="none"><path d="M2 2L20 18L38 2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <svg class="section-divider__chevron section-divider__chevron--3" viewBox="0 0 40 24" fill="none"><path d="M2 2L20 18L38 2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
             </div>
             <span class="section-divider__line section-divider__line--right"></span>
         </div>
-        <div class="final-cta__glow"></div>
+        <div class="final-cta__glow" aria-hidden="true"></div>
         <div class="final-cta__inner">
             <span class="final-cta__badge">⚡ Limited Spots Available</span>
-            <h2 class="final-cta__heading">Your Gym Deserves<br>to Be <span class="final-cta__highlight">Full.</span>
-            </h2>
-            <p class="final-cta__sub">We only take on a handful of gyms per month so we can deliver real results — not
-                empty promises.</p>
+            <h2 class="final-cta__heading">Your Gym Deserves<br>to Be <span class="final-cta__highlight">Full.</span></h2>
+            <p class="final-cta__sub">We only take on a handful of gyms per month so we can deliver real results &mdash; not empty promises.</p>
             <div class="final-cta__proof">
                 <div class="final-cta__stat">
                     <span class="final-cta__stat-num">15</span>
@@ -502,13 +428,13 @@
                     <span class="final-cta__stat-label">Risk to You</span>
                 </div>
             </div>
-            <a href="/book.html" class="btn btn--glow btn--large final-cta__btn">Apply Now — Claim Your Free Trial →</a>
+            <a href="#" class="btn btn--glow btn--large final-cta__btn btn-popup">Apply Now &mdash; Claim Your Free Trial &rarr;</a>
             <p class="final-cta__micro">No contracts. No risk. Cancel anytime.</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer__inner">
             <div class="footer__brand">
                 <h3>Gym<span>Grow</span></h3>
@@ -526,101 +452,140 @@
         </div>
     </footer>
 
+    <!-- Booking Widget -->
+    <div class="modal" id="popup-modal" role="dialog" aria-modal="true" aria-label="Book a call">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content modal__content--booking">
+            <button class="modal__close" aria-label="Close modal">&times;</button>
+
+            <!-- Progress bar -->
+            <div class="bw-progress">
+                <div class="bw-progress__step bw-progress__step--active" data-step="1">
+                    <span class="bw-progress__dot">1</span>
+                    <span class="bw-progress__label">Your Details</span>
+                </div>
+                <div class="bw-progress__line"></div>
+                <div class="bw-progress__step" data-step="2">
+                    <span class="bw-progress__dot">2</span>
+                    <span class="bw-progress__label">Pick a Time</span>
+                </div>
+            </div>
+
+            <!-- Step 1: Contact form + blurred calendar -->
+            <div class="bw-body">
+                <div class="bw-form-side" id="bw-step-1">
+                    <h2 class="bw-heading">Book Your Free Strategy Call</h2>
+                    <p class="bw-sub">Fill out the form, then pick a time that works for you.</p>
+                    <form class="bw-form" id="bw-contact-form">
+                        <div class="bw-form__row">
+                            <div class="bw-form__field">
+                                <label class="bw-form__label" for="bw-fname">First name *</label>
+                                <input class="bw-form__input" type="text" id="bw-fname" name="first_name" required autocomplete="given-name">
+                            </div>
+                            <div class="bw-form__field">
+                                <label class="bw-form__label" for="bw-lname">Last name *</label>
+                                <input class="bw-form__input" type="text" id="bw-lname" name="last_name" required autocomplete="family-name">
+                            </div>
+                        </div>
+                        <div class="bw-form__field">
+                            <label class="bw-form__label" for="bw-email">Email *</label>
+                            <input class="bw-form__input" type="email" id="bw-email" name="email" required autocomplete="email">
+                        </div>
+                        <div class="bw-form__field">
+                            <label class="bw-form__label" for="bw-phone">Phone *</label>
+                            <input class="bw-form__input" type="tel" id="bw-phone" name="phone" required autocomplete="tel">
+                        </div>
+                        <p class="bw-consent">By submitting, you consent to your data being stored per our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+                        <button type="submit" class="btn btn--glow bw-form__submit">Continue &rarr;</button>
+                    </form>
+                </div>
+
+                <!-- Calendar side (always visible, blurred in step 1) -->
+                <div class="bw-calendar-side" id="bw-calendar">
+                    <div class="bw-calendar__blur-overlay" id="bw-blur-overlay">
+                        <span class="bw-calendar__lock">&#128274; Fill out the form to unlock</span>
+                    </div>
+                    <div class="bw-calendar__header">
+                        <button type="button" class="bw-calendar__nav" id="bw-prev-month" aria-label="Previous month">&lsaquo;</button>
+                        <span class="bw-calendar__month" id="bw-month-label"></span>
+                        <button type="button" class="bw-calendar__nav" id="bw-next-month" aria-label="Next month">&rsaquo;</button>
+                    </div>
+                    <div class="bw-calendar__weekdays">
+                        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                    </div>
+                    <div class="bw-calendar__grid" id="bw-cal-grid"></div>
+
+                    <!-- Time slots (shown after picking a day) -->
+                    <div class="bw-times" id="bw-times" style="display:none;">
+                        <p class="bw-times__label" id="bw-times-label"></p>
+                        <div class="bw-times__grid" id="bw-times-grid"></div>
+                    </div>
+
+                    <!-- Confirm button -->
+                    <button type="button" class="btn btn--glow bw-confirm" id="bw-confirm" style="display:none;">Confirm Booking &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Confirmation -->
+            <div class="bw-confirmed" id="bw-confirmed" style="display:none;">
+                <div class="bw-confirmed__icon">&#10003;</div>
+                <h2 class="bw-heading">You're Booked!</h2>
+                <p class="bw-sub" id="bw-confirmed-details"></p>
+                <p class="bw-consent">We'll send a confirmation to your email. Talk soon!</p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Hero tiles parallax (scroll + mousemove)
+        /* ── Nav hamburger toggle ── */
         (function () {
-            var tiles = document.querySelector('.hero__tiles');
-            var hero = document.querySelector('.hero');
-            if (!tiles || !hero) return;
-
-            var mouseX = 0, mouseY = 0;
-            var scrollY = 0;
-            var ticking = false;
-
-            function update() {
-                var rect = hero.getBoundingClientRect();
-                var heroH = rect.height || 1;
-                // Scroll: shift tiles up slightly as user scrolls down
-                var scrollOffset = window.pageYOffset * 0.08;
-                // Mouse: tilt based on cursor position relative to hero center
-                var cx = rect.left + rect.width / 2;
-                var cy = rect.top + rect.height / 2;
-                var dx = (mouseX - cx) / (rect.width / 2);  // -1 to 1
-                var dy = (mouseY - cy) / (rect.height / 2); // -1 to 1
-                dx = Math.max(-1, Math.min(1, dx));
-                dy = Math.max(-1, Math.min(1, dy));
-                var rotX = dy * -2;  // tilt up/down (max 2deg)
-                var rotY = dx * 3;   // tilt left/right (max 3deg)
-                var shiftX = dx * 5; // translate X
-                var shiftY = dy * 4 - scrollOffset; // translate Y
-                tiles.style.transform = 'rotate(-8deg) translate3d(' + shiftX + 'px, ' + shiftY + 'px, 0) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
-                ticking = false;
-            }
-
-            function requestTick() {
-                if (!ticking) { ticking = true; requestAnimationFrame(update); }
-            }
-
-            document.addEventListener('mousemove', function (e) {
-                mouseX = e.clientX; mouseY = e.clientY;
-                requestTick();
+            var hamburger = document.querySelector('.nav__hamburger');
+            var navLinks = document.querySelector('.nav__links');
+            if (!hamburger || !navLinks) return;
+            hamburger.addEventListener('click', function () {
+                var expanded = navLinks.classList.toggle('active');
+                hamburger.setAttribute('aria-expanded', expanded);
             });
-
-            window.addEventListener('scroll', function () {
-                requestTick();
-            }, { passive: true });
         })();
 
-        // Twinkling stars for logo scroller
+        /* ── Twinkling stars for logo scroller ── */
         (function () {
             var container = document.getElementById('logo-stars');
             if (!container) return;
-            var COUNT = 60;
-            for (var i = 0; i < COUNT; i++) {
+            var frag = document.createDocumentFragment();
+            for (var i = 0; i < 60; i++) {
                 var star = document.createElement('span');
-                star.className = 'logo-star';
-                var size = Math.random() * 1.2 + 0.5;
-                var x = Math.random() * 100;
-                var y = Math.random() * 100;
-                var delay = Math.random() * 4;
-                var dur = Math.random() * 2 + 1.5;
-                var brightness = Math.random();
-                star.style.cssText = 'width:' + size + 'px;height:' + size + 'px;left:' + x + '%;top:' + y + '%;animation-delay:' + delay + 's;animation-duration:' + dur + 's;';
-                if (brightness > 0.7) star.classList.add('logo-star--bright');
-                container.appendChild(star);
+                star.className = 'logo-star' + (Math.random() > 0.7 ? ' logo-star--bright' : '');
+                star.style.cssText = 'width:' + (Math.random() * 1.2 + 0.5) + 'px;height:' + (Math.random() * 1.2 + 0.5) + 'px;left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;animation-delay:' + (Math.random() * 4) + 's;animation-duration:' + (Math.random() * 2 + 1.5) + 's;';
+                frag.appendChild(star);
             }
+            container.appendChild(frag);
         })();
 
-        // Particle canvas effect for testimonials section
+        /* ── Particle canvas (results section) ── */
         (function () {
             var canvas = document.getElementById('particles-canvas');
+            if (!canvas) return;
             var ctx = canvas.getContext('2d');
             var section = canvas.parentElement;
             var particles = [];
-            var count = 200;
-            var wind = 1.5;
-            var turbulence = 0.8;
+            var count = 120;
 
-            function resize() {
-                canvas.width = section.offsetWidth;
-                canvas.height = section.offsetHeight;
-            }
+            function resize() { canvas.width = section.offsetWidth; canvas.height = section.offsetHeight; }
             resize();
             window.addEventListener('resize', resize);
+
+            var hues = ['233,69,96', '255,107,129', '180,140,255', '255,180,200'];
 
             function Particle() { this.reset(); }
             Particle.prototype.reset = function () {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 4 + 0.5;
-                this.speedX = (Math.random() - 0.5) * wind;
+                this.speedX = (Math.random() - 0.5) * 1.5;
                 this.speedY = (Math.random() - 0.5) * 0.6;
                 this.opacity = Math.random() * 0.4 + 0.05;
-                var roll = Math.random();
-                if (roll < 0.4) this.hue = '233,69,96';
-                else if (roll < 0.7) this.hue = '255,107,129';
-                else if (roll < 0.85) this.hue = '180,140,255';
-                else this.hue = '255,180,200';
+                this.hue = hues[Math.floor(Math.random() * hues.length)];
                 this.angle = Math.random() * Math.PI * 2;
                 this.spin = (Math.random() - 0.5) * 0.03;
                 this.turbOffset = Math.random() * 1000;
@@ -629,10 +594,8 @@
             };
             Particle.prototype.update = function (t) {
                 this.angle += this.spin;
-                var tx = Math.sin(t * 0.001 + this.turbOffset) * turbulence;
-                var ty = Math.cos(t * 0.0012 + this.turbOffset) * turbulence * 0.5;
-                this.x += this.speedX + tx;
-                this.y += this.speedY + ty;
+                this.x += this.speedX + Math.sin(t * 0.001 + this.turbOffset) * 0.8;
+                this.y += this.speedY + Math.cos(t * 0.0012 + this.turbOffset) * 0.4;
                 if (this.x < -10) this.x = canvas.width + 10;
                 if (this.x > canvas.width + 10) this.x = -10;
                 if (this.y < -10) this.y = canvas.height + 10;
@@ -654,30 +617,10 @@
                 ctx.restore();
             };
 
-            // Draw faint connecting lines between nearby particles
-            function drawConnections() {
-                for (var i = 0; i < particles.length; i++) {
-                    for (var j = i + 1; j < particles.length; j++) {
-                        var dx = particles[i].x - particles[j].x;
-                        var dy = particles[i].y - particles[j].y;
-                        var dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 100) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = 'rgba(233,69,96,' + (0.06 * (1 - dist / 100)) + ')';
-                            ctx.lineWidth = 0.5;
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-            }
-
             for (var i = 0; i < count; i++) particles.push(new Particle());
 
             function animate(t) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                drawConnections();
                 for (var i = 0; i < particles.length; i++) {
                     particles[i].update(t);
                     particles[i].draw();
@@ -687,41 +630,39 @@
             requestAnimationFrame(animate);
         })();
 
-        // Sound toggle buttons
-        var mutedIcon = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7z"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/></svg>';
-        var unmutedIcon = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1A9 9 0 0 0 14 3.2z"/></svg>';
+        /* ── Sound toggle buttons ── */
+        (function () {
+            var mutedIcon = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7z"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/></svg>';
+            var unmutedIcon = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.3v7.4a4.5 4.5 0 0 0 2.5-3.7zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1A9 9 0 0 0 14 3.2z"/></svg>';
 
-        document.querySelectorAll('.results-video__sound').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var vid = btn.parentElement.querySelector('video');
-                var wasMuted = vid.muted;
-                // Mute all videos first
-                document.querySelectorAll('.results-video__embed video').forEach(function (v) {
-                    v.muted = true;
-                    var b = v.parentElement.querySelector('.results-video__sound');
-                    b.innerHTML = mutedIcon;
-                    b.classList.remove('results-video__sound--active');
-                });
-                // Reset all card states
-                document.querySelectorAll('.results-video').forEach(function (card) {
-                    card.classList.remove('results-video--active', 'results-video--dimmed');
-                });
-                // Only unmute if it was muted before
-                if (wasMuted) {
-                    vid.muted = false;
-                    btn.innerHTML = unmutedIcon;
-                    btn.classList.add('results-video__sound--active');
-                    // Highlight active, dim others
-                    var activeCard = btn.closest('.results-video');
-                    activeCard.classList.add('results-video--active');
-                    document.querySelectorAll('.results-video').forEach(function (card) {
-                        if (card !== activeCard) card.classList.add('results-video--dimmed');
+            document.querySelectorAll('.results-video__sound').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var vid = btn.parentElement.querySelector('video');
+                    var wasMuted = vid.muted;
+                    document.querySelectorAll('.results-video__embed video').forEach(function (v) {
+                        v.muted = true;
+                        var b = v.parentElement.querySelector('.results-video__sound');
+                        b.innerHTML = mutedIcon;
+                        b.classList.remove('results-video__sound--active');
                     });
-                }
+                    document.querySelectorAll('.results-video').forEach(function (card) {
+                        card.classList.remove('results-video--active', 'results-video--dimmed');
+                    });
+                    if (wasMuted) {
+                        vid.muted = false;
+                        btn.innerHTML = unmutedIcon;
+                        btn.classList.add('results-video__sound--active');
+                        var activeCard = btn.closest('.results-video');
+                        activeCard.classList.add('results-video--active');
+                        document.querySelectorAll('.results-video').forEach(function (card) {
+                            if (card !== activeCard) card.classList.add('results-video--dimmed');
+                        });
+                    }
+                });
             });
-        });
+        })();
 
-        // HIW scroll reveal
+        /* ── HIW scroll reveal ── */
         (function () {
             var hiw = document.querySelector('.hiw');
             if (!hiw) return;
@@ -737,7 +678,7 @@
             observer.observe(hiw);
         })();
 
-        // HIW sequential pulse 1→2→3 loop
+        /* ── HIW sequential pulse ── */
         (function () {
             var steps = document.querySelectorAll('.hiw__step');
             if (!steps.length) return;
@@ -751,9 +692,9 @@
             setInterval(pulse, 1200);
         })();
 
-
-
+        /* ── Booking Widget (external) ── */
     </script>
+    <script src="/assets/js/booking-widget.js"></script>
 </body>
 
 </html>
