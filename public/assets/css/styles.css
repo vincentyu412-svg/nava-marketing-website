@@ -2172,26 +2172,6 @@ img {
     box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
 }
 
-/* Phone row: country code select + number input */
-.bw-phone-row {
-    display: flex;
-    gap: 0.4rem;
-}
-.bw-phone-code {
-    flex: 0 0 5.5rem;
-    padding-right: 0.3rem;
-    font-size: 0.82rem;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E") no-repeat right 0.5rem center;
-    background-size: 8px;
-}
-.bw-phone-number {
-    flex: 1;
-    min-width: 0;
-}
-
 .bw-consent {
     font-size: 0.72rem;
     color: var(--color-text-light);

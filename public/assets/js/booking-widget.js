@@ -54,7 +54,6 @@
     var confirmedDetails = document.getElementById('bw-confirmed-details');
     var progressSteps = modal.querySelectorAll('.bw-progress__step');
     var phoneInput = document.getElementById('bw-phone');
-    var phoneCodeSelect = document.getElementById('bw-phone-code');
 
     var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'];
@@ -89,13 +88,6 @@
         var diff = phoneInput.value.length - before.length;
         phoneInput.setSelectionRange(cursor + diff, cursor + diff);
     });
-
-    /* Build full E.164-ish phone string for webhook */
-    function getFullPhone() {
-        var code = phoneCodeSelect.value.replace('CA', ''); /* +1CA → +1 */
-        var digits = phoneInput.value.replace(/\D/g, '');
-        return code + digits;
-    }
 
     function formatDate(d) {
         return MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
@@ -317,7 +309,7 @@
             last_name: document.getElementById('bw-lname').value.trim(),
             company_name: document.getElementById('bw-company').value.trim(),
             email: document.getElementById('bw-email').value.trim(),
-            phone: getFullPhone(),
+            phone: '+1' + phoneInput.value.replace(/\D/g, ''),
             submitted_at: new Date().toISOString()
         };
 
