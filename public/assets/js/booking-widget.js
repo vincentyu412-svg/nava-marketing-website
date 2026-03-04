@@ -305,6 +305,8 @@
     confirmBtn.addEventListener('click', function () {
         if (!selectedDate || !selectedTime || !contactData) return;
         var dateStr = selectedDate.getFullYear() + '-' + pad(selectedDate.getMonth() + 1) + '-' + pad(selectedDate.getDate());
+        var timeParts = selectedTime.split(':');
+        var isoSlot = dateStr + 'T' + selectedTime + ':00';
         var payload = {
             first_name: contactData.first_name,
             last_name: contactData.last_name,
@@ -314,6 +316,7 @@
             date: dateStr,
             time: selectedTime,
             appointment_time: dateStr + ' ' + formatTime12(selectedTime),
+            selected_slot: isoSlot,
             booked_at: new Date().toISOString()
         };
 
