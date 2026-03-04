@@ -3114,10 +3114,28 @@ img {
     height: 42px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center top;
-    transform: scale(1.4);
+    object-position: center 20%;
     border: 2px solid var(--color-accent);
-    clip-path: circle(50%);
+    overflow: hidden;
+}
+
+/* Wrapper to crop/zoom the photo without changing icon size */
+.bc-card__avatar-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--color-accent);
+}
+
+.bc-card__avatar-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    transform: scale(1.5);
+    transform-origin: center 30%;
 }
 
 .bc-card__name {
