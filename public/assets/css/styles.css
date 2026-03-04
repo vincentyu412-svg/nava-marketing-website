@@ -2688,8 +2688,8 @@ img {
 }
 
 .modal--calendar {
-    max-width: 560px;
-    padding: 0.5rem 0.5rem 0;
+    max-width: 520px;
+    padding: 0.3rem 0.3rem 0;
 }
 
 .modal-overlay.active .modal {
@@ -2698,16 +2698,17 @@ img {
 
 .modal__close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0.5rem;
+    right: 0.5rem;
     background: none;
     border: none;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: rgba(26, 26, 46, 0.4);
     cursor: pointer;
     line-height: 1;
     transition: color 0.2s;
     padding: 0;
+    z-index: 10;
 }
 
 .modal__close:hover {
@@ -2737,10 +2738,10 @@ img {
 
 .modal__tagline {
     text-align: center;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     color: rgba(26, 26, 46, 0.5);
-    margin: 0.2rem 0 0.3rem;
-    padding: 0 1rem;
+    margin: 0.1rem 0 0.2rem;
+    padding: 0 0.5rem;
 }
 
 .modal__calendar {
@@ -2750,10 +2751,12 @@ img {
 }
 
 .modal__calendar iframe {
-    width: 100%;
+    width: 121.95%;         /* 1 / 0.82 ≈ 121.95% */
     border: none;
     display: block;
     min-height: 400px;
+    transform: scale(0.82);
+    transform-origin: top left;
 }
 
 @media (max-width: 540px) {

@@ -768,6 +768,23 @@
     </div>
 
     <script>
+        // Clip calendar container to scaled iframe height
+        (function() {
+            var iframe = document.getElementById('msgsndr-calendar');
+            if (iframe) {
+                var observer = new MutationObserver(function() {
+                    var h = iframe.style.height || iframe.getAttribute('height');
+                    if (h) {
+                        var px = parseInt(h);
+                        if (px > 0) {
+                            iframe.parentElement.style.height = (px * 0.82) + 'px';
+                        }
+                    }
+                });
+                observer.observe(iframe, { attributes: true, attributeFilter: ['style', 'height'] });
+            }
+        })();
+
         // Booking modal
         (function() {
             var modal = document.getElementById('bookingModal');
