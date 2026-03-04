@@ -53,6 +53,8 @@
     var confirmedPanel = document.getElementById('bw-confirmed');
     var confirmedDetails = document.getElementById('bw-confirmed-details');
     var progressSteps = modal.querySelectorAll('.bw-progress__step');
+    var phoneInput = document.getElementById('bw-phone');
+    var phoneCodeSelect = document.getElementById('bw-phone-code');
 
     var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'];
@@ -69,6 +71,31 @@
 
     /* ── HELPERS ── */
     function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    /* Auto-format phone number as (XXX) XXX-XXXX */
+    function formatPhoneInput(value) {
+        var digits = value.replace(/\D/g, '').substring(0, 10);
+        if (digits.length === 0) return '';
+        if (digits.length <= 3) return '(' + digits;
+        if (digits.length <= 6) return '(' + digits.substring(0, 3) + ') ' + digits.substring(3);
+        return '(' + digits.substring(0, 3) + ') ' + digits.substring(3, 6) + '-' + digits.substring(6);
+    }
+
+    phoneInput.addEventListener('input', function () {
+        var cursor = phoneInput.selectionStart;
+        var before = phoneInput.value;
+        phoneInput.value = formatPhoneInput(before);
+        /* Keep cursor reasonable after reformatting */
+        var diff = phoneInput.value.length - before.length;
+        phoneInput.setSelectionRange(cursor + diff, cursor + diff);
+    });
+
+    /* Build full E.164-ish phone string for webhook */
+    function getFullPhone() {
+        var code = phoneCodeSelect.value.replace('CA', ''); /* +1CA → +1 */
+        var digits = phoneInput.value.replace(/\D/g, '');
+        return code + digits;
+    }
 
     function formatDate(d) {
         return MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
@@ -290,7 +317,7 @@
             last_name: document.getElementById('bw-lname').value.trim(),
             company_name: document.getElementById('bw-company').value.trim(),
             email: document.getElementById('bw-email').value.trim(),
-            phone: document.getElementById('bw-phone').value.trim(),
+            phone: getFullPhone(),
             submitted_at: new Date().toISOString()
         };
 
