@@ -2982,3 +2982,268 @@ img {
         max-width: 340px;
     }
 }
+
+/* ============================================================
+   18. BOOKING CONFIRMATION PAGE
+   ============================================================ */
+.bc-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 1.5rem 3rem;
+    background: var(--color-primary);
+}
+
+.bc-container {
+    max-width: 540px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Progress bar */
+.bc-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 2.2rem;
+}
+
+.bc-progress__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.bc-progress__circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+}
+
+.bc-progress__step--done .bc-progress__circle {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff;
+}
+
+.bc-progress__step--active .bc-progress__circle {
+    border-color: var(--color-accent);
+    background: rgba(233, 69, 96, 0.15);
+    color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.2);
+    animation: bc-pulse 2s ease-in-out infinite;
+}
+
+@keyframes bc-pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(233, 69, 96, 0.08); }
+}
+
+.bc-progress__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.bc-progress__step--done .bc-progress__label,
+.bc-progress__step--active .bc-progress__label {
+    color: #fff;
+}
+
+.bc-progress__line {
+    width: 50px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 0 0.5rem;
+    margin-bottom: 1.2rem;
+    border-radius: 2px;
+}
+
+.bc-progress__line--done {
+    background: var(--color-accent);
+}
+
+.bc-progress__line--active {
+    background: linear-gradient(90deg, var(--color-accent), rgba(233, 69, 96, 0.3));
+}
+
+/* Heading */
+.bc-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+}
+
+.bc-subtitle {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Meeting card */
+.bc-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1.8rem 1.6rem;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.bc-card__badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #22c55e;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.bc-card__with {
+    font-size: 0.82rem;
+    color: #888;
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem;
+}
+
+.bc-card__host {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.4rem;
+}
+
+.bc-card__avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.bc-card__name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.bc-card__detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.bc-card__icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: var(--color-accent);
+    margin-top: 0.15rem;
+}
+
+.bc-card__detail-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.1rem;
+}
+
+.bc-card__detail-value {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.bc-card__divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 1.2rem 0;
+}
+
+.bc-card__add-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+.bc-card__calendars {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.bc-card__cal-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: var(--font-main);
+}
+
+.bc-card__cal-btn:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+/* Footer note */
+.bc-footer-note {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin-top: 1.8rem;
+    line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .bc-title { font-size: 1.35rem; }
+    .bc-card { padding: 1.4rem 1.2rem; }
+    .bc-card__calendars { flex-direction: column; align-items: center; }
+    .bc-card__cal-btn { width: 100%; justify-content: center; }
+    .bc-progress__line { width: 30px; }
+}

@@ -344,11 +344,12 @@
 
         sendWebhook(WEBHOOK_BOOKING, payload);
 
-        step1.style.display = 'none';
-        calendar.style.display = 'none';
-        modal.querySelector('.bw-body').style.display = 'none';
-        confirmedDetails.textContent = formatDate(selectedDate) + ' at ' + formatTime12(selectedTime);
-        confirmedPanel.style.display = '';
+        /* Redirect to confirmation page with booking details */
+        var redirectUrl = '/booking-confirmation.html?date=' + encodeURIComponent(dateStr) +
+            '&time=' + encodeURIComponent(selectedTime) +
+            '&fname=' + encodeURIComponent(contactData.first_name) +
+            '&lname=' + encodeURIComponent(contactData.last_name);
+        window.location.href = redirectUrl;
     });
 
     /* ── OPEN / CLOSE ── */

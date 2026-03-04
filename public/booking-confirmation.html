@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Call | Gym Grow</title>
+    <meta name="description" content="Complete the final step to confirm your strategy call with Gym Grow.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="nav__logo">Gym<span>Grow</span></a>
+    </nav>
+
+    <section class="bc-page">
+        <div class="bc-container">
+
+            <!-- Progress bar — "Final Step" -->
+            <div class="bc-progress">
+                <div class="bc-progress__step bc-progress__step--done">
+                    <div class="bc-progress__circle">&#10003;</div>
+                    <span class="bc-progress__label">Details</span>
+                </div>
+                <div class="bc-progress__line bc-progress__line--done"></div>
+                <div class="bc-progress__step bc-progress__step--done">
+                    <div class="bc-progress__circle">&#10003;</div>
+                    <span class="bc-progress__label">Pick a Time</span>
+                </div>
+                <div class="bc-progress__line bc-progress__line--active"></div>
+                <div class="bc-progress__step bc-progress__step--active">
+                    <div class="bc-progress__circle">3</div>
+                    <span class="bc-progress__label">Confirm</span>
+                </div>
+            </div>
+
+            <!-- Heading -->
+            <h1 class="bc-title">Almost There — One Last Step!</h1>
+            <p class="bc-subtitle">Add this call to your calendar so you don't miss it. Spots fill up fast and no-shows lose their slot.</p>
+
+            <!-- Meeting card -->
+            <div class="bc-card">
+                <div class="bc-card__badge">Confirmed</div>
+                <p class="bc-card__with">Your call is scheduled with:</p>
+                <div class="bc-card__host">
+                    <div class="bc-card__avatar">B</div>
+                    <span class="bc-card__name">Braeden Bowman</span>
+                </div>
+                <div class="bc-card__detail">
+                    <svg class="bc-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <div>
+                        <p class="bc-card__detail-label">Time</p>
+                        <p class="bc-card__detail-value" id="bc-time">—</p>
+                    </div>
+                </div>
+                <div class="bc-card__detail">
+                    <svg class="bc-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.35a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.75.32 1.54.55 2.35.68A2 2 0 0 1 22 16.92z"/></svg>
+                    <div>
+                        <p class="bc-card__detail-label">Where</p>
+                        <p class="bc-card__detail-value">📞 Phone Call</p>
+                    </div>
+                </div>
+
+                <hr class="bc-card__divider">
+
+                <p class="bc-card__add-label">Add to calendar</p>
+                <div class="bc-card__calendars">
+                    <a id="bc-gcal" class="bc-card__cal-btn" href="#" target="_blank" rel="noopener" title="Google Calendar">
+                        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#4285F4" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12s4.48 10 10 10 10-4.48 10-10z" opacity=".1"/><path fill="#4285F4" d="M17 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-1 14H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8V7h8v2z"/></svg>
+                        <span>Google</span>
+                    </a>
+                    <a id="bc-outlook" class="bc-card__cal-btn" href="#" target="_blank" rel="noopener" title="Outlook">
+                        <svg viewBox="0 0 24 24" width="22" height="22"><rect width="20" height="20" x="2" y="2" rx="3" fill="#0078D4" opacity=".15"/><path fill="#0078D4" d="M17 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-5 14a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
+                        <span>Outlook</span>
+                    </a>
+                    <a id="bc-ical" class="bc-card__cal-btn" href="#" download="gym-grow-call.ics" title="Apple / iCal">
+                        <svg viewBox="0 0 24 24" width="22" height="22"><rect width="20" height="20" x="2" y="2" rx="3" fill="#333" opacity=".12"/><path fill="#333" d="M17 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-1 14H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8V7h8v2z"/></svg>
+                        <span>Apple</span>
+                    </a>
+                </div>
+            </div>
+
+            <p class="bc-footer-note">✅ We'll also send a confirmation to your email.<br>If you need to reschedule, reply to that email.</p>
+        </div>
+    </section>
+
+    <script>
+    (function () {
+        'use strict';
+        var params = new URLSearchParams(window.location.search);
+        var date = params.get('date');   /* YYYY-MM-DD */
+        var time = params.get('time');   /* HH:MM */
+        var fname = params.get('fname') || '';
+        var lname = params.get('lname') || '';
+
+        if (!date || !time) {
+            document.getElementById('bc-time').textContent = 'No appointment found.';
+            return;
+        }
+
+        /* Parse date & time */
+        var parts = date.split('-');
+        var timeParts = time.split(':');
+        var start = new Date(+parts[0], +parts[1] - 1, +parts[2], +timeParts[0], +timeParts[1], 0);
+        var end = new Date(start.getTime() + 20 * 60 * 1000); /* 20-min call */
+
+        var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'];
+        var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+        function fmt12(d) {
+            var h = d.getHours(), m = d.getMinutes();
+            var ampm = h >= 12 ? 'PM' : 'AM';
+            if (h === 0) h = 12; else if (h > 12) h -= 12;
+            return h + ':' + (m < 10 ? '0' : '') + m + ' ' + ampm;
+        }
+
+        function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+        /* Display time */
+        var displayDate = DAYS[start.getDay()] + ', ' + MONTHS[start.getMonth()] + ' ' +
+            pad(start.getDate()) + ', ' + start.getFullYear();
+        var displayTime = fmt12(start) + ' – ' + fmt12(end);
+
+        /* Detect timezone name */
+        var tz = '';
+        try { tz = ' (' + Intl.DateTimeFormat().resolvedOptions().timeZone.replace(/_/g, ' ') + ')'; } catch (e) {}
+        document.getElementById('bc-time').innerHTML = displayDate + '<br>' + displayTime + tz;
+
+        /* ── Calendar link helpers ── */
+        function toGCalDate(d) {
+            return d.getFullYear() + '' + pad(d.getMonth() + 1) + pad(d.getDate()) + 'T' +
+                pad(d.getHours()) + pad(d.getMinutes()) + '00';
+        }
+
+        var title = encodeURIComponent('Gym Grow Strategy Call');
+        var details = encodeURIComponent('Strategy call with Braeden Bowman from Gym Grow.\\n\\nPlease be available at the scheduled time.');
+        var location = encodeURIComponent('Phone Call');
+
+        /* Google Calendar */
+        var gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+            '&text=' + title +
+            '&dates=' + toGCalDate(start) + '/' + toGCalDate(end) +
+            '&details=' + details +
+            '&location=' + location;
+        document.getElementById('bc-gcal').href = gcalUrl;
+
+        /* Outlook Web */
+        var outlookUrl = 'https://outlook.live.com/calendar/0/deeplink/compose?subject=' + title +
+            '&startdt=' + start.toISOString() +
+            '&enddt=' + end.toISOString() +
+            '&body=' + details +
+            '&location=' + location +
+            '&path=%2Fcalendar%2Faction%2Fcompose';
+        document.getElementById('bc-outlook').href = outlookUrl;
+
+        /* iCal / Apple (.ics file) */
+        function toICSDate(d) {
+            return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T' +
+                pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + '00Z';
+        }
+        var ics = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//GymGrow//BookingWidget//EN',
+            'BEGIN:VEVENT',
+            'DTSTART:' + toICSDate(start),
+            'DTEND:' + toICSDate(end),
+            'SUMMARY:Gym Grow Strategy Call',
+            'DESCRIPTION:Strategy call with Braeden Bowman from Gym Grow.',
+            'LOCATION:Phone Call',
+            'STATUS:CONFIRMED',
+            'END:VEVENT',
+            'END:VCALENDAR'
+        ].join('\r\n');
+        var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+        document.getElementById('bc-ical').href = URL.createObjectURL(blob);
+    })();
+    </script>
+</body>
+
+</html>
