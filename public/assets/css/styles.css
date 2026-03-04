@@ -2690,13 +2690,14 @@ img {
 
 .booking-calendar {
     width: 100%;
+    overflow: hidden;
 }
 
 .booking-calendar iframe {
     width: 100%;
+    height: 480px;
     border: none;
     display: block;
-    min-height: 600px;
 }
 
 /* Trust signals below calendar */
