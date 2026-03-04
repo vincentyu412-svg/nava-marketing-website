@@ -3041,25 +3041,28 @@ img {
 }
 
 .bc-bar__label {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 0.4rem;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0.5rem;
     text-align: center;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .bc-bar__label strong {
     color: #fff;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .bc-bar__track {
     width: 100%;
-    height: 14px;
-    background: rgba(255, 255, 255, 0.08);
+    height: 26px;
+    background: rgba(255, 255, 255, 0.06);
     border-radius: 20px;
     overflow: hidden;
     position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .bc-bar__fill {
@@ -3069,9 +3072,23 @@ img {
     background-size: 300% 100%;
     border-radius: 20px;
     animation: bc-fill-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards,
-               bc-shimmer 3s ease-in-out 1.4s infinite;
+               bc-shimmer 2.5s linear 1.4s infinite;
     position: relative;
-    box-shadow: 0 0 12px rgba(233, 69, 96, 0.4), 0 0 4px rgba(233, 69, 96, 0.2);
+    box-shadow: 0 0 16px rgba(233, 69, 96, 0.45), 0 0 6px rgba(233, 69, 96, 0.25);
+    overflow: hidden;
+}
+
+/* Flowing light streak across the fill */
+.bc-bar__fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    animation: bc-flow 2.2s ease-in-out 1.6s infinite;
+    border-radius: 20px;
 }
 
 /* Glowing dot at the end of the fill */
@@ -3081,11 +3098,11 @@ img {
     right: -1px;
     top: 50%;
     transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     background: #fff;
     border-radius: 50%;
-    box-shadow: 0 0 8px rgba(233, 69, 96, 0.8), 0 0 16px rgba(233, 69, 96, 0.4);
+    box-shadow: 0 0 10px rgba(233, 69, 96, 0.9), 0 0 20px rgba(233, 69, 96, 0.5);
     animation: bc-pulse 2s ease-in-out 1.6s infinite;
 }
 
@@ -3100,9 +3117,15 @@ img {
     100% { background-position: 0% 50%; }
 }
 
+@keyframes bc-flow {
+    0%   { left: -60%; opacity: 0; }
+    20%  { opacity: 1; }
+    100% { left: 120%; opacity: 0; }
+}
+
 @keyframes bc-pulse {
     0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
-    50%      { opacity: 0.7; transform: translateY(-50%) scale(1.4); }
+    50%      { opacity: 0.7; transform: translateY(-50%) scale(1.5); }
 }
 
 /* Heading */
@@ -3275,9 +3298,9 @@ img {
 @media (max-width: 600px) {
     .bc-page { padding-top: 4.5rem; }
     .bc-bar { width: 92%; padding: 0.55rem 1.2rem 0.6rem; top: 0.6rem; }
-    .bc-bar__label { font-size: 0.72rem; }
-    .bc-bar__track { height: 10px; }
-    .bc-bar__fill::after { width: 10px; height: 10px; }
+    .bc-bar__label { font-size: 0.82rem; }
+    .bc-bar__track { height: 18px; }
+    .bc-bar__fill::after { width: 12px; height: 12px; }
     .bc-title { font-size: 1.35rem; }
     .bc-card { padding: 1.4rem 1.2rem; }
     .bc-card__calendars { flex-direction: column; align-items: center; }
