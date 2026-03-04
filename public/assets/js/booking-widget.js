@@ -73,7 +73,10 @@
 
     /* Auto-format phone number as (XXX) XXX-XXXX */
     function formatPhoneInput(value) {
-        var digits = value.replace(/\D/g, '').substring(0, 10);
+        var digits = value.replace(/\D/g, '');
+        /* Strip leading country code: +1 / 1 for US/CA */
+        if (digits.length > 10 && digits.charAt(0) === '1') digits = digits.substring(1);
+        digits = digits.substring(0, 10);
         if (digits.length === 0) return '';
         if (digits.length <= 3) return '(' + digits;
         if (digits.length <= 6) return '(' + digits.substring(0, 3) + ') ' + digits.substring(3);
