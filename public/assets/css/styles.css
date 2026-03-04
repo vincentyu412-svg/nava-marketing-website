@@ -3288,14 +3288,19 @@ img {
     text-decoration: none;
     transition: border-color 0.2s, box-shadow 0.2s;
     font-family: var(--font-main);
+    line-height: 1;
 }
 
-.bc-card__cal-btn svg,
 .bc-card__cal-btn img {
     width: 18px;
     height: 18px;
     flex-shrink: 0;
     object-fit: contain;
+    display: block;
+}
+
+.bc-card__cal-btn span {
+    line-height: 1;
 }
 
 .bc-card__cal-btn:hover {
