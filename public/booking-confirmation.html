@@ -31,167 +31,384 @@
 
             <!-- Heading -->
             <h1 class="bc-title">Almost There — One Last Step!</h1>
-            <p class="bc-subtitle">Add this call to your calendar so you don't miss it. Spots fill up fast and no-shows lose their slot.</p>
+            <p class="bc-subtitle">Add this call to your calendar so you don't miss it.</p>
 
-            <!-- Meeting card -->
-            <div class="bc-card">
-                <div class="bc-card__badge">Confirmed</div>
-                <p class="bc-card__with">Your call is scheduled with:</p>
-                <div class="bc-card__host">
-                    <img class="bc-card__avatar-img" src="/assets/images/Vincent.jpg" alt="Vincent Yu">
-                    <span class="bc-card__name">Vincent Yu</span>
-                </div>
-                <div class="bc-card__detail">
-                    <svg class="bc-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    <div>
-                        <p class="bc-card__detail-label">Time</p>
-                        <p class="bc-card__detail-value" id="bc-time">—</p>
-                    </div>
-                </div>
-                <div class="bc-card__detail">
-                    <svg class="bc-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <div>
-                        <p class="bc-card__detail-label">Where</p>
-                        <p class="bc-card__detail-value" style="display:inline-flex;align-items:center;gap:5px;"><img src="/assets/images/google%20meet.png" alt="Google Meet" style="width:16px;height:16px;object-fit:contain;">Google Meet</p>
-                    </div>
-                </div>
-                <div class="bc-card__detail">
-                    <svg class="bc-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                    <div>
-                        <p class="bc-card__detail-label">Link to Join</p>
-                        <p class="bc-card__detail-value"><a href="https://meet.google.com/fps-pndh-ckk" target="_blank" rel="noopener" style="color:var(--color-accent);word-break:break-all;">meet.google.com/fps-pndh-ckk</a></p>
-                    </div>
-                </div>
+            <!-- Step 1: Confirm -->
+            <div class="bc-section">
+                <div class="bc-step-label"><span class="bc-step-num">1</span> Confirm Your Booking</div>
 
-                <hr class="bc-card__divider">
+                <!-- Cards row -->
+                <div class="bc-cards-row">
 
-                <p class="bc-card__add-label">Add to calendar</p>
-                <div class="bc-card__calendars">
-                    <a id="bc-gcal" class="bc-card__cal-btn" href="#" target="_blank" rel="noopener" title="Google Calendar">
-                        <img src="/assets/images/google.png" alt="Google">
-                        <span>Google</span>
-                    </a>
-                    <a id="bc-outlook" class="bc-card__cal-btn" href="#" target="_blank" rel="noopener" title="Outlook">
-                        <img src="/assets/images/outlook.png" alt="Outlook">
-                        <span>Outlook</span>
-                    </a>
-                    <a id="bc-ical" class="bc-card__cal-btn" href="#" download="gym-grow-call.ics" title="Apple / iCal">
-                        <svg viewBox="0 0 384 512" width="14" height="18" style="flex-shrink:0;display:block;position:relative;top:-1px;"><path fill="#333" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184 4 270.2c0 26.9 4.9 54.8 14.6 83.6 12.9 38.2 59.5 131.5 107.9 129.9 25.7-.6 43.9-18.4 76.4-18.4 31.5 0 48.3 18.4 76.4 17.8 47.2-.8 89-86.6 101.2-124.9-64.4-30.6-95.8-90.5-95.8-155.5zm-88-143.2c27.7-32.7 24.4-62.5 23.5-73.3-23.7 1.4-51.1 16.3-66.8 34.9-17.2 19.9-27.3 44.9-25.2 73.4 25.7 1.9 52-13.3 68.5-35z"/></svg>
-                        <span>Apple</span>
-                    </a>
+                    <!-- Accept invite instruction card -->
+                    <div class="bc-card bc-card--invite">
+                        <p class="bc-card__add-label" style="text-align:left;font-size:0.85rem;margin-bottom:0.4rem;">📩
+                            Accept the Calendar Invite</p>
+                        <p style="font-size:0.8rem;color:rgba(255,255,255,0.7);line-height:1.5;margin:0 0 0.7rem;">
+                            You'll receive an email from <strong style="color:#fff;">vincent412@gmail.com</strong> with
+                            a Google Calendar invite. It will look like the banner below — just click <strong
+                                style="color:#fff;">"Add to calendar"</strong> to confirm the event.
+                        </p>
+                        <div style="background:#f1f3f4;border-radius:10px;padding:0.75rem 0.9rem;">
+                            <p style="font-size:0.78rem;color:#333;line-height:1.45;margin:0 0 0.5rem;">
+                                <strong>This event isn't in your calendar yet.</strong> You haven't interacted with
+                                vincent412@gmail.com before. Do you want to automatically add this and future
+                                invitations from them to your calendar?
+                            </p>
+                            <div style="display:flex;align-items:center;gap:1.25rem;">
+                                <span
+                                    style="display:inline-block;background:#fff;border:3px solid #e53935;border-radius:999px;padding:0.3rem 0.7rem;font-size:0.75rem;font-weight:500;color:#333;box-shadow:0 0 0 3px rgba(229,57,53,0.25);">Add
+                                    to calendar</span>
+                                <span style="font-size:0.75rem;color:#333;font-weight:500;">Report spam</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Meeting card -->
+                    <div class="bc-card bc-card--compact">
+                        <div class="bc-card__badge">Confirmed</div>
+                        <p class="bc-card__with">Your call is scheduled with:</p>
+                        <div class="bc-card__host">
+                            <img class="bc-card__avatar-img" src="/assets/images/Vincent.jpg" alt="Vincent Yu">
+                            <span class="bc-card__name">Vincent Yu</span>
+                        </div>
+                        <div class="bc-card__detail">
+                            <svg class="bc-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            <div>
+                                <p class="bc-card__detail-label">Time</p>
+                                <p class="bc-card__detail-value" id="bc-time">—</p>
+                            </div>
+                        </div>
+                        <div class="bc-card__detail">
+                            <svg class="bc-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <div>
+                                <p class="bc-card__detail-label">Where</p>
+                                <p class="bc-card__detail-value"
+                                    style="display:inline-flex;align-items:center;gap:5px;"><img
+                                        src="/assets/images/google%20meet.png" alt="Google Meet"
+                                        style="width:16px;height:16px;object-fit:contain;">Google Meet</p>
+                            </div>
+                        </div>
+                        <div class="bc-card__detail">
+                            <svg class="bc-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                            </svg>
+                            <div>
+                                <p class="bc-card__detail-label">Link to Join</p>
+                                <p class="bc-card__detail-value"><a href="https://meet.google.com/fps-pndh-ckk"
+                                        target="_blank" rel="noopener"
+                                        style="color:var(--color-accent);word-break:break-all;">meet.google.com/fps-pndh-ckk</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr class="bc-card__divider">
+
+                        <p class="bc-card__add-label">Add to calendar</p>
+                        <div class="bc-card__calendars">
+                            <a id="bc-gcal" class="bc-card__cal-btn" href="#" target="_blank" rel="noopener"
+                                title="Google Calendar">
+                                <img src="/assets/images/google.png" alt="Google">
+                                <span>Google</span>
+                            </a>
+                            <a id="bc-outlook" class="bc-card__cal-btn" href="#" target="_blank" rel="noopener"
+                                title="Outlook">
+                                <img src="/assets/images/outlook.png" alt="Outlook">
+                                <span>Outlook</span>
+                            </a>
+                            <a id="bc-ical" class="bc-card__cal-btn" href="#" download="gym-grow-call.ics"
+                                title="Apple / iCal">
+                                <svg viewBox="0 0 384 512" width="14" height="18"
+                                    style="flex-shrink:0;display:block;position:relative;top:-2px;">
+                                    <path fill="#333"
+                                        d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184 4 270.2c0 26.9 4.9 54.8 14.6 83.6 12.9 38.2 59.5 131.5 107.9 129.9 25.7-.6 43.9-18.4 76.4-18.4 31.5 0 48.3 18.4 76.4 17.8 47.2-.8 89-86.6 101.2-124.9-64.4-30.6-95.8-90.5-95.8-155.5zm-88-143.2c27.7-32.7 24.4-62.5 23.5-73.3-23.7 1.4-51.1 16.3-66.8 34.9-17.2 19.9-27.3 44.9-25.2 73.4 25.7 1.9 52-13.3 68.5-35z" />
+                                </svg>
+                                <span>Apple</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div><!-- /bc-cards-row -->
+            </div><!-- /bc-section -->
+
+            <!-- Step 2: Join from quiet place -->
+            <div class="bc-section">
+                <div class="bc-step-label"><span class="bc-step-num">2</span> Join From a Quiet Place</div>
+                <p class="bc-info__text" style="margin-bottom:1rem;">This is a focused strategy session — make sure
+                    you're somewhere you can give it your full attention.</p>
+                <div class="bc-dodont">
+                    <div class="bc-dodont__col bc-dodont__col--do">
+                        <div class="bc-dodont__header bc-dodont__header--do">DO</div>
+                        <div class="bc-dodont__grid">
+                            <div class="bc-dodont__item">
+                                <svg class="bc-dodont__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                    <polyline points="9 22 9 12 15 12 15 22" />
+                                </svg>
+                                <span class="bc-dodont__label">Quiet room</span>
+                            </div>
+                            <div class="bc-dodont__item">
+                                <svg class="bc-dodont__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                                    <path
+                                        d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+                                </svg>
+                                <span class="bc-dodont__label">Headphones</span>
+                            </div>
+                            <div class="bc-dodont__item">
+                                <svg class="bc-dodont__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                                    <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+                                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+                                    <line x1="12" y1="20" x2="12.01" y2="20" />
+                                </svg>
+                                <span class="bc-dodont__label">Strong WiFi</span>
+                            </div>
+                            <div class="bc-dodont__item">
+                                <svg class="bc-dodont__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                    <line x1="2" y1="20" x2="22" y2="20" />
+                                </svg>
+                                <span class="bc-dodont__label">Laptop ready</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bc-dodont__col bc-dodont__col--dont">
+                        <div class="bc-dodont__header bc-dodont__header--dont">DON'T</div>
+                        <div class="bc-dodont__grid">
+                            <div class="bc-dodont__item">
+                                <svg class="bc-dodont__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 3h2a2 2 0 0 1 2 2v2" />
+                                    <path d="M4 7V5a2 2 0 0 1 2-2h2" />
+                                    <rect x="2" y="9" width="20" height="10" rx="2" />
+                                    <circle cx="7.5" cy="14" r="1.5" />
+                                    <circle cx="16.5" cy="14" r="1.5" />
+                                </svg>
+                                <span class="bc-dodont__label">Driving</span>
+                            </div>
+                            <div class="bc-dodont__item">
+                                <svg class="bc-dodont__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z" />
+                                </svg>
+                                <span class="bc-dodont__label">Airport</span>
+                            </div>
+                            <div class="bc-dodont__item">
+                                <svg class="bc-dodont__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                                    <line x1="6" y1="1" x2="6" y2="4" />
+                                    <line x1="10" y1="1" x2="10" y2="4" />
+                                    <line x1="14" y1="1" x2="14" y2="4" />
+                                </svg>
+                                <span class="bc-dodont__label">Noisy café</span>
+                            </div>
+                            <div class="bc-dodont__item">
+                                <svg class="bc-dodont__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="5" r="2.5" />
+                                    <path d="M12 7.5v5" />
+                                    <path d="M8 21l2.5-8.5h3L16 21" />
+                                    <path d="M7 12h10" />
+                                </svg>
+                                <span class="bc-dodont__label">Walking</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <p class="bc-footer-note">✅ We'll also send a confirmation to your email.<br>If you need to reschedule, reply to that email.</p>
+            <!-- Step 3: What to expect -->
+            <div class="bc-section">
+                <div class="bc-step-label"><span class="bc-step-num">3</span> What to Expect</div>
+                <p class="bc-info__text" style="margin-bottom:1rem;">Here's how the 30-minute call will go:</p>
+                <div class="bc-timeline">
+                    <div class="bc-timeline__step">
+                        <div class="bc-timeline__dot">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </div>
+                        <div class="bc-timeline__content">
+                            <span class="bc-timeline__min">0–5 min</span>
+                            <span class="bc-timeline__title">Quick Intro</span>
+                            <span class="bc-timeline__desc">Get to know each other and your gym</span>
+                        </div>
+                    </div>
+                    <div class="bc-timeline__step">
+                        <div class="bc-timeline__dot">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                            </svg>
+                        </div>
+                        <div class="bc-timeline__content">
+                            <span class="bc-timeline__min">5–15 min</span>
+                            <span class="bc-timeline__title">Deep Dive</span>
+                            <span class="bc-timeline__desc">What you've tried, what's not working</span>
+                        </div>
+                    </div>
+                    <div class="bc-timeline__step">
+                        <div class="bc-timeline__dot">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </div>
+                        <div class="bc-timeline__content">
+                            <span class="bc-timeline__min">15–25 min</span>
+                            <span class="bc-timeline__title">Our Approach</span>
+                            <span class="bc-timeline__desc">How we can help grow your membership</span>
+                        </div>
+                    </div>
+                    <div class="bc-timeline__step">
+                        <div class="bc-timeline__dot">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <div class="bc-timeline__content">
+                            <span class="bc-timeline__min">25–30 min</span>
+                            <span class="bc-timeline__title">Next Steps</span>
+                            <span class="bc-timeline__desc">Start the free trial if you qualify</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="bc-timeline__note">💡 If we don't think the system will work for your gym within the first 15
+                    minutes, we'll let you know — no obligation to continue.</p>
+            </div>
+
         </div>
     </section>
 
     <script>
-    (function () {
-        'use strict';
-        var params = new URLSearchParams(window.location.search);
-        var date = params.get('date');   /* YYYY-MM-DD */
-        var time = params.get('time');   /* HH:MM */
-        var fname = params.get('fname') || '';
-        var lname = params.get('lname') || '';
+        (function () {
+            'use strict';
+            var params = new URLSearchParams(window.location.search);
+            var date = params.get('date');   /* YYYY-MM-DD */
+            var time = params.get('time');   /* HH:MM */
+            var fname = params.get('fname') || '';
+            var lname = params.get('lname') || '';
 
-        if (!date || !time) {
-            document.getElementById('bc-time').textContent = 'No appointment found.';
-            return;
-        }
+            if (!date || !time) {
+                document.getElementById('bc-time').textContent = 'No appointment found.';
+                return;
+            }
 
-        /* Parse date & time */
-        var parts = date.split('-');
-        var timeParts = time.split(':');
-        var start = new Date(+parts[0], +parts[1] - 1, +parts[2], +timeParts[0], +timeParts[1], 0);
-        var end = new Date(start.getTime() + 20 * 60 * 1000); /* 20-min call */
+            /* Parse date & time */
+            var parts = date.split('-');
+            var timeParts = time.split(':');
+            var start = new Date(+parts[0], +parts[1] - 1, +parts[2], +timeParts[0], +timeParts[1], 0);
+            var end = new Date(start.getTime() + 30 * 60 * 1000); /* 30-min call */
 
-        var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
-            'July', 'August', 'September', 'October', 'November', 'December'];
-        var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'];
+            var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-        function fmt12(d) {
-            var h = d.getHours(), m = d.getMinutes();
-            var ampm = h >= 12 ? 'PM' : 'AM';
-            if (h === 0) h = 12; else if (h > 12) h -= 12;
-            return h + ':' + (m < 10 ? '0' : '') + m + ' ' + ampm;
-        }
+            function fmt12(d) {
+                var h = d.getHours(), m = d.getMinutes();
+                var ampm = h >= 12 ? 'PM' : 'AM';
+                if (h === 0) h = 12; else if (h > 12) h -= 12;
+                return h + ':' + (m < 10 ? '0' : '') + m + ' ' + ampm;
+            }
 
-        function pad(n) { return n < 10 ? '0' + n : '' + n; }
+            function pad(n) { return n < 10 ? '0' + n : '' + n; }
 
-        /* Display time */
-        var displayDate = DAYS[start.getDay()] + ', ' + MONTHS[start.getMonth()] + ' ' +
-            pad(start.getDate()) + ', ' + start.getFullYear();
-        var displayTime = fmt12(start) + ' – ' + fmt12(end);
+            /* Display time */
+            var displayDate = DAYS[start.getDay()] + ', ' + MONTHS[start.getMonth()] + ' ' +
+                pad(start.getDate()) + ', ' + start.getFullYear();
+            var displayTime = fmt12(start) + ' – ' + fmt12(end);
 
-        /* Detect timezone name */
-        var tz = '';
-        try { tz = ' (' + Intl.DateTimeFormat().resolvedOptions().timeZone.replace(/_/g, ' ') + ')'; } catch (e) {}
-        document.getElementById('bc-time').innerHTML = displayDate + '<br>' + displayTime + tz;
+            /* Detect timezone name */
+            var tz = '';
+            try { tz = ' (' + Intl.DateTimeFormat().resolvedOptions().timeZone.replace(/_/g, ' ') + ')'; } catch (e) { }
+            document.getElementById('bc-time').innerHTML = displayDate + '<br>' + displayTime + tz;
 
-        /* ── Calendar link helpers ── */
-        function toGCalDate(d) {
-            return d.getFullYear() + '' + pad(d.getMonth() + 1) + pad(d.getDate()) + 'T' +
-                pad(d.getHours()) + pad(d.getMinutes()) + '00';
-        }
+            /* ── Calendar link helpers ── */
+            function toGCalDate(d) {
+                return d.getFullYear() + '' + pad(d.getMonth() + 1) + pad(d.getDate()) + 'T' +
+                    pad(d.getHours()) + pad(d.getMinutes()) + '00';
+            }
 
-        var title = encodeURIComponent('Gym Grow Strategy Call');
-        var details = encodeURIComponent('Strategy call with Vincent Yu from Gym Grow.\n\nJoin via Google Meet: https://meet.google.com/fps-pndh-ckk');
-        var location = encodeURIComponent('Google Meet: https://meet.google.com/fps-pndh-ckk');
+            var title = encodeURIComponent('Gym Grow Strategy Call');
+            var details = encodeURIComponent('Strategy call with Vincent Yu from Gym Grow.\n\nJoin via Google Meet: https://meet.google.com/fps-pndh-ckk');
+            var location = encodeURIComponent('Google Meet: https://meet.google.com/fps-pndh-ckk');
 
-        /* Google Calendar */
-        var gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
-            '&text=' + title +
-            '&dates=' + toGCalDate(start) + '/' + toGCalDate(end) +
-            '&details=' + details +
-            '&location=' + location;
-        document.getElementById('bc-gcal').href = gcalUrl;
+            /* Google Calendar */
+            var gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+                '&text=' + title +
+                '&dates=' + toGCalDate(start) + '/' + toGCalDate(end) +
+                '&details=' + details +
+                '&location=' + location;
+            document.getElementById('bc-gcal').href = gcalUrl;
 
-        /* Outlook Web */
-        var outlookUrl = 'https://outlook.live.com/calendar/0/deeplink/compose?subject=' + title +
-            '&startdt=' + start.toISOString() +
-            '&enddt=' + end.toISOString() +
-            '&body=' + details +
-            '&location=' + location +
-            '&path=%2Fcalendar%2Faction%2Fcompose';
-        document.getElementById('bc-outlook').href = outlookUrl;
+            /* Outlook Web */
+            var outlookUrl = 'https://outlook.live.com/calendar/0/deeplink/compose?subject=' + title +
+                '&startdt=' + start.toISOString() +
+                '&enddt=' + end.toISOString() +
+                '&body=' + details +
+                '&location=' + location +
+                '&path=%2Fcalendar%2Faction%2Fcompose';
+            document.getElementById('bc-outlook').href = outlookUrl;
 
-        /* iCal / Apple (.ics file) */
-        function toICSDate(d) {
-            return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T' +
-                pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + '00Z';
-        }
-        var ics = [
-            'BEGIN:VCALENDAR',
-            'VERSION:2.0',
-            'PRODID:-//GymGrow//BookingWidget//EN',
-            'BEGIN:VEVENT',
-            'DTSTART:' + toICSDate(start),
-            'DTEND:' + toICSDate(end),
-            'SUMMARY:Gym Grow Strategy Call',
-            'DESCRIPTION:Strategy call with Vincent Yu from Gym Grow.\nGoogle Meet: https://meet.google.com/fps-pndh-ckk',
-            'LOCATION:Google Meet: https://meet.google.com/fps-pndh-ckk',
-            'STATUS:CONFIRMED',
-            'END:VEVENT',
-            'END:VCALENDAR'
-        ].join('\r\n');
-        var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-        document.getElementById('bc-ical').href = URL.createObjectURL(blob);
-    })();
+            /* iCal / Apple (.ics file) */
+            function toICSDate(d) {
+                return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T' +
+                    pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + '00Z';
+            }
+            var ics = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//GymGrow//BookingWidget//EN',
+                'BEGIN:VEVENT',
+                'DTSTART:' + toICSDate(start),
+                'DTEND:' + toICSDate(end),
+                'SUMMARY:Gym Grow Strategy Call',
+                'DESCRIPTION:Strategy call with Vincent Yu from Gym Grow.\nGoogle Meet: https://meet.google.com/fps-pndh-ckk',
+                'LOCATION:Google Meet: https://meet.google.com/fps-pndh-ckk',
+                'STATUS:CONFIRMED',
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\r\n');
+            var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+            document.getElementById('bc-ical').href = URL.createObjectURL(blob);
+        })();
 
-    /* ── Twinkling stars background ── */
-    (function () {
-        var container = document.getElementById('bc-stars');
-        if (!container) return;
-        var frag = document.createDocumentFragment();
-        for (var i = 0; i < 120; i++) {
-            var star = document.createElement('span');
-            star.className = 'logo-star' + (Math.random() > 0.7 ? ' logo-star--bright' : '');
-            star.style.cssText = 'width:' + (Math.random() * 1.2 + 0.5) + 'px;height:' + (Math.random() * 1.2 + 0.5) + 'px;left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;animation-delay:' + (Math.random() * 4) + 's;animation-duration:' + (Math.random() * 2 + 1.5) + 's;';
-            frag.appendChild(star);
-        }
-        container.appendChild(frag);
-    })();
+        /* ── Twinkling stars background ── */
+        (function () {
+            var container = document.getElementById('bc-stars');
+            if (!container) return;
+            var frag = document.createDocumentFragment();
+            for (var i = 0; i < 120; i++) {
+                var star = document.createElement('span');
+                star.className = 'logo-star' + (Math.random() > 0.7 ? ' logo-star--bright' : '');
+                star.style.cssText = 'width:' + (Math.random() * 1.2 + 0.5) + 'px;height:' + (Math.random() * 1.2 + 0.5) + 'px;left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;animation-delay:' + (Math.random() * 4) + 's;animation-duration:' + (Math.random() * 2 + 1.5) + 's;';
+                frag.appendChild(star);
+            }
+            container.appendChild(frag);
+        })();
     </script>
 </body>
 

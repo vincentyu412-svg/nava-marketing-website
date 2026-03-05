@@ -30,7 +30,7 @@
     ];
 
     var MAX_DAYS_AHEAD = 4;                 /* How far out visitors can book */
-    var MIN_NOTICE_MS  = 60 * 60 * 1000;   /* 1-hour minimum booking notice  */
+    var MIN_NOTICE_MS = 60 * 60 * 1000;   /* 1-hour minimum booking notice  */
     var AVAILABLE_DAYS = [0, 1, 2, 3, 4, 5, 6]; /* All days — Google Calendar controls actual availability */
 
     /* ── ELEMENTS ── */
@@ -289,6 +289,19 @@
         confirmBtn.style.display = 'none';
         renderCalendar();
         timesLabel.textContent = formatDate(selectedDate);
+        /* Update left-panel heading + date subtitle */
+        var leftHeadingEl = document.getElementById('bw-times-left-heading');
+        if (leftHeadingEl) {
+            leftHeadingEl.innerHTML = 'Pick a <span class="bw-times-left__accent">Time</span>';
+        }
+        var leftDateEl = document.getElementById('bw-times-left-date');
+        if (leftDateEl) {
+            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            leftDateEl.textContent = days[selectedDate.getDay()] + ', ' + MONTHS[selectedDate.getMonth()] + ' ' + selectedDate.getDate();
+        }
+        /* Hide summary card when times are shown */
+        var summaryEl = document.getElementById('bw-summary');
+        if (summaryEl) summaryEl.style.display = 'none';
         renderTimeSlots();
         timesWrap.style.display = '';
         /* Scroll time slots into view on mobile */
@@ -321,6 +334,75 @@
         blurOverlay.classList.add('bw-calendar__blur-overlay--hidden');
         step1.classList.add('bw-form-side--done');
         setProgress(2);
+
+        /* Remove any existing left panel before creating a new one */
+        var existingLeft = document.getElementById('bw-times-left');
+        if (existingLeft) {
+            calendar.appendChild(timesWrap);
+            calendar.appendChild(confirmBtn);
+            existingLeft.remove();
+        }
+
+        /* Build left-side panel with heading + summary + times area */
+        var body = modal.querySelector('.bw-body');
+        var timesLeft = document.createElement('div');
+        timesLeft.className = 'bw-times-left';
+        timesLeft.id = 'bw-times-left';
+
+        /* "Pick a Date" heading (switches to "Pick a Time" after day click) */
+        var leftHeading = document.createElement('h2');
+        leftHeading.className = 'bw-times-left__heading';
+        leftHeading.id = 'bw-times-left-heading';
+        leftHeading.innerHTML = 'Pick a <span class="bw-times-left__accent">Date</span>';
+        timesLeft.appendChild(leftHeading);
+
+        /* Subtitle */
+        var leftDate = document.createElement('p');
+        leftDate.className = 'bw-times-left__date';
+        leftDate.id = 'bw-times-left-date';
+        leftDate.textContent = 'Select a day on the calendar to see available time slots.';
+        timesLeft.appendChild(leftDate);
+
+        /* Contact details summary card */
+        var phoneFormatted = formatPhoneInput(phoneInput.value);
+        var summaryCard = document.createElement('div');
+        summaryCard.className = 'bw-summary';
+        summaryCard.id = 'bw-summary';
+        summaryCard.innerHTML =
+            '<div class="bw-summary__row"><span class="bw-summary__label">Name</span><span class="bw-summary__value">' + contactData.first_name + ' ' + contactData.last_name + '</span></div>' +
+            '<div class="bw-summary__row"><span class="bw-summary__label">Company</span><span class="bw-summary__value">' + contactData.company_name + '</span></div>' +
+            '<div class="bw-summary__row"><span class="bw-summary__label">Email</span><span class="bw-summary__value">' + contactData.email + '</span></div>' +
+            '<div class="bw-summary__row"><span class="bw-summary__label">Phone</span><span class="bw-summary__value">' + (phoneFormatted ? '+1 ' + phoneFormatted : contactData.phone) + '</span></div>';
+        timesLeft.appendChild(summaryCard);
+
+        /* Move the times wrapper and confirm button into the new left panel */
+        timesLeft.appendChild(timesWrap);
+        timesLeft.appendChild(confirmBtn);
+
+        /* "← Edit Details" link */
+        var editLink = document.createElement('button');
+        editLink.type = 'button';
+        editLink.className = 'bw-times-left__edit';
+        editLink.innerHTML = '&larr; Edit Details';
+        editLink.addEventListener('click', function () {
+            /* Move times & confirm back into calendar side */
+            calendar.appendChild(timesWrap);
+            calendar.appendChild(confirmBtn);
+            timesWrap.style.display = 'none';
+            confirmBtn.style.display = 'none';
+            selectedDate = null;
+            selectedTime = null;
+            var timesLeftEl = document.getElementById('bw-times-left');
+            if (timesLeftEl) timesLeftEl.remove();
+            /* Show form again and restore blur */
+            step1.classList.remove('bw-form-side--done');
+            blurOverlay.classList.remove('bw-calendar__blur-overlay--hidden');
+            setProgress(1);
+            renderCalendar();
+        });
+        timesLeft.appendChild(editLink);
+
+        body.insertBefore(timesLeft, calendar);
     });
 
     /* ── STEP 2: CONFIRM BOOKING ── */
@@ -365,6 +447,13 @@
         calendar.style.display = '';
         modal.querySelector('.bw-body').style.display = '';
         blurOverlay.classList.remove('bw-calendar__blur-overlay--hidden');
+        /* Move times & confirm back into calendar side if they were relocated */
+        var timesLeftEl = document.getElementById('bw-times-left');
+        if (timesLeftEl) {
+            calendar.appendChild(timesWrap);
+            calendar.appendChild(confirmBtn);
+            timesLeftEl.remove();
+        }
         timesWrap.style.display = 'none';
         confirmBtn.style.display = 'none';
         confirmedPanel.style.display = 'none';
