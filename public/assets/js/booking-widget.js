@@ -1,5 +1,5 @@
 /**
- * Gym Grow — Booking Widget
+ * GymPropel — Booking Widget
  * Two-step calendar: contact form → pick a day & time.
  * Sends webhooks to GoHighLevel on each step.
  */

@@ -1,1 +1,1 @@
-// Blog generation script for Gym Grow website
+// Blog generation script for GymPropel website

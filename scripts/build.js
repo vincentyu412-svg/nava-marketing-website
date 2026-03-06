@@ -1,1 +1,1 @@
-// Build script for Gym Grow website
+// Build script for GymPropel website

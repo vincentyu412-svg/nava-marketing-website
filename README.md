@@ -1,3 +1,3 @@
-# Gym Grow Website
+# GymPropel Website
 
-Marketing website for **Gym Grow** — we help gyms grow with expert marketing.
+Marketing website for **GymPropel** — we help gyms grow with expert marketing.

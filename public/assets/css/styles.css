@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GYM GROW — Main Stylesheet
+   GYM PROPEL — Main Stylesheet
    Organized: Reset → Variables → Base → Components → Sections → Modal → Responsive
    ========================================================================== */
 
@@ -428,18 +428,17 @@ img {
 
 .hero h1 {
     font-size: clamp(3rem, 8vw, 6rem);
-    line-height: 1.05;
-    max-width: 800px;
+    line-height: 1.1;
+    max-width: 900px;
     margin-bottom: 1.25rem;
     font-weight: 900;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
+    word-spacing: 0.08em;
 }
 
 .hero__highlight {
-    background: linear-gradient(135deg, var(--color-accent), #ff6b6b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-accent);
+    -webkit-text-fill-color: var(--color-accent);
 }
 
 .hero p {
@@ -2708,6 +2707,20 @@ img {
         min-height: auto;
     }
 
+    .hero h1 {
+        font-size: clamp(2rem, 7vw, 3.5rem);
+        text-align: center;
+        word-spacing: 0.04em;
+        letter-spacing: 0.01em;
+    }
+
+
+
+    .hero p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
     .btn--large {
         padding: 0.8rem 1.8rem;
         font-size: 1rem;
@@ -3089,6 +3102,12 @@ img {
         width: 100%;
         max-width: 340px;
     }
+
+    .hero h1 {
+        font-size: clamp(1.6rem, 6vw, 2.5rem);
+    }
+
+
 }
 
 /* ============================================================
