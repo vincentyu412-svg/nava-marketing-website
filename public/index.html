@@ -115,6 +115,7 @@
 
     <!-- Logo Scroller -->
     <section class="logo-scroller" aria-label="Trusted partners">
+        <div class="logo-scroller__stars" id="logo-stars" aria-hidden="true"></div>
         <p class="logo-scroller__title">TRUSTED BY THE BEST</p>
         <div class="logo-scroller__track">
             <div class="logo-scroller__slide">
@@ -671,7 +672,19 @@
             });
         })();
 
-
+        /* ── Twinkling stars for logo scroller ── */
+        (function () {
+            var container = document.getElementById('logo-stars');
+            if (!container) return;
+            var frag = document.createDocumentFragment();
+            for (var i = 0; i < 60; i++) {
+                var star = document.createElement('span');
+                star.className = 'logo-star' + (Math.random() > 0.7 ? ' logo-star--bright' : '');
+                star.style.cssText = 'width:' + (Math.random() * 1.2 + 0.5) + 'px;height:' + (Math.random() * 1.2 + 0.5) + 'px;left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;animation-delay:' + (Math.random() * 4) + 's;animation-duration:' + (Math.random() * 2 + 1.5) + 's;';
+                frag.appendChild(star);
+            }
+            container.appendChild(frag);
+        })();
 
         /* ── Particle canvas (results section) ── */
         (function () {
