@@ -32,11 +32,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             background: var(--color-primary);
             color: var(--color-white);
             text-align: center;
-            padding: 2rem 1.5rem;
+            padding: 3rem 1.5rem 2rem;
         }
 
         .scale-logo {
@@ -44,7 +43,7 @@
             font-size: 1.6rem;
             font-weight: 700;
             letter-spacing: 0.02em;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             color: var(--color-white);
             text-decoration: none;
         }
@@ -59,19 +58,19 @@
             text-transform: uppercase;
             letter-spacing: 0.15em;
             color: var(--color-accent);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .scale-headline {
             font-size: clamp(2.8rem, 8vw, 5.5rem);
             font-weight: 800;
             line-height: 1.05;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             letter-spacing: -0.02em;
-        }
-
-        .scale-headline span {
-            display: block;
+            display: flex;
+            gap: 0.3em;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .scale-headline .dot {
@@ -85,29 +84,85 @@
             font-weight: 400;
         }
 
-        .scale-btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border-radius: 8px;
-            background: var(--color-accent);
-            color: var(--color-white);
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .scale-btn:hover {
-            background: var(--color-accent-hover);
-            transform: translateY(-2px);
-        }
-
         .scale-micro {
-            margin-top: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 2.5rem;
             font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ── Embedded booking section ── */
+        .scale-booking {
+            width: 100%;
+            max-width: 960px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .scale-booking .bw-progress {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 1.2rem 1.5rem;
+        }
+
+        .scale-booking .bw-body {
+            border-radius: 0;
+        }
+
+        .scale-booking .bw-heading {
+            color: var(--color-white);
+        }
+
+        .scale-booking .bw-sub {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .scale-booking .bw-form__label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .scale-booking .bw-form__input {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: var(--color-white);
+        }
+
+        .scale-booking .bw-form__input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .scale-booking .bw-form__input:focus {
+            border-color: var(--color-accent);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .scale-booking .bw-consent {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .scale-booking .bw-consent a {
+            color: var(--color-accent);
+        }
+
+        .scale-booking .bw-calendar__nav {
+            color: var(--color-white);
+        }
+
+        .scale-booking .bw-calendar__month {
+            color: var(--color-white);
+        }
+
+        .scale-booking .bw-calendar__weekdays span {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .scale-booking .bw-calendar__blur-overlay {
+            background: rgba(26, 26, 46, 0.85);
+        }
+
+        .scale-booking .bw-confirmed__icon {
+            color: var(--color-accent);
         }
 
         @media (max-width: 600px) {
@@ -136,18 +191,10 @@
 
         <p class="scale-subtext">No payment required.</p>
 
-        <button class="scale-btn btn-popup">Book Your Free Call &rarr;</button>
-
         <p class="scale-micro">No contracts. No risk. Cancel anytime.</p>
-    </div>
 
-    <!-- Booking Widget (same as homepage) -->
-    <div class="modal" id="popup-modal" role="dialog" aria-modal="true" aria-label="Book a call">
-        <div class="modal__backdrop"></div>
-        <div class="modal__content modal__content--booking">
-            <button class="modal__close" aria-label="Close modal">&times;</button>
-
-            <!-- Progress bar -->
+        <!-- Embedded Booking Widget -->
+        <div class="scale-booking">
             <div class="bw-progress">
                 <div class="bw-progress__step bw-progress__step--active" data-step="1">
                     <span class="bw-progress__dot">1</span>
@@ -160,7 +207,6 @@
                 </div>
             </div>
 
-            <!-- Step 1: Contact form + blurred calendar -->
             <div class="bw-body">
                 <div class="bw-form-side" id="bw-step-1">
                     <h2 class="bw-heading">Schedule Your Strategy Call</h2>
@@ -199,7 +245,6 @@
                     </form>
                 </div>
 
-                <!-- Calendar side -->
                 <div class="bw-calendar-side" id="bw-calendar">
                     <div class="bw-calendar__blur-overlay" id="bw-blur-overlay">
                         <span class="bw-calendar__lock">&#128274; Fill out the form to unlock</span>
@@ -216,19 +261,16 @@
                     </div>
                     <div class="bw-calendar__grid" id="bw-cal-grid"></div>
 
-                    <!-- Time slots -->
                     <div class="bw-times" id="bw-times" style="display:none;">
                         <p class="bw-times__label" id="bw-times-label"></p>
                         <div class="bw-times__grid" id="bw-times-grid"></div>
                     </div>
 
-                    <!-- Confirm button -->
-                    <button type="button" class="btn btn--glow bw-confirm" id="bw-confirm" style="display:none;">Confirm
-                        Booking &rarr;</button>
+                    <button type="button" class="btn btn--glow bw-confirm" id="bw-confirm"
+                        style="display:none;">Confirm Booking &rarr;</button>
                 </div>
             </div>
 
-            <!-- Confirmation -->
             <div class="bw-confirmed" id="bw-confirmed" style="display:none;">
                 <div class="bw-confirmed__icon">&#10003;</div>
                 <h2 class="bw-heading">You're Booked!</h2>

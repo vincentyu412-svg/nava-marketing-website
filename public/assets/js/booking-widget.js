@@ -35,9 +35,12 @@
 
     /* ── ELEMENTS ── */
     var modal = document.getElementById('popup-modal');
-    if (!modal) return;
-    var backdrop = modal.querySelector('.modal__backdrop');
-    var closeBtn = modal.querySelector('.modal__close');
+    var embedded = document.querySelector('.scale-booking');
+    var container = modal || embedded;
+    if (!container) return;
+    var isEmbedded = !modal;
+    var backdrop = modal ? modal.querySelector('.modal__backdrop') : null;
+    var closeBtn = modal ? modal.querySelector('.modal__close') : null;
     var step1 = document.getElementById('bw-step-1');
     var calendar = document.getElementById('bw-calendar');
     var blurOverlay = document.getElementById('bw-blur-overlay');
@@ -52,7 +55,7 @@
     var confirmBtn = document.getElementById('bw-confirm');
     var confirmedPanel = document.getElementById('bw-confirmed');
     var confirmedDetails = document.getElementById('bw-confirmed-details');
-    var progressSteps = modal.querySelectorAll('.bw-progress__step');
+    var progressSteps = container.querySelectorAll('.bw-progress__step');
     var phoneInput = document.getElementById('bw-phone');
 
     var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -464,6 +467,7 @@
     }
 
     function openModal(e) {
+        if (isEmbedded) return;
         e.preventDefault();
         resetWidget();
         fetchBusyTimes(); /* Pull latest Google Calendar availability */
@@ -472,18 +476,25 @@
     }
 
     function closeModal() {
+        if (isEmbedded) return;
         modal.classList.remove('modal--active');
         document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('.btn-popup').forEach(function (btn) {
-        btn.addEventListener('click', openModal);
-    });
-    closeBtn.addEventListener('click', closeModal);
-    backdrop.addEventListener('click', closeModal);
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('modal--active')) closeModal();
-    });
+    if (!isEmbedded) {
+        document.querySelectorAll('.btn-popup').forEach(function (btn) {
+            btn.addEventListener('click', openModal);
+        });
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (backdrop) backdrop.addEventListener('click', closeModal);
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('modal--active')) closeModal();
+        });
+    }
 
     renderCalendar();
+    /* Auto-fetch availability for embedded mode */
+    if (isEmbedded) {
+        fetchBusyTimes();
+    }
 })();
