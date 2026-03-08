@@ -128,6 +128,22 @@
         } catch (e) { /* silent fail */ }
     }
 
+    /* ── DEDUP HELPERS ── */
+
+    function dedupKey(prefix, identifier) {
+        return 'gp_dedup_' + prefix + '_' + identifier.toLowerCase().replace(/\s+/g, '');
+    }
+
+    function isDuplicate(key) {
+        try {
+            return localStorage.getItem(key) !== null;
+        } catch (e) { return false; }
+    }
+
+    function markSent(key) {
+        try { localStorage.setItem(key, '1'); } catch (e) { /* silent */ }
+    }
+
     /* ── GOOGLE CALENDAR BUSY TIMES ── */
     function fetchBusyTimes() {
         if (!GCAL_SCRIPT_URL) return;
@@ -332,7 +348,14 @@
             submitted_at: new Date().toISOString()
         };
 
-        sendWebhook(WEBHOOK_CONTACT, contactData);
+        /* Only fire contact webhook once per email OR phone (24 h window) */
+        var emailKey = dedupKey('contact', contactData.email);
+        var phoneKey = dedupKey('contact', contactData.phone);
+        if (!isDuplicate(emailKey) && !isDuplicate(phoneKey)) {
+            sendWebhook(WEBHOOK_CONTACT, contactData);
+            markSent(emailKey);
+            markSent(phoneKey);
+        }
 
         blurOverlay.classList.add('bw-calendar__blur-overlay--hidden');
         step1.classList.add('bw-form-side--done');
