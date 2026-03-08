@@ -87,8 +87,9 @@
         .scale-micro {
             margin-top: 0.5rem;
             margin-bottom: 2.5rem;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.4);
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 500;
         }
 
         /* Embedded widget — use the exact modal__content--booking styles */
@@ -117,7 +118,9 @@
             }
 
             .scale-headline {
-                font-size: clamp(2.2rem, 10vw, 3.5rem);
+                font-size: clamp(1.8rem, 8vw, 3rem);
+                flex-wrap: nowrap;
+                white-space: nowrap;
             }
         }
     </style>
@@ -125,7 +128,7 @@
 
 <body>
     <div class="scale-page">
-        <a href="/" class="scale-logo">Gym<span>Propel</span></a>
+        <span class="scale-logo">Gym<span>Propel</span></span>
 
         <p class="scale-callout">Attention Gym Owners</p>
 
