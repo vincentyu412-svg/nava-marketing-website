@@ -35,7 +35,7 @@
 
     /* ── ELEMENTS ── */
     var modal = document.getElementById('popup-modal');
-    var embedded = document.querySelector('.scale-booking');
+    var embedded = document.querySelector('.scale-embed');
     var container = modal || embedded;
     if (!container) return;
     var isEmbedded = !modal;
