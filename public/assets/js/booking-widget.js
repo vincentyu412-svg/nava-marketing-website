@@ -347,7 +347,7 @@
         }
 
         /* Build left-side panel with heading + summary + times area */
-        var body = modal.querySelector('.bw-body');
+        var body = container.querySelector('.bw-body');
         var timesLeft = document.createElement('div');
         timesLeft.className = 'bw-times-left';
         timesLeft.id = 'bw-times-left';
