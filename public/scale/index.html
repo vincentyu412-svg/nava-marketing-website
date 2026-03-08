@@ -8,13 +8,13 @@
     <title>Scale Your Gym | GymPropel</title>
     <meta name="description"
         content="Better marketing. Free to start. Real results. GymPropel helps gym owners fill their gym — no payment required.">
-    <link rel="canonical" href="https://scale.gympropel.com/">
+    <link rel="canonical" href="https://gympropel.com/scale/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Scale Your Gym | GymPropel">
     <meta property="og:description" content="Better marketing. Free to start. Real results. No payment required.">
-    <meta property="og:url" content="https://scale.gympropel.com/">
+    <meta property="og:url" content="https://gympropel.com/scale/">
     <meta property="og:site_name" content="GymPropel">
 
     <!-- Preload critical font -->
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
 
     <style>
-        /* ── Scale page overrides ── */
+        /* ── Scale page ── */
         .scale-page {
             min-height: 100vh;
             display: flex;
@@ -35,37 +35,42 @@
             background: var(--color-primary);
             color: var(--color-white);
             text-align: center;
-            padding: 3rem 1.5rem 2rem;
+            padding: 2.5rem 1.5rem 3rem;
         }
 
         .scale-logo {
             font-family: var(--font-main);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: 0.02em;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             color: var(--color-white);
-            text-decoration: none;
+            opacity: 0.7;
         }
 
         .scale-logo span {
             color: var(--color-accent);
         }
 
-        .scale-callout {
-            font-size: clamp(1rem, 2.5vw, 1.15rem);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
+        .scale-badge {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.12);
+            border: 1px solid rgba(233, 69, 96, 0.25);
             color: var(--color-accent);
-            margin-bottom: 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
         }
 
         .scale-headline {
-            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            font-size: clamp(2.8rem, 8vw, 5rem);
             font-weight: 800;
             line-height: 1.05;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             letter-spacing: -0.02em;
             display: flex;
             gap: 0.3em;
@@ -77,22 +82,51 @@
             color: var(--color-accent);
         }
 
-        .scale-subtext {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 2.5rem;
+        .scale-sub {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 0.6rem;
             font-weight: 400;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .scale-trial {
+            font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: 0.4rem;
+        }
+
+        .scale-trial em {
+            color: var(--color-accent);
+            font-style: normal;
         }
 
         .scale-micro {
-            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 400;
             margin-bottom: 2.5rem;
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.5);
-            font-weight: 500;
         }
 
-        /* Embedded widget — use the exact modal__content--booking styles */
+        .scale-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 2px;
+            margin: 0 auto 2rem;
+            opacity: 0.5;
+        }
+
+        .scale-form-label {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: 1rem;
+        }
+
+        /* Embedded widget */
         .scale-embed {
             width: 100%;
             max-width: 780px;
@@ -114,7 +148,7 @@
 
         @media (max-width: 600px) {
             .scale-page {
-                padding: 1.5rem 1rem;
+                padding: 1.5rem 1rem 2rem;
             }
 
             .scale-headline {
@@ -130,7 +164,7 @@
     <div class="scale-page">
         <span class="scale-logo">Gym<span>Propel</span></span>
 
-        <p class="scale-callout">Attention Gym Owners</p>
+        <span class="scale-badge">&#9889; Gym Owners Only</span>
 
         <h1 class="scale-headline">
             <span>Better<span class="dot">.</span></span>
@@ -138,9 +172,15 @@
             <span>Results<span class="dot">.</span></span>
         </h1>
 
-        <p class="scale-subtext">No payment required.</p>
+        <p class="scale-sub">We fill gyms with real members using ads, automation, and follow-up systems that actually work.</p>
+
+        <p class="scale-trial">Apply for your <em>free 15-day trial</em> &darr;</p>
 
         <p class="scale-micro">No contracts. No risk. Cancel anytime.</p>
+
+        <div class="scale-divider"></div>
+
+        <p class="scale-form-label">Book Your Strategy Call</p>
 
         <!-- Embedded Booking Widget — exact same markup as homepage popup -->
         <div class="scale-embed">
