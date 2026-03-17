@@ -126,7 +126,7 @@
         var ampm = h >= 12 ? 'PM' : 'AM';
         if (h === 0) h = 12;
         else if (h > 12) h -= 12;
-        return h + ':' + m + ' ' + ampm;
+        return pad(h) + ':' + m + ' ' + ampm;
     }
 
     function setProgress(step) {
@@ -496,19 +496,8 @@
     confirmBtn.addEventListener('click', function () {
         if (!selectedDate || !selectedTime || !contactData) return;
         var dateStr = selectedDate.getFullYear() + '-' + pad(selectedDate.getMonth() + 1) + '-' + pad(selectedDate.getDate());
-        var slotUTC = bizSlotToUTC(selectedDate, selectedTime);
-        /* Build EST ISO string for the webhook (e.g. 2026-03-17T14:00:00-04:00) */
-        var estOffsetStr = (function () {
-            var fmt = new Intl.DateTimeFormat('en-US', { timeZone: BUSINESS_TZ, timeZoneName: 'shortOffset' });
-            var parts = fmt.formatToParts(slotUTC);
-            for (var i = 0; i < parts.length; i++) {
-                if (parts[i].type === 'timeZoneName') return parts[i].value; /* e.g. "GMT-4" or "GMT-5" */
-            }
-            return '';
-        })();
-        var estOffsetH = parseInt((estOffsetStr.match(/-?\d+/) || ['-5'])[0], 10);
-        var estOffsetFormatted = (estOffsetH <= 0 ? '-' : '+') + pad(Math.abs(estOffsetH)) + ':00';
-        var selectedSlotEST = dateStr + 'T' + selectedTime + ':00' + estOffsetFormatted;
+        /* selected_slot in simple ISO format (no offset) — GHL interprets it using the calendar's timezone (EST) */
+        var selectedSlotEST = dateStr + 'T' + selectedTime + ':00';
         var payload = {
             first_name: contactData.first_name,
             last_name: contactData.last_name,
@@ -517,7 +506,7 @@
             phone: contactData.phone,
             date: dateStr,
             time: selectedTime,
-            appointment_time: dateStr + ' ' + formatTime12(selectedTime) + ' EST',
+            appointment_time: pad(selectedDate.getMonth() + 1) + '-' + pad(selectedDate.getDate()) + '-' + selectedDate.getFullYear() + ' ' + formatTime12(selectedTime),
             selected_slot: selectedSlotEST,
             timezone: BUSINESS_TZ,
             visitor_timezone: selectedTimezone,
