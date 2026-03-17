@@ -33,6 +33,26 @@
     var MIN_NOTICE_MS = 60 * 60 * 1000;   /* 1-hour minimum booking notice  */
     var AVAILABLE_DAYS = [0, 1, 2, 3, 4, 5, 6]; /* All days — Google Calendar controls actual availability */
 
+    /* ── TIMEZONE CONFIG ── */
+    var BUSINESS_TZ = 'America/New_York'; /* All TIME_SLOTS are in this timezone */
+    var TIMEZONE_OPTIONS = [
+        { value: 'Pacific/Honolulu', label: 'Hawaii (HT)' },
+        { value: 'America/Anchorage', label: 'Alaska (AKT)' },
+        { value: 'America/Los_Angeles', label: 'Pacific (PT)' },
+        { value: 'America/Phoenix', label: 'Arizona (MST)' },
+        { value: 'America/Denver', label: 'Mountain (MT)' },
+        { value: 'America/Chicago', label: 'Central (CT)' },
+        { value: 'America/New_York', label: 'Eastern (ET)' },
+        { value: 'America/Halifax', label: 'Atlantic (AT)' },
+        { value: 'Europe/London', label: 'London (GMT/BST)' },
+        { value: 'Europe/Paris', label: 'Central Europe (CET)' },
+        { value: 'Asia/Dubai', label: 'Dubai (GST)' },
+        { value: 'Asia/Kolkata', label: 'India (IST)' },
+        { value: 'Asia/Shanghai', label: 'China (CST)' },
+        { value: 'Asia/Tokyo', label: 'Japan (JST)' },
+        { value: 'Australia/Sydney', label: 'Sydney (AEST)' }
+    ];
+
     /* ── ELEMENTS ── */
     var modal = document.getElementById('popup-modal');
     var embedded = document.querySelector('.scale-embed');
@@ -117,6 +137,71 @@
         });
     }
 
+    /* ── TIMEZONE HELPERS ── */
+    /* Auto-detect visitor timezone */
+    var selectedTimezone = BUSINESS_TZ;
+    try { selectedTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) { }
+
+    /* Ensure detected timezone is in the dropdown list */
+    (function () {
+        var found = false;
+        for (var i = 0; i < TIMEZONE_OPTIONS.length; i++) {
+            if (TIMEZONE_OPTIONS[i].value === selectedTimezone) { found = true; break; }
+        }
+        if (!found) {
+            TIMEZONE_OPTIONS.push({ value: selectedTimezone, label: selectedTimezone.replace(/_/g, ' ') });
+        }
+    })();
+
+    /* Convert a date + time (in BUSINESS_TZ) to a UTC Date object */
+    function bizSlotToUTC(date, timeStr) {
+        var parts = timeStr.split(':');
+        var h = parseInt(parts[0], 10), m = parseInt(parts[1], 10);
+        var y = date.getFullYear(), mo = date.getMonth(), d = date.getDate();
+        var target = new Date(Date.UTC(y, mo, d, h, m, 0));
+        var tzStr = target.toLocaleString('en-US', { timeZone: BUSINESS_TZ });
+        var utcStr = target.toLocaleString('en-US', { timeZone: 'UTC' });
+        var offsetMs = new Date(utcStr).getTime() - new Date(tzStr).getTime();
+        return new Date(target.getTime() + offsetMs);
+    }
+
+    /* Format a UTC Date in a given timezone as "H:MM AM/PM" */
+    function formatTimeInTz(utcDate, tz) {
+        return utcDate.toLocaleString('en-US', {
+            timeZone: tz,
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        });
+    }
+
+    /* ── TIMEZONE PICKER (created dynamically) ── */
+    var tzPickerWrap = document.createElement('div');
+    tzPickerWrap.className = 'bw-tz-picker';
+    var tzLabel = document.createElement('label');
+    tzLabel.className = 'bw-tz-picker__label';
+    tzLabel.setAttribute('for', 'bw-timezone');
+    tzLabel.textContent = '\uD83C\uDF10 Your timezone';
+    var tzSelect = document.createElement('select');
+    tzSelect.id = 'bw-timezone';
+    tzSelect.className = 'bw-tz-picker__select';
+    TIMEZONE_OPTIONS.forEach(function (opt) {
+        var option = document.createElement('option');
+        option.value = opt.value;
+        option.textContent = opt.label;
+        if (opt.value === selectedTimezone) option.selected = true;
+        tzSelect.appendChild(option);
+    });
+    tzPickerWrap.appendChild(tzLabel);
+    tzPickerWrap.appendChild(tzSelect);
+    /* Insert into the times wrapper (between label and grid) */
+    timesWrap.insertBefore(tzPickerWrap, timesGrid);
+
+    tzSelect.addEventListener('change', function () {
+        selectedTimezone = tzSelect.value;
+        if (selectedDate) renderTimeSlots();
+    });
+
     /* ── WEBHOOK SENDER ── */
     function sendWebhook(url, payload) {
         if (!url) return;
@@ -160,9 +245,7 @@
 
     /* Check if a specific date+time slot overlaps any busy period */
     function isSlotBusy(date, timeStr) {
-        var parts = timeStr.split(':');
-        var slotStart = new Date(date.getFullYear(), date.getMonth(), date.getDate(),
-            parseInt(parts[0], 10), parseInt(parts[1], 10), 0);
+        var slotStart = bizSlotToUTC(date, timeStr);
         var slotEnd = new Date(slotStart.getTime() + 15 * 60 * 1000); /* 15-min slot */
 
         for (var i = 0; i < busyTimes.length; i++) {
@@ -176,9 +259,7 @@
     /* Check if a slot is too soon (must be at least 1 hour from now) */
     function isSlotInPast(date, timeStr) {
         var now = new Date();
-        var parts = timeStr.split(':');
-        var slotStart = new Date(date.getFullYear(), date.getMonth(), date.getDate(),
-            parseInt(parts[0], 10), parseInt(parts[1], 10), 0);
+        var slotStart = bizSlotToUTC(date, timeStr);
         return slotStart.getTime() <= now.getTime() + MIN_NOTICE_MS;
     }
 
@@ -252,8 +333,10 @@
             var btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'bw-times__slot';
-            btn.textContent = formatTime12(t);
-            btn.setAttribute('data-time', t);
+            /* Show time converted to visitor's selected timezone */
+            var utcDate = bizSlotToUTC(selectedDate, t);
+            btn.textContent = formatTimeInTz(utcDate, selectedTimezone);
+            btn.setAttribute('data-time', t); /* original EST value */
             if (selectedTime === t) btn.classList.add('bw-times__slot--selected');
             timesGrid.appendChild(btn);
         });
@@ -413,8 +496,19 @@
     confirmBtn.addEventListener('click', function () {
         if (!selectedDate || !selectedTime || !contactData) return;
         var dateStr = selectedDate.getFullYear() + '-' + pad(selectedDate.getMonth() + 1) + '-' + pad(selectedDate.getDate());
-        var timeParts = selectedTime.split(':');
-        var isoSlot = dateStr + 'T' + selectedTime + ':00';
+        var slotUTC = bizSlotToUTC(selectedDate, selectedTime);
+        /* Build EST ISO string for the webhook (e.g. 2026-03-17T14:00:00-04:00) */
+        var estOffsetStr = (function () {
+            var fmt = new Intl.DateTimeFormat('en-US', { timeZone: BUSINESS_TZ, timeZoneName: 'shortOffset' });
+            var parts = fmt.formatToParts(slotUTC);
+            for (var i = 0; i < parts.length; i++) {
+                if (parts[i].type === 'timeZoneName') return parts[i].value; /* e.g. "GMT-4" or "GMT-5" */
+            }
+            return '';
+        })();
+        var estOffsetH = parseInt((estOffsetStr.match(/-?\d+/) || ['-5'])[0], 10);
+        var estOffsetFormatted = (estOffsetH <= 0 ? '-' : '+') + pad(Math.abs(estOffsetH)) + ':00';
+        var selectedSlotEST = dateStr + 'T' + selectedTime + ':00' + estOffsetFormatted;
         var payload = {
             first_name: contactData.first_name,
             last_name: contactData.last_name,
@@ -423,18 +517,21 @@
             phone: contactData.phone,
             date: dateStr,
             time: selectedTime,
-            appointment_time: dateStr + ' ' + formatTime12(selectedTime),
-            selected_slot: isoSlot,
+            appointment_time: dateStr + ' ' + formatTime12(selectedTime) + ' EST',
+            selected_slot: selectedSlotEST,
+            timezone: BUSINESS_TZ,
+            visitor_timezone: selectedTimezone,
             booked_at: new Date().toISOString()
         };
 
         sendWebhook(WEBHOOK_BOOKING, payload);
 
-        /* Redirect to confirmation page with booking details */
+        /* Redirect to confirmation page with booking details (date & time in EST) */
         var redirectUrl = '/booking-confirmation.html?date=' + encodeURIComponent(dateStr) +
             '&time=' + encodeURIComponent(selectedTime) +
             '&fname=' + encodeURIComponent(contactData.first_name) +
-            '&lname=' + encodeURIComponent(contactData.last_name);
+            '&lname=' + encodeURIComponent(contactData.last_name) +
+            '&tz=' + encodeURIComponent(selectedTimezone);
         window.location.href = redirectUrl;
     });
 

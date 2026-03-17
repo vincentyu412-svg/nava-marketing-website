@@ -319,49 +319,68 @@
         (function () {
             'use strict';
             var params = new URLSearchParams(window.location.search);
-            var date = params.get('date');   /* YYYY-MM-DD */
-            var time = params.get('time');   /* HH:MM */
+            var date = params.get('date');   /* YYYY-MM-DD in EST */
+            var time = params.get('time');   /* HH:MM in EST */
             var fname = params.get('fname') || '';
             var lname = params.get('lname') || '';
+            var visitorTz = params.get('tz') || '';
 
             if (!date || !time) {
                 document.getElementById('bc-time').textContent = 'No appointment found.';
                 return;
             }
 
-            /* Parse date & time */
+            var BUSINESS_TZ = 'America/New_York';
+
+            /* Convert date+time in BUSINESS_TZ to a proper UTC Date object */
             var parts = date.split('-');
             var timeParts = time.split(':');
-            var start = new Date(+parts[0], +parts[1] - 1, +parts[2], +timeParts[0], +timeParts[1], 0);
-            var end = new Date(start.getTime() + 30 * 60 * 1000); /* 30-min call */
-
-            var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
-                'July', 'August', 'September', 'October', 'November', 'December'];
-            var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-            function fmt12(d) {
-                var h = d.getHours(), m = d.getMinutes();
-                var ampm = h >= 12 ? 'PM' : 'AM';
-                if (h === 0) h = 12; else if (h > 12) h -= 12;
-                return h + ':' + (m < 10 ? '0' : '') + m + ' ' + ampm;
+            function bizToUTC(y, mo, d, h, m, tz) {
+                var target = new Date(Date.UTC(y, mo, d, h, m, 0));
+                var tzStr = target.toLocaleString('en-US', { timeZone: tz });
+                var utcStr = target.toLocaleString('en-US', { timeZone: 'UTC' });
+                var offsetMs = new Date(utcStr).getTime() - new Date(tzStr).getTime();
+                return new Date(target.getTime() + offsetMs);
             }
+
+            var start = bizToUTC(+parts[0], +parts[1] - 1, +parts[2], +timeParts[0], +timeParts[1], BUSINESS_TZ);
+            var end = new Date(start.getTime() + 30 * 60 * 1000); /* 30-min call */
 
             function pad(n) { return n < 10 ? '0' + n : '' + n; }
 
-            /* Display time */
-            var displayDate = DAYS[start.getDay()] + ', ' + MONTHS[start.getMonth()] + ' ' +
-                pad(start.getDate()) + ', ' + start.getFullYear();
-            var displayTime = fmt12(start) + ' – ' + fmt12(end);
+            /* Format date and time in EST */
+            var displayDate = start.toLocaleString('en-US', {
+                timeZone: BUSINESS_TZ,
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            });
+            var displayTimeStart = start.toLocaleString('en-US', {
+                timeZone: BUSINESS_TZ,
+                hour: 'numeric', minute: '2-digit', hour12: true
+            });
+            var displayTimeEnd = end.toLocaleString('en-US', {
+                timeZone: BUSINESS_TZ,
+                hour: 'numeric', minute: '2-digit', hour12: true
+            });
+            var displayTime = displayTimeStart + ' \u2013 ' + displayTimeEnd + ' EST';
 
-            /* Detect timezone name */
-            var tz = '';
-            try { tz = ' (' + Intl.DateTimeFormat().resolvedOptions().timeZone.replace(/_/g, ' ') + ')'; } catch (e) { }
-            document.getElementById('bc-time').innerHTML = displayDate + '<br>' + displayTime + tz;
+            /* Optionally show visitor's local time if different from EST */
+            var localNote = '';
+            if (visitorTz && visitorTz !== BUSINESS_TZ) {
+                var localStart = start.toLocaleString('en-US', {
+                    timeZone: visitorTz, hour: 'numeric', minute: '2-digit', hour12: true
+                });
+                var localEnd = end.toLocaleString('en-US', {
+                    timeZone: visitorTz, hour: 'numeric', minute: '2-digit', hour12: true
+                });
+                localNote = '<br><small style="color:rgba(255,255,255,0.5);">(' + localStart + ' \u2013 ' + localEnd + ' your time)</small>';
+            }
 
-            /* ── Calendar link helpers ── */
-            function toGCalDate(d) {
-                return d.getFullYear() + '' + pad(d.getMonth() + 1) + pad(d.getDate()) + 'T' +
-                    pad(d.getHours()) + pad(d.getMinutes()) + '00';
+            document.getElementById('bc-time').innerHTML = displayDate + '<br>' + displayTime + localNote;
+
+            /* \u2500\u2500 Calendar link helpers (use UTC values) \u2500\u2500 */
+            function toGCalDateUTC(d) {
+                return d.getUTCFullYear() + '' + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T' +
+                    pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + '00Z';
             }
 
             var title = encodeURIComponent('GymPropel Strategy Call');
@@ -371,9 +390,10 @@
             /* Google Calendar */
             var gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
                 '&text=' + title +
-                '&dates=' + toGCalDate(start) + '/' + toGCalDate(end) +
+                '&dates=' + toGCalDateUTC(start) + '/' + toGCalDateUTC(end) +
                 '&details=' + details +
-                '&location=' + location;
+                '&location=' + location +
+                '&ctz=America/New_York';
             document.getElementById('bc-gcal').href = gcalUrl;
 
             /* Outlook Web */
