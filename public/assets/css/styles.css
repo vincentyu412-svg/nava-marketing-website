@@ -76,8 +76,8 @@ img {
 }
 
 .btn--large {
-    padding: 1.2rem 3rem;
-    font-size: 1.35rem;
+    padding: 1rem 2.4rem;
+    font-size: 1.1rem;
 }
 
 .btn--glow {
@@ -215,7 +215,7 @@ img {
     padding: 8rem 5% 4rem;
     background: var(--color-primary);
     color: var(--color-white);
-    min-height: 85vh;
+    min-height: 600px;
     overflow: hidden;
 }
 
@@ -427,9 +427,9 @@ img {
 }
 
 .hero h1 {
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.1;
-    max-width: 900px;
+    max-width: 800px;
     margin-bottom: 1.25rem;
     font-weight: 900;
     letter-spacing: 0.02em;
@@ -1850,7 +1850,7 @@ img {
 }
 
 .final-cta__heading {
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
     font-weight: 700;
     line-height: 1.15;
     margin-bottom: 1.2rem;
