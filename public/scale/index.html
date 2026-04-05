@@ -122,22 +122,21 @@
         .scale-spots {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: clamp(1.1rem, 3vw, 1.35rem);
-            font-weight: 700;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
             color: #fff;
-            background: linear-gradient(135deg, rgba(233, 69, 96, 0.25), rgba(233, 69, 96, 0.10));
-            border: 1.5px solid rgba(233, 69, 96, 0.5);
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.35), rgba(233, 69, 96, 0.12));
+            border: 1px solid rgba(233, 69, 96, 0.3);
             border-radius: 50px;
-            padding: 0.6rem 1.6rem;
-            margin-bottom: 1.2rem;
-            animation: pulse-spots 1.8s ease-in-out infinite;
-            letter-spacing: 0.01em;
+            padding: 0.35rem 1rem;
+            margin: 0 auto 0.4rem;
+            letter-spacing: 0.02em;
         }
 
         .scale-spots .spots-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background: var(--color-accent);
             border-radius: 50%;
             display: inline-block;
@@ -156,43 +155,23 @@
             }
         }
 
-        @keyframes pulse-spots {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.03);
-            }
-        }
-
-        .scale-form-spots {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--color-accent);
-            margin-bottom: 1rem;
-            letter-spacing: 0.03em;
-        }
-
         .scale-trust {
             display: flex;
-            gap: 0.6rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         .scale-trust__item {
             display: inline-flex;
             align-items: center;
-            gap: 0.45rem;
+            gap: 0.6rem;
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50px;
-            padding: 0.45rem 1rem;
-            font-size: 0.85rem;
+            padding: 0.65rem 1.3rem;
+            font-size: 0.95rem;
             font-weight: 500;
             color: rgba(255, 255, 255, 0.75);
             letter-spacing: 0.01em;
@@ -210,46 +189,21 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: rgba(233, 69, 96, 0.15);
             flex-shrink: 0;
         }
 
         .scale-trust__icon svg {
-            width: 13px;
-            height: 13px;
+            width: 15px;
+            height: 15px;
             fill: none;
             stroke: var(--color-accent);
             stroke-width: 1.8;
             stroke-linecap: round;
             stroke-linejoin: round;
-        }
-
-        @media (max-width: 480px) {
-            .scale-trust {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 0.4rem;
-                padding: 0 0.5rem;
-            }
-
-            .scale-trust__item {
-                font-size: 0.75rem;
-                padding: 0.35rem 0.65rem;
-                justify-content: center;
-            }
-
-            .scale-trust__icon {
-                width: 18px;
-                height: 18px;
-            }
-
-            .scale-trust__icon svg {
-                width: 10px;
-                height: 10px;
-            }
         }
 
         .scale-divider {
@@ -290,13 +244,79 @@
 
         @media (max-width: 600px) {
             .scale-page {
-                padding: 1.5rem 1rem 2rem;
+                padding: 1.2rem 0.75rem 1.5rem;
+            }
+
+            .scale-logo {
+                font-size: 1.25rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .scale-badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.8rem;
+                margin-bottom: 1rem;
             }
 
             .scale-headline {
-                font-size: clamp(1.8rem, 8vw, 3rem);
-                flex-wrap: nowrap;
-                white-space: nowrap;
+                font-size: clamp(2rem, 10vw, 3rem);
+                margin-bottom: 0.8rem;
+                gap: 0.2em;
+            }
+
+            .scale-trial {
+                font-size: clamp(1rem, 4vw, 1.3rem);
+                margin-bottom: 0.3rem;
+            }
+
+            .scale-spots {
+                display: flex;
+                margin: 0.3rem auto 0.8rem;
+                margin-left: auto;
+                font-size: 0.75rem;
+                padding: 0.25rem 0.8rem;
+            }
+
+            .scale-trust {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+                padding: 0 0.5rem;
+                margin-bottom: 1.8rem;
+            }
+
+            .scale-trust__item {
+                font-size: 0.82rem;
+                padding: 0.5rem 0.8rem;
+                justify-content: center;
+            }
+
+            .scale-trust__icon {
+                width: 22px;
+                height: 22px;
+            }
+
+            .scale-trust__icon svg {
+                width: 10px;
+                height: 10px;
+            }
+
+            .scale-divider {
+                margin: 0 auto 1.2rem;
+            }
+
+            .scale-form-label {
+                font-size: 1rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .scale-embed {
+                max-width: 100%;
+            }
+
+            .scale-embed .modal__content--booking {
+                padding: 1rem 0.75rem 0.75rem;
+                border-radius: 12px;
             }
         }
     </style>
@@ -315,7 +335,6 @@
         </h1>
 
         <p class="scale-trial">Apply for your <em>free 15-day trial</em> &darr;</p>
-        <p class="scale-spots"><span class="spots-dot"></span> Only <strong>5 spots left</strong> this month</p>
 
         <div class="scale-trust">
             <span class="scale-trust__item">
@@ -351,10 +370,9 @@
             </span>
         </div>
 
-        <div class="scale-divider"></div>
+        <p class="scale-spots"><span class="spots-dot"></span> 5 spots left</p>
 
-        <p class="scale-form-label">Book Your Strategy Call</p>
-        <p class="scale-form-spots">&#9201; 5 / 10 spots claimed &mdash; only 5 remain</p>
+        <div class="scale-divider"></div>
 
         <!-- Embedded Booking Widget — exact same markup as homepage popup -->
         <div class="scale-embed" style="margin-bottom:1.5rem;">
