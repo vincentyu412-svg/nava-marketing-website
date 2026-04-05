@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>404 - Page Not Found | GymPropel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=4">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="nav__logo">Gym<span>Propel</span></a>
+        <ul class="nav__links">
+            <li><a href="#" class="nav__cta btn-popup">Claim 15 Day Free Trial</a></li>
+        </ul>
+    </nav>
+
+    <!-- 404 Content -->
+    <section class="error-page">
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+        <p>Looks like this page skipped leg day. Let's get you back on track.</p>
+        <div class="hero__buttons error-page__buttons">
+            <a href="/" class="btn btn--primary">Go Home</a>
+            <a href="#" class="btn btn--primary btn-popup">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <h3>Gym<span>Propel</span></h3>
+                <p>Marketing for gyms that want to grow.</p>
+            </div>
+            <div class="footer__links">
+                <ul>
+                    <li><a href="/privacy-policy.html">Privacy</a></li>
+                    <li><a href="/terms-of-service.html">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 GymPropel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Booking Widget -->
+    <div class="modal" id="popup-modal" role="dialog" aria-modal="true" aria-label="Book a call">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content modal__content--booking">
+            <button class="modal__close" aria-label="Close modal">&times;</button>
+            <div class="bw-progress">
+                <div class="bw-progress__step bw-progress__step--active" data-step="1">
+                    <span class="bw-progress__dot">1</span>
+                    <span class="bw-progress__label">Your Details</span>
+                </div>
+                <div class="bw-progress__line"></div>
+                <div class="bw-progress__step" data-step="2">
+                    <span class="bw-progress__dot">2</span>
+                    <span class="bw-progress__label">Pick a Time</span>
+                </div>
+            </div>
+            <div class="bw-body">
+                <div class="bw-form-side" id="bw-step-1">
+                    <h2 class="bw-heading">Book Your Free Strategy Call</h2>
+                    <p class="bw-sub">Fill out the form, then pick a time that works for you.</p>
+                    <form class="bw-form" id="bw-contact-form">
+                        <div class="bw-form__row">
+                            <div class="bw-form__field">
+                                <label class="bw-form__label" for="bw-fname">First Name *</label>
+                                <input class="bw-form__input" type="text" id="bw-fname" name="first_name"
+                                    placeholder="e.g. John" required autocomplete="given-name">
+                            </div>
+                            <div class="bw-form__field">
+                                <label class="bw-form__label" for="bw-lname">Last Name *</label>
+                                <input class="bw-form__input" type="text" id="bw-lname" name="last_name"
+                                    placeholder="e.g. Smith" required autocomplete="family-name">
+                            </div>
+                        </div>
+                        <div class="bw-form__field">
+                            <label class="bw-form__label" for="bw-company">Company Name *</label>
+                            <input class="bw-form__input" type="text" id="bw-company" name="company_name"
+                                placeholder="e.g. Iron Peak Fitness" required autocomplete="organization">
+                        </div>
+                        <div class="bw-form__field">
+                            <label class="bw-form__label" for="bw-email">Email *</label>
+                            <input class="bw-form__input" type="email" id="bw-email" name="email"
+                                placeholder="e.g. john@ironpeakfitness.com" required autocomplete="email">
+                        </div>
+                        <div class="bw-form__field">
+                            <label class="bw-form__label" for="bw-phone">Phone *</label>
+                            <input class="bw-form__input" type="tel" id="bw-phone" name="phone"
+                                placeholder="(555) 123-4567" required autocomplete="tel" maxlength="14">
+                        </div>
+                        <p class="bw-consent">By submitting, you consent to your data being stored per our <a
+                                href="/privacy-policy.html">Privacy Policy</a>.</p>
+                        <button type="submit" class="btn btn--glow bw-form__submit">Continue &rarr;</button>
+                    </form>
+                </div>
+                <div class="bw-calendar-side" id="bw-calendar">
+                    <div class="bw-calendar__blur-overlay" id="bw-blur-overlay">
+                        <span class="bw-calendar__lock">&#128274; Fill out the form to unlock</span>
+                    </div>
+                    <div class="bw-calendar__header">
+                        <button type="button" class="bw-calendar__nav" id="bw-prev-month"
+                            aria-label="Previous month">&lsaquo;</button>
+                        <span class="bw-calendar__month" id="bw-month-label"></span>
+                        <button type="button" class="bw-calendar__nav" id="bw-next-month"
+                            aria-label="Next month">&rsaquo;</button>
+                    </div>
+                    <div class="bw-calendar__weekdays">
+                        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                    </div>
+                    <div class="bw-calendar__grid" id="bw-cal-grid"></div>
+                    <div class="bw-times" id="bw-times" style="display:none;">
+                        <p class="bw-times__label" id="bw-times-label"></p>
+                        <div class="bw-times__grid" id="bw-times-grid"></div>
+                    </div>
+                    <button type="button" class="btn btn--glow bw-confirm" id="bw-confirm" style="display:none;">Confirm
+                        Booking &rarr;</button>
+                </div>
+            </div>
+            <div class="bw-confirmed" id="bw-confirmed" style="display:none;">
+                <div class="bw-confirmed__icon">&#10003;</div>
+                <h2 class="bw-heading">You're Booked!</h2>
+                <p class="bw-sub" id="bw-confirmed-details"></p>
+                <p class="bw-consent">We'll send a confirmation to your email. Talk soon!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/booking-widget.js"></script>
+</body>
+
+</html>

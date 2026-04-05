@@ -1,0 +1,17 @@
+{
+    "name": "nava-marketing-website",
+    "version": "1.0.0",
+    "description": "Marketing website for GymPropel — gym marketing experts",
+    "main": "scripts/build.js",
+    "scripts": {
+        "build": "node scripts/build.js",
+        "generate-blog": "node scripts/generate-blog.js"
+    },
+    "keywords": [
+        "marketing",
+        "gym",
+        "website"
+    ],
+    "author": "GymPropel",
+    "license": "PRIVATE"
+}

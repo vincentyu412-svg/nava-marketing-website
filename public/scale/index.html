@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>Scale Your Gym | GymPropel</title>
+    <meta name="description"
+        content="Better marketing. Free to start. Real results. GymPropel helps gym owners fill their gym — no payment required.">
+    <link rel="canonical" href="https://gympropel.com/scale/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Scale Your Gym | GymPropel">
+    <meta property="og:description" content="Better marketing. Free to start. Real results. No payment required.">
+    <meta property="og:url" content="https://gympropel.com/scale/">
+    <meta property="og:site_name" content="GymPropel">
+    <meta property="og:image" content="https://gympropel.com/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Scale Your Gym | GymPropel">
+    <meta name="twitter:description" content="Better marketing. Free to start. Real results. No payment required.">
+    <meta name="twitter:image" content="https://gympropel.com/assets/images/og-image.png">
+
+    <!-- Preload critical font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap">
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <style>
+        /* ── Scale page ── */
+        .scale-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+            padding: 2.5rem 1.5rem 1.5rem;
+        }
+
+        .scale-logo {
+            font-family: var(--font-main);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 2rem;
+            color: var(--color-white);
+            opacity: 0.7;
+        }
+
+        .scale-logo span {
+            color: var(--color-accent);
+        }
+
+        .scale-badge {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.12);
+            border: 1px solid rgba(233, 69, 96, 0.25);
+            color: var(--color-accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .scale-headline {
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+            display: flex;
+            gap: 0.3em;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .scale-headline .dot {
+            color: var(--color-accent);
+        }
+
+        .scale-sub {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 0.6rem;
+            font-weight: 400;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .scale-trial {
+            font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: 0.4rem;
+        }
+
+        .scale-trial em {
+            color: var(--color-accent);
+            font-style: normal;
+        }
+
+        .scale-micro {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+        }
+
+        .scale-spots {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: clamp(1.1rem, 3vw, 1.35rem);
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.25), rgba(233, 69, 96, 0.10));
+            border: 1.5px solid rgba(233, 69, 96, 0.5);
+            border-radius: 50px;
+            padding: 0.6rem 1.6rem;
+            margin-bottom: 1.2rem;
+            animation: pulse-spots 1.8s ease-in-out infinite;
+            letter-spacing: 0.01em;
+        }
+
+        .scale-spots .spots-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink-dot 1s step-end infinite;
+        }
+
+        @keyframes blink-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes pulse-spots {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        .scale-form-spots {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            letter-spacing: 0.03em;
+        }
+
+        .scale-trust {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .scale-trust__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.45rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.75);
+            letter-spacing: 0.01em;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .scale-trust__item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(233, 69, 96, 0.35);
+        }
+
+        .scale-trust__icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(233, 69, 96, 0.15);
+            flex-shrink: 0;
+        }
+
+        .scale-trust__icon svg {
+            width: 13px;
+            height: 13px;
+            fill: none;
+            stroke: var(--color-accent);
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        @media (max-width: 480px) {
+            .scale-trust {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.4rem;
+                padding: 0 0.5rem;
+            }
+
+            .scale-trust__item {
+                font-size: 0.75rem;
+                padding: 0.35rem 0.65rem;
+                justify-content: center;
+            }
+
+            .scale-trust__icon {
+                width: 18px;
+                height: 18px;
+            }
+
+            .scale-trust__icon svg {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        .scale-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 2px;
+            margin: 0 auto 2rem;
+            opacity: 0.5;
+        }
+
+        .scale-form-label {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: 1rem;
+        }
+
+        /* Embedded widget */
+        .scale-embed {
+            width: 100%;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .scale-embed .modal__content--booking {
+            position: relative;
+            transform: none;
+            opacity: 1;
+            pointer-events: auto;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .scale-embed .modal__close {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .scale-page {
+                padding: 1.5rem 1rem 2rem;
+            }
+
+            .scale-headline {
+                font-size: clamp(1.8rem, 8vw, 3rem);
+                flex-wrap: nowrap;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scale-page">
+        <span class="scale-logo">Gym<span>Propel</span></span>
+
+        <span class="scale-badge">&#9889; Gym Owners Only</span>
+
+        <h1 class="scale-headline">
+            <span>Better<span class="dot">.</span></span>
+            <span>Free<span class="dot">.</span></span>
+            <span>Results<span class="dot">.</span></span>
+        </h1>
+
+        <p class="scale-trial">Apply for your <em>free 15-day trial</em> &darr;</p>
+        <p class="scale-spots"><span class="spots-dot"></span> Only <strong>5 spots left</strong> this month</p>
+
+        <div class="scale-trust">
+            <span class="scale-trust__item">
+                <span class="scale-trust__icon"><svg viewBox="0 0 24 24">
+                        <rect x="2" y="5" width="20" height="14" rx="2" />
+                        <line x1="2" y1="11" x2="22" y2="11" />
+                        <line x1="4" y1="3" x2="20" y2="21" />
+                    </svg></span>
+                No Payment
+            </span>
+            <span class="scale-trust__item">
+                <span class="scale-trust__icon"><svg viewBox="0 0 24 24">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="9" y1="12" x2="15" y2="18" />
+                        <line x1="15" y1="12" x2="9" y2="18" />
+                    </svg></span>
+                No Contract
+            </span>
+            <span class="scale-trust__item">
+                <span class="scale-trust__icon"><svg viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        <polyline points="9 12 11 14 15 10" />
+                    </svg></span>
+                No Risk
+            </span>
+            <span class="scale-trust__item">
+                <span class="scale-trust__icon"><svg viewBox="0 0 24 24">
+                        <polyline points="1 4 1 10 7 10" />
+                        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+                    </svg></span>
+                Cancel Anytime
+            </span>
+        </div>
+
+        <div class="scale-divider"></div>
+
+        <p class="scale-form-label">Book Your Strategy Call</p>
+        <p class="scale-form-spots">&#9201; 5 / 10 spots claimed &mdash; only 5 remain</p>
+
+        <!-- Embedded Booking Widget — exact same markup as homepage popup -->
+        <div class="scale-embed" style="margin-bottom:1.5rem;">
+            <div class="modal__content modal__content--booking">
+                <button class="modal__close" aria-label="Close modal">&times;</button>
+
+                <!-- Progress bar -->
+                <div class="bw-progress">
+                    <div class="bw-progress__step bw-progress__step--active" data-step="1">
+                        <span class="bw-progress__dot">1</span>
+                        <span class="bw-progress__label">Fill Out Form</span>
+                    </div>
+                    <div class="bw-progress__line"></div>
+                    <div class="bw-progress__step" data-step="2">
+                        <span class="bw-progress__dot">2</span>
+                        <span class="bw-progress__label">Pick a Time</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Contact form + blurred calendar -->
+                <div class="bw-body">
+                    <div class="bw-form-side" id="bw-step-1">
+                        <h2 class="bw-heading">Schedule Your Strategy Call</h2>
+                        <p class="bw-sub">A quick chat to see if you qualify for the free trial.</p>
+                        <form class="bw-form" id="bw-contact-form">
+                            <div class="bw-form__row">
+                                <div class="bw-form__field">
+                                    <label class="bw-form__label" for="bw-fname">First Name *</label>
+                                    <input class="bw-form__input" type="text" id="bw-fname" name="first_name"
+                                        placeholder="e.g. John" required autocomplete="given-name">
+                                </div>
+                                <div class="bw-form__field">
+                                    <label class="bw-form__label" for="bw-lname">Last Name *</label>
+                                    <input class="bw-form__input" type="text" id="bw-lname" name="last_name"
+                                        placeholder="e.g. Smith" required autocomplete="family-name">
+                                </div>
+                            </div>
+                            <div class="bw-form__field">
+                                <label class="bw-form__label" for="bw-company">Company Name *</label>
+                                <input class="bw-form__input" type="text" id="bw-company" name="company_name"
+                                    placeholder="e.g. Iron Peak Fitness" required autocomplete="organization">
+                            </div>
+                            <div class="bw-form__field">
+                                <label class="bw-form__label" for="bw-email">Email *</label>
+                                <input class="bw-form__input" type="email" id="bw-email" name="email"
+                                    placeholder="e.g. john@ironpeakfitness.com" required autocomplete="email">
+                            </div>
+                            <div class="bw-form__field">
+                                <label class="bw-form__label" for="bw-phone">Phone *</label>
+                                <input class="bw-form__input" type="tel" id="bw-phone" name="phone"
+                                    placeholder="(555) 123-4567" required autocomplete="tel" maxlength="14">
+                            </div>
+                            <p class="bw-consent">By submitting, you consent to your data being stored per our <a
+                                    href="/privacy-policy.html">Privacy Policy</a>.</p>
+                            <button type="submit" class="btn btn--glow bw-form__submit">Continue &rarr;</button>
+                        </form>
+                    </div>
+
+                    <!-- Calendar side (always visible, blurred in step 1) -->
+                    <div class="bw-calendar-side" id="bw-calendar">
+                        <div class="bw-calendar__blur-overlay" id="bw-blur-overlay">
+                            <span class="bw-calendar__lock">&#128274; Fill out the form to unlock</span>
+                        </div>
+                        <div class="bw-calendar__header">
+                            <button type="button" class="bw-calendar__nav" id="bw-prev-month"
+                                aria-label="Previous month">&lsaquo;</button>
+                            <span class="bw-calendar__month" id="bw-month-label"></span>
+                            <button type="button" class="bw-calendar__nav" id="bw-next-month"
+                                aria-label="Next month">&rsaquo;</button>
+                        </div>
+                        <div class="bw-calendar__weekdays">
+                            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                        </div>
+                        <div class="bw-calendar__grid" id="bw-cal-grid"></div>
+
+                        <!-- Time slots (shown after picking a day) -->
+                        <div class="bw-times" id="bw-times" style="display:none;">
+                            <p class="bw-times__label" id="bw-times-label"></p>
+                            <div class="bw-times__grid" id="bw-times-grid"></div>
+                        </div>
+
+                        <!-- Confirm button -->
+                        <button type="button" class="btn btn--glow bw-confirm" id="bw-confirm"
+                            style="display:none;">Confirm Booking &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Confirmation -->
+                <div class="bw-confirmed" id="bw-confirmed" style="display:none;">
+                    <div class="bw-confirmed__icon">&#10003;</div>
+                    <h2 class="bw-heading">You're Booked!</h2>
+                    <p class="bw-sub" id="bw-confirmed-details"></p>
+                    <p class="bw-consent">We'll send a confirmation to your email. Talk soon!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logo Scroller -->
+    <section class="logo-scroller" aria-label="Trusted partners">
+        <div class="logo-scroller__stars" id="logo-stars" aria-hidden="true"></div>
+        <p class="logo-scroller__title">TRUSTED BY THE BEST</p>
+        <div class="logo-scroller__track">
+            <div class="logo-scroller__slide">
+                <div class="logo-scroller__item"><img src="/assets/images/star-gym.png" alt="Star Gym" loading="lazy"
+                        width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/hiitcore.png" alt="HIITCore Programs"
+                        loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/ion.png" alt="ION" loading="lazy" width="170"
+                        height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/muv.png" alt="MUV The Gym" loading="lazy"
+                        width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/puravida.png" alt="Pura Vida Fitness"
+                        loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/shelby-crossfit.png" alt="Shelby CrossFit"
+                        loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/rep-room.png" alt="Rep Room" loading="lazy"
+                        width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/health-targeted.png"
+                        alt="Health Targeted Solutions" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/polarize-crossfit.png" alt="Polarize CrossFit"
+                        loading="lazy" width="170" height="60"></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="logo-scroller__item"><img src="/assets/images/star-gym.png" alt="Star Gym" loading="lazy"
+                        width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/hiitcore.png" alt="HIITCore Programs"
+                        loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/ion.png" alt="ION" loading="lazy" width="170"
+                        height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/muv.png" alt="MUV The Gym" loading="lazy"
+                        width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/puravida.png" alt="Pura Vida Fitness"
+                        loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/shelby-crossfit.png" alt="Shelby CrossFit"
+                        loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/rep-room.png" alt="Rep Room" loading="lazy"
+                        width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/health-targeted.png"
+                        alt="Health Targeted Solutions" loading="lazy" width="170" height="60"></div>
+                <div class="logo-scroller__item"><img src="/assets/images/polarize-crossfit.png" alt="Polarize CrossFit"
+                        loading="lazy" width="170" height="60"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <h3>Gym<span>Propel</span></h3>
+                <p>Marketing for gyms that want to grow.</p>
+            </div>
+            <div class="footer__links">
+                <ul>
+                    <li><a href="/privacy-policy.html">Privacy</a></li>
+                    <li><a href="/terms-of-service.html">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 GymPropel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/booking-widget.js"></script>
+
+    <!-- Auto-fill form from Facebook Lead Form URL parameters -->
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var map = {
+                'bw-fname': ['first_name', 'fname', 'firstName'],
+                'bw-lname': ['last_name', 'lname', 'lastName'],
+                'bw-email': ['email'],
+                'bw-phone': ['phone', 'phone_number', 'phoneNumber'],
+                'bw-company': ['company_name', 'company', 'companyName', 'gym_name', 'gymName']
+            };
+            Object.keys(map).forEach(function (fieldId) {
+                var input = document.getElementById(fieldId);
+                if (!input) return;
+                var keys = map[fieldId];
+                for (var i = 0; i < keys.length; i++) {
+                    var val = params.get(keys[i]);
+                    if (val) {
+                        input.value = val;
+                        input.dispatchEvent(new Event('input', { bubbles: true }));
+                        break;
+                    }
+                }
+            });
+        })();
+    </script>
+
+    <!-- Twinkling stars for logo scroller -->
+    <script>
+        (function () {
+            var container = document.getElementById('logo-stars');
+            if (!container) return;
+            var frag = document.createDocumentFragment();
+            for (var i = 0; i < 60; i++) {
+                var star = document.createElement('span');
+                star.className = 'logo-star' + (Math.random() > 0.7 ? ' logo-star--bright' : '');
+                star.style.cssText = 'width:' + (Math.random() * 1.2 + 0.5) + 'px;height:' + (Math.random() * 1.2 + 0.5) + 'px;left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;animation-delay:' + (Math.random() * 4) + 's;animation-duration:' + (Math.random() * 2 + 1.5) + 's;';
+                frag.appendChild(star);
+            }
+            container.appendChild(frag);
+        })();
+    </script>
+</body>
+
+</html>
