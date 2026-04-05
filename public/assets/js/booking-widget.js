@@ -7,8 +7,8 @@
     'use strict';
 
     /* ── CONFIG ── */
-    var WEBHOOK_CONTACT = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/49ff8b4b-049f-43cd-a11f-6a0506448c55'; /* GoHighLevel webhook URL — fires when visitor submits contact details */
-    var WEBHOOK_BOOKING = 'https://services.leadconnectorhq.com/hooks/nj64FkmpN1Ul4VI6hosy/webhook-trigger/e168511d-2712-46a9-918f-108867edfe99'; /* GoHighLevel webhook URL — fires when visitor confirms a booking      */
+    var WEBHOOK_CONTACT = 'https://services.leadconnectorhq.com/hooks/nVhSHqctd2GUZqYd8AVQ/webhook-trigger/EXW6TiSKuP7lK2G7a2Es'; /* GoHighLevel webhook URL — fires when visitor submits contact details */
+    var WEBHOOK_BOOKING = 'https://services.leadconnectorhq.com/hooks/nVhSHqctd2GUZqYd8AVQ/webhook-trigger/lxdUf6eyYJrpRZwQI6Rl'; /* GoHighLevel webhook URL — fires when visitor confirms a booking      */
 
     /* Google Apps Script URL — returns busy times from your Google Calendar */
     var GCAL_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzl5dD_3WOxEBxjp9naQoxvSxSTSdMZ3jo8Eu2XllRKKzM1xwobGnqd8rEoy9OKZNHj/exec';
