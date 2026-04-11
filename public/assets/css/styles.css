@@ -131,7 +131,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.55rem 1.5rem;
+    padding: 0.7rem 2rem;
     background: rgba(20, 20, 35, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -141,14 +141,14 @@ img {
     top: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
-    max-width: 900px;
+    width: 85%;
+    max-width: 1100px;
     z-index: 100;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
 }
 
 .nav__logo {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: var(--color-white);
 }
@@ -177,9 +177,9 @@ img {
 .nav__cta {
     background: var(--color-accent);
     color: var(--color-white) !important;
-    padding: 0.45rem 1.1rem;
+    padding: 0.55rem 1.3rem;
     border-radius: 6px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
     transition: background 0.2s;
 }
@@ -213,10 +213,10 @@ img {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 5rem 5% 3rem;
+    padding: 6rem 5% 4rem;
     background: var(--color-primary);
     color: var(--color-white);
-    min-height: 480px;
+    min-height: 580px;
     overflow: hidden;
 }
 
@@ -428,10 +428,10 @@ img {
 }
 
 .hero h1 {
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-size: clamp(1.8rem, 4vw, 3.4rem);
     line-height: 1.1;
-    max-width: 700px;
-    margin-bottom: 1rem;
+    max-width: 850px;
+    margin-bottom: 1.2rem;
     font-weight: 900;
     letter-spacing: 0.02em;
     word-spacing: 0.08em;
@@ -443,8 +443,8 @@ img {
 }
 
 .hero p {
-    font-size: 0.95rem;
-    max-width: 520px;
+    font-size: 1.05rem;
+    max-width: 620px;
     margin-bottom: 1.5rem;
     opacity: 0.85;
 }
@@ -457,7 +457,7 @@ img {
 }
 
 .hero__subtext {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 400;
     opacity: 0.7;
     margin-top: 0.3rem;
@@ -631,7 +631,7 @@ img {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0.85rem;
-    max-width: 1060px;
+    max-width: 1200px;
     margin: 0 auto 1.5rem;
     position: relative;
     z-index: 1;
@@ -768,7 +768,7 @@ img {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
-    max-width: 900px;
+    max-width: 1060px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -1013,7 +1013,7 @@ img {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    max-width: 900px;
+    max-width: 1060px;
     margin: 0 auto;
 }
 
@@ -1928,7 +1928,7 @@ img {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 2rem;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
