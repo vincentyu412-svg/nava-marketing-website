@@ -175,6 +175,24 @@
         });
     }
 
+    /* ── TIMEZONE LABEL HELPER ── */
+    function getGmtLabel(tzValue, baseName) {
+        var now = new Date();
+        /* Current time in that timezone */
+        var curTime = now.toLocaleString('en-US', {
+            timeZone: tzValue, hour: 'numeric', minute: '2-digit', hour12: true
+        });
+        return baseName + ' — ' + curTime;
+    }
+
+    function refreshTzLabels() {
+        for (var i = 0; i < tzSelect.options.length; i++) {
+            var opt = tzSelect.options[i];
+            var base = opt.getAttribute('data-base-label');
+            if (base) opt.textContent = getGmtLabel(opt.value, base);
+        }
+    }
+
     /* ── TIMEZONE PICKER (created dynamically) ── */
     var tzPickerWrap = document.createElement('div');
     tzPickerWrap.className = 'bw-tz-picker';
@@ -188,7 +206,8 @@
     TIMEZONE_OPTIONS.forEach(function (opt) {
         var option = document.createElement('option');
         option.value = opt.value;
-        option.textContent = opt.label;
+        option.setAttribute('data-base-label', opt.label);
+        option.textContent = getGmtLabel(opt.value, opt.label);
         if (opt.value === selectedTimezone) option.selected = true;
         tzSelect.appendChild(option);
     });
@@ -196,6 +215,9 @@
     tzPickerWrap.appendChild(tzSelect);
     /* Insert into the times wrapper (between label and grid) */
     timesWrap.insertBefore(tzPickerWrap, timesGrid);
+
+    /* Refresh timezone labels every minute to keep current time accurate */
+    setInterval(refreshTzLabels, 60000);
 
     tzSelect.addEventListener('change', function () {
         selectedTimezone = tzSelect.value;
