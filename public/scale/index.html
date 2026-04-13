@@ -44,7 +44,7 @@
             background: var(--color-primary);
             color: var(--color-white);
             text-align: center;
-            padding: 2.5rem 1.5rem 1.5rem;
+            padding: 1.5rem 1.5rem 1rem;
         }
 
         .scale-logo {
@@ -52,7 +52,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: 0.02em;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             color: var(--color-white);
             opacity: 0.7;
         }
@@ -76,15 +76,21 @@
         }
 
         .scale-headline {
-            font-size: clamp(2.8rem, 8vw, 5rem);
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 800;
             line-height: 1.05;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.8rem;
             letter-spacing: -0.02em;
             display: flex;
-            gap: 0.3em;
+            gap: 0.35em;
             justify-content: center;
             flex-wrap: wrap;
+            color: var(--color-white);
+        }
+
+        .scale-headline em {
+            font-style: normal;
+            color: var(--color-accent);
         }
 
         .scale-headline .dot {
@@ -101,10 +107,10 @@
         }
 
         .scale-trial {
-            font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             font-weight: 700;
-            color: var(--color-white);
-            margin-bottom: 0.4rem;
+            color: var(--color-accent);
+            margin-bottom: 0.3rem;
         }
 
         .scale-trial em {
@@ -157,10 +163,10 @@
 
         .scale-trust {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.6rem;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.6rem;
         }
 
         .scale-trust__item {
@@ -211,7 +217,7 @@
             height: 3px;
             background: var(--color-accent);
             border-radius: 2px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.2rem;
             opacity: 0.5;
         }
 
@@ -259,9 +265,9 @@
             }
 
             .scale-headline {
-                font-size: clamp(2rem, 10vw, 3rem);
-                margin-bottom: 0.8rem;
-                gap: 0.2em;
+                font-size: clamp(1.6rem, 8vw, 2.5rem);
+                margin-bottom: 0.5rem;
+                gap: 0.25em;
             }
 
             .scale-trial {
@@ -326,15 +332,12 @@
     <div class="scale-page">
         <span class="scale-logo">Gym<span>Propel</span></span>
 
-        <span class="scale-badge">&#9889; Gym Owners Only</span>
-
         <h1 class="scale-headline">
-            <span>Better<span class="dot">.</span></span>
-            <span>Free<span class="dot">.</span></span>
-            <span>Results<span class="dot">.</span></span>
+            <span><em>More</em> Members<span class="dot">.</span></span>
+            <span>15 Days <em>Free</em><span class="dot">.</span></span>
         </h1>
 
-        <p class="scale-trial">Apply for your <em>free 15-day trial</em> &darr;</p>
+        <p class="scale-trial">Reserve your spot now &darr;</p>
 
         <div class="scale-trust">
             <span class="scale-trust__item">
@@ -398,17 +401,10 @@
                         <h2 class="bw-heading">Schedule Your Strategy Call</h2>
                         <p class="bw-sub">A quick chat to see if you qualify for the free trial.</p>
                         <form class="bw-form" id="bw-contact-form">
-                            <div class="bw-form__row">
-                                <div class="bw-form__field">
-                                    <label class="bw-form__label" for="bw-fname">First Name *</label>
-                                    <input class="bw-form__input" type="text" id="bw-fname" name="first_name"
-                                        placeholder="e.g. John" required autocomplete="given-name">
-                                </div>
-                                <div class="bw-form__field">
-                                    <label class="bw-form__label" for="bw-lname">Last Name *</label>
-                                    <input class="bw-form__input" type="text" id="bw-lname" name="last_name"
-                                        placeholder="e.g. Smith" required autocomplete="family-name">
-                                </div>
+                            <div class="bw-form__field">
+                                <label class="bw-form__label" for="bw-fname">First Name *</label>
+                                <input class="bw-form__input" type="text" id="bw-fname" name="first_name"
+                                    placeholder="e.g. John" required autocomplete="given-name">
                             </div>
                             <div class="bw-form__field">
                                 <label class="bw-form__label" for="bw-company">Company Name *</label>
@@ -541,8 +537,7 @@
         (function () {
             var params = new URLSearchParams(window.location.search);
             var map = {
-                'bw-fname': ['first_name', 'fname', 'firstName'],
-                'bw-lname': ['last_name', 'lname', 'lastName'],
+                'bw-fname': ['first_name', 'fname', 'firstName', 'full_name', 'name'],
                 'bw-email': ['email'],
                 'bw-phone': ['phone', 'phone_number', 'phoneNumber'],
                 'bw-company': ['company_name', 'company', 'companyName', 'gym_name', 'gymName']

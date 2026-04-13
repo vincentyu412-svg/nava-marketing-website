@@ -429,9 +429,10 @@
     /* ── STEP 1: CONTACT FORM ── */
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
+        var lnameEl = document.getElementById('bw-lname');
         contactData = {
             first_name: document.getElementById('bw-fname').value.trim(),
-            last_name: document.getElementById('bw-lname').value.trim(),
+            last_name: lnameEl ? lnameEl.value.trim() : '',
             company_name: document.getElementById('bw-company').value.trim(),
             email: document.getElementById('bw-email').value.trim(),
             phone: '+1' + phoneInput.value.replace(/\D/g, ''),
@@ -478,7 +479,7 @@
         summaryCard.className = 'bw-summary';
         summaryCard.id = 'bw-summary';
         summaryCard.innerHTML =
-            '<div class="bw-summary__row"><span class="bw-summary__label">Name</span><span class="bw-summary__value">' + contactData.first_name + ' ' + contactData.last_name + '</span></div>' +
+            '<div class="bw-summary__row"><span class="bw-summary__label">Name</span><span class="bw-summary__value">' + (contactData.last_name ? contactData.first_name + ' ' + contactData.last_name : contactData.first_name) + '</span></div>' +
             '<div class="bw-summary__row"><span class="bw-summary__label">Company</span><span class="bw-summary__value">' + contactData.company_name + '</span></div>' +
             '<div class="bw-summary__row"><span class="bw-summary__label">Email</span><span class="bw-summary__value">' + contactData.email + '</span></div>' +
             '<div class="bw-summary__row"><span class="bw-summary__label">Phone</span><span class="bw-summary__value">' + (phoneFormatted ? '+1 ' + phoneFormatted : contactData.phone) + '</span></div>';
