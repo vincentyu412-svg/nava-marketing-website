@@ -44,7 +44,7 @@
             background: var(--color-primary);
             color: var(--color-white);
             text-align: center;
-            padding: 2.5rem 1.5rem 1.5rem;
+            padding: 1.75rem 1.5rem 1.5rem;
         }
 
         .scale-logo {
@@ -52,7 +52,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: 0.02em;
-            margin-bottom: 2rem;
+            margin-bottom: 1.25rem;
             color: var(--color-white);
             opacity: 0.7;
         }
@@ -63,23 +63,23 @@
 
         .scale-badge {
             display: inline-block;
-            background: rgba(233, 69, 96, 0.12);
-            border: 1px solid rgba(233, 69, 96, 0.25);
-            color: var(--color-accent);
-            font-size: 0.8rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            padding: 0.4rem 1rem;
+            padding: 0.4rem 1.1rem;
             border-radius: 50px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.1rem;
         }
 
         .scale-headline {
-            font-size: clamp(2.8rem, 8vw, 5rem);
+            font-size: clamp(2.6rem, 8vw, 4.6rem);
             font-weight: 800;
             line-height: 1.05;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             letter-spacing: -0.02em;
             display: flex;
             gap: 0.3em;
@@ -116,7 +116,7 @@
             font-size: 0.95rem;
             color: rgba(255, 255, 255, 0.4);
             font-weight: 400;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .scale-spots {
@@ -157,21 +157,21 @@
 
         .scale-trust {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.6rem;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .scale-trust__item {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 0.55rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 50px;
-            padding: 0.65rem 1.3rem;
-            font-size: 0.95rem;
+            padding: 0.55rem 1.1rem;
+            font-size: 0.85rem;
             font-weight: 500;
             color: rgba(255, 255, 255, 0.75);
             letter-spacing: 0.01em;
@@ -211,7 +211,7 @@
             height: 3px;
             background: var(--color-accent);
             border-radius: 2px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
             opacity: 0.5;
         }
 
@@ -236,10 +236,85 @@
             pointer-events: auto;
             width: 100%;
             max-width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: none;
         }
 
         .scale-embed .modal__close {
             display: none;
+        }
+
+        /* Dark theme for the calendar/form so it blends with the page instead of a white card */
+        .scale-embed .bw-heading,
+        .scale-embed .bw-calendar__month,
+        .scale-embed .bw-times-left__heading,
+        .scale-embed .bw-times__label,
+        .scale-embed .bw-summary__value {
+            color: var(--color-white);
+        }
+
+        .scale-embed .bw-sub,
+        .scale-embed .bw-times-left__date,
+        .scale-embed .bw-summary__label,
+        .scale-embed .bw-form__label,
+        .scale-embed .bw-consent,
+        .scale-embed .bw-tz-picker__label {
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .scale-embed .bw-summary {
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .scale-embed .bw-summary__row+.bw-summary__row {
+            border-top-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .scale-embed .bw-form__input,
+        .scale-embed .bw-tz-picker__select {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: var(--color-white);
+        }
+
+        .scale-embed .bw-form__input::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .scale-embed .bw-calendar__nav {
+            border-color: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .scale-embed .bw-calendar__weekdays span {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .scale-embed .bw-calendar__day {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .scale-embed .bw-calendar__day--disabled {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .scale-embed .bw-times {
+            border-top-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .scale-embed .bw-times__slot {
+            border-color: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .scale-embed .bw-calendar__lock {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .scale-embed .bw-calendar__blur-overlay {
+            background: rgba(255, 255, 255, 0.03);
         }
 
         @media (max-width: 600px) {
