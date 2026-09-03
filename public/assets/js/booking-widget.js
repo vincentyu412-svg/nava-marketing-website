@@ -175,6 +175,24 @@
         });
     }
 
+    /* ── TIMEZONE LABEL HELPER ── */
+    function getGmtLabel(tzValue, baseName) {
+        var now = new Date();
+        /* Current time in that timezone */
+        var curTime = now.toLocaleString('en-US', {
+            timeZone: tzValue, hour: 'numeric', minute: '2-digit', hour12: true
+        });
+        return baseName + ' — ' + curTime;
+    }
+
+    function refreshTzLabels() {
+        for (var i = 0; i < tzSelect.options.length; i++) {
+            var opt = tzSelect.options[i];
+            var base = opt.getAttribute('data-base-label');
+            if (base) opt.textContent = getGmtLabel(opt.value, base);
+        }
+    }
+
     /* ── TIMEZONE PICKER (created dynamically) ── */
     var tzPickerWrap = document.createElement('div');
     tzPickerWrap.className = 'bw-tz-picker';
@@ -188,7 +206,8 @@
     TIMEZONE_OPTIONS.forEach(function (opt) {
         var option = document.createElement('option');
         option.value = opt.value;
-        option.textContent = opt.label;
+        option.setAttribute('data-base-label', opt.label);
+        option.textContent = getGmtLabel(opt.value, opt.label);
         if (opt.value === selectedTimezone) option.selected = true;
         tzSelect.appendChild(option);
     });
@@ -196,6 +215,9 @@
     tzPickerWrap.appendChild(tzSelect);
     /* Insert into the times wrapper (between label and grid) */
     timesWrap.insertBefore(tzPickerWrap, timesGrid);
+
+    /* Refresh timezone labels every minute to keep current time accurate */
+    setInterval(refreshTzLabels, 60000);
 
     tzSelect.addEventListener('change', function () {
         selectedTimezone = tzSelect.value;
@@ -407,9 +429,10 @@
     /* ── STEP 1: CONTACT FORM ── */
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
+        var lnameEl = document.getElementById('bw-lname');
         contactData = {
             first_name: document.getElementById('bw-fname').value.trim(),
-            last_name: document.getElementById('bw-lname').value.trim(),
+            last_name: lnameEl ? lnameEl.value.trim() : '',
             company_name: document.getElementById('bw-company').value.trim(),
             email: document.getElementById('bw-email').value.trim(),
             phone: '+1' + phoneInput.value.replace(/\D/g, ''),
@@ -456,7 +479,7 @@
         summaryCard.className = 'bw-summary';
         summaryCard.id = 'bw-summary';
         summaryCard.innerHTML =
-            '<div class="bw-summary__row"><span class="bw-summary__label">Name</span><span class="bw-summary__value">' + contactData.first_name + ' ' + contactData.last_name + '</span></div>' +
+            '<div class="bw-summary__row"><span class="bw-summary__label">Name</span><span class="bw-summary__value">' + (contactData.last_name ? contactData.first_name + ' ' + contactData.last_name : contactData.first_name) + '</span></div>' +
             '<div class="bw-summary__row"><span class="bw-summary__label">Company</span><span class="bw-summary__value">' + contactData.company_name + '</span></div>' +
             '<div class="bw-summary__row"><span class="bw-summary__label">Email</span><span class="bw-summary__value">' + contactData.email + '</span></div>' +
             '<div class="bw-summary__row"><span class="bw-summary__label">Phone</span><span class="bw-summary__value">' + (phoneFormatted ? '+1 ' + phoneFormatted : contactData.phone) + '</span></div>';
