@@ -1920,15 +1920,14 @@ img {
 .footer {
     background: var(--color-primary);
     color: rgba(255, 255, 255, 0.7);
-    padding: 1.75rem 5% 1.25rem;
-    text-align: center;
+    padding: 3rem 5% 1.5rem;
 }
 
 .footer__inner {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -1939,27 +1938,20 @@ img {
 
 .footer__brand h3 {
     color: var(--color-white);
-    font-size: 1.05rem;
-    margin-bottom: 0.2rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
 }
 
 .footer__brand h3 span {
     color: var(--color-accent);
 }
 
-.footer__brand p {
-    font-size: 0.8rem;
-}
-
 .footer__links ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
 }
 
 .footer__links li {
-    margin-bottom: 0;
+    margin-bottom: 0.4rem;
 }
 
 .footer__links a:hover {
@@ -1968,10 +1960,10 @@ img {
 
 .footer__bottom {
     text-align: center;
-    padding-top: 0.6rem;
-    margin-top: 0.6rem;
+    padding-top: 2rem;
+    margin-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
