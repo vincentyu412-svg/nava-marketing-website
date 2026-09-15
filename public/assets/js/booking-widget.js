@@ -94,6 +94,14 @@
     /* ── HELPERS ── */
     function pad(n) { return n < 10 ? '0' + n : '' + n; }
 
+    /* Unique ID per event — shared with Meta Pixel + the GoHighLevel webhook payload so the
+       browser-side Pixel event and the server-side Conversions API event (fired from a GHL
+       workflow) can be deduplicated by Meta. */
+    function generateEventId() {
+        if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+        return 'evt-' + Date.now() + '-' + Math.random().toString(16).slice(2);
+    }
+
     /* Auto-format phone number as (XXX) XXX-XXXX */
     function formatPhoneInput(value) {
         var digits = value.replace(/\D/g, '');
@@ -436,10 +444,17 @@
             company_name: document.getElementById('bw-company').value.trim(),
             email: document.getElementById('bw-email').value.trim(),
             phone: '+1' + phoneInput.value.replace(/\D/g, ''),
-            submitted_at: new Date().toISOString()
+            submitted_at: new Date().toISOString(),
+            event_id: generateEventId()
         };
 
         sendWebhook(WEBHOOK_CONTACT, contactData);
+
+        /* Meta Pixel — Lead event. event_id matches the one sent to GoHighLevel above so a
+           GHL-side Conversions API "Lead" action can be deduplicated against this browser event. */
+        if (typeof fbq === 'function') {
+            fbq('track', 'Lead', { content_name: 'Scale Booking Widget' }, { eventID: contactData.event_id });
+        }
 
         blurOverlay.classList.add('bw-calendar__blur-overlay--hidden');
         step1.classList.add('bw-form-side--done');
@@ -533,10 +548,17 @@
             selected_slot: selectedSlotEST,
             timezone: BUSINESS_TZ,
             visitor_timezone: selectedTimezone,
-            booked_at: new Date().toISOString()
+            booked_at: new Date().toISOString(),
+            event_id: generateEventId()
         };
 
         sendWebhook(WEBHOOK_BOOKING, payload);
+
+        /* Meta Pixel — Schedule event. event_id matches the one sent to GoHighLevel above so a
+           GHL-side Conversions API "Schedule" action can be deduplicated against this browser event. */
+        if (typeof fbq === 'function') {
+            fbq('track', 'Schedule', { content_name: 'Scale Booking Widget' }, { eventID: payload.event_id });
+        }
 
         /* Redirect to confirmation page with booking details (date & time in EST) */
         var redirectUrl = '/booking-confirmation.html?date=' + encodeURIComponent(dateStr) +
