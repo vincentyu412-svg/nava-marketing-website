@@ -1,11 +1,10 @@
 // GET /api/busy: Vincent's Google Calendar busy times for the booking widget, served from Cloudflare's edge cache.
-// The Apps Script takes 3-7s per call, so we keep its last good answer and refresh it in the background:
-// fresh (< 60s) -> served as is; < 10 min -> served instantly while a refresh runs; older -> wait for the Apps Script;
-// Apps Script down -> last good copy (< 6h).
+// The Apps Script takes 3-7s per call and the cache is per data centre (low traffic = mostly cold), so any saved copy
+// (< 24h) is answered instantly and, when older than 60s, re-read from Google in the background. The widget sees the
+// copy's age (x-busy-age) and asks again a few seconds later to pick up the fresh one. No copy yet -> wait for Google.
 const ORIGIN = 'https://script.google.com/macros/s/AKfycbzl5dD_3WOxEBxjp9naQoxvSxSTSdMZ3jo8Eu2XllRKKzM1xwobGnqd8rEoy9OKZNHj/exec';
 const FRESH_S = 60;
-const SWR_S = 10 * 60;
-const KEEP_S = 6 * 60 * 60;
+const KEEP_S = 24 * 60 * 60;
 
 async function fetchOrigin() {
   const res = await fetch(ORIGIN, { redirect: 'follow' });
@@ -22,6 +21,7 @@ function reply(body, state, fetchedAt) {
       'content-type': 'application/json; charset=utf-8',
       'cache-control': 'no-store',
       'access-control-allow-origin': '*',
+      'access-control-expose-headers': 'x-busy-age, x-busy-cache',
       'x-busy-cache': state,
       'x-busy-age': String(Math.round((Date.now() - fetchedAt) / 1000)),
     },
@@ -42,19 +42,17 @@ export async function onRequestGet(ctx) {
   };
 
   const hit = await cache.match(key);
-  const at = hit ? Number(hit.headers.get('x-fetched-at')) || 0 : 0;
-  const cached = hit ? await hit.text() : null;
-  const age = Date.now() - at;
-  if (cached && age < FRESH_S * 1000) return reply(cached, 'HIT', at);
-  if (cached && age < SWR_S * 1000) {
+  if (hit) {
+    const at = Number(hit.headers.get('x-fetched-at')) || 0;
+    const body = await hit.text();
+    if (Date.now() - at < FRESH_S * 1000) return reply(body, 'HIT', at);
     ctx.waitUntil(refresh().catch(() => {}));
-    return reply(cached, 'STALE', at);
+    return reply(body, 'STALE', at);
   }
   try {
     const { body, now } = await refresh();
     return reply(body, 'MISS', now);
   } catch (e) {
-    if (cached) return reply(cached, 'STALE-ERROR', at);
     return new Response(JSON.stringify({ error: 'calendar unavailable' }), {
       status: 502,
       headers: { 'content-type': 'application/json', 'cache-control': 'no-store', 'access-control-allow-origin': '*' },
