@@ -1,0 +1,29 @@
+# Cloudflare Pages redirects for the production build (copied to out-prod/_redirects by `node assemble.js --prod`).
+# Format: <from> <to> <status>. Keep specific rules above general ones.
+
+# Old case-study pages (unlinked + noindex on the old site) -> their card on the Results hub
+/case-studies/hiitcore-fitness/ /case-studies/#hiitcore-fitness 301
+/case-studies/hiitcore-fitness /case-studies/#hiitcore-fitness 301
+/case-studies/muv-the-gym/ /case-studies/#muv-the-gym 301
+/case-studies/muv-the-gym /case-studies/#muv-the-gym 301
+/case-studies/crossfit-shelby/ /case-studies/#crossfit-shelby 301
+/case-studies/crossfit-shelby /case-studies/#crossfit-shelby 301
+/case-studies/puravida-fitness/ /case-studies/#puravida-fitness 301
+/case-studies/puravida-fitness /case-studies/#puravida-fitness 301
+
+# Retired service page (v3, 2026-09-25): organic social is no longer a standalone service
+/services/organic-social/ /services/ 301
+/services/organic-social /services/ 301
+
+# Legal pages moved from .html files to folders
+/privacy-policy.html /privacy-policy/ 301
+/terms-of-service.html /terms-of-service/ 301
+
+# Carried over from the old site (nava-marketing-website/src/static/_redirects)
+/pricing /services/ 301
+/pricing/ /services/ 301
+/sitemap-pages.xml /sitemap.xml 301
+/sitemap-blog.xml /sitemap.xml 301
+/sitemap-services.xml /sitemap.xml 301
+/sitemap-case-studies.xml /sitemap.xml 301
+/assets/images/vid4.MP4 /assets/images/vid4.mp4 301

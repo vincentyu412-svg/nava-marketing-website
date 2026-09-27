@@ -1,13 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>GymPropel Blog</title>
-  <subtitle>Marketing tips and strategies for gym owners who want to grow.</subtitle>
-  <link href="https://gympropel.com/feed.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://gympropel.com/" rel="alternate" type="text/html"/>
-  <id>https://gympropel.com/</id>
-  <updated>2026-03-08T00:00:00Z</updated>
-  <author>
-    <name>GymPropel</name>
-  </author>
+  <subtitle>Gym marketing guides, scripts and templates for gym owners.</subtitle>
+  <link href="https://gympropel.com/blog/"/>
+  <link rel="self" href="https://gympropel.com/feed.xml"/>
+  <id>https://gympropel.com/blog/</id>
+  <updated>2026-09-25T00:00:00Z</updated>
+  <entry>
+    <title>Gym Facebook ads: what a lead actually costs.</title>
+    <link href="https://gympropel.com/blog/gym-facebook-ads-cost-per-lead-benchmark/"/>
+    <id>https://gympropel.com/blog/gym-facebook-ads-cost-per-lead-benchmark/</id>
+    <published>2026-09-22T00:00:00Z</published>
+    <updated>2026-09-22T00:00:00Z</updated>
+    <author><name>Vincent Yu</name></author>
+    <summary>Why every gym Facebook ads cost-per-lead benchmark contradicts the next, the seven things that actually move the number, and how to build one for your gym.</summary>
+  </entry>
+  <entry>
+    <title>Gym front desk sales script, word for word.</title>
+    <link href="https://gympropel.com/blog/gym-front-desk-sales-script/"/>
+    <id>https://gympropel.com/blog/gym-front-desk-sales-script/</id>
+    <published>2026-09-22T00:00:00Z</published>
+    <updated>2026-09-22T00:00:00Z</updated>
+    <author><name>Vincent Yu</name></author>
+    <summary>The full gym front desk sales script: the inbound enquiry call and the in-person intro, line by line, plus what to say to the four objections you hear most.</summary>
+  </entry>
+  <entry>
+    <title>Gym lead follow-up text templates: the whole cadence.</title>
+    <link href="https://gympropel.com/blog/gym-lead-follow-up-text-templates/"/>
+    <id>https://gympropel.com/blog/gym-lead-follow-up-text-templates/</id>
+    <published>2026-09-22T00:00:00Z</published>
+    <updated>2026-09-22T00:00:00Z</updated>
+    <author><name>Vincent Yu</name></author>
+    <summary>Copy-paste gym lead follow-up text templates for 5 minutes, 24 hours, 72 hours and day seven, plus the no-show sequence and a dormant lead re-engagement.</summary>
+  </entry>
+  <entry>
+    <title>Hire a gym marketing agency, or do it yourself?</title>
+    <link href="https://gympropel.com/blog/hire-gym-marketing-agency-or-diy/"/>
+    <id>https://gympropel.com/blog/hire-gym-marketing-agency-or-diy/</id>
+    <published>2026-09-22T00:00:00Z</published>
+    <updated>2026-09-22T00:00:00Z</updated>
+    <author><name>Vincent Yu</name></author>
+    <summary>An honest framework for deciding whether to hire a gym marketing agency, do it yourself, or hire nobody yet, written by an agency that turns gyms away.</summary>
+  </entry>
+  <entry>
+    <title>How to get more gym members</title>
+    <link href="https://gympropel.com/blog/how-to-get-more-gym-members/"/>
+    <id>https://gympropel.com/blog/how-to-get-more-gym-members/</id>
+    <published>2026-09-25T00:00:00Z</published>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <author><name>Vincent Yu</name></author>
+    <summary>How to get more gym members without discounting: where new members come from, what to fix first, and the order to do it in, from a gym marketing team.</summary>
+  </entry>
+  <entry>
+    <title>Gym intro offers that convert</title>
+    <link href="https://gympropel.com/blog/gym-intro-offers-that-convert/"/>
+    <id>https://gympropel.com/blog/gym-intro-offers-that-convert/</id>
+    <published>2026-09-25T00:00:00Z</published>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <author><name>Vincent Yu</name></author>
+    <summary>Gym intro offers compared: free trials, paid challenges and first sessions. What each one attracts, how each converts to a membership, and how to choose.</summary>
+  </entry>
+  <entry>
+    <title>Gym member retention past month six</title>
+    <link href="https://gympropel.com/blog/gym-member-retention/"/>
+    <id>https://gympropel.com/blog/gym-member-retention/</id>
+    <published>2026-09-25T00:00:00Z</published>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <author><name>Vincent Yu</name></author>
+    <summary>Gym member retention starts before someone signs. What to track at month three and six, the early warning signs, and simple habits that keep members.</summary>
+  </entry>
+  <entry>
+    <title>Google Business Profile for gyms</title>
+    <link href="https://gympropel.com/blog/google-business-profile-for-gyms/"/>
+    <id>https://gympropel.com/blog/google-business-profile-for-gyms/</id>
+    <published>2026-09-25T00:00:00Z</published>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <author><name>Vincent Yu</name></author>
+    <summary>A Google Business Profile for gyms, set up properly: categories, photos, hours, reviews and posts, so you show up when locals search for a gym near them.</summary>
+  </entry>
 </feed>
-

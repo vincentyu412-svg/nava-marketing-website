@@ -1,38 +1,77 @@
 # GymPropel
 
-> Marketing for gyms that want to grow.
+> Gym marketing agency for gym owners across North America. We run Facebook and Instagram ads (plus Google ads
+> where local search demand fits), automated lead follow-up and websites as one system, and report on members who sign and stay (retention at
+> month 3 and month 6), not lead counts. First month free, no contracts.
 
-GymPropel is a marketing agency that helps gyms attract more members, boost retention, and scale revenue with proven marketing strategies. We serve gym owners across North America — including CrossFit boxes, personal training studios, and general fitness facilities.
+Contact: vincent@gympropel.com
+Founder: Vincent Yu
+Site: https://gympropel.com
+
+## The offer
+
+- First month free (30 days). No contracts, no deposits, no upfront costs. Month to month after that.
+- Our fee in the free month is $0. The gym pays its own ad spend, straight to the platform (we never touch it or mark it up), plus minimal texting (SMS) costs.
+- Cancel any time by text, email or phone. The ad account stays the gym's own (we work in it with partner access), and the website is usually the gym's to keep.
+- One gym per market: we never work for your competitor.
+- You deal with the founder, Vincent Yu, directly, not an account manager.
+- Typical results once running: 5 to 15 new members per month, and the first new member in about 5 days.
+- Free 30-minute call with Vincent on Google Meet, no card needed. If we can't help your gym, we'll tell you on the call: https://gympropel.com/book/
+
+## Who it is for
+
+Gym owners with an existing member base who can fund their own ad spend, in a market where nobody already works
+with GymPropel. For very small gyms, paid ads may not be the bottleneck; we will say so on the call.
 
 ## Services
 
-- **Paid Advertising**: Meta ads targeting gym-seekers in your area.
-- **Organic Campaigns**: Social content that builds trust and generates leads.
-- **Custom Websites**: Mobile-first sites designed to convert visitors into members.
-- **AI Follow-Up System**: SMS, email, and voicemail automation that nurtures every lead 24/7.
-- **1-on-1 Strategy Support**: Dedicated strategist available around the clock.
+- [Gym Marketing Services: Ads, Follow-Up, Websites](https://gympropel.com/services/): Gym marketing services that turn strangers into members: Meta and Google ads, lead follow-up, automation, sign-ups, SEO and websites. First month free.
+- [Gym Facebook Ads: Meta Campaigns for Gyms](https://gympropel.com/services/meta-ads/): We run gym Facebook ads and Instagram campaigns aimed at a real driving radius, then hand every lead to follow-up that answers in minutes. No contract.
+- [Google Ads for Gyms: Search Campaigns](https://gympropel.com/services/google-ads/): Google Ads for gyms, built around the people already searching for a gym near them. Tight local keywords, tracked calls, and follow-up that answers fast.
+- [Gym Lead Follow-Up: Speed to Lead, Done for You](https://gympropel.com/services/lead-follow-up/): Gym lead follow-up that answers every inquiry in minutes by text, email and voicemail, then keeps going for weeks. Built, written and monitored by us.
+- [Gym Marketing Automation, Built and Run for You](https://gympropel.com/services/automation/): Gym marketing automation that runs in the background: your CRM pipeline, workflows and reactivation, built and monitored for you so no lead slips.
+- [Gym Membership Sign-Ups: From Booked to Signed](https://gympropel.com/services/sign-ups/): More gym membership sign-ups from the leads you already get: reminders so intros show up, an intro built to sell, and a clear path from booked to signed.
+- [Gym SEO: Get Found on Google Search and Maps](https://gympropel.com/services/seo/): Gym SEO for owners who want to show up when locals search for a gym near them: Google Business Profile, local pages and site fixes that compound over time.
+- [Gym Website Design Built to Book Intros](https://gympropel.com/services/websites/): Gym website design that loads fast on a phone and does one job: turn a visitor into a booked intro. Built, written and wired to your CRM. Usually yours to keep.
 
-## How It Works
+## Client results
 
-1. Apply and get accepted via a short call.
-2. We build and launch ads, landing pages, and follow-up systems in days.
-3. Leads show up, tour your gym, and sign up as members.
+As reported by each gym owner:
 
-## Offer
+- CrossFit Prior Lake (Prior Lake, MN), owner Josh: 81 to 132 members; 6 PT clients and 5 members in the first week. https://gympropel.com/case-studies/crossfit-prior-lake/
+- HIITCore Fitness, owner Carlos: $1.1K+ collected in his first week of launch.
+- MUV The Gym, owner Jose: $4.2K in new memberships in his first 40 days.
+- ION Strength & Conditioning, owner Jeremy: 5 new memberships and 20 appointments in 15 days.
+- Puravida Fitness, owner Erik P.: about 10 high-value members in one month (approximate).
+- CrossFit Shelby, owner Will B.: 61 to 72 members in one month.
 
-- 15-day free trial, no contract, cancel anytime.
-- Limited spots per month to ensure quality results.
+All results: https://gympropel.com/case-studies/
 
-## Results
+## Pages
 
-- Josh (CrossFit PL): 6 PT clients + 5 members in 1 week, grew from 81 to 132 members.
-- Carlos (HIITCore): Collected $1.1K+ in his first week of launch.
-- Jose (MUV The Gym): $4.2K in new memberships in his first 40 days.
-- Jeremy (Ion S&C): 5 new memberships + 20 appointments in 15 days.
-
-## Links
-
-- Homepage: https://gympropel.com/
-- Scale Your Gym: https://gympropel.com/scale/
-- Privacy Policy: https://gympropel.com/privacy-policy.html
-- Terms of Service: https://gympropel.com/terms-of-service.html
+- [Gym Marketing Agency | First Month Free](https://gympropel.com/): GymPropel is a gym marketing agency for gym owners in North America: Facebook and Google ads, lead follow-up and websites. First month free, no contracts.
+- [About GymPropel | Founder-Led Gym Marketing](https://gympropel.com/about/): Meet Vincent Yu and the gym marketing agency built for gym owners: judged on new members, one gym per market, first month free, no contracts.
+- [Our Gym Marketing Process, Step by Step](https://gympropel.com/process/): How our gym marketing process runs from the first call to month six: ads live within days, every lead followed up in minutes, members tracked, not leads.
+- [Free Gym Marketing Trial, No Contract](https://gympropel.com/offer/): Try our free gym marketing trial: 30 days of ads and lead follow-up with no contract, deposit or card. You pay only ad spend and minimal texting costs.
+- [Gym Marketing FAQ: Costs, Contracts, Results](https://gympropel.com/faq/): Straight answers on gym marketing with GymPropel: what the free month costs, contracts, who qualifies, how fast results come and what happens next.
+- [Gym Marketing Services: Ads, Follow-Up, Websites](https://gympropel.com/services/): Gym marketing services that turn strangers into members: Meta and Google ads, lead follow-up, automation, sign-ups, SEO and websites. First month free.
+- [Fitness Studio Marketing for Every Gym Type](https://gympropel.com/gyms/): Fitness studio marketing shaped to how your gym sells: HIIT, group fitness, CrossFit, 24/7 gyms and personal training studios. First month free.
+- [HIIT Studio Marketing: Fill Every Class](https://gympropel.com/gyms/hiit/): HIIT studio marketing that fills classes: local ads aimed at people who want a hard workout, fast lead follow-up and intros that turn into memberships.
+- [Group Fitness Marketing for Studios](https://gympropel.com/gyms/group-fitness/): Group fitness marketing for studios that sell a class schedule and a community: local ads, follow-up that books a first class, and sign-ups that stick.
+- [CrossFit Marketing for Affiliate Owners](https://gympropel.com/gyms/crossfit/): CrossFit marketing for affiliate owners: ads that reach people ready for coached training, follow-up that books a free intro, and a box that keeps growing.
+- [24 Hour Gym Marketing That Sells Memberships](https://gympropel.com/gyms/24-hour/): 24 hour gym marketing for access-controlled clubs: ads for people who want to train on their own schedule, fast follow-up and joining that works any hour.
+- [Personal Training Marketing for PT Studios](https://gympropel.com/gyms/personal-training/): Personal training marketing for PT studios: ads that find clients who want one-to-one coaching, follow-up that books a consult, and higher-value sign-ups.
+- [Gym Marketing Case Studies and Results](https://gympropel.com/case-studies/): Gym marketing case studies with real member numbers, owners in their own words and exactly what we ran. See how CrossFit Prior Lake went from 81 to 132.
+- [CrossFit Case Study: 81 to 132 Members](https://gympropel.com/case-studies/crossfit-prior-lake/): How CrossFit Prior Lake in Minnesota grew from 81 to 132 members with Meta ads, a landing page and automated lead follow-up. 11 signed in week one.
+- [Gym Owner Resources: Guides, Scripts and Tools](https://gympropel.com/resources/): Free gym owner resources in one place: marketing guides, word-for-word sales scripts, follow-up templates, a budget calculator and straight answers.
+- [Gym Marketing Tips, Scripts & Templates | GymPropel Blog](https://gympropel.com/blog/): The gym owner's playbook: gym marketing tips, a front desk sales script, follow-up text templates, a cost-per-lead benchmark and practical growth guides.
+- [Gym Facebook Ads Cost Per Lead: A Benchmark](https://gympropel.com/blog/gym-facebook-ads-cost-per-lead-benchmark/): Why every gym Facebook ads cost-per-lead benchmark contradicts the next, the seven things that actually move the number, and how to build one for your gym.
+- [Gym Front Desk Sales Script, Word for Word](https://gympropel.com/blog/gym-front-desk-sales-script/): The full gym front desk sales script: the inbound enquiry call and the in-person intro, line by line, plus what to say to the four objections you hear most.
+- [Gym Lead Follow-Up Text Templates](https://gympropel.com/blog/gym-lead-follow-up-text-templates/): Copy-paste gym lead follow-up text templates for 5 minutes, 24 hours, 72 hours and day seven, plus the no-show sequence and a dormant lead re-engagement.
+- [Hire a Gym Marketing Agency or Do It Yourself?](https://gympropel.com/blog/hire-gym-marketing-agency-or-diy/): An honest framework for deciding whether to hire a gym marketing agency, do it yourself, or hire nobody yet, written by an agency that turns gyms away.
+- [How to Get More Gym Members: A Practical Plan](https://gympropel.com/blog/how-to-get-more-gym-members/): How to get more gym members without discounting: where new members come from, what to fix first, and the order to do it in, from a gym marketing team.
+- [Gym Intro Offers That Convert to Members](https://gympropel.com/blog/gym-intro-offers-that-convert/): Gym intro offers compared: free trials, paid challenges and first sessions. What each one attracts, how each converts to a membership, and how to choose.
+- [Gym Member Retention Past Month Six](https://gympropel.com/blog/gym-member-retention/): Gym member retention starts before someone signs. What to track at month three and six, the early warning signs, and simple habits that keep members.
+- [Google Business Profile for Gyms: Setup Guide](https://gympropel.com/blog/google-business-profile-for-gyms/): A Google Business Profile for gyms, set up properly: categories, photos, hours, reviews and posts, so you show up when locals search for a gym near them.
+- [Gym Marketing Budget Calculator](https://gympropel.com/tools/gym-marketing-budget-calculator/): Work out what your gym should spend on marketing each month from your member count, average fee, growth target and churn. Free, and it shows its working.
+- [Book a Free Gym Marketing Call](https://gympropel.com/book/): Book a free 30-minute gym marketing call with founder Vincent Yu. See if your gym is a fit for a free first month. No contracts, no deposits, no card.

@@ -1,0 +1,1 @@
+import{a as s}from"./chunk-VVM7CQF3.js";function r(n=document){n.querySelectorAll(".sv-run, .sv-when").forEach(t=>{[...t.children].forEach((e,o)=>e.style.setProperty("--k",o)),s(t,({instant:e})=>{e&&t.classList.add("is-instant"),t.classList.add("is-run")},{threshold:.25})})}var c=n=>new Promise(t=>setTimeout(t,n));export{r as a,c as b};
