@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Front Desk Hub · Gym Propel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap">
+<style>
+@font-face { font-family: "Rohn Rounded"; src: url("/assets/fonts/rohn-rounded-bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Rohn Rounded"; src: url("/assets/fonts/rohn-rounded-black.woff2") format("woff2"); font-weight: 900; font-display: swap; }
+:root {
+  --bg: #0E0E1A; --navy: #181828; --glass: rgba(255,255,255,.045); --glass-2: rgba(255,255,255,.075); --edge: rgba(255,255,255,.09); --edge-2: rgba(255,255,255,.16);
+  --ink: #FFFFFF; --body: #D3D4E2; --muted: #9495B0; --hair: rgba(255,255,255,.08);
+  --accent: #EA4662; --accent-2: #FF8A5B; --accent-ink: #FF7891; --on-accent: #FFFFFF;
+  --grad: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%);
+  --text: #98C1D9; --call: #3DD68C; --on-call: #062817;
+  --frame: #34344A; --screen: #000000; --bubble-out: #2F6FB5; --bubble-in: #26262B; --phone-muted: #8E8EA0;
+  --display: "Rohn Rounded", "Poppins", system-ui, sans-serif;
+  --sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --ease: cubic-bezier(.2,.8,.2,1); --spring: cubic-bezier(.34,1.56,.64,1);
+  --wrap: 1160px; --gutter: 24px; --bar-h: 64px; --foot-h: 86px; --radius: 22px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; min-height: 100vh; background: transparent; color: var(--body); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; }
+h1, h2, h3, p, ol, ul, figure { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+h1, h2, h3 { color: var(--ink); font-family: var(--display); font-weight: 700; text-wrap: balance; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; border-radius: 12px; }
+[tabindex="-1"]:focus { outline: none; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); }
+
+.aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.aurora::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--hair) 1px, transparent 1px), linear-gradient(90deg, var(--hair) 1px, transparent 1px); background-size: 56px 56px; opacity: .35; -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 0%, transparent 75%); mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 0%, transparent 75%); }
+.aurora i { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .55; animation: drift 26s var(--ease) infinite alternate; }
+.aurora i:nth-child(1) { width: 560px; height: 560px; left: -140px; top: -180px; background: radial-gradient(circle, rgba(234,70,98,.55), transparent 65%); }
+.aurora i:nth-child(2) { width: 620px; height: 620px; right: -220px; top: 10%; background: radial-gradient(circle, rgba(76,96,230,.45), transparent 65%); animation-duration: 32s; animation-delay: -8s; }
+.aurora i:nth-child(3) { width: 420px; height: 420px; left: 30%; bottom: -220px; background: radial-gradient(circle, rgba(61,214,140,.22), transparent 65%); animation-duration: 38s; animation-delay: -16s; }
+@keyframes drift { 0% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(60px,40px,0) scale(1.12); } 100% { transform: translate3d(-40px,80px,0) scale(.95); } }
+
+.top { position: sticky; top: 0; z-index: 20; padding-top: env(safe-area-inset-top, 0px); background: color-mix(in srgb, var(--bg) 72%, transparent); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--hair); }
+.top-in { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); height: var(--bar-h); display: flex; align-items: center; gap: 14px; }
+.top-in img { height: 22px; width: auto; display: block; }
+.divider { width: 1px; height: 22px; background: var(--edge-2); flex: 0 0 auto; }
+.hub-name { color: var(--ink); font-family: var(--display); font-size: 15px; font-weight: 700; white-space: nowrap; }
+.q-pill { margin-left: auto; flex: 0 0 auto; appearance: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: 1px solid var(--edge); border-radius: 99px; background: var(--glass); color: var(--ink); font-size: 14px; font-weight: 500; transition: background .25s, border-color .25s, transform .25s var(--spring); }
+.q-pill:hover { background: var(--glass-2); border-color: var(--edge-2); transform: translateY(-1px); }
+.q-pill svg { width: 16px; height: 16px; color: var(--accent-ink); }
+.q-pill .short { display: none; }
+@media (max-width: 560px) { .divider, .hub-name { display: none; } .q-pill .long { display: none; } .q-pill .short { display: inline; } }
+.progress { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter) 12px; display: grid; grid-template-columns: repeat(var(--count), minmax(0, 1fr)); gap: 6px; }
+.progress button { appearance: none; border: 0; padding: 6px 0 0; background: transparent; cursor: pointer; display: grid; gap: 8px; text-align: left; min-height: 28px; position: relative; }
+.progress button::before { content: ""; height: 4px; border-radius: 4px; background: rgba(255,255,255,.1); }
+.progress button::after { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 4px; border-radius: 4px; background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease); }
+.progress button.is-done::after, .progress button[aria-current="step"]::after { transform: scaleX(1); }
+.progress button[aria-current="step"]::after { box-shadow: 0 0 14px rgba(234,70,98,.7); }
+.progress span { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color .3s; }
+.progress button:hover span { color: var(--body); }
+.progress button[aria-current="step"] span { color: var(--ink); font-weight: 500; }
+.progress-label { display: none; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter) 10px; font-size: 13px; color: var(--body); }
+@media (max-width: 760px) { .progress span { display: none; } .progress { gap: 4px; padding-bottom: 8px; } .js .progress-label { display: block; } .js .progress-label:empty { display: none; } }
+.no-js .progress { display: none; }
+
+main { padding-bottom: calc(var(--foot-h) + 24px); }
+.screen-step { padding-block: clamp(32px, 6vw, 72px); }
+.js .screen-step[hidden] { display: none; }
+.no-js .screen-step + .screen-step { border-top: 1px solid var(--hair); }
+.js .screen-step.enter [data-anim] { animation: rise .75s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 70ms); }
+.js .screen-step.enter[data-dir="back"] [data-anim] { animation-name: rise-back; }
+@keyframes rise { from { opacity: 0; transform: translate3d(28px, 14px, 0); filter: blur(6px); } }
+@keyframes rise-back { from { opacity: 0; transform: translate3d(-28px, 14px, 0); filter: blur(6px); } }
+
+.step-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px clamp(32px, 5vw, 72px); align-items: start; }
+.step-layout .visual { order: 1; }
+.step-layout .copy { order: 2; }
+@media (min-width: 900px) {
+  .step-layout.has-visual { grid-template-columns: minmax(0, 1fr) minmax(0, 440px); grid-template-areas: "head visual" "copy visual"; }
+  .step-layout.has-visual .step-head { grid-area: head; }
+  .step-layout.has-visual .copy { grid-area: copy; }
+  .step-layout.has-visual .visual { grid-area: visual; position: sticky; top: calc(var(--bar-h) + 70px); }
+  .step-layout.has-visual:has(.apps) { grid-template-columns: minmax(0, 1fr) minmax(0, 600px); }
+  .shots.apps { max-width: 600px; gap: 22px; }
+}
+@media (max-width: 899px) { .shots.apps { grid-template-columns: minmax(0, 1fr); max-width: 300px; gap: 28px; } .phone { max-width: 270px; } .phone-screen { min-height: 400px; } }
+.step-head { display: grid; gap: 16px; max-width: 780px; }
+.copy { display: grid; gap: 14px; align-content: start; max-width: 640px; }
+.copy.wide { max-width: none; }
+@media (max-width: 760px) { .js .step-head .step-count { display: none; } }
+.step-count, .eyebrow { justify-self: start; display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 10px; border-radius: 99px; background: rgba(234,70,98,.12); border: 1px solid rgba(234,70,98,.28); color: var(--accent-ink); font-size: 13px; font-weight: 600; letter-spacing: .02em; }
+.step-count::before, .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(234,70,98,.7); animation: beacon 2.2s ease-out infinite; }
+@keyframes beacon { 0% { box-shadow: 0 0 0 0 rgba(234,70,98,.7); } 80%, 100% { box-shadow: 0 0 0 10px rgba(234,70,98,0); } }
+.title { font-size: clamp(36px, 5.6vw, 62px); line-height: 1.03; letter-spacing: -0.015em; white-space: pre-line; }
+.lead { font-size: clamp(17px, 2vw, 20px); line-height: 1.55; color: var(--body); max-width: 48ch; }
+
+.card { border-radius: var(--radius); background: var(--glass); border: 1px solid var(--edge); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.points { display: grid; gap: 10px; counter-reset: point; }
+.points li { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 2px 16px; padding: 16px 20px 16px 16px; counter-increment: point; transition: transform .35s var(--spring), border-color .3s, background .3s; }
+.points li:hover { transform: translateX(4px); border-color: var(--edge-2); background: var(--glass-2); }
+.points li::before { content: counter(point); grid-row: span 2; width: 38px; height: 38px; border-radius: 12px; background: var(--grad); color: var(--on-accent); font-family: var(--display); font-size: 17px; display: grid; place-items: center; box-shadow: 0 8px 20px -8px rgba(234,70,98,.8); }
+.points b { color: var(--ink); font-size: 17px; font-weight: 600; line-height: 1.35; padding-top: 7px; }
+.points p { color: var(--body); font-size: 15px; line-height: 1.5; }
+.points.plain li { grid-template-columns: 12px minmax(0, 1fr); }
+.points.plain li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; margin-top: 14px; box-shadow: 0 0 12px rgba(234,70,98,.8); }
+.points.plain b { padding-top: 4px; }
+.note { display: flex; gap: 12px; align-items: flex-start; padding: 15px 18px; border-radius: 16px; background: linear-gradient(120deg, rgba(152,193,217,.14), rgba(152,193,217,.05)); border: 1px solid rgba(152,193,217,.22); color: var(--ink); font-size: 15px; line-height: 1.5; }
+.note::before { content: "i"; flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; background: var(--text); color: var(--bg); font-weight: 700; font-size: 13px; display: grid; place-items: center; margin-top: 1px; }
+.ph { background: rgba(234,70,98,.22); color: var(--ink); border-radius: 6px; padding: 1px 6px; font-weight: 500; white-space: nowrap; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+.lanes { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+@media (min-width: 560px) { .lanes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.lane { position: relative; overflow: hidden; padding: 22px; display: grid; gap: 14px; align-content: start; transition: transform .4s var(--spring), border-color .3s; }
+.lane::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: var(--hue); box-shadow: 0 0 24px var(--hue); }
+.lane::after { content: ""; position: absolute; width: 220px; height: 220px; right: -90px; top: -110px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--hue) 30%, transparent), transparent 70%); pointer-events: none; }
+.lane:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--hue) 45%, transparent); }
+.lane-head { display: flex; align-items: center; gap: 12px; }
+.lane-icon { width: 42px; height: 42px; border-radius: 13px; background: color-mix(in srgb, var(--hue) 18%, transparent); color: var(--hue); display: grid; place-items: center; flex: 0 0 auto; }
+.lane-icon svg { width: 20px; height: 20px; }
+.lane h3 { font-size: 20px; }
+.lane ul { display: grid; gap: 10px; }
+.lane li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 10px; font-size: 15px; color: var(--ink); line-height: 1.45; }
+.lane li svg { width: 18px; height: 18px; color: var(--hue); margin-top: 2px; }
+.hue-text { --hue: var(--text); }
+.hue-call { --hue: var(--call); }
+.hue-accent { --hue: var(--accent); }
+
+.visual { display: grid; gap: 16px; justify-items: center; }
+.shots { display: grid; grid-template-columns: repeat(var(--shots), minmax(0, 1fr)); gap: 20px; width: 100%; max-width: 600px; }
+.shot { display: grid; gap: 12px; justify-items: center; align-content: start; }
+.shot figcaption { font-size: 14px; color: var(--body); text-align: center; line-height: 1.4; max-width: 240px; }
+
+.app { width: 100%; max-width: 300px; border-radius: 34px 34px 0 0; padding: 7px 7px 0; background: var(--frame); box-shadow: 0 30px 60px -30px rgba(0,0,0,.8); }
+.app-screen { container-type: inline-size; position: relative; border-radius: 27px 27px 0 0; background: #000000; color: #FFFFFF; overflow: hidden; padding-bottom: 6cqw; -webkit-mask-image: linear-gradient(#000 80%, transparent); mask-image: linear-gradient(#000 80%, transparent); }
+.app-in { font: 400 4.6cqw/1.3 -apple-system, BlinkMacSystemFont, "Poppins", system-ui, sans-serif; letter-spacing: 0; }
+.app-status { display: flex; justify-content: space-between; align-items: center; padding: .9em 1.6em .5em; font-weight: 600; }
+.app-battery { width: 1.7em; height: .85em; border-radius: .25em; border: .1em solid #FFFFFF; position: relative; }
+.app-battery::after { content: ""; position: absolute; inset: .12em; right: .5em; border-radius: .1em; background: #FFFFFF; }
+.app-gym { display: flex; align-items: center; gap: .65em; padding: .7em 1.1em; }
+.app-ava { flex: 0 0 auto; width: 2.4em; height: 2.4em; border-radius: 50%; background: #1B2733; border: .08em solid #2F3E4D; display: grid; place-items: center; font-size: .82em; color: #D6DDE4; }
+.app-gym b { display: block; font-size: 1.12em; font-weight: 600; }
+.app-gym small, .app-muted { color: #8C9196; font-size: .8em; }
+.app-search { display: flex; align-items: center; gap: .6em; margin: .4em 1.1em .7em; padding: .55em .8em; border: .08em solid #3B3F44; border-radius: .7em; color: #8C9196; font-size: .86em; white-space: nowrap; overflow: hidden; }
+.app-search svg { width: 1.2em; height: 1.2em; flex: 0 0 auto; color: #C9CDD1; }
+.app-tabs { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; font-size: .86em; border-bottom: .08em solid #26292C; }
+.app-tabs span { padding: .55em 0; color: #E6E8EA; white-space: nowrap; }
+.app-tabs span:first-child { color: #4FB7A3; box-shadow: inset 0 -.18em 0 #4FB7A3; }
+.app-chips { display: flex; gap: .45em; padding: .65em 1.1em; }
+.app-chips span { padding: .3em .7em; border: .08em solid #3B3F44; border-radius: .45em; font-size: .74em; color: #E6E8EA; white-space: nowrap; }
+.app-row { position: relative; display: grid; grid-template-columns: 2.7em minmax(0, 1fr) auto; gap: .2em .7em; align-items: center; padding: .7em 1.1em; border-bottom: .08em solid #1C1E20; }
+.app-row .app-ava { grid-row: span 2; width: 2.7em; height: 2.7em; }
+.app-row b { font-weight: 500; font-size: .98em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app-row p { color: #8C9196; font-size: .8em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app-row time { color: #8C9196; font-size: .76em; }
+.app-row.unread time { color: #4FB7A3; }
+.app-badge { justify-self: end; min-width: 1.4em; height: 1.4em; border-radius: 99px; background: #A8D8CC; color: #0B2A23; font-size: .72em; font-weight: 600; display: grid; place-items: center; }
+.app-row.app-target { padding-right: 3em; }
+.app-target { outline: .16em solid var(--accent); outline-offset: -.16em; border-radius: .7em; background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.app-head { display: grid; grid-template-columns: 1.4em 2.4em minmax(0, 1fr) repeat(3, 1.9em); align-items: center; gap: .5em; padding: .5em .9em .7em; border-bottom: .08em solid #1C1E20; }
+.app-head svg { width: 1.35em; height: 1.35em; color: #FFFFFF; justify-self: center; }
+.app-head b { display: block; font-size: 1em; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app-head small { display: block; color: #8C9196; font-size: .72em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app-icon { position: relative; width: 1.9em; height: 1.9em; display: grid; place-items: center; border-radius: 50%; }
+.app-icon.app-hit { background: color-mix(in srgb, var(--accent) 30%, transparent); box-shadow: 0 0 0 .16em var(--accent); }
+.app-thread { display: grid; gap: .6em; padding: .9em .9em 0; }
+.app-date { justify-self: center; padding: .2em .8em; border-radius: 99px; background: #14201D; color: #C4CBC8; font-size: .72em; }
+.app-bubble { max-width: 84%; padding: .55em .8em .65em; border-radius: .9em; font-size: .86em; line-height: 1.35; white-space: pre-line; }
+.app-bubble small { display: block; color: #9AA7A2; font-size: .82em; margin-bottom: .2em; }
+.app-bubble.gym { justify-self: end; background: #2C4640; color: #E9EEEC; border-bottom-right-radius: .2em; }
+.app-bubble.lead { justify-self: start; background: #0F5D4D; color: #D2F1E7; border-bottom-left-radius: .2em; }
+.pin { position: absolute; z-index: 3; min-width: 1.55em; height: 1.55em; padding: 0 .3em; border-radius: 99px; background: var(--accent); color: #FFFFFF; font: 700 1em/1 var(--display); display: grid; place-items: center; box-shadow: 0 0 0 .16em #000000; }
+.app-row .pin, .app-menu-row .pin { right: .8em; top: 50%; transform: translateY(-50%); }
+.app-icon .pin, .app-save .pin { top: calc(100% + .55em); left: 50%; transform: translateX(-50%); }
+.app-icon .pin::before, .app-save .pin::before { content: ""; position: absolute; left: 50%; top: -.3em; width: .5em; height: .5em; background: var(--accent); transform: translateX(-50%) rotate(45deg); z-index: -1; }
+.app-field .pin { left: -.85em; top: 50%; transform: translateY(-50%); }
+.app-dim { opacity: .35; }
+.app-sheet { margin-top: .9em; border-radius: 1.2em 1.2em 0 0; background: #17191B; padding: .5em 0 1em; }
+.app-grabber { display: block; width: 2.6em; height: .28em; border-radius: 99px; background: #4A4E52; margin: 0 auto .7em; }
+.app-sheet-title { text-align: center; font-weight: 600; font-size: .92em; padding-bottom: .6em; border-bottom: .08em solid #26292C; }
+.app-menu-row { position: relative; display: flex; align-items: center; gap: .75em; padding: .8em 1.2em; font-size: .9em; border-bottom: .08em solid #1F2225; }
+.app-menu-row .app-glyph { width: 1.7em; height: 1.7em; border-radius: 50%; background: #1F4F46; color: #7FD6C2; display: grid; place-items: center; flex: 0 0 auto; }
+.app-menu-row .app-glyph svg { width: 1em; height: 1em; }
+.app-menu-row.app-target { padding-right: 3.2em; }
+.app-toggle { margin-left: auto; width: 2.3em; height: 1.35em; border-radius: 99px; background: #2E8C79; position: relative; }
+.app-toggle::after { content: ""; position: absolute; right: .17em; top: .17em; width: 1em; height: 1em; border-radius: 50%; background: #FFFFFF; }
+.app-formhead { display: grid; grid-template-columns: 1.4em minmax(0, 1fr) auto; align-items: center; gap: .6em; padding: .6em 1.1em .9em; }
+.app-formhead svg { width: 1.35em; height: 1.35em; }
+.app-formhead b { font-weight: 600; font-size: 1em; white-space: nowrap; }
+.app-save { position: relative; padding: .25em .55em; border-radius: .5em; font-weight: 500; }
+.app-save.app-hit { background: color-mix(in srgb, var(--accent) 30%, transparent); box-shadow: 0 0 0 .16em var(--accent); }
+.app-card { display: flex; align-items: center; gap: .7em; margin: 0 1.1em .9em; padding: .7em .8em; border-radius: .7em; background: #15181A; }
+.app-card b { display: block; font-weight: 500; font-size: .95em; }
+.app-field { position: relative; margin: 0 1.1em .75em; padding: .65em .9em .55em 1.15em; border: .08em solid #3B3F44; border-radius: .55em; }
+.app-field small { position: absolute; top: -.62em; left: .8em; padding: 0 .3em; background: #000000; color: #8C9196; font-size: .68em; }
+.app-field span { display: flex; justify-content: space-between; align-items: center; font-size: .86em; min-height: 1.3em; }
+.app-field span svg { width: 1.1em; height: 1.1em; color: #8C9196; }
+.app-field.app-target { border-color: var(--accent); border-width: .14em; background: color-mix(in srgb, var(--accent) 12%, transparent); outline: none; border-radius: .55em; }
+.app-seg { display: grid; grid-template-columns: 1fr 1fr; margin: 0 4em .9em; border: .08em solid #2E8C79; border-radius: .5em; overflow: hidden; font-size: .8em; text-align: center; }
+.app-seg span { padding: .35em 0; color: #7FD6C2; }
+.app-seg span:first-child { background: #1F5E52; color: #FFFFFF; }
+
+.app { box-shadow: 0 40px 80px -36px rgba(0,0,0,.95), 0 0 0 1px var(--edge); transition: transform .5s var(--spring); }
+.shot:hover .app { transform: translateY(-6px) rotate(-.6deg); }
+.pin::after { content: ""; position: absolute; inset: -.16em; border-radius: inherit; border: .14em solid var(--accent); animation: ping 1.8s ease-out infinite; }
+@keyframes ping { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(1.9); opacity: 0; } }
+.app-target { animation: glow 2.4s ease-in-out infinite; }
+@keyframes glow { 50% { box-shadow: 0 0 1.2em rgba(234,70,98,.45); } }
+
+.phone { position: relative; width: 100%; max-width: 290px; border-radius: 44px; padding: 8px; background: linear-gradient(160deg, #45455E, #23233A); box-shadow: 0 40px 80px -30px rgba(0,0,0,.95), inset 0 0 0 1px rgba(255,255,255,.08); animation: float 7s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-10px); } }
+.phone-screen { border-radius: 36px; background: var(--screen); min-height: 480px; display: flex; flex-direction: column; overflow: hidden; }
+.notch { width: 84px; height: 24px; border-radius: 99px; background: #111118; align-self: center; margin-top: 10px; flex: 0 0 auto; }
+.convo-head { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--hair); }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #3A3A5A, #2A2A44); color: var(--ink); display: grid; place-items: center; font-size: 12px; font-weight: 600; }
+.convo-head b { display: block; color: var(--ink); font-size: 14px; font-weight: 600; line-height: 1.2; }
+.convo-head small { color: var(--phone-muted); font-size: 11px; }
+.thread { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; padding: 14px 12px 18px; }
+.js .screen-step.enter .thread > * { animation: pop .55s var(--spring) backwards; animation-delay: calc(500ms + var(--t, 0) * 650ms); }
+@keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.92); } }
+.t-event { align-self: center; font-size: 11px; color: var(--phone-muted); text-align: center; }
+.t-out { align-self: flex-end; max-width: 88%; display: grid; gap: 3px; justify-items: end; }
+.t-out small { font-size: 10.5px; color: var(--phone-muted); padding-right: 6px; }
+.bubble { font-size: 13px; line-height: 1.38; padding: 8px 12px; border-radius: 18px; white-space: pre-line; }
+.bubble.out { background: linear-gradient(160deg, #3A80CC, var(--bubble-out)); color: var(--ink); border-bottom-right-radius: 6px; }
+.bubble.in { align-self: flex-start; max-width: 80%; background: var(--bubble-in); color: var(--ink); border-bottom-left-radius: 6px; }
+.bubble .ph { background: rgba(255,255,255,.22); }
+.t-call { align-self: center; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; border-radius: 99px; background: color-mix(in srgb, var(--call) 14%, transparent); font-size: 12px; color: var(--ink); }
+.t-call .ico { width: 24px; height: 24px; border-radius: 50%; background: var(--call); color: var(--on-call); display: grid; place-items: center; }
+.t-call .ico svg { width: 12px; height: 12px; }
+.t-call b { font-weight: 600; }
+.t-call small { color: var(--phone-muted); }
+.t-call.live { background: var(--call); color: var(--on-call); }
+.js .screen-step.enter .thread > .t-call.live { animation-name: pop, ring; animation-duration: .55s, 1.6s; animation-iteration-count: 1, infinite; animation-timing-function: var(--spring), ease-out; }
+.t-call.live small { color: var(--on-call); }
+.t-call.live .ico { background: rgba(0,0,0,.18); color: var(--on-call); }
+.t-call.live .ico svg { animation: wiggle 1.6s ease-in-out infinite; }
+@keyframes ring { 0% { box-shadow: 0 0 0 0 rgba(61,214,140,.6); } 70%, 100% { box-shadow: 0 0 0 14px rgba(61,214,140,0); } }
+@keyframes wiggle { 0%, 60%, 100% { transform: rotate(0); } 10%, 30%, 50% { transform: rotate(-14deg); } 20%, 40% { transform: rotate(14deg); } }
+
+.script { padding: clamp(20px, 3vw, 30px); display: grid; gap: 4px; }
+.script-top { padding-bottom: 16px; border-bottom: 1px solid var(--hair); }
+.energy { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-family: var(--display); font-size: 19px; }
+.energy::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); animation: beacon 1.6s ease-out infinite; }
+.beats { display: grid; counter-reset: beat; position: relative; }
+.beat { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px 28px; padding-block: 18px; counter-increment: beat; }
+.beat + .beat { border-top: 1px solid var(--hair); }
+.beat:last-child { padding-bottom: 4px; }
+@media (min-width: 720px) { .beat { grid-template-columns: 160px minmax(0, 1fr); } }
+.beat-label { display: flex; align-items: center; gap: 10px; color: var(--accent-ink); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; align-self: start; padding-top: 3px; }
+.beat-label::before { content: counter(beat); width: 24px; height: 24px; border-radius: 8px; background: rgba(234,70,98,.14); color: var(--accent-ink); font-variant-numeric: tabular-nums; display: grid; place-items: center; font-size: 12px; }
+.beat-body { display: grid; gap: 8px; }
+.say { color: var(--ink); font-size: 17px; line-height: 1.55; max-width: 62ch; }
+.say.option { position: relative; padding-left: 22px; }
+.say.option::before { content: ""; position: absolute; left: 3px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.coach { color: var(--muted); font-size: 14.5px; font-style: italic; }
+.confirm .lines { display: grid; gap: 10px; padding-top: 14px; }
+.confirm .say { position: relative; padding-left: 18px; border-left: 2px solid rgba(61,214,140,.5); }
+
+.today { width: 100%; max-width: 380px; padding: 22px; display: grid; gap: 14px; animation: float 8s ease-in-out infinite; box-shadow: 0 40px 80px -36px rgba(0,0,0,.9); }
+.today-head { display: flex; align-items: center; gap: 12px; }
+.today-head .sun { width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; color: #FFC85C; background: rgba(255,200,92,.14); }
+.today-head .sun svg { width: 22px; height: 22px; animation: spin 18s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.today-head b { color: var(--ink); font-family: var(--display); font-size: 20px; display: block; line-height: 1.2; }
+.today-head small { color: var(--muted); font-size: 13px; }
+.today ul { display: grid; gap: 8px; }
+.today li { display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.04); border: 1px solid var(--hair); }
+.today time { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.today li b { display: block; color: var(--ink); font-size: 14.5px; font-weight: 600; line-height: 1.3; }
+.today li small { color: var(--muted); font-size: 12px; }
+.status { position: relative; display: grid; place-items: center; min-width: 96px; height: 30px; }
+.status > span { grid-area: 1 / 1; display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border-radius: 99px; font-size: 12px; font-weight: 600; }
+.status .dial { background: var(--call); color: var(--on-call); }
+.status .ok { background: rgba(61,214,140,.15); color: var(--call); opacity: 0; }
+.status svg { width: 13px; height: 13px; }
+.js .screen-step.enter .status .dial { animation: dial 1s ease-in-out both; animation-delay: calc(700ms + var(--t, 0) * 1100ms); }
+.js .screen-step.enter .status .ok { animation: confirm .5s var(--spring) both; animation-delay: calc(1500ms + var(--t, 0) * 1100ms); }
+.no-js .status .dial, .screen-step:not(.enter) .status .dial { opacity: 0; }
+.no-js .status .ok, .screen-step:not(.enter) .status .ok { opacity: 1; }
+@keyframes dial { 0% { opacity: 0; transform: scale(.6); } 20%, 75% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 6px rgba(61,214,140,.18); } 100% { opacity: 0; transform: scale(.8); } }
+@keyframes confirm { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: scale(1); } }
+
+.paper { position: relative; width: 100%; max-width: 340px; padding: 26px 24px 22px; border-radius: 6px; background: #FFFFFF; color: #111111; transform: rotate(-2deg); box-shadow: 0 40px 80px -30px rgba(0,0,0,.9), 0 0 0 1px rgba(0,0,0,.05); transition: transform .6s var(--spring); }
+.paper:hover { transform: rotate(0) translateY(-6px); }
+.paper::before { content: ""; position: absolute; inset: 10px -10px -10px 10px; z-index: -1; border-radius: 6px; background: rgba(255,255,255,.12); transform: rotate(4deg); }
+.paper-logo { display: block; width: 46px; height: 46px; margin: 0 auto 8px; border-radius: 50%; background: var(--grad); }
+.paper-title { display: block; text-align: center; font: 800 15px/1.2 "Poppins", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+.paper-rule { display: block; width: 70px; height: 3px; margin: 8px auto 14px; background: var(--accent); }
+.paper-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; margin-bottom: 14px; }
+.paper-fields span { font-size: 9.5px; font-weight: 600; border-bottom: 1px solid #222; padding-bottom: 2px; }
+.paper-q { font-size: 10px; font-weight: 700; margin: 10px 0 5px; }
+.paper-opts { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.paper-opts li { position: relative; font-size: 9px; color: #333; padding: 1px 3px; }
+.paper-opts li.circled::after { content: ""; position: absolute; inset: -3px -5px; border: 1.6px solid var(--accent); border-radius: 50%; transform: rotate(-4deg); }
+.js .screen-step.enter .paper-opts li.circled::after { animation: circle .6s var(--ease) backwards; animation-delay: calc(900ms + var(--t, 0) * 450ms); }
+@keyframes circle { from { opacity: 0; transform: rotate(-30deg) scale(.4); } }
+
+.panels { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (min-width: 760px) { .panels { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.panel { padding: 24px; display: grid; gap: 16px; align-content: start; transition: transform .4s var(--spring), border-color .3s; }
+.panel:hover { transform: translateY(-4px); border-color: var(--edge-2); }
+.panel h3 { font-size: 19px; }
+.checks { display: grid; gap: 11px; }
+.checks li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; font-size: 15px; color: var(--ink); line-height: 1.45; }
+.checks li svg { width: 20px; height: 20px; padding: 3px; border-radius: 50%; background: rgba(61,214,140,.15); color: var(--call); margin-top: 1px; }
+
+.welcome { display: grid; gap: clamp(36px, 6vw, 64px); }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px clamp(32px, 5vw, 72px); align-items: center; }
+@media (min-width: 900px) { .hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); } }
+.hero-copy { display: grid; gap: 22px; }
+.hero-title { font-size: clamp(46px, 8vw, 92px); font-weight: 900; line-height: .98; letter-spacing: -0.02em; }
+.hero-title em { font-style: normal; background: linear-gradient(100deg, var(--accent), var(--accent-2), #FFC85C, var(--accent)); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: sheen 8s linear infinite; }
+@keyframes sheen { to { background-position: 300% 0; } }
+.hero-cta { justify-self: start; }
+.flow { position: relative; display: grid; gap: 14px; padding: 26px 24px; }
+.flow::before { content: ""; position: absolute; left: 47px; top: 52px; bottom: 52px; width: 2px; background: repeating-linear-gradient(to bottom, var(--edge-2) 0 6px, transparent 6px 12px); animation: march 1s linear infinite; }
+@keyframes march { to { background-position: 0 12px; } }
+.flow li { position: relative; display: flex; align-items: center; gap: 14px; }
+.flow .dot { position: relative; z-index: 1; width: 46px; height: 46px; border-radius: 15px; display: grid; place-items: center; background: color-mix(in srgb, var(--hue) 18%, var(--navy)); color: var(--hue); border: 1px solid color-mix(in srgb, var(--hue) 40%, transparent); flex: 0 0 auto; }
+.flow .dot svg { width: 20px; height: 20px; }
+.flow b { display: block; color: var(--ink); font-size: 16px; font-weight: 600; line-height: 1.25; }
+.flow small { color: var(--muted); font-size: 13px; }
+.js .screen-step.enter .flow li { animation: rise .7s var(--ease) backwards; animation-delay: calc(350ms + var(--t, 0) * 160ms); }
+.js .screen-step.enter .flow .dot { animation: lit 4s ease-in-out infinite; animation-delay: calc(1.2s + var(--t, 0) * 800ms); }
+@keyframes lit { 0%, 30%, 100% { box-shadow: 0 0 0 0 transparent; } 10% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--hue) 22%, transparent), 0 0 30px color-mix(in srgb, var(--hue) 60%, transparent); } }
+.toc { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+@media (min-width: 640px) { .toc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .toc { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.toc button { appearance: none; cursor: pointer; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; min-height: 76px; padding: 14px 16px; text-align: left; transition: transform .4s var(--spring), background .3s, border-color .3s; }
+.toc button:hover { transform: translateY(-4px); background: var(--glass-2); border-color: rgba(234,70,98,.4); }
+.toc .n { width: 34px; height: 34px; border-radius: 11px; background: rgba(255,255,255,.07); color: var(--ink); font-family: var(--display); font-size: 15px; display: grid; place-items: center; transition: background .3s; }
+.toc button:hover .n { background: var(--grad); }
+.toc span.t { display: grid; line-height: 1.3; }
+.toc b { color: var(--ink); font-size: 15.5px; font-weight: 600; }
+.toc small { color: var(--muted); font-size: 13px; }
+.toc .go { width: 18px; height: 18px; color: var(--muted); transition: transform .3s var(--ease), color .3s; }
+.toc button:hover .go { transform: translateX(4px); color: var(--accent-ink); }
+.no-js .toc, .no-js .hero-cta { display: none; }
+
+.btn { position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 54px; padding: 0 26px; border: 0; border-radius: 16px; background: var(--grad); color: var(--on-accent); font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer; box-shadow: 0 14px 30px -14px rgba(234,70,98,.9); transition: transform .35s var(--spring), box-shadow .3s; }
+.btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%); transform: translateX(-120%); transition: transform .8s var(--ease); }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 20px 36px -14px rgba(234,70,98,.95); }
+.btn:hover::after { transform: translateX(120%); }
+.btn svg { width: 18px; height: 18px; flex: 0 0 auto; transition: transform .3s var(--ease); }
+.btn:hover svg:last-child { transform: translateX(3px); }
+.btn.ghost { background: var(--glass-2); color: var(--ink); box-shadow: inset 0 0 0 1px var(--edge); }
+.btn.ghost:hover svg:first-child { transform: translateX(-3px); }
+
+.foot-nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; padding-bottom: env(safe-area-inset-bottom, 0px); background: color-mix(in srgb, var(--bg) 72%, transparent); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); border-top: 1px solid var(--hair); }
+.foot-in { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); height: var(--foot-h); display: flex; align-items: center; gap: 12px; }
+.foot-in .btn { height: 56px; min-width: 124px; }
+.foot-in .btn[hidden] { display: none; }
+.foot-in .next { margin-left: auto; }
+.next-label { display: grid; line-height: 1.15; text-align: left; }
+.next-label small { font-size: 12px; font-weight: 500; opacity: .85; }
+.next-label small[hidden] { display: none; }
+.no-js .foot-nav { display: none; }
+.page-foot { padding: 36px var(--gutter) 0; text-align: center; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 560px) {
+  :root { --gutter: 16px; --foot-h: 78px; }
+  .foot-in .btn { min-width: 0; padding: 0 18px; }
+  .foot-in .back span { display: none; }
+  .foot-in .next { flex: 1 1 auto; }
+  .today li { grid-template-columns: 62px minmax(0, 1fr) auto; gap: 10px; padding: 11px 12px; }
+  .status { min-width: 86px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } .status .dial { opacity: 0; } .status .ok { opacity: 1; } }
+@media print { .top, .foot-nav, .toc, .aurora, .hero-cta { display: none !important; } .screen-step[hidden] { display: block !important; } body { background: #FFFFFF; } }
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<header class="top">
+    <div class="top-in"><img src="/assets/images/gym-propel-logo.webp" alt="Gym Propel" width="123" height="22"><span class="divider"></span><b class="hub-name">Front Desk Hub</b><button type="button" class="q-pill" data-go="trial-day"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg><span class="long">Pre-sale questionnaire</span><span class="short">Questionnaire</span></button></div>
+    <nav class="progress" style="--count: 8" aria-label="Guide steps"><button type="button" data-go="how-it-works" aria-label="How it works"><span>How it works</span></button><button type="button" data-go="call" aria-label="Call"><span>Call</span></button><button type="button" data-go="no-answer" aria-label="No answer"><span>No answer</span></button><button type="button" data-go="script" aria-label="Script"><span>Script</span></button><button type="button" data-go="book" aria-label="Book"><span>Book</span></button><button type="button" data-go="morning" aria-label="Morning calls"><span>Morning calls</span></button><button type="button" data-go="trial-day" aria-label="Trial day"><span>Trial day</span></button><button type="button" data-go="app" aria-label="App tips"><span>App tips</span></button></nav>
+    <p class="progress-label" data-progress-label data-template="Step {n} of {total}" aria-live="polite"></p>
+  </header>
+<main>
+<section class="screen-step" id="step-welcome" data-step="welcome" data-name="Front Desk Hub" aria-labelledby="t-welcome">
+    <div class="wrap welcome">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow" data-anim>For the front desk</span>
+          <h1 class="title hero-title" id="t-welcome" data-anim>How we book <em>every new lead</em></h1>
+          <p class="lead" data-anim>A 3-minute guide for everyone on the front desk. Go through it once, then come back whenever you need it.</p>
+          <button type="button" class="btn hero-cta" data-go="how-it-works" data-anim><span>Start the guide</span><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+        <ol class="flow card" data-anim aria-label="From new lead to their first class"><li class="hue-text" style="--t: 0"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H8l-5 4V5a1 1 0 0 1 1-1z"/></svg></span><span><b>New lead</b><small>Texted on its own</small></span></li><li class="hue-call" style="--t: 1"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span><span><b>You call</b><small>Within 5 minutes</small></span></li><li class="hue-accent" style="--t: 2"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Booked</b><small>Before you hang up</small></span></li><li class="hue-call" style="--t: 3"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span><span><b>Morning call</b><small>The day they come in</small></span></li><li class="hue-accent" style="--t: 4"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>They show up</b><small>Questionnaire in hand</small></span></li></ol>
+      </div>
+      <div class="toc"><button type="button" class="card" data-go="how-it-works" data-anim><span class="n">1</span><span class="t"><b>How it works</b><small>The AI texter texts. You call.</small></span><span class="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="card" data-go="call" data-anim><span class="n">2</span><span class="t"><b>Call</b><small>Within 5 minutes, from the app</small></span><span class="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="card" data-go="no-answer" data-anim><span class="n">3</span><span class="t"><b>No answer</b><small>Call straight back once, then stop</small></span><span class="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="card" data-go="script" data-anim><span class="n">4</span><span class="t"><b>Script</b><small>What to say when they pick up</small></span><span class="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="card" data-go="book" data-anim><span class="n">5</span><span class="t"><b>Book</b><small>Schedule the trial in the app</small></span><span class="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="card" data-go="morning" data-anim><span class="n">6</span><span class="t"><b>Morning calls</b><small>Call today&#39;s appointments to confirm</small></span><span class="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="card" data-go="trial-day" data-anim><span class="n">7</span><span class="t"><b>Trial day</b><small>Hand them the pre-sale questionnaire</small></span><span class="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="card" data-go="app" data-anim><span class="n">8</span><span class="t"><b>App tips</b><small>Setup and a few good habits</small></span><span class="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span></button></div>
+    </div>
+  </section>
+<section class="screen-step" id="step-how-it-works" data-step="how-it-works" data-name="How it works" aria-labelledby="t-how-it-works">
+    <div class="wrap step-layout has-visual">
+      <div class="step-head">
+        <span class="step-count" data-anim>Step 1 of 8</span>
+        <h2 class="title" id="t-how-it-works" data-anim>The AI texter texts.
+You call.</h2>
+        <p class="lead" data-anim>The AI texter is a computer program that texts every new lead for you. It signs its texts as Jess. You never need to text a lead.</p>
+      </div>
+      <div class="copy"><div class="lanes"><div class="lane card hue-text" data-anim>
+    <div class="lane-head"><span class="lane-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H8l-5 4V5a1 1 0 0 1 1-1z"/></svg></span><h3>The AI texter</h3></div>
+    <ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Texts every new lead automatically</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Answers their questions and books trials</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Sends the confirmation, address and reminders</span></li></ul>
+  </div><div class="lane card hue-call" data-anim>
+    <div class="lane-head"><span class="lane-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span><h3>You</h3></div>
+    <ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Call every new lead when it comes in</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Book them while you are on the call</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Call today&#39;s appointments every morning</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Hand trials the pre-sale questionnaire</span></li></ul>
+  </div></div></div>
+      <div class="visual" data-anim><div class="phone" role="img" aria-label="What you see in the app"><div class="phone-screen" aria-hidden="true">
+    <span class="notch"></span>
+    <div class="convo-head"><span class="avatar">JL</span><div><b>Jordan Lee</b><small>LeadConnector</small></div></div>
+    <div class="thread"><p class="t-event" style="--t: 0">New lead · Facebook form</p><div class="t-out" style="--t: 1"><small>Automatic text</small><p class="bubble out">✅ Automatic Message
+Hi Jordan, thanks for your interest in <span class="ph">Gym</span>. Jess will be reaching out shortly to get you booked in.
+Please reply &quot;Y&quot; to confirm this is the best number to reach you.</p></div><p class="bubble in" style="--t: 2">Y</p><p class="t-call live" style="--t: 3"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span><b>Outgoing call</b><small>Within 5 minutes</small></p></div>
+  </div></div></div>
+    </div>
+  </section><section class="screen-step" id="step-call" data-step="call" data-name="Call" aria-labelledby="t-call">
+    <div class="wrap step-layout has-visual">
+      <div class="step-head">
+        <span class="step-count" data-anim>Step 2 of 8</span>
+        <h2 class="title" id="t-call" data-anim>A new lead comes in.
+Call within 5 minutes.</h2>
+        <p class="lead" data-anim>They filled out the form a minute ago and are still holding their phone. Call before you do anything else.</p>
+      </div>
+      <div class="copy"><ol class="points"><li class="card" data-anim><b>Open the lead</b><p>Tap the new-lead notification. Or open the LeadConnector app, tap Conversations at the bottom, then tap their name.</p></li><li class="card" data-anim><b>Tap the phone icon</b><p>Top right of their conversation. Always call from the app, never your own phone.</p></li></ol><p class="note" data-anim>Came in overnight or while you were closed? Call them as soon as you open.</p></div>
+      <div class="visual" data-anim><div class="shots apps" style="--shots: 2"><figure class="shot" data-anim><div class="app" role="img" aria-label="The Conversations tab in the LeadConnector app. The new lead, Jordan Lee, is at the top of the list."><div class="app-screen" aria-hidden="true"><div class="app-in"><div class="app-status"><span>10:32</span><span class="app-battery"></span></div>
+    <div class="app-gym"><span class="app-ava">YG</span><div><b>Your Gym</b><small>Front desk</small></div></div>
+    <div class="app-search"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13zM15.5 15.5L20 20"/></svg><span>Search conversations in team inbox</span></div>
+    <div class="app-tabs"><span>Team Inbox</span><span>My Inbox</span><span>Internal Chat</span></div>
+    <div class="app-chips"><span>Filter</span><span>Sort</span><span>Recent</span><span>Unread</span></div>
+    <div class="app-row unread app-target"><span class="app-ava">JL</span><b>Jordan Lee</b><time>Now</time><p>Hi Jordan, thanks for your interest in…</p><span></span><span class="pin">1</span></div><div class="app-row"><span class="app-ava">MP</span><b>Maya Patel</b><time>2:14 PM</time><p>Sounds good, see you Thursday!</p><span></span></div><div class="app-row"><span class="app-ava">CO</span><b>Chris Owens</b><time>Yesterday</time><p>What time is the evening class?</p><span></span></div><div class="app-row"><span class="app-ava">AT</span><b>Ana Torres</b><time>Mon</time><p>Perfect, thank you!</p><span></span></div></div></div></div><figcaption>Conversations: tap the new lead</figcaption></figure><figure class="shot" data-anim><div class="app" role="img" aria-label="Jordan Lee&#39;s conversation. The phone icon is at the top right, between the envelope and the three dots."><div class="app-screen" aria-hidden="true"><div class="app-in"><div class="app-status"><span>10:32</span><span class="app-battery"></span></div>
+    <div class="app-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg><span class="app-ava">JL</span><div><b>Jordan Lee</b><small>Tap to view Contact info</small></div><span class="app-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3.5 6.5h17v11h-17zM4 7l8 6 8-6"/></svg></span><span class="app-icon app-hit"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span class="pin">2</span></span><span class="app-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></span></div>
+    <div class="app-thread"><span class="app-date">Today</span><p class="app-bubble gym"><small>SMS • 10:31 AM</small>✅ Automatic Message
+Hi Jordan, thanks for your interest in <span class="ph">Gym</span>. Jess will be reaching out shortly to get you booked in.</p><p class="app-bubble lead"><small>SMS • 10:31 AM</small>Y</p></div></div></div></div><figcaption>Their conversation: tap the phone icon</figcaption></figure></div></div>
+    </div>
+  </section><section class="screen-step" id="step-no-answer" data-step="no-answer" data-name="No answer" aria-labelledby="t-no-answer">
+    <div class="wrap step-layout has-visual">
+      <div class="step-head">
+        <span class="step-count" data-anim>Step 3 of 8</span>
+        <h2 class="title" id="t-no-answer" data-anim>No answer?
+Call straight back.</h2>
+        <p class="lead" data-anim>Hang up and dial again right away. Two calls in a row get picked up far more often than one.</p>
+      </div>
+      <div class="copy"><ol class="points plain"><li class="card" data-anim><b>Still no answer? You are done</b><p>No more calls. You do not need to try again later.</p></li><li class="card" data-anim><b>The AI texter takes it from here</b><p>It keeps texting them, answers their questions and books the trial for you.</p></li><li class="card" data-anim><b>Do not text them yourself</b><p>Leave all the texting to the AI texter, so the lead hears one voice.</p></li></ol></div>
+      <div class="visual" data-anim><div class="phone" role="img" aria-label="What you see in the app"><div class="phone-screen" aria-hidden="true">
+    <span class="notch"></span>
+    <div class="convo-head"><span class="avatar">JL</span><div><b>Jordan Lee</b><small>LeadConnector</small></div></div>
+    <div class="thread"><p class="t-call" style="--t: 0"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span><b>Outgoing call</b><small>No answer</small></p><p class="t-call" style="--t: 1"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span><b>Outgoing call</b><small>No answer</small></p><p class="bubble in" style="--t: 2">Sorry, missed your call! What times do you have?</p><div class="t-out" style="--t: 3"><small>Jess · AI texter</small><p class="bubble out">No worries! We have 6 PM tonight or 7 PM tomorrow. Which works better?</p></div><p class="bubble in" style="--t: 4">Tomorrow at 7</p><p class="t-event" style="--t: 5">Trial booked by the AI texter</p></div>
+  </div></div></div>
+    </div>
+  </section><section class="screen-step" id="step-script" data-step="script" data-name="Script" aria-labelledby="t-script">
+    <div class="wrap step-layout">
+      <div class="step-head">
+        <span class="step-count" data-anim>Step 4 of 8</span>
+        <h2 class="title" id="t-script" data-anim>They picked up.
+Use the script.</h2>
+        <p class="lead" data-anim>Read it the first few times. Fill in the highlighted parts as you go.</p>
+      </div>
+      <div class="copy wide"><p class="note" data-anim>Before your first call, ask your manager for three things to fill in: the offer, your area, and a landmark near the gym.</p><div class="script card" data-anim><div class="script-top"><span class="energy">Always have high energy!</span></div><ol class="beats"><li class="beat"><span class="beat-label">Intro</span><div class="beat-body"><p class="say"><span class="ph">Name</span>?… Hey, it&#39;s Coach <span class="ph">Your name</span> from <span class="ph">Gym</span> in <span class="ph">Area</span>.</p></div></li><li class="beat"><span class="beat-label">Reason</span><div class="beat-body"><p class="say">Calling because I saw you expressed interest in our <span class="ph">Offer</span> on FB/IG, and I&#39;d love to get you in for your first class.</p></div></li><li class="beat"><span class="beat-label">Pick a time</span><div class="beat-body"><p class="coach">Use one of these. Say your real closing time.</p><p class="say option">Could you come in tonight? I&#39;m here until 8.</p><p class="say option">Do you prefer mornings or evenings?</p><p class="say option">Is today or tomorrow better? When were you planning on working out?</p></div></li><li class="beat"><span class="beat-label">Their goal</span><div class="beat-body"><p class="coach">After they confirm a time. If they have not told you their goal yet:</p><p class="say">By the way… what&#39;s your main fitness/health goal?</p><p class="say">Oh, that&#39;s awesome! A lot of our clients start with having a similar goal of <span class="ph">Goal</span> and end up crushing it!</p><p class="coach">If they already told you their goal, or told the AI texter:</p><p class="say">Oh, and I saw that your goal is to <span class="ph">Goal</span>. That&#39;s exactly what we help many of our clients do when they first join us!</p></div></li><li class="beat"><span class="beat-label">Location</span><div class="beat-body"><p class="say">We are across from <span class="ph">Landmark</span>. Are you familiar with the area?</p></div></li><li class="beat"><span class="beat-label">Wrap up</span><div class="beat-body"><p class="say">See you at <span class="ph">Appointment time</span>! I just texted you the address with all the details.</p><p class="coach">Book it in the app before you hang up (next step). That sends the address.</p></div></li></ol></div></div>
+      
+    </div>
+  </section><section class="screen-step" id="step-book" data-step="book" data-name="Book" aria-labelledby="t-book">
+    <div class="wrap step-layout has-visual">
+      <div class="step-head">
+        <span class="step-count" data-anim>Step 5 of 8</span>
+        <h2 class="title" id="t-book" data-anim>Book it before
+you hang up.</h2>
+        <p class="lead" data-anim>Once it is booked in the app, the confirmation with the address goes out on its own. That is the text you promised at the end of the script.</p>
+      </div>
+      <div class="copy"><ol class="points"><li class="card" data-anim><b>Tap ⋮</b><p>The three dots at the top right of their conversation.</p></li><li class="card" data-anim><b>Tap Schedule Appointment</b><p>It is the first option in the menu that opens.</p></li><li class="card" data-anim><b>Pick the calendar, date and time</b><p>Choose the calendar for trials (ask your manager which one the first time), then the day and time slot you agreed. Leave everything else as it is.</p></li><li class="card" data-anim><b>Tap Save</b><p>Top right. The confirmation, address and reminders go out on their own.</p></li></ol><p class="note" data-anim>Already booked themselves? Say their booked time back to them on the call and do not book again. Need a different time later? Change the existing appointment, never book a second one.</p></div>
+      <div class="visual" data-anim><div class="shots apps" style="--shots: 2"><figure class="shot" data-anim><div class="app" role="img" aria-label="Jordan Lee&#39;s conversation with the Manage menu open from the three dots. Schedule Appointment is the first option."><div class="app-screen" aria-hidden="true"><div class="app-in"><div class="app-status"><span>10:32</span><span class="app-battery"></span></div>
+    <div class="app-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg><span class="app-ava">JL</span><div><b>Jordan Lee</b><small>Tap to view Contact info</small></div><span class="app-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3.5 6.5h17v11h-17zM4 7l8 6 8-6"/></svg></span><span class="app-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span><span class="app-icon app-hit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg><span class="pin">1</span></span></div>
+    <div class="app-thread app-dim"><p class="app-bubble gym"><small>SMS • 10:31 AM</small>✅ Automatic Message
+Hi Jordan, thanks for your interest in <span class="ph">Gym</span>. Jess will be reaching out shortly to get you booked in.</p><p class="app-bubble lead"><small>SMS • 10:31 AM</small>Y</p></div>
+    <div class="app-sheet"><span class="app-grabber"></span><div class="app-sheet-title">Manage</div><div class="app-menu-row app-target"><span class="app-glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></svg></span><span>Schedule Appointment</span><span class="pin">2</span></div><div class="app-menu-row"><span class="app-glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></svg></span><span>Create Opportunity</span></div><div class="app-menu-row"><span class="app-glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></svg></span><span>Send Review Request</span></div><div class="app-menu-row"><span class="app-glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></svg></span><span>Show Activity</span><span class="app-toggle"></span></div><div class="app-menu-row"><span class="app-glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></svg></span><span>Edit AI Settings</span></div></div></div></div></div><figcaption>Tap ⋮, then Schedule Appointment</figcaption></figure><figure class="shot" data-anim><div class="app" role="img" aria-label="The Schedule Appointment form, with Calendar, Date and Slot fields and a Save button at the top right."><div class="app-screen" aria-hidden="true"><div class="app-in"><div class="app-status"><span>10:32</span><span class="app-battery"></span></div>
+    <div class="app-formhead"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg><b>Schedule Appointment</b><span class="app-save app-hit">Save<span class="pin">4</span></span></div>
+    <div class="app-card"><span class="app-ava">JL</span><div><b>Jordan Lee</b><small class="app-muted">New lead</small></div></div>
+    <div class="app-field app-target"><small>Calendar</small><span>Trial Class<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></span><span class="pin">3</span></div><div class="app-field"><small>Timezone</small><span>Gym time zone<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></span></div><div class="app-seg"><span>Standard</span><span>Custom</span></div><div class="app-field app-target"><small>Date</small><span>Tue, Oct 6<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></span><span class="pin">3</span></div><div class="app-field app-target"><small>Slot</small><span>6:00 PM - 7:00 PM<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></span><span class="pin">3</span></div><div class="app-field"><small>Appointment Title</small><span></span></div></div></div></div><figcaption>Pick the calendar, date and time, then Save</figcaption></figure></div></div>
+    </div>
+  </section><section class="screen-step" id="step-morning" data-step="morning" data-name="Morning calls" aria-labelledby="t-morning">
+    <div class="wrap step-layout has-visual">
+      <div class="step-head">
+        <span class="step-count" data-anim>Step 6 of 8</span>
+        <h2 class="title" id="t-morning" data-anim>Every morning,
+call today&#39;s appointments.</h2>
+        <p class="lead" data-anim>First thing after you open, call everyone booked for today. A friendly voice the morning of is what gets them through the door.</p>
+      </div>
+      <div class="copy"><ol class="points"><li class="card" data-anim><b>Open today&#39;s appointments</b><p>In the app, tap Calendar at the bottom. Everyone booked for today is listed there.</p></li><li class="card" data-anim><b>Call each one from the app</b><p>Tap the appointment, tap their name, then tap the phone icon. Start with the earliest.</p></li><li class="card" data-anim><b>Confirm and get them excited</b><p>Use the short script below. It takes under a minute.</p></li></ol><div class="script confirm card" data-anim><div class="script-top"><span class="energy">Morning call script</span></div><div class="lines"><p class="say">Hey <span class="ph">Name</span>! It&#39;s Coach <span class="ph">Your name</span> from <span class="ph">Gym</span>.</p><p class="say">Just calling to confirm I&#39;ll see you today at <span class="ph">Appointment time</span>!</p><p class="say">Wear comfy workout clothes, bring a water bottle, and come 5 to 10 minutes early so we can get you settled.</p><p class="say">Can&#39;t wait to meet you. See you at <span class="ph">Appointment time</span>!</p><p class="coach">If they sound unsure, remind them why they booked: &quot;This is your first step to <span class="ph">Goal</span>.&quot;</p></div></div><p class="note" data-anim>No answer? Call straight back once, then move on. Their reminder texts still go out on their own. Can&#39;t make it today? Change the existing appointment to a new time, never book a second one.</p></div>
+      <div class="visual" data-anim><div class="today card" role="img" aria-label="Today: 7:00 AM Maya Patel, 12:00 PM Chris Owens, 6:00 PM Jordan Lee, each called and confirmed."><div aria-hidden="true">
+    <div class="today-head"><span class="sun"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></span><span><b>Today</b><small>3 appointments</small></span></div>
+    <ul><li style="--t: 0"><time>7:00 AM</time><span><b>Maya Patel</b><small>Trial Class</small></span><span class="status"><span class="dial"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Calling</span><span class="ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg>Confirmed</span></span></li><li style="--t: 1"><time>12:00 PM</time><span><b>Chris Owens</b><small>Trial Class</small></span><span class="status"><span class="dial"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Calling</span><span class="ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg>Confirmed</span></span></li><li style="--t: 2"><time>6:00 PM</time><span><b>Jordan Lee</b><small>Trial Class</small></span><span class="status"><span class="dial"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Calling</span><span class="ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg>Confirmed</span></span></li></ul>
+  </div></div></div>
+    </div>
+  </section><section class="screen-step" id="step-trial-day" data-step="trial-day" data-name="Trial day" aria-labelledby="t-trial-day">
+    <div class="wrap step-layout has-visual">
+      <div class="step-head">
+        <span class="step-count" data-anim>Step 7 of 8</span>
+        <h2 class="title" id="t-trial-day" data-anim>Trial day.
+Hand them the questionnaire.</h2>
+        <p class="lead" data-anim>Every trial fills in the pre-sale questionnaire (the New Trial Intake Form) at the door. It takes about 3 minutes.</p>
+      </div>
+      <div class="copy"><ol class="points plain"><li class="card" data-anim><b>Hand it over at the door</b><p>Before class starts.</p></li><li class="card" data-anim><b>Read it before class ends</b><p>Their goals, the event they are training for, what they have tried.</p></li><li class="card" data-anim><b>Use their own words after class</b><p>&quot;You said you want to <span class="ph">Goal</span> before <span class="ph">Event</span>. Here&#39;s how we get you there.&quot;</p></li><li class="card" data-anim><b>Mark the appointment</b><p>In the app, tap Calendar at the bottom, tap their appointment, and set its status to Showed or No-show.</p></li></ol></div>
+      <div class="visual" data-anim><div class="paper" role="img" aria-label="The New Trial Intake Form: name and body details, then what brought them in, what they have tried and any event they are training for."><div aria-hidden="true">
+    <span class="paper-logo"></span><b class="paper-title">New Trial Intake Form</b><span class="paper-rule"></span>
+    <div class="paper-fields"><span>First name:</span><span>Last name:</span><span>Age:</span><span>Ideal weight:</span></div>
+    <p class="paper-q">What brought you in today?</p><ul class="paper-opts"><li class="circled" style="--t: 0">Weight Loss</li><li>Look Better</li><li>Strength</li><li class="circled" style="--t: 1">Boost Confidence</li><li>Tightening</li><li>Firming</li><li>Improve Energy Levels</li><li>Set Better Example</li><li>Increase Spouse Attraction</li><li>Feel Better</li><li>Toning</li><li>Build Muscle</li></ul><p class="paper-q">What have you tried in the past?</p><ul class="paper-opts"><li>Walking</li><li>Running</li><li>Lifting Weights</li><li class="circled" style="--t: 2">Personal Trainer</li><li>Martial Arts</li><li>Biking / Spin</li><li>Sports</li><li>Weight Watchers or similar</li><li>Online Coach</li><li>At Home Workouts</li><li>CrossFit</li><li>Bodybuilding</li></ul><p class="paper-q">An upcoming event to feel your best for?</p><ul class="paper-opts"><li>Summer Season</li><li>Family Photos</li><li>Vacation / Trip</li><li>Holidays</li><li class="circled" style="--t: 3">Wedding (mine or another&#39;s)</li><li>Competition / Athletic Event</li><li>Reunion / Event</li><li>Birthday Milestone</li></ul>
+  </div></div><p class="note" data-anim>Your gym&#39;s printed copies carry its logo and class times. Ask your manager where they are kept.</p></div>
+    </div>
+  </section><section class="screen-step" id="step-app" data-step="app" data-name="App tips" aria-labelledby="t-app">
+    <div class="wrap step-layout">
+      <div class="step-head">
+        <span class="step-count" data-anim>Step 8 of 8</span>
+        <h2 class="title" id="t-app" data-anim>A few app tips.</h2>
+        <p class="lead" data-anim>Come back to this page any time.</p>
+      </div>
+      <div class="copy wide"><div class="panels"><div class="panel card" data-anim><h3>Set up once</h3><ul class="checks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Install LeadConnector from the App Store or Google Play.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Log in with the email we invited you with.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Allow notifications. A new lead is a notification.</span></li></ul></div><div class="panel card" data-anim><h3>Good habits</h3><ul class="checks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Always call from the app, never your own phone. The AI texter only sees calls made in the app.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Never text a lead. The AI texter does all the texting.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Never book the same lead twice. Change the existing appointment instead.</span></li></ul></div><div class="panel card" data-anim><h3>About the AI texter</h3><ul class="checks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>It signs its texts as Jess, unless your gym chose another name.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>It does not text late at night. Overnight leads get your call when you open.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>If a lead mentions Jess on the phone, that is the AI texter.</span></li></ul></div></div></div>
+      
+    </div>
+  </section>
+<p class="page-foot">Questions about leads, the app or the AI texter? Message your Gym Propel contact.</p>
+</main>
+<nav class="foot-nav" aria-label="Guide navigation"><div class="foot-in">
+    <button type="button" class="btn ghost back" data-back hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg><span>Back</span></button>
+    <button type="button" class="btn next" data-next data-start="Start the guide" data-next-word="Next" data-restart="Start again"><span class="next-label"><span data-next-title>Start the guide</span><small data-next-sub hidden></small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>
+  </div></nav>
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.remove('no-js');
+  root.classList.add('js');
+  var screens = Array.prototype.slice.call(document.querySelectorAll('.screen-step'));
+  var progress = Array.prototype.slice.call(document.querySelectorAll('.progress [data-go]'));
+  var label = document.querySelector('[data-progress-label]');
+  var back = document.querySelector('[data-back]');
+  var next = document.querySelector('[data-next]');
+  var nextTitle = next.querySelector('[data-next-title]');
+  var nextSub = next.querySelector('[data-next-sub]');
+  var last = screens.length - 1;
+  var current = -1;
+  screens.forEach(function (screen) {
+    screen.querySelectorAll('[data-anim]').forEach(function (el, n) { el.style.setProperty('--i', n); });
+  });
+  function indexOfStep(step) {
+    for (var i = 0; i < screens.length; i += 1) if (screens[i].getAttribute('data-step') === step) return i;
+    return -1;
+  }
+  function show(index, focus) {
+    var target = Math.max(0, Math.min(last, index));
+    var dir = target < current ? 'back' : 'fwd';
+    current = target;
+    var screen = screens[current];
+    screens.forEach(function (s, n) { s.hidden = n !== current; s.classList.remove('enter'); });
+    screen.setAttribute('data-dir', dir);
+    void screen.offsetWidth;
+    screen.classList.add('enter');
+    progress.forEach(function (button) {
+      var n = indexOfStep(button.getAttribute('data-go'));
+      button.classList.toggle('is-done', n < current);
+      if (n === current) button.setAttribute('aria-current', 'step'); else button.removeAttribute('aria-current');
+    });
+    label.textContent = current === 0 ? '' : label.getAttribute('data-template').replace('{n}', current).replace('{total}', last) + ' · ' + screen.getAttribute('data-name');
+    back.hidden = current === 0;
+    var upcoming = screens[current + 1];
+    nextTitle.textContent = current === 0 ? next.getAttribute('data-start') : (current === last ? next.getAttribute('data-restart') : next.getAttribute('data-next-word'));
+    nextSub.textContent = upcoming ? upcoming.getAttribute('data-name') : '';
+    nextSub.hidden = !upcoming || current === 0;
+    window.scrollTo(0, 0);
+    if (focus) {
+      var heading = screen.querySelector('h1, h2');
+      if (heading) { heading.setAttribute('tabindex', '-1'); heading.focus({ preventScroll: true }); }
+    }
+    var hash = '#' + screen.getAttribute('data-step');
+    if (location.hash !== hash) {
+      try { history.replaceState(null, '', hash); } catch (e) { return; }
+    }
+  }
+  back.addEventListener('click', function () { show(current - 1, true); });
+  next.addEventListener('click', function () { show(current === last ? 0 : current + 1, true); });
+  document.addEventListener('click', function (event) {
+    var go = event.target.closest('[data-go]');
+    if (go) show(indexOfStep(go.getAttribute('data-go')), true);
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.target.closest('input, textarea, select')) return;
+    if (event.key === 'ArrowRight') show(current + 1, true);
+    if (event.key === 'ArrowLeft') show(current - 1, true);
+  });
+  window.addEventListener('hashchange', function () {
+    var n = indexOfStep(location.hash.slice(1));
+    if (n >= 0 && n !== current) show(n, true);
+  });
+  var start = indexOfStep(location.hash.slice(1));
+  show(start < 0 ? 0 : start, false);
+})();
+</script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /front-desk/
 
 Sitemap: https://gympropel.com/sitemap.xml
